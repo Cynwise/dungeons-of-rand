@@ -112,7 +112,6 @@ int chaDamage(){
 	}
 }
 
-//test to see if i need to update dev
 int monDamage(int monLevel){
 	int attack;
 	srand(time(NULL));  //problem with the random dice rolls needs sorted
@@ -140,6 +139,8 @@ int monDamage(int monLevel){
 	}
 }
 
+//combat is currently only ever dealing 2 damage
+//it proabably has something to do with "attack" variable not being passed
 void combat(double chaHealth, double monHealth, double attack, double monAttack, string monName, int monLevel){
 //Maybe in future add a high and low level monster warning
 

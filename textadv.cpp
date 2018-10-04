@@ -28,6 +28,7 @@ void time();
 void gameover();
 
 int main(){
+	srand(time(NULL));
 	double chaHealth, monHealth, attack, monAttack;
 	string name, monName;
 	int monLevel;
@@ -35,7 +36,7 @@ int main(){
 	getName(name);
 	start(name);
 	actI();
-	combat(10, 20, attack, monAttack, "Rat", 2);
+	combat(10, 20, attack, monAttack, "Rat", 5);
 
 	return EXIT_SUCCESS;
 }
@@ -86,7 +87,6 @@ void gameover(){
 
 int chaDamage(){
 	int attack;
-	srand(time(NULL));
 
 	switch(chaLevel){
 		case 1: attack = rand() % 3 + 1; //1 - 3
@@ -114,7 +114,6 @@ int chaDamage(){
 
 int monDamage(int monLevel){
 	int attack;
-	srand(time(NULL));  //problem with the random dice rolls needs sorted
 
 	switch(monLevel){
 		case 1: attack = rand() % 2 + 1; //1 - 2
@@ -163,7 +162,7 @@ void combat(double chaHealth, double monHealth, double attack, double monAttack,
 		}
 
 		chaHealth -= monAttack;
-		cout << "It deals " << attack << " damage to you!\n";
+		cout << "It deals " << monAttack << " damage to you!\n";
 		cout << "Your current health is " << chaHealth << ".\n\n";
 		commandtime();
 

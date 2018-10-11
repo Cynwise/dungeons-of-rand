@@ -13,6 +13,12 @@
 #include <thread>
 #include <ctime>
 
+#include "actor.h"
+#include "inventory.h"
+#include "item.h"
+#include "player.h"
+#include "room.h"
+
 using namespace std;
 
 int chaLevel = 1;  //this will be a global known value.

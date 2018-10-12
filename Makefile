@@ -18,8 +18,9 @@ DEPS = $(OBJECTS:.o=.d)
 INCLUDE_DIRS = .
 INCLUDE_SCRIPT = $(addprefix -I, $(INCLUDE_DIRS))
 
+# Default target.s
 .PHONY: all
-all: build doc
+all: build doc cppcheck
 
 # Remove all generated output.
 .PHONY: clean
@@ -47,10 +48,12 @@ html/index.html: Doxyfile $(SOURCES) $(HEADERS)
 cloc:
 	cloc . --exclude-dir=html,latex,build
 
-# Analyze codebase with cppcheck.
+# Analyze codebase with cppcheck. Only runs if cppcheck is in PATH.
 .PHONY: cppcheck
 cppcheck:
+ifneq (, $(shell which cppcheck))
 	cppcheck -q --enable=all $(INCLUDE_SCRIPT) .
+endif
 
 dungeons-of-rand: $(OBJECTS)
 	$(CXX) $(CXXFLAGS) -o dungeons-of-rand $(OBJECTS)

@@ -1,5 +1,6 @@
 dungeons-of-rand
 *.o
+*.d
 *.pch
 html/
 latex/

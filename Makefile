@@ -11,6 +11,9 @@ HEADERS = $(shell find -type f -name "*.h")
 # Build list of object file targets.
 OBJECTS = $(addprefix build/, $(SOURCES:.cpp=.o))
 
+# Build list of compiler-generated dependencies.
+DEPS = $(OBJECTS:.o=.d)
+
 # Directories to include in search paths.
 INCLUDE_DIRS = .
 INCLUDE_SCRIPT = $(addprefix -I, $(INCLUDE_DIRS))
@@ -47,11 +50,15 @@ cloc:
 # Analyze codebase with cppcheck.
 .PHONY: cppcheck
 cppcheck:
-	cppcheck -q --enable=all .
+	cppcheck -q --enable=all $(INCLUDE_SCRIPT) .
 
 dungeons-of-rand: $(OBJECTS)
 	$(CXX) $(CXXFLAGS) -o dungeons-of-rand $(OBJECTS)
 
+# Include generated dependencies.
+-include $(DEPS)
+
+# Compile generated targets.
 build/%.o: %.cpp
 	mkdir -p $(@D)
-	$(CXX) $(CXXFLAGS) -o $@ -c $<
+	$(CXX) $(CXXFLAGS) -MD -o $@ -c $<

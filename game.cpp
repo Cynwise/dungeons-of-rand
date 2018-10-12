@@ -1,3 +1,8 @@
+/**
+ * @file game.cpp
+ * @brief Entry point for dungeons-of-rand.
+ */
+
 /*
 *	Author: Corey Farnsworth
 *   Start Date: 12/14/15

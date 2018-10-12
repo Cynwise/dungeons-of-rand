@@ -8,11 +8,21 @@ HEADERS = $(shell find -type f -name "*.h")
 OBJECTS = $(addprefix build/, $(SOURCES:.cpp=.o))
 
 .PHONY: all
-all: dungeons-of-rand
+all: build doc
 
+# Remove all generated output.
 .PHONY: clean
 clean:
 	-rm -rf dungeons-of-rand build/ html/ latex/
+
+# Rebuild whole project.
+.PHONY: remake
+remake:
+	make clean
+	make all
+	
+.PHONY: build
+build: dungeons-of-rand
 
 .PHONY: doc
 doc: html/index.html

@@ -7,20 +7,17 @@
 
 #include "actor.h"
 
-class Player : Actor
+class Player : public Actor
 {
 public:
 
 	Player();
 	
-	/// Make attack against another actor.
+	Player* clone();
+	
 	void attack(Actor& target);
 	
-	/// Receive damage.
 	void hurt(int damage);
-	
-	/// Increase HP.
-	void heal(int points);
 };
 
 #endif // PLAYER_H

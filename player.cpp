@@ -2,11 +2,8 @@
  * @file player.cpp
  */
 
-#include <cassert>
+#include <iostream>
 
-#include "actor.h"
-#include "inventory.h"
-#include "item.h"
 #include "player.h"
 #include "rng.h"
 
@@ -22,50 +19,28 @@ Player::Player()
 	def = 1;
 }
 
-/// @note Stub.
+Player* Player::clone()
+{
+	Player* tmp = new Player;
+	*tmp = *this;
+	return tmp;
+}
+
 void Player::attack(Actor& target)
 {
-	// Calculate damage.
-	int damage = roll(1, atk, 0);
+	int damage = roll(1, level + 2, 0);
+	
+	std::cout << "You deal " << damage << " damage to ";
+	std::cout << target.get_name() << "!\n";
+	std::cout << "Its current health is " << target.get_hp() << ".\n\n";
 	
 	target.hurt(damage);
 }
 
-/// @note Stub.
 void Player::hurt(int damage)
 {
-	// Sanity check. Damage cannot be negative.
-	assert(damage >= 0);
-	
-	// Account for defense.
-	damage -= def;
-	
-	// Prevent negative damage.
-	if (damage < 0)
-	{
-		damage = 0;
-	}
-	
 	hp -= damage;
 	
-	// Prevent negative health.
-	if (hp < 0)
-	{
-		hp = 0;
-	}
-}
-
-/// @note Stub.
-void Player::heal(int points)
-{
-	// Sanity check. Healing cannot be negative.
-	assert(points >= 0);
-	
-	hp += points;
-	
-	// Respect hp limits.
-	if (hp > max_hp)
-	{
-		hp = max_hp;
-	}
+	std::cout << "It deals " << damage << " damage to you!\n";
+	std::cout << "Your current health is " << hp << ".\n\n";
 }

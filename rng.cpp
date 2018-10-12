@@ -8,7 +8,7 @@
 
 int rng(int min, int max)
 {
-	return min + rand() % (1 + max - min);
+	return min + std::rand() % (1 + max - min);
 }
 
 int flip()

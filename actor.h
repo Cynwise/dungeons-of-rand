@@ -9,32 +9,38 @@
 
 #include <string>
 
+class Armor;
 class Inventory;
 class Item;
+class Weapon;
 
 /// Generic base class for all NPCs.
 class Actor
 {
 public:
+
+	Actor();
+	
+	virtual Actor* clone() = 0;
 	
 	/// Make attack against another actor.
-	virtual void attack(Actor& target) = 0;
+	virtual void attack(Actor& target);
 	
 	/// Receive damage.
-	virtual void hurt(int damage) = 0;
+	virtual void hurt(int damage);
 	
 	/// Increase HP.
-	virtual void heal(int points) = 0;
+	virtual void heal(int points);
 	
 	/// Levels up actor and zeros XP.
 	void level_up();
 	
 	// Getters and setters.
-	const std::string& get_name();
+	std::string get_name() const;
 	void set_name(const std::string& s);
-	int get_hp();
+	int get_hp() const;
 	void set_hp(int val);
-	int get_level();
+	int get_level() const;
 	void set_level(int val);
 	
 protected:
@@ -51,8 +57,8 @@ protected:
 	
 	// Possessions.
 	Inventory* items;
-	Item* weapon;
-	Item* armor;
+	Weapon* weapon;
+	Armor* armor;
 };
 
 #endif // ACTOR_H

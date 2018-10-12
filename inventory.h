@@ -22,22 +22,22 @@ class Inventory
 {
 public:
 
-	/// Initialize an empty inventory.
-	Inventory();
-	
-	/// Delete all contents.
-	~Inventory();
+    /// Initialize an empty inventory.
+    Inventory();
 
-	/// Insert an item into the inventory.
-	void insert(Item& item);
-	
-	/// Finds an item by name.
-	Item* find_by_name(const std::string& key) const;
-	
+    /// Delete all contents.
+    ~Inventory();
+
+    /// Insert an item into the inventory.
+    void insert(Item& item);
+
+    /// Finds an item by name.
+    Item* find_by_name(const std::string& key) const;
+
 private:
 
-	/// Generic container for different kinds of items.
-	std::list<Item*> contents;
+    /// Generic container for different kinds of items.
+    std::list<Item*> contents;
 };
 
 #endif // INVENTORY_H

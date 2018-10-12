@@ -12,16 +12,16 @@ class Armor : Item
 {
 public:
 
-	Armor();
+    Armor();
 
-	virtual ~Armor() = 0;
+    virtual ~Armor() = 0;
 
-	virtual Armor* clone() = 0;
+    virtual Armor* clone() = 0;
 
 private:
 
-	/// Defense boost granted by this armor.
-	int def;
+    /// Defense boost granted by this armor.
+    int def;
 };
 
 #endif // ARMOR_H

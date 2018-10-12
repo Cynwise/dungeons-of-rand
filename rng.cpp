@@ -8,22 +8,22 @@
 
 int rng(int min, int max)
 {
-	return min + std::rand() % (1 + max - min);
+    return min + std::rand() % (1 + max - min);
 }
 
 int flip()
 {
-	return rng(0, 1);
+    return rng(0, 1);
 }
 
 int roll(int times, int sides, int modifier)
 {
-	int sum = 0;
+    int sum = 0;
 
-	for (int i = 0; i < times; i++)
-	{
-		sum += rng(1, sides);
-	}
+    for (int i = 0; i < times; i++)
+    {
+        sum += rng(1, sides);
+    }
 
-	return sum + modifier;
+    return sum + modifier;
 }

@@ -13,11 +13,11 @@ class Rat : public Actor
 {
 public:
 
-	Rat();
+    Rat();
 
-	Rat* clone();
+    Rat* clone();
 
-	void attack(Actor& target);
+    void attack(Actor& target);
 };
 
 #endif // RAT_H

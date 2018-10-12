@@ -6,5 +6,5 @@
 
 Item::Item()
 {
-	name = "[GENERIC ITEM]";
+    name = "[GENERIC ITEM]";
 }

@@ -6,5 +6,5 @@
 
 Weapon::Weapon()
 {
-	atk = 0;
+    atk = 0;
 }

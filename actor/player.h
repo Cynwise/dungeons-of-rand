@@ -14,13 +14,13 @@ class Player : public Actor
 {
 public:
 
-	Player();
+    Player();
 
-	Player* clone();
+    Player* clone();
 
-	void attack(Actor& target);
+    void attack(Actor& target);
 
-	int hurt(int damage);
+    int hurt(int damage);
 };
 
 /// Global player instance.

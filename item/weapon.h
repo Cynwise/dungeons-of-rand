@@ -12,16 +12,16 @@ class Weapon : Item
 {
 public:
 
-	Weapon();
+    Weapon();
 
-	virtual ~Weapon() = 0;
+    virtual ~Weapon() = 0;
 
-	virtual Weapon* clone() = 0;
+    virtual Weapon* clone() = 0;
 
 private:
 
-	/// Attack boost granted by this weapon.
-	int atk;
+    /// Attack boost granted by this weapon.
+    int atk;
 };
 
 #endif // WEAPON_H

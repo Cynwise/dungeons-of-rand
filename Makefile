@@ -55,6 +55,11 @@ ifneq (, $(shell which cppcheck))
 	cppcheck -q --enable=all $(INCLUDE_SCRIPT) .
 endif
 
+# Beautify code.
+.PHONY: astyle
+astyle:
+	astyle $(SOURCES) $(HEADERS)
+
 dungeons-of-rand: $(OBJECTS)
 	$(CXX) $(CXXFLAGS) -o dungeons-of-rand $(OBJECTS)
 

@@ -21,16 +21,16 @@ class Room
 {
 public:
 
-	/// Add a path from this room.
-	bool add_path(const std::string& entrance, Room* destination);
+    /// Add a path from this room.
+    bool add_path(const std::string& entrance, Room* destination);
 
 private:
 
-	/// Possible rooms to go to from here.
-	Path path;
+    /// Possible rooms to go to from here.
+    Path path;
 
-	/// List of actors within the room.
-	std::list<Actor*> actors;
+    /// List of actors within the room.
+    std::list<Actor*> actors;
 };
 
 #endif // ROOM_H

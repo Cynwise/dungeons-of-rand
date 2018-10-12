@@ -1,5 +1,8 @@
 /**
  * @file inventory.h
+ * @brief Container for multiple instances of different Items
+ * in a single collection, and providing methods for accessing and
+ * manipulating the stored Items.
  */
 
 #ifndef INVENTORY_H
@@ -11,6 +14,10 @@
 
 class Item;
 
+/**
+ * @brief Generic storage supporting multiple instances of different
+ * classes derived from Item.
+ */
 class Inventory
 {
 public:
@@ -29,6 +36,7 @@ public:
 	
 private:
 
+	/// Generic container for different kinds of items.
 	std::list<Item*> contents;
 };
 

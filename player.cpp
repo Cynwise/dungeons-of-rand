@@ -7,6 +7,9 @@
 #include "player.h"
 #include "rng.h"
 
+/// Construct the global player instance.
+Player player;
+
 Player::Player()
 {
 	// Initialize stats.
@@ -32,8 +35,8 @@ void Player::attack(Actor& target)
 	
 	int net_damage = target.hurt(damage);
 	
-	std::cout << "You deal " << net_damage << " damage to ";
-	std::cout << target.get_name() << "!\n";
+	std::cout << "You deal " << net_damage << " damage to the ";
+	std::cout << target.get_name() << ".\n";
 	std::cout << "Its current health is " << target.get_hp() << ".\n\n";
 }
 
@@ -51,7 +54,7 @@ int Player::hurt(int damage)
 	
 	int net_damage = hp_before - hp;
 	
-	std::cout << "It deals " << net_damage << " damage to you!\n";
+	std::cout << "It deals " << net_damage << " damage to you.\n";
 	std::cout << "Your current health is " << hp << ".\n\n";
 	
 	return net_damage;

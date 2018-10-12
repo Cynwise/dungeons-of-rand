@@ -7,7 +7,7 @@
 
 #include "item.h"
 
-/// Abstract equipable weapon class.
+/// Generic equipable weapon class.
 class Weapon : Item
 {
 public:

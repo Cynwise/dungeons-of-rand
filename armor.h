@@ -7,7 +7,7 @@
 
 #include "item.h"
 
-/// Abstract equipable armor class.
+/// Generic equipable armor class.
 class Armor : Item
 {
 public:

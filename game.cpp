@@ -20,19 +20,17 @@ void fight_rat(Actor& actor);
 
 int main(int argc, char* argv[])
 {
-	Player player;
-	
 	// Initialize RNG.
 	std::srand(std::time(NULL));
-	
+
 	// Get player name.
 	std::string player_name;
 	get_name(player_name);
 	player.set_name(player_name);
-	
+
 	// Prompt to begin.
 	start(player_name);
-	
+
 	// Demo combat.
 	fight_rat(player);
 }
@@ -81,25 +79,25 @@ void game_over()
 void fight_rat(Actor& actor)
 {
 	Rat rat;
-	
+
 	// Loop until someone dies.
 	while (1)
 	{
 		// Player attack turn.
 		actor.attack(rat);
 		command_time();
-		
+
 		// Check if won.
 		if (rat.get_hp() <= 0)
 		{
 			std::cout << "You've defeated " << rat.get_name() << "!\n";
 			break;
 		}
-		
+
 		// Enemy attack turn.
 		rat.attack(actor);
 		command_time();
-		
+
 		// Check if lost.
 		if (actor.get_hp() <= 0)
 		{

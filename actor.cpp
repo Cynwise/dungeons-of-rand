@@ -23,7 +23,7 @@ Actor::Actor()
 	
 	// Initialize attributes.
 	atk = 0;
-	atk = 0;
+	def = 0;
 	
 	// Initialize possessions.
 	items = new Inventory;

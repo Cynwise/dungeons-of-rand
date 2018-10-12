@@ -11,7 +11,6 @@
 
 #include "actor.h"
 #include "player.h"
-#include "rng.h"
 
 #include "rat.h"
 

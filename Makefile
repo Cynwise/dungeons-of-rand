@@ -38,7 +38,7 @@ html/index.html: Doxyfile $(SOURCES) $(HEADERS)
 # Print lines of code.
 .PHONY: cloc
 cloc:
-	cloc . --exclude-dir=html,latex
+	cloc . --exclude-dir=html,latex,build
 
 # Analyze codebase with cppcheck.
 .PHONY: cppcheck

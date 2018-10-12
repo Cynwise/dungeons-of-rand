@@ -2,7 +2,7 @@
  * @file weapon.cpp
  */
 
-#include "weapon.h"
+#include <item/weapon.h>
 
 Weapon::Weapon()
 {

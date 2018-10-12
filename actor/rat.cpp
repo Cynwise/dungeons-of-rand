@@ -2,8 +2,8 @@
  * @file rat.cpp
  */
 
-#include "rat.h"
-#include "rng.h"
+#include <actor/rat.h>
+#include <rng.h>
 
 Rat::Rat()
 {
@@ -23,6 +23,6 @@ Rat* Rat::clone()
 void Rat::attack(Actor& target)
 {
 	int damage = roll(1, level + 1, 0);
-	
+
 	target.hurt(damage);
 }

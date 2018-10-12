@@ -6,11 +6,11 @@
 #include <cassert>
 #include <string>
 
-#include "actor.h"
-#include "armor.h"
-#include "inventory.h"
-#include "rng.h"
-#include "weapon.h"
+#include <actor.h>
+#include <item/armor.h>
+#include <item/weapon.h>
+#include <inventory.h>
+#include <rng.h>
 
 Actor::Actor()
 {
@@ -20,11 +20,11 @@ Actor::Actor()
 	xp = 0;
 	max_hp = 0;
 	hp = 0;
-	
+
 	// Initialize attributes.
 	atk = 0;
 	def = 0;
-	
+
 	// Initialize possessions.
 	items = new Inventory;
 	weapon = nullptr;
@@ -35,12 +35,12 @@ Actor::~Actor()
 {
 	// Delete possessions.
 	delete items;
-	
+
 	if (weapon != nullptr)
 	{
 		delete weapon;
 	}
-	
+
 	if (armor != nullptr)
 	{
 		delete armor;
@@ -51,7 +51,7 @@ void Actor::attack(Actor& target)
 {
 	// Calculate damage.
 	int damage = roll(1, level, 0);
-	
+
 	target.hurt(damage);
 }
 
@@ -59,17 +59,17 @@ int Actor::hurt(int damage)
 {
 	// Sanity check. Damage cannot be negative.
 	assert(damage >= 0);
-	
+
 	int hp_before = hp;
-	
+
 	hp -= damage;
-	
+
 	// Prevent negative health.
 	if (hp < 0)
 	{
 		hp = 0;
 	}
-	
+
 	// Return net damage.
 	return hp_before - hp;
 }
@@ -78,17 +78,17 @@ int Actor::heal(int points)
 {
 	// Sanity check. Healing cannot be negative.
 	assert(points >= 0);
-	
+
 	int hp_before = hp;
-	
+
 	hp += points;
-	
+
 	// Respect hp limits.
 	if (hp > max_hp)
 	{
 		hp = max_hp;
 	}
-	
+
 	// Return net healing.
 	return hp - hp_before;
 }

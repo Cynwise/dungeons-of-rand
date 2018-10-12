@@ -7,7 +7,7 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 
-#include "actor.h"
+#include <actor.h>
 
 /// Actor that represents the player character.
 class Player : public Actor

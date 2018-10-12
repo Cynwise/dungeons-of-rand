@@ -9,10 +9,10 @@
 #include <iostream>
 #include <thread>
 
-#include "actor.h"
-#include "player.h"
+#include <actor.h>
+#include <actor/player.h>
 
-#include "rat.h"
+#include <actor/rat.h>
 
 void get_name(std::string& name);
 void start(const std::string& name);

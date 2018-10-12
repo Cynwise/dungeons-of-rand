@@ -2,7 +2,7 @@
  * @file armor.cpp
  */
 
-#include "armor.h"
+#include <item/armor.h>
 
 Armor::Armor()
 {

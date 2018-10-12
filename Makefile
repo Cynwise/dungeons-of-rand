@@ -1,6 +1,6 @@
 # Build settings.
 CXX = g++
-CXXFLAGS = -gdwarf-2 -Wall
+CXXFLAGS = -gdwarf-2 -Wall $(INCLUDE_SCRIPT)
 
 # Build list of sources.
 SOURCES = $(shell find -type f -name "*.cpp")
@@ -10,6 +10,10 @@ HEADERS = $(shell find -type f -name "*.h")
 
 # Build list of object file targets.
 OBJECTS = $(addprefix build/, $(SOURCES:.cpp=.o))
+
+# Directories to include in search paths.
+INCLUDE_DIRS = .
+INCLUDE_SCRIPT = $(addprefix -I, $(INCLUDE_DIRS))
 
 .PHONY: all
 all: build doc

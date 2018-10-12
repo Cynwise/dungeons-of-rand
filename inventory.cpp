@@ -4,8 +4,8 @@
 
 #include <list>
 
-#include "inventory.h"
-#include "item.h"
+#include <inventory.h>
+#include <item.h>
 
 Inventory::Inventory()
 {
@@ -15,7 +15,7 @@ Inventory::Inventory()
 Inventory::~Inventory()
 {
 	std::list<Item*>::iterator it;
-	
+
 	// Iterate over list and delete all contents.
 	for (it = contents.begin(); it != contents.end(); ++it)
 	{

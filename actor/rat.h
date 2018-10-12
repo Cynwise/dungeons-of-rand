@@ -6,7 +6,7 @@
 #ifndef RAT_H
 #define RAT_H
 
-#include "actor.h"
+#include <actor.h>
 
 /// Simple enemy class.
 class Rat : public Actor

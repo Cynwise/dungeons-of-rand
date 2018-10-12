@@ -4,7 +4,7 @@
 
 #include <cstdlib>
 
-#include "rng.h"
+#include <rng.h>
 
 int rng(int min, int max)
 {
@@ -19,11 +19,11 @@ int flip()
 int roll(int times, int sides, int modifier)
 {
 	int sum = 0;
-	
+
 	for (int i = 0; i < times; i++)
 	{
 		sum += rng(1, sides);
 	}
-	
+
 	return sum + modifier;
 }

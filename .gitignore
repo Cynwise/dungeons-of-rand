@@ -2,6 +2,7 @@ dungeons-of-rand
 *.o
 *.d
 *.pch
+*.edit
 html/
 latex/
 build/

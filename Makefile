@@ -26,6 +26,11 @@ html/index.html: Doxyfile $(SOURCES) $(HEADERS)
 cloc:
 	cloc . --exclude-dir=html,latex
 
+# Analyze codebase with cppcheck.
+.PHONY: cppcheck
+cppcheck:
+	cppcheck -q --enable=all .
+
 dungeons-of-rand: $(OBJECTS)
 	g++ -o dungeons-of-rand $(OBJECTS)
 

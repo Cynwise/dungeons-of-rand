@@ -23,10 +23,10 @@ public:
 	/// Receive damage.
 	virtual void hurt(int damage) = 0;
 	
-	/// Increase hp.
+	/// Increase HP.
 	virtual void heal(int points) = 0;
 	
-	/// Levels up actor and zeros xp.
+	/// Levels up actor and zeros XP.
 	void level_up();
 	
 	// Getters and setters.

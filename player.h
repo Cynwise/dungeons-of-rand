@@ -12,6 +12,15 @@ class Player : Actor
 public:
 
 	Player();
+	
+	/// Make attack against another actor.
+	void attack(Actor& target);
+	
+	/// Receive damage.
+	void hurt(int damage);
+	
+	/// Increase HP.
+	void heal(int points);
 };
 
 #endif // PLAYER_H

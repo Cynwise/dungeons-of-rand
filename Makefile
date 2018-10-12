@@ -12,7 +12,7 @@ all: dungeons-of-rand
 
 .PHONY: clean
 clean:
-	-rm -rf dungeons-of-rand $(OBJECTS)
+	-rm -rf dungeons-of-rand build/ html/ latex/
 
 .PHONY: doc
 doc: html/index.html

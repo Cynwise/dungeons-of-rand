@@ -1,13 +1,16 @@
 /**
  * @file actor.cpp
+ * @brief Generic base class behaviors for Actors.
  */
 
 #include <cassert>
 #include <string>
 
 #include "actor.h"
+#include "armor.h"
 #include "inventory.h"
 #include "rng.h"
+#include "weapon.h"
 
 Actor::Actor()
 {
@@ -28,6 +31,22 @@ Actor::Actor()
 	armor = nullptr;
 }
 
+Actor::~Actor()
+{
+	// Delete possessions.
+	delete items;
+	
+	if (weapon != nullptr)
+	{
+		delete weapon;
+	}
+	
+	if (armor != nullptr)
+	{
+		delete armor;
+	}
+}
+
 void Actor::attack(Actor& target)
 {
 	// Calculate damage.
@@ -36,16 +55,12 @@ void Actor::attack(Actor& target)
 	target.hurt(damage);
 }
 
-void Actor::hurt(int damage)
+int Actor::hurt(int damage)
 {
 	// Sanity check. Damage cannot be negative.
 	assert(damage >= 0);
 	
-	// Prevent negative damage.
-	if (damage < 0)
-	{
-		damage = 0;
-	}
+	int hp_before = hp;
 	
 	hp -= damage;
 	
@@ -54,12 +69,17 @@ void Actor::hurt(int damage)
 	{
 		hp = 0;
 	}
+	
+	// Return net damage.
+	return hp_before - hp;
 }
 
-void Actor::heal(int points)
+int Actor::heal(int points)
 {
 	// Sanity check. Healing cannot be negative.
 	assert(points >= 0);
+	
+	int hp_before = hp;
 	
 	hp += points;
 	
@@ -68,6 +88,9 @@ void Actor::heal(int points)
 	{
 		hp = max_hp;
 	}
+	
+	// Return net healing.
+	return hp - hp_before;
 }
 
 void Actor::level_up()

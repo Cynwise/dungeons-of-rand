@@ -21,16 +21,36 @@ public:
 
 	Actor();
 	
+	virtual ~Actor();
+	
+	/**
+	 * @note Needs functional assignment operator or copy ctor
+	 * to work correctly.
+	 */
 	virtual Actor* clone() = 0;
 	
 	/// Make attack against another actor.
 	virtual void attack(Actor& target);
 	
-	/// Receive damage.
-	virtual void hurt(int damage);
+	/**
+	 * @brief Receive damage.
+	 * 
+	 * @param damage Base damage applied. Net damage may be different
+	 * depending on the actor's stats, equipment, etc.
+	 * 
+	 * @return The net amount of damage applied to this actor.
+	 */
+	virtual int hurt(int damage);
 	
-	/// Increase HP.
-	virtual void heal(int points);
+	/**
+	 * @brief Increase HP.
+	 * 
+	 * @param points Base healing applied. Net damage may be different
+	 * depending on the actor's stats, max health, etc.
+	 * 
+	 * @return The net amount of healing applied to this actor.
+	 */
+	virtual int heal(int points);
 	
 	/// Levels up actor and zeros XP.
 	void level_up();
@@ -45,7 +65,9 @@ public:
 	
 protected:
 
+	/// Identifier for this actor.
 	std::string name;
+	
 	int level;
 	int xp;
 	int max_hp;

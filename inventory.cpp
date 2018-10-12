@@ -17,7 +17,7 @@ Inventory::~Inventory()
 	std::list<Item*>::iterator it;
 	
 	// Iterate over list and delete all contents.
-	for (it = contents.begin(); it != contents.end(); it++)
+	for (it = contents.begin(); it != contents.end(); ++it)
 	{
 		delete *it;
 	}

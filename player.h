@@ -17,7 +17,7 @@ public:
 	
 	void attack(Actor& target);
 	
-	void hurt(int damage);
+	int hurt(int damage);
 };
 
 #endif // PLAYER_H

@@ -30,17 +30,29 @@ void Player::attack(Actor& target)
 {
 	int damage = roll(1, level + 2, 0);
 	
-	target.hurt(damage);
+	int net_damage = target.hurt(damage);
 	
-	std::cout << "You deal " << damage << " damage to ";
+	std::cout << "You deal " << net_damage << " damage to ";
 	std::cout << target.get_name() << "!\n";
 	std::cout << "Its current health is " << target.get_hp() << ".\n\n";
 }
 
-void Player::hurt(int damage)
+int Player::hurt(int damage)
 {
+	int hp_before = hp;
+	
 	hp -= damage;
 	
-	std::cout << "It deals " << damage << " damage to you!\n";
+	// Prevent negative health.
+	if (hp < 0)
+	{
+		hp = 0;
+	}
+	
+	int net_damage = hp_before - hp;
+	
+	std::cout << "It deals " << net_damage << " damage to you!\n";
 	std::cout << "Your current health is " << hp << ".\n\n";
+	
+	return net_damage;
 }

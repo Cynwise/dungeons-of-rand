@@ -30,11 +30,11 @@ void Player::attack(Actor& target)
 {
 	int damage = roll(1, level + 2, 0);
 	
+	target.hurt(damage);
+	
 	std::cout << "You deal " << damage << " damage to ";
 	std::cout << target.get_name() << "!\n";
 	std::cout << "Its current health is " << target.get_hp() << ".\n\n";
-	
-	target.hurt(damage);
 }
 
 void Player::hurt(int damage)

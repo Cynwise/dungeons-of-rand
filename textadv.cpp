@@ -17,6 +17,7 @@
 #include "inventory.h"
 #include "item.h"
 #include "player.h"
+#include "rng.h"
 #include "room.h"
 
 using namespace std;
@@ -34,7 +35,9 @@ void time();
 void gameover();
 
 int main(){
+	// Initialize RNG.
 	srand(time(NULL));
+	
 	double chaHealth, monHealth, attack, monAttack;
 	string name, monName;
 	int monLevel;

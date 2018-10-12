@@ -18,7 +18,7 @@ class Actor
 public:
 	
 	/// Make attack against another actor.
-	virtual void attack(const Actor& enemy) = 0;
+	virtual void attack(Actor& target) = 0;
 	
 	/// Receive damage.
 	virtual void hurt(int damage) = 0;
@@ -37,7 +37,7 @@ public:
 	int get_level();
 	void set_level(int val);
 	
-private:
+protected:
 
 	std::string name;
 	int level;
@@ -50,9 +50,9 @@ private:
 	int def;
 	
 	// Possessions.
-	Inventory& items;
-	Item const* weapon;
-	Item const* armor;
+	Inventory* items;
+	Item* weapon;
+	Item* armor;
 };
 
 #endif // ACTOR_H

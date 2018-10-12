@@ -1,3 +1,7 @@
+# Build settings.
+CXX = g++
+CXXFLAGS = -gdwarf-2 -Wall
+
 # Build list of sources.
 SOURCES = $(shell find -type f -name "*.cpp")
 
@@ -20,7 +24,7 @@ clean:
 remake:
 	make clean
 	make all
-	
+
 .PHONY: build
 build: dungeons-of-rand
 
@@ -42,8 +46,8 @@ cppcheck:
 	cppcheck -q --enable=all .
 
 dungeons-of-rand: $(OBJECTS)
-	g++ -o dungeons-of-rand $(OBJECTS)
+	$(CXX) $(CXXFLAGS) -o dungeons-of-rand $(OBJECTS)
 
 build/%.o: %.cpp
 	mkdir -p $(@D)
-	g++ -o $@ -c $<
+	$(CXX) $(CXXFLAGS) -o $@ -c $<

@@ -8,8 +8,8 @@
 Rat::Rat()
 {
     name = "rat";
-    level = 1;
-    max_hp = 10;
+    level = rng(1, 5);
+    max_hp = 10 + level;
     hp = max_hp;
 }
 

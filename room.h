@@ -32,7 +32,7 @@ public:
     /// Add a path from this room.
     bool add_path(const std::string& entrance, Room* destination);
 
-    /// Called to enter this room.
+    /// Call to enter this room.
     virtual void enter();
 
     /// Go to different room by path.

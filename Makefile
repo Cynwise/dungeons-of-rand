@@ -52,7 +52,7 @@ cloc:
 .PHONY: cppcheck
 cppcheck:
 ifneq (, $(shell which cppcheck))
-	cppcheck -q --enable=all $(INCLUDE_SCRIPT) .
+	cppcheck -q --enable=warning,portability $(INCLUDE_SCRIPT) .
 endif
 
 # Beautify code.

@@ -3,6 +3,8 @@ dungeons-of-rand
 *.d
 *.pch
 *.edit
+*.layout
+*.depend
 html/
 latex/
 build/

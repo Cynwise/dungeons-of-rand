@@ -16,8 +16,6 @@ public:
     Rat();
 
     Rat* clone();
-
-    void attack(Actor& target);
 };
 
 #endif // RAT_H

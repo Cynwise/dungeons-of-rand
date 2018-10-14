@@ -2,16 +2,26 @@
  * @file rng.cpp
  */
 
+#include <cfloat>
 #include <cmath>
 #include <cstdlib>
 
 #include <rng.h>
 
+static const double ALMOST_ONE = 1 - DBL_EPSILON;
+
 double frng(double min, double max)
 {
+    // First, generate base integer.
     double scale = max - min;
-    double normalized = (double)rand() / (double)RAND_MAX;
-    return min + (normalized * scale);
+    double int_norm = (double)rand() / (double)RAND_MAX;
+    double integer = floor(min + int_norm * scale);
+
+    // Next, generate fractional component.;
+    double frac_norm = (double)rand() / (double)RAND_MAX;
+    double frac = (double)(frac_norm * ALMOST_ONE);
+
+    return integer + frac;
 }
 
 int rng(int min, int max)

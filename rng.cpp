@@ -17,7 +17,7 @@ double frng(double min, double max)
     double int_norm = (double)rand() / (double)RAND_MAX;
     double integer = floor(min + int_norm * scale);
 
-    // Next, generate fractional component.;
+    // Next, generate fractional component.
     double frac_norm = (double)rand() / (double)RAND_MAX;
     double frac = (double)(frac_norm * ALMOST_ONE);
 

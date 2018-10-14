@@ -6,9 +6,16 @@
 
 #include <rng.h>
 
+double frng(double min, double max)
+{
+    double scale = max - min + 1;
+    double normalized = (double)rand() / (double)RAND_MAX;
+    return min + (normalized * scale);
+}
+
 int rng(int min, int max)
 {
-    return min + std::rand() % (1 + max - min);
+    return frng((double)min, (double)max);
 }
 
 int flip()

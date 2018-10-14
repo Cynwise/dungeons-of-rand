@@ -6,6 +6,16 @@
 #define RNG_H
 
 /**
+ * @brief Generate pseudorandom floating point number within a range.
+ *
+ * @param min Minimum value of generated float.
+ * @param max Maximum vlaue of generated float.
+ *
+ * @return Generated float.
+ */
+double frng(double min, double max);
+
+/**
  * @brief Generate pseudorandom integer within a range.
  *
  * @param min Minimum value of generated integer.

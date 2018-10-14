@@ -15,6 +15,8 @@
 #include <room.h>
 #include <room/rat_room.h>
 
+#include <rng.h>
+
 /// Main game loop.
 int game_loop();
 

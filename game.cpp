@@ -41,7 +41,7 @@ int main(int argc, char* argv[])
     first_room.set_name("Pretty dank dungeon");
     const std::string first_room_description =
         "This is a very dank dungeon. "
-        "Very unhygenic.\nA hallway leads to the north.";
+        "Very unhygenic.\nHallways lead to the north and east.";
     first_room.set_description(first_room_description);
     first_room.set_brief("This is a very dank dungeon.");
     first_room.enter();
@@ -67,16 +67,31 @@ int game_loop()
     // Define third room.
     Rat_Room rat_room;
 
-    // Link rooms.
+    // Define fourth room.
+    Room room_4;
+    std::string room_4_description =
+        "There is nothing of interest in this room.\n"
+        "However, you can hear some rustling to the north.";
+    room_4.set_description(room_4_description);
+    room_4.set_brief("There is nothing of interest in this room.");
+
+    // Link rooms in a circle.
     player_room->add_path("n", &room_2);
     room_2.add_path("s", player_room);
+
     room_2.add_path("e", &rat_room);
     rat_room.add_path("w", &room_2);
+
+    rat_room.add_path("s", &room_4);
+    room_4.add_path("n", &rat_room);
+
+    room_4.add_path("w", player_room);
+    player_room->add_path("e", &room_4);
 
     while (1)
     {
         // Get input.
-        std::cout << std::endl;
+        std::cout << std::endl << "> ";
         std::getline(std::cin, input);
         std::cout << std::endl;
 

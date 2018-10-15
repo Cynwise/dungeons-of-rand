@@ -54,8 +54,5 @@ int Player::hurt(int damage)
 
     int net_damage = hp_before - hp;
 
-    std::cout << "It deals " << net_damage << " damage to you.\n";
-    std::cout << "Your current health is " << hp << ".\n\n";
-
     return net_damage;
 }

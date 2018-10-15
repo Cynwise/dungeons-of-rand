@@ -4,9 +4,11 @@
  */
 
 #include <cassert>
+#include <iostream>
 #include <string>
 
 #include <actor.h>
+#include <actor/player.h>
 #include <item/armor.h>
 #include <item/weapon.h>
 #include <inventory.h>
@@ -52,7 +54,28 @@ void Actor::attack(Actor& target)
     // Calculate damage.
     int damage = roll(1, level, 0);
 
-    target.hurt(damage);
+    int net_damage = target.hurt(damage);
+
+    // Report attack results.
+    std::cout << "The " << name;
+    std::cout << " deals " << net_damage;
+    std::cout << " damage to ";
+
+    // Report who the target was.
+    if (&target == &player)
+    {
+        // If the target was the player.
+        std::cout << "you.\n";
+        std::cout << "Your current health is " << target.get_hp();
+        std::cout << ".\n\n";
+    }
+    else
+    {
+        std::string target_name = target.get_name();
+        std::cout << "the " << target_name << ".\n";
+        std::cout << "The " << target_name << "'s current health is ";
+        std::cout << target.get_hp() << ".\n\n";
+    }
 }
 
 int Actor::hurt(int damage)

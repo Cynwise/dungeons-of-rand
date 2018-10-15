@@ -67,17 +67,11 @@ int main(int argc, char* argv[])
     );
     room_4.set_brief("There is nothing of interest in this room.");
 
-    // TEST.
-    Room room_5;
-    Rat_Room room_6;
-
     // Link rooms in a circle.
     room_1.add_two_way("n", "s", room_2);
     room_1.add_two_way("e", "w", room_4);
     room_2.add_two_way("e", "w", rat_room);
     rat_room.add_two_way("s", "n", room_4);
-    rat_room.add_two_way("n", "s", room_5);
-    room_5.add_two_way("e", "w", room_6);
 
     // Enter game loop.
     room_1.enter();
@@ -122,11 +116,11 @@ int game_loop()
         }
         else if (input == "quit" || input == "q")
         {
-            return 0;
+            return EXIT_SUCCESS;
         }
         else if (input == "help")
         {
-            std::cout << "Commands:\n";
+            std::cout << "Commands:\n\n";
             std::cout << "help: Display this message.\n";
             std::cout << "go [n,e,s,w]: Move in that direction\n";
             std::cout << "look: Inspect your surroundings.\n";

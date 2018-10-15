@@ -14,6 +14,7 @@
 #include <actor/rat.h>
 #include <room.h>
 #include <room/barbarian_room.h>
+#include <room/storage_room.h>
 #include <room/rat_room.h>
 
 #include <rng.h>
@@ -53,7 +54,7 @@ int main(int argc, char* argv[])
     room_2.set_name("Less dank dungeon");
     room_2.set_description
     (
-        "You can hear something rustling to the east."
+        "You can hear something rustling to the north and east."
     );
     room_2.set_brief("This is a slightly dank dungeon.");
 
@@ -63,11 +64,16 @@ int main(int argc, char* argv[])
     // Define fourth room.
     Barbarian_Room room_4;
 
+    //Define fith room.
+    Storage_Room room_5;
+
     // Link rooms in a circle.
     room_1.add_two_way("n", "s", room_2);
     room_1.add_two_way("e", "w", room_4);
     room_2.add_two_way("e", "w", rat_room);
     rat_room.add_two_way("s", "n", room_4);
+    room_5.add_two_way("s", "n", room_2);
+    
 
     // Enter game loop.
     room_1.enter();

@@ -23,7 +23,7 @@ int game_loop();
 void game_over();
 void get_name(std::string& name);
 void start(const std::string& name);
-void fight_rat(Actor& actor);
+void fight(Actor& actor);
 
 int main(int argc, char* argv[])
 {
@@ -185,21 +185,19 @@ void game_over()
     std::cout << "Game Over\n";
 }
 
-void fight_rat(Actor& actor)
+void fight(Actor& enemy)
 {
-    Rat rat;
-
     // Loop until someone dies.
     while (1)
     {
         // Player attack turn.
-        actor.attack(rat);
+        player.attack(enemy);
         command_time();
 
         // Check if won.
-        if (rat.get_hp() <= 0)
+        if (enemy.get_hp() <= 0)
         {
-            std::cout << "You've defeated the " << rat.get_name() << "!\n\n";
+            std::cout << "You've defeated the " << enemy.get_name() << "!\n\n";
 
             // Re-enter the room, just to display brief again.
             player_room->enter();
@@ -207,11 +205,11 @@ void fight_rat(Actor& actor)
         }
 
         // Enemy attack turn.
-        rat.attack(actor);
+        enemy.attack(player);
         command_time();
 
         // Check if lost.
-        if (actor.get_hp() <= 0)
+        if (player.get_hp() <= 0)
         {
             break;
         }

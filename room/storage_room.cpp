@@ -19,10 +19,10 @@ Storage_Room::Storage_Room()
     // Set default description for this room type.
     name = "Storage Room";
     description =
-        "This room looks an old storage room.";
-    brief =
         "This old room is full of boxes and cobwebs "
         "that cover them.";
+    brief =
+        "This room looks like it was used for storage.";
 }
 
 Storage_Room* Storage_Room::clone()

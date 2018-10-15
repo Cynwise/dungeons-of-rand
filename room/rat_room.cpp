@@ -17,12 +17,10 @@ Rat_Room::Rat_Room()
     // Set default description for this room type.
     name = "Rat Room";
     description =
-        "This dingy dungeon clearly shows evidence of "
-        "a rat infestation. Rats have clearly inhabited "
-        "this room for some time.";
+        "Rats have clearly inhabited this room for some time.";
     brief =
-        "This dingy dungeon clearly shows evidence of "
-        "a rat infestation.";
+        "This dingy dungeon clearly shows evidence of a "
+        "rat infestation.";
 }
 
 Rat_Room* Rat_Room::clone()
@@ -40,6 +38,7 @@ void Rat_Room::enter()
     if (entered == false)
     {
         entered = true;
+        std::cout << brief << std::endl;
         std::cout << description << std::endl;
 
         // Special encounter!

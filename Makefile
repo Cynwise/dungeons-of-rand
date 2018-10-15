@@ -1,6 +1,7 @@
 # Build settings.
-CXX = g++
-CXXFLAGS = -gdwarf-2 -std=c++11 -Wall $(INCLUDE_SCRIPT)
+CXX ?= g++
+CXXFLAGS ?= -gdwarf-2 -std=c++11 -Wall
+CXXFLAGS += $(INCLUDE_SCRIPT)
 
 # Build list of sources.
 SOURCES = $(shell find -type f -name "*.cpp")

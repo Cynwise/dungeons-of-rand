@@ -19,8 +19,6 @@ public:
     Player* clone();
 
     void attack(Actor& target);
-
-    int hurt(int damage);
 };
 
 /// Global player instance.

@@ -1,5 +1,6 @@
 /**
  * @file weapon.h
+ * @brief Generic weapon base class.
  */
 
 #ifndef WEAPON_H

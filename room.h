@@ -42,6 +42,7 @@ public:
      *
      * @param to String describing the direction to go.
      * @param back String describing the return direction.
+     * @param dest Destination room.
      */
     void add_two_way(
         const std::string& to,

@@ -1,5 +1,6 @@
 /**
  * @file inventory.cpp
+ * @brief Inventory class operations.
  */
 
 #include <list>

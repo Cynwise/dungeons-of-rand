@@ -1,5 +1,6 @@
 /**
  * @file rng.h
+ * @brief Pseudorandom number generation utilities.
  */
 
 #ifndef RNG_H

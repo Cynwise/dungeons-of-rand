@@ -1,5 +1,6 @@
 /**
  * @file armor.h
+ * @brief Generic armor base class.
  */
 
 #ifndef ARMOR_H

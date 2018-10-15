@@ -1,5 +1,6 @@
 /**
  * @file item.h
+ * @brief Generic item base class.
  */
 
 #ifndef ITEM_H

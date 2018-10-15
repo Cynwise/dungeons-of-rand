@@ -13,6 +13,7 @@
 #include <actor/player.h>
 #include <actor/rat.h>
 #include <room.h>
+#include <room/barbarian_room.h>
 #include <room/rat_room.h>
 
 #include <rng.h>
@@ -60,12 +61,7 @@ int main(int argc, char* argv[])
     Rat_Room rat_room;
 
     // Define fourth room.
-    Room room_4;
-    room_4.set_description
-    (
-        "However, you can hear some rustling to the north."
-    );
-    room_4.set_brief("There is nothing of interest in this room.");
+    Barbarian_Room room_4;
 
     // Link rooms in a circle.
     room_1.add_two_way("n", "s", room_2);
@@ -199,8 +195,6 @@ void fight(Actor& enemy)
         {
             std::cout << "You've defeated the " << enemy.get_name() << "!\n\n";
 
-            // Re-enter the room, just to display brief again.
-            player_room->enter();
             break;
         }
 

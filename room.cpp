@@ -45,20 +45,18 @@ Room* Room::clone()
     return tmp;
 }
 
-bool Room::add_path(const std::string& entrance, Room* destination)
+void Room::add_one_way(const std::string& to, Room& dest)
 {
-    // Check if entrance is already used.
-    auto it = path.find(entrance);
-    if (it != path.end())
-    {
-        // Failure.
-        std::cout << "Failed to add path\n.";
-        return false;
-    }
+    path[to] = &dest;
+}
 
-    // Else, add path.
-    path[entrance] = destination;
-    return true;
+void Room::add_two_way(
+    const std::string& to,
+    const std::string& back,
+    Room& dest)
+{
+    path[to] = &dest;
+    dest.path[back] = this;
 }
 
 void Room::enter()
@@ -69,6 +67,7 @@ void Room::enter()
     if (entered == false)
     {
         entered = true;
+        std::cout << brief << std::endl;
         std::cout << description << std::endl;
     }
     else

@@ -20,7 +20,7 @@ INCLUDE_SCRIPT = $(addprefix -I, $(INCLUDE_DIRS))
 
 # Default target.s
 .PHONY: all
-all: build doc cppcheck
+all: build cppcheck
 
 # Remove all generated output.
 .PHONY: clean

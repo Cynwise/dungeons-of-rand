@@ -39,14 +39,42 @@ int main(int argc, char* argv[])
     start(player_name);
 
     // Define initial room.
-    Room first_room;
-    first_room.set_name("Pretty dank dungeon");
-    const std::string first_room_description =
-        "This is a very dank dungeon. "
-        "Very unhygenic.\nHallways lead to the north and east.";
-    first_room.set_description(first_room_description);
-    first_room.set_brief("This is a very dank dungeon.");
-    first_room.enter();
+    Room room_1;
+    room_1.set_name("Pretty dank dungeon");
+    room_1.set_description
+    (
+        "Very unhygenic.\nHallways lead to the north and east."
+    );
+    room_1.set_brief("This is a very dank dungeon.");
+
+    // Define second room.
+    Room room_2;
+    room_2.set_name("Less dank dungeon");
+    room_2.set_description
+    (
+        "You can hear something rustling to the east."
+    );
+    room_2.set_brief("This is a slightly dank dungeon.");
+
+    // Define third room.
+    Rat_Room rat_room;
+
+    // Define fourth room.
+    Room room_4;
+    room_4.set_description
+    (
+        "However, you can hear some rustling to the north."
+    );
+    room_4.set_brief("There is nothing of interest in this room.");
+
+    // Link rooms in a circle.
+    room_1.add_two_way("n", "s", room_2);
+    room_2.add_two_way("e", "w", rat_room);
+    rat_room.add_two_way("s", "n", room_4);
+    room_4.add_two_way("w", "e", room_1);
+
+    // Enter game loop.
+    room_1.enter();
 
     int ret = game_loop();
     return ret;
@@ -56,39 +84,6 @@ int game_loop()
 {
     // User input string.
     std::string input;
-
-    // Define second room.
-    Room room_2;
-    room_2.set_name("Less dank dungeon");
-    std::string room_2_description =
-        "This is a slightly dank dungeon.\n"
-        "You can hear something rustling to the east.";
-    room_2.set_description(room_2_description);
-    room_2.set_brief("This is a slightly dank dungeon.");
-
-    // Define third room.
-    Rat_Room rat_room;
-
-    // Define fourth room.
-    Room room_4;
-    std::string room_4_description =
-        "There is nothing of interest in this room.\n"
-        "However, you can hear some rustling to the north.";
-    room_4.set_description(room_4_description);
-    room_4.set_brief("There is nothing of interest in this room.");
-
-    // Link rooms in a circle.
-    player_room->add_path("n", &room_2);
-    room_2.add_path("s", player_room);
-
-    room_2.add_path("e", &rat_room);
-    rat_room.add_path("w", &room_2);
-
-    rat_room.add_path("s", &room_4);
-    room_4.add_path("n", &rat_room);
-
-    room_4.add_path("w", player_room);
-    player_room->add_path("e", &room_4);
 
     while (1)
     {
@@ -116,6 +111,7 @@ int game_loop()
         }
         else if (input == "l" || input == "look")
         {
+            std::cout << player_room->get_brief() << std::endl;
             std::cout << player_room->get_description() << std::endl;
         }
         else if (input == "quit" || input == "q")

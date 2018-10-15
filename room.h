@@ -29,8 +29,24 @@ public:
 
     virtual Room* clone();
 
-    /// Add a path from this room.
-    bool add_path(const std::string& entrance, Room* destination);
+    /**
+     * @brief Add a one-way path to another room.
+     *
+     * @param to String describing the direction.
+     * @param dest Destination room.
+     */
+    void add_one_way(const std::string& to, Room& dest);
+
+    /**
+     * @brief Add a two-way path to another room.
+     *
+     * @param to String describing the direction to go.
+     * @param back String describing the return direction.
+     */
+    void add_two_way(
+        const std::string& to,
+        const std::string& back,
+        Room& dest);
 
     /// Call to enter this room.
     virtual void enter();

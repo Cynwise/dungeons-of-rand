@@ -77,32 +77,6 @@ void Forest::enter()
             fight(snake);
         }
 
-        encounter = rng(1,4);
-        if(encounter == 1)
-        {
-            std::cout << "\nA barbarian gets the jump on you!\n\n";
-            Barbarian barbarian;
-            fight(barbarian);
-        }
-        else if(encounter == 2)
-        {
-            std::cout << "\nA rat jumps out from the bushes!\n\n";
-            Rat rat;
-            fight(rat);
-        }
-        else if(encounter == 3)
-        {
-            std::cout << "\nA bear ambushes you!\n\n";
-            Bear bear;
-            fight(bear);
-        }
-        else
-        {
-            std::cout << "\nA spider attacks from above\n\n";
-            Spider spider;
-            fight(spider);
-        }
-
     }
     else
     {

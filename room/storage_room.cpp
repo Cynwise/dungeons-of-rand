@@ -8,9 +8,10 @@
 
 #include <actor/player.h>
 #include <actor/barbarian.h>
+#include <actor/goblin.h>
 #include <actor/rat.h>
-#include <room/storage_room.h>
 #include "rng.h"
+#include <room/storage_room.h>
 
 void fight(Actor&);
 

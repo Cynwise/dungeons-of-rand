@@ -1,5 +1,5 @@
 /**
- * @file Spider.h
+ * @file spider.h
  * @brief Simple animal enemy class.
  */
 

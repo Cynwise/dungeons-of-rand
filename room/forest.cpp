@@ -77,7 +77,7 @@ void Forest::enter()
             fight(snake);
         }
 
-        int encounter = rng(1,4);
+        encounter = rng(1,4);
         if(encounter == 1)
         {
             std::cout << "\nA barbarian gets the jump on you!\n\n";

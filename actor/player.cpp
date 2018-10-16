@@ -14,7 +14,7 @@ Player::Player()
 {
     // Initialize stats.
     level = 1;
-    max_hp = 10;
+    max_hp = 20;
     hp = max_hp;
 
     // Initialize attributes.

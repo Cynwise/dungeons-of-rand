@@ -8,6 +8,7 @@
 
 #include <actor/player.h>
 #include <actor/barbarian.h>
+#include <actor/cultist.h>
 #include <actor/goblin.h>
 #include <actor/rat.h>
 #include "rng.h"
@@ -21,7 +22,7 @@ Storage_Room::Storage_Room()
     name = "Storage Room";
     description =
         "This old room is full of boxes and cobwebs "
-        "that cover them.";
+        "that cover them. There could be anything hiding in here.";
     brief =
         "This room looks like it was used for storage.";
 }
@@ -45,7 +46,7 @@ void Storage_Room::enter()
         std::cout << description << std::endl;
 
         // Special encounter!
-        int chance = rng(1,3);
+        int chance = rng(1,4);
         if(chance == 1)
         {
             std::cout << "\nA barbarian gets the jump on you!\n\n";
@@ -58,11 +59,17 @@ void Storage_Room::enter()
             Rat rat;
             fight(rat);
         }
-	else
+	else if(chance == 3)
 	{
-	    std::cout << "\n A goblin attacks you\n\n";
+	    std::cout << "\n A goblin attacks you!\n\n";
 	    Goblin goblin;
 	    fight(goblin);
+	}
+	else
+	{
+	    std::cout << "\n A cultist jumps out and attacks you!\n\n";
+	    Cultist cultist;
+	    fight(cultist);
 	}
     }
     else

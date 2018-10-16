@@ -8,6 +8,7 @@
 
 #include <room.h>
 
+/// Room with a chance to spawn one of several themed enemies.
 class Forest : public Room
 {
 public:

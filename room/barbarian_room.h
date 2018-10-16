@@ -8,6 +8,7 @@
 
 #include <room.h>
 
+/// Room that spawns a Barbarian.
 class Barbarian_Room : public Room
 {
 public:

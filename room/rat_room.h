@@ -8,6 +8,7 @@
 
 #include <room.h>
 
+/// Room with a spawned Rat.
 class Rat_Room : public Room
 {
 public:

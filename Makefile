@@ -21,7 +21,7 @@ INCLUDE_SCRIPT = $(addprefix -I, $(INCLUDE_DIRS))
 
 # Default target.s
 .PHONY: all
-all: build cppcheck
+all: build cppcheck doc
 
 # Remove all generated output.
 .PHONY: clean
@@ -42,7 +42,9 @@ doc: html/index.html
 
 # Generate documentation.
 html/index.html: Doxyfile $(SOURCES) $(HEADERS)
-	doxygen
+ifneq (, $(shell which doxygen))
+	doxygen Doxyfile
+endif
 
 # Print lines of code.
 .PHONY: cloc

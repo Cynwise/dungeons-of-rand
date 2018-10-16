@@ -8,6 +8,7 @@
 
 #include <room.h>
 
+/// Room that has a chance to spawn one of several enemy types.
 class Storage_Room : public Room
 {
 public:

@@ -204,7 +204,7 @@ void fight(Actor& enemy)
         // Check if won.
         if (enemy.get_hp() <= 0)
         {
-            std::cout << "You've defeated the " << enemy.get_name() << "!\n\n";
+            std::cout << "You've defeated the " << enemy.get_name() << "!\n";
 
             break;
         }

@@ -60,18 +60,18 @@ void Storage_Room::enter()
             fight(rat);
         }
 
-	else if(chance == 3)
-	{
-	    std::cout << "\n A goblin attacks you!\n\n";
-	    Goblin goblin;
-	    fight(goblin);
-	}
-	else
-	{
-	    std::cout << "\n A cultist jumps out and attacks you!\n\n";
-	    Cultist cultist;
-	    fight(cultist);
-	}
+        else if(chance == 3)
+        {
+            std::cout << "\nA goblin attacks you!\n\n";
+            Goblin goblin;
+            fight(goblin);
+        }
+        else
+        {
+            std::cout << "\nA cultist jumps out and attacks you!\n\n";
+            Cultist cultist;
+            fight(cultist);
+        }
     }
     else
     {

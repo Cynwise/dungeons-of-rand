@@ -13,7 +13,7 @@ class Bear : public Actor
 {
 public:
 
-   Bear();
+    Bear();
 
     Bear* clone();
 };

@@ -13,7 +13,7 @@ class Spider : public Actor
 {
 public:
 
-   Spider();
+    Spider();
 
     Spider* clone();
 };

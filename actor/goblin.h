@@ -1,5 +1,5 @@
 /**
- * @file barbarian.h
+ * @file goblin.h
  * @brief Simple monster enemy class.
  */
 

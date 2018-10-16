@@ -44,19 +44,25 @@ void Storage_Room::enter()
         std::cout << description << std::endl;
 
         // Special encounter!
-        int chance = flip();
+        int chance = rng(1,3);
         if(chance == 1)
         {
             std::cout << "\nA barbarian gets the jump on you!\n\n";
             Barbarian barbarian;
             fight(barbarian);
         }
-        else
+        else if(chance == 2)
         {
             std::cout << "\n A rat jumps at you!\n\n";
             Rat rat;
             fight(rat);
         }
+	else
+	{
+	    std::cout << "\n A goblin attacks you\n\n";
+	    Goblin goblin;
+	    fight(goblin);
+	}
     }
     else
     {

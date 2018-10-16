@@ -54,16 +54,16 @@ void Storage_Room::enter()
         }
         else if(chance == 2)
         {
-            std::cout << "\n A rat jumps at you!\n\n";
+            std::cout << "\nA rat jumps at you!\n\n";
             Rat rat;
             fight(rat);
         }
-	else
-	{
-	    std::cout << "\n A goblin attacks you\n\n";
-	    Goblin goblin;
-	    fight(goblin);
-	}
+        else
+        {
+            std::cout << "\nA goblin attacks you\n\n";
+            Goblin goblin;
+            fight(goblin);
+        }
     }
     else
     {

@@ -1,6 +1,6 @@
 /**
  * @file rat.h
- * @brief Simple enemy class.
+ * @brief Simple animalenemy class.
  */
 
 #ifndef RAT_H

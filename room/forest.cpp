@@ -10,6 +10,7 @@
 #include <actor/rat.h>
 #include <actor/bear.h>
 #include <actor/spider.h>
+#include <actor/snake.h>
 #include <room/forest.h>
 #include "rng.h"
 
@@ -44,7 +45,7 @@ void Forest::enter()
         std::cout << brief << std::endl;
         std::cout << description << std::endl;
 
-	int encounter = rng(1,4);
+	int encounter = rng(1,5);
 	if(encounter == 1)
 	{
         	std::cout << "\nA barbarian gets the jump on you!\n\n";
@@ -63,12 +64,19 @@ void Forest::enter()
 		Bear bear;
 		fight(bear);
 	}
-	else
+	else if(encounter == 4)
 	{
 		std::cout << "\nA spider attacks from above\n\n";
 		Spider spider;
 		fight(spider);
 	}
+	else
+	{
+		std::cout << "\n A snake sneaks up from behind!\n\n";
+		Snake snake;
+		fight(snake);
+	}
+	
     }
     else
     {

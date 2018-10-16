@@ -45,7 +45,6 @@ void Forest::enter()
         std::cout << brief << std::endl;
         std::cout << description << std::endl;
 
-<<<<<<< HEAD
 	int encounter = rng(1,5);
 	if(encounter == 1)
 	{
@@ -78,7 +77,6 @@ void Forest::enter()
 		fight(snake);
 	}
 	
-=======
         int encounter = rng(1,4);
         if(encounter == 1)
         {
@@ -104,7 +102,7 @@ void Forest::enter()
             Spider spider;
             fight(spider);
         }
->>>>>>> 778632c796f50ed4a9946ee92cfbcc370fc73e9d
+
     }
     else
     {

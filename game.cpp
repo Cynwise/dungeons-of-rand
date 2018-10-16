@@ -78,7 +78,7 @@ int main(int argc, char* argv[])
     rat_room.add_two_way("s", "n", room_4);
     room_5.add_two_way("s", "n", room_2);
     room_5.add_two_way("e", "w", room_6);
-    room_5.add_two_way("s", "n", rat_room);
+    room_6.add_two_way("s", "n", rat_room);
 
     // Enter game loop.
     room_1.enter();

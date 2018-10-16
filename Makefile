@@ -4,10 +4,10 @@ CXXFLAGS ?= -gdwarf-2 -std=c++11 -Wall
 CXXFLAGS += $(INCLUDE_SCRIPT)
 
 # Build list of sources.
-SOURCES = $(shell find -type f -name "*.cpp")
+SOURCES = $(shell find -name "*.cpp")
 
 # Build list of headers.
-HEADERS = $(shell find -type f -name "*.h")
+HEADERS = $(shell find -name "*.h")
 
 # Build list of object file targets.
 OBJECTS = $(addprefix build/, $(SOURCES:.cpp=.o))

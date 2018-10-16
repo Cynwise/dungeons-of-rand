@@ -1,5 +1,5 @@
 /**
- * @file forest.cpp
+ * @file forest_room.cpp
  * @brief basic room with rando chance to spawn certain enemies
  */
 
@@ -11,12 +11,12 @@
 #include <actor/bear.h>
 #include <actor/spider.h>
 #include <actor/snake.h>
-#include <room/forest.h>
-#include "rng.h"
+#include <room/forest_room.h>
+#include <rng.h>
 
 void fight(Actor&);
 
-Forest::Forest()
+Forest_Room::Forest_Room()
 {
     // Set default description for this room type.
     name = "Forest";
@@ -27,14 +27,14 @@ Forest::Forest()
         "The ceiling appears to shine artificial light.";
 }
 
-Forest* Forest::clone()
+Forest_Room* Forest_Room::clone()
 {
-    Forest* tmp = new Forest;
+    Forest_Room* tmp = new Forest_Room;
     *tmp = *this;
     return tmp;
 }
 
-void Forest::enter()
+void Forest_Room::enter()
 {
     player_room = this;
 

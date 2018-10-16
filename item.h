@@ -25,7 +25,7 @@ public:
     /// Apply the item's effects to actor.
     virtual void use(Actor& user) = 0;
 
-private:
+protected:
 
     std::string name;
 };

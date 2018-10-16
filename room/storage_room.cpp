@@ -72,13 +72,6 @@ void Storage_Room::enter()
 	    Cultist cultist;
 	    fight(cultist);
 	}
-
-        else
-        {
-            std::cout << "\nA goblin attacks you\n\n";
-            Goblin goblin;
-            fight(goblin);
-        }
     }
     else
     {

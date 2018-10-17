@@ -1,6 +1,6 @@
 /**
- * @file rat.h
- * @brief Simple animalenemy class.
+ * @file slime.h
+ * @brief Simple slime enemy class.
  */
 
 #ifndef SLIME_H

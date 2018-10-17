@@ -18,8 +18,8 @@ Player::Player()
     hp = max_hp;
 
     // Initialize attributes.
-    atk = 1;
-    def = 1;
+    strength = 5;
+    fortitude = 5;
 }
 
 Player* Player::clone()
@@ -31,7 +31,8 @@ Player* Player::clone()
 
 void Player::attack(Actor& target)
 {
-    int damage = roll(1, level + 2, 0);
+    int atk = calc_atk();
+    int damage = roll(1, atk, 0);
 
     int net_damage = target.hurt(damage);
 

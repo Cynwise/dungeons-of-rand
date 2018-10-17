@@ -55,6 +55,12 @@ public:
     /// Levels up actor and zeros XP.
     void level_up();
 
+    /// Calculates the actor's attack value.
+    int calc_atk();
+
+    /// Calculates the actor's defensive value.
+    int calc_def();
+
     // Getters and setters.
     std::string get_name() const;
     void set_name(const std::string& s);
@@ -74,8 +80,8 @@ protected:
     int hp;
 
     // Attributes.
-    int atk;
-    int def;
+    int strength;
+    int fortitude;
 
     // Possessions.
     Inventory* items;

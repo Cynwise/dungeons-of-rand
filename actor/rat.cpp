@@ -11,6 +11,9 @@ Rat::Rat()
     level = 1;
     max_hp = 5;
     hp = max_hp;
+
+    strength = 2;
+    fortitude = 1;
 }
 
 Rat* Rat::clone()

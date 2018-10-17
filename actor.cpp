@@ -53,7 +53,7 @@ void Actor::attack(Actor& target)
 {
     // Calculate damage.
     int atk = calc_atk();
-    int damage = roll(1, atk, 0);
+    int damage = roll(1, atk);
 
     int net_damage = target.hurt(damage);
 
@@ -86,9 +86,9 @@ int Actor::hurt(int damage)
 
     int hp_before = hp;
 
-    // Calculate defense. Net def = 1d(def)
+    // Calculate defense. Net def = 1d(def)-1
     int def = calc_def();
-    def = roll(1, def, 0);
+    def = roll(1, def) - 1;
 
     // Apply defense to damage taken.
     damage -= def;

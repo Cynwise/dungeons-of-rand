@@ -9,8 +9,11 @@ Bear::Bear()
 {
     name = "bear";
     level = 1;
-    max_hp = 10;
+    max_hp = 20;
     hp = max_hp;
+
+    strength = 8;
+    fortitude = 5;
 }
 
 Bear* Bear::clone()

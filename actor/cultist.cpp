@@ -11,6 +11,9 @@ Cultist::Cultist()
     level = 1;
     max_hp = 10;
     hp = max_hp;
+
+    strength = 7;
+    fortitude = 3;
 }
 
 Cultist* Cultist::clone()

@@ -35,7 +35,7 @@ int flip()
     return rng(0, 1);
 }
 
-int roll(int times, int sides, int modifier)
+int roll(int times, int sides)
 {
     int sum = 0;
 
@@ -44,5 +44,5 @@ int roll(int times, int sides, int modifier)
         sum += rng(1, sides);
     }
 
-    return sum + modifier;
+    return sum;
 }

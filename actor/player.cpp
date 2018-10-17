@@ -32,7 +32,7 @@ Player* Player::clone()
 void Player::attack(Actor& target)
 {
     int atk = calc_atk();
-    int damage = roll(1, atk, 0);
+    int damage = roll(1, atk);
 
     int net_damage = target.hurt(damage);
 

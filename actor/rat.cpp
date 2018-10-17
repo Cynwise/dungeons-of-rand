@@ -12,7 +12,7 @@ Rat::Rat()
     max_hp = 5;
     hp = max_hp;
 
-    strength = 2;
+    strength = 1;
     fortitude = 1;
 }
 

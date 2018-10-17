@@ -11,6 +11,9 @@ Shaman::Shaman()
     level = 1;
     max_hp = 10;
     hp = max_hp;
+
+    strength = 4;
+    fortitude = 3;
 }
 
 Dragon* Shaman::Shaman()

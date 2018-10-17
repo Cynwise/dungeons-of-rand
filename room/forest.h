@@ -1,23 +1,23 @@
 /**
- * @file forest_room.h
+ * @file forest.h
  * @brief Simple room to demonstrate enemies of a particular theme.
  */
 
-#ifndef FOREST_ROOM_H
-#define FOREST_ROOM_H
+#ifndef FOREST_H
+#define FOREST_H
 
 #include <room.h>
 
 /// Room with a chance to spawn one of several themed enemies.
-class Forest_Room : public Room
+class Forest : public Room
 {
 public:
 
-    Forest_Room();
+    Forest();
 
-    Forest_Room* clone();
+    Forest* clone();
 
     void enter();
 };
 
-#endif // FOREST_ROOM_H
+#endif // FOREST_H

@@ -14,7 +14,7 @@
 #include <actor/rat.h>
 #include <room.h>
 #include <room/barbarian_room.h>
-#include <room/forest_room.h>
+#include <room/forest.h>
 #include <room/storage_room.h>
 #include <room/rat_room.h>
 
@@ -69,7 +69,7 @@ int main(int argc, char* argv[])
     Storage_Room room_5;
 
     //Define sixth room
-    Forest_Room room_6;
+    Forest room_6;
 
     // Link rooms in a circle.
     room_1.add_two_way("n", "s", room_2);

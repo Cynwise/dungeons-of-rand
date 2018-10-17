@@ -7,8 +7,8 @@
 
 Slime::Slime()
 {
-        std::string slime_color[4] = {"Green Slime","Blue Slime","Red Slime","Black Slime"};
-        int x = rng(0,3);
+    std::string slime_color[4] = {"green slime","blue slime","red slime","black slime"};
+    int x = rng(0,3);
 
     name = slime_color[x];
     level = 1;

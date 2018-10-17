@@ -7,21 +7,15 @@
 
 #include <actor/player.h>
 #include <actor/barbarian.h>
-#include <actor/rat.h>
 #include <actor/bear.h>
-#include <actor/spider.h>
-#include <actor/snake.h>
-<<<<<<< HEAD:
-room/forest.cpp
-#include <room/forest.h>
-=======
 #include <actor/echidna.h>
-#include <room/forest_room.h>
-    >>>>>>> f32ba5a97b92665099cd1bbed0d53b86ca2d0b33:
-    room/forest_room.cpp
+#include <actor/rat.h>
+#include <actor/snake.h>
+#include <actor/spider.h>
+#include <room/forest.h>
 #include <rng.h>
 
-    void fight(Actor&);
+void fight(Actor&);
 
 Forest::Forest()
 {

@@ -86,9 +86,10 @@ int Actor::hurt(int damage)
 
     int hp_before = hp;
 
-    // Calculate defense. Net def = 1d(def)-1
+    // Calculate defense. Net def = (1d(def)-1)/2
     int def = calc_def();
     def = roll(1, def) - 1;
+    def *= 0.5;
 
     // Apply defense to damage taken.
     damage -= def;

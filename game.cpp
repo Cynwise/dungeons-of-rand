@@ -46,39 +46,39 @@ int main(int argc, char* argv[])
     room_1.set_name("Pretty dank dungeon");
     room_1.set_description
     (
-        "Very unhygenic.\nHallways lead to the north and east."
+        "Very unhygenic.\nA hallway leads to the north."
     );
     room_1.set_brief("This is a very dank dungeon.");
 
-    // Define second room.
-    Room room_2;
-    room_2.set_name("Less dank dungeon");
-    room_2.set_description
-    (
-        "You can hear something rustling to the north and east."
-    );
-    room_2.set_brief("This is a slightly dank dungeon.");
+    // Define more rooms.
+    Room* last_room = &room_1;
+    for (int i = 0; i < 100; ++i)
+    {
+        Room* next_room;
 
-    // Define third room.
-    Rat_Room rat_room;
+        // Pick which room type to generate.
+        int chance = rng(1, 10);
+        if (chance <= 3)
+        {
+            next_room = new Storage_Room;
+        }
+        else if (chance <= 6)
+        {
+            next_room = new Forest;
+        }
+        else if (chance <= 8)
+        {
+            next_room = new Rat_Room;
+        }
+        else
+        {
+            next_room = new Barbarian_Room;
+        }
 
-    // Define fourth room.
-    Barbarian_Room room_4;
-
-    //Define fith room.
-    Storage_Room room_5;
-
-    //Define sixth room
-    Forest room_6;
-
-    // Link rooms in a circle.
-    room_1.add_two_way("n", "s", room_2);
-    room_1.add_two_way("e", "w", room_4);
-    room_2.add_two_way("e", "w", rat_room);
-    rat_room.add_two_way("s", "n", room_4);
-    room_5.add_two_way("s", "n", room_2);
-    room_5.add_two_way("e", "w", room_6);
-    room_6.add_two_way("s", "n", rat_room);
+        // Link this room.
+        last_room->add_two_way("n", "s", *next_room);
+        last_room = next_room;
+    }
 
     // Enter game loop.
     room_1.enter();

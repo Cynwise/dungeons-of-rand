@@ -1,5 +1,6 @@
 /**
- * @file shaman.cc implementation for shaman.h file
+ * @file shaman.cc
+ * @brief Implementation for shaman.h.
  */
 
 #include <actor/shaman.h>
@@ -16,7 +17,7 @@ Shaman::Shaman()
     fortitude = 3;
 }
 
-Dragon* Shaman::Shaman()
+Shaman* Shaman::Shaman()
 {
     Shaman* tmp = new Shaman;
     *tmp = *this;

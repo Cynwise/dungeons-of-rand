@@ -1,0 +1,8 @@
+{
+    "type" : "bear",
+    "level" : 1,
+    "max_hp" : 20,
+
+    "strength" : 8,
+    "fortitude" : 5
+}

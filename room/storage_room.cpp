@@ -7,11 +7,7 @@
 #include <iostream>
 
 #include <actor/player.h>
-#include <actor/barbarian.h>
-#include <actor/cultist.h>
-#include <actor/goblin.h>
-#include <actor/rat.h>
-#include "rng.h"
+#include <rng.h>
 #include <room/storage_room.h>
 
 void fight(Actor&);
@@ -50,26 +46,26 @@ void Storage_Room::enter()
         if(chance == 1)
         {
             std::cout << "\nA barbarian gets the jump on you!\n\n";
-            Barbarian barbarian;
+            Actor barbarian("barbarian");
             fight(barbarian);
         }
         else if(chance == 2)
         {
             std::cout << "\nA rat jumps at you!\n\n";
-            Rat rat;
+            Actor rat("rat");
             fight(rat);
         }
 
         else if(chance == 3)
         {
             std::cout << "\nA goblin attacks you!\n\n";
-            Goblin goblin;
+            Actor goblin("goblin");
             fight(goblin);
         }
         else
         {
             std::cout << "\nA cultist jumps out and attacks you!\n\n";
-            Cultist cultist;
+            Actor cultist("cultist");
             fight(cultist);
         }
     }

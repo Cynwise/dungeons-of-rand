@@ -7,7 +7,6 @@
 #include <iostream>
 
 #include <actor/player.h>
-#include <actor/centaur.h>
 #include <room/centaur_room.h>
 
 void fight(Actor&);
@@ -42,8 +41,8 @@ void Centaur_Room::enter()
         std::cout << description << std::endl;
 
         // Special encounter!
-        std::cout << "\nA Centaur Prances in Front of You!\n\n";
-        Centaur centaur;
+        std::cout << "\nA centaur prances in front of you!\n\n";
+        Actor centaur("centaur");
         fight(centaur);
     }
     else

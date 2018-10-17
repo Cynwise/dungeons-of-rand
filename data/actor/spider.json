@@ -1,0 +1,8 @@
+{
+    "type" : "spider",
+    "level" : 1,
+    "max_hp" : 10,
+
+    "strength" : 3,
+    "fortitude" : 3
+}

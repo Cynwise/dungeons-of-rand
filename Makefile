@@ -2,6 +2,7 @@
 CXX ?= g++
 CXXFLAGS ?= -gdwarf-2 -std=c++11 -Wall
 CXXFLAGS += $(INCLUDE_SCRIPT)
+LD_INPUT = -lstdc++fs
 
 # Build list of sources.
 SOURCES = $(shell find . -name "*.cpp")
@@ -55,7 +56,7 @@ cloc:
 .PHONY: cppcheck
 cppcheck:
 ifneq (, $(shell which cppcheck))
-	cppcheck -q --enable=warning,portability $(INCLUDE_SCRIPT) .
+	cppcheck -j 2 --suppress=*:json.h:1736 -q --enable=warning,portability $(INCLUDE_SCRIPT) .
 endif
 
 # Beautify code.
@@ -64,7 +65,7 @@ astyle:
 	astyle $(SOURCES) $(HEADERS)
 
 dungeons-of-rand: $(OBJECTS)
-	$(CXX) $(CXXFLAGS) -o dungeons-of-rand $(OBJECTS)
+	$(CXX) $(CXXFLAGS) -o dungeons-of-rand $(OBJECTS) $(LD_INPUT)
 
 # Include generated dependencies.
 -include $(DEPS)

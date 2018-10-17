@@ -19,15 +19,13 @@ class Actor
 {
 public:
 
+    /// Should not be used.
     Actor();
 
-    virtual ~Actor();
+    /// Create an actor of the given type.
+    Actor(std::string type);
 
-    /**
-     * @note Needs functional assignment operator or copy ctor
-     * to work correctly.
-     */
-    virtual Actor* clone() = 0;
+    virtual ~Actor();
 
     /// Make attack against another actor.
     virtual void attack(Actor& target);
@@ -70,6 +68,8 @@ public:
     void set_level(int val);
 
 protected:
+
+    friend class Actor_Module;
 
     /// Identifier for this actor.
     std::string name;

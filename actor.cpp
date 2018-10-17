@@ -8,10 +8,12 @@
 #include <string>
 
 #include <actor.h>
+#include <actor_module.h>
 #include <actor/player.h>
 #include <item/armor.h>
 #include <item/weapon.h>
 #include <inventory.h>
+#include <module.h>
 #include <rng.h>
 
 Actor::Actor()
@@ -26,6 +28,26 @@ Actor::Actor()
     // Initialize attributes.
     strength = 0;
     fortitude = 0;
+
+    // Initialize possessions.
+    items = new Inventory;
+    weapon = nullptr;
+    armor = nullptr;
+}
+
+Actor::Actor(std::string type)
+{
+    // Check if the type exists.
+    auto it = actor_map.find(type);
+    if (it == actor_map.end())
+    {
+        std::cerr << "ACTOR DOES NOT EXIST.\n";
+        return;
+    }
+
+    // Spawn an instance of "type".
+    *this = actor_map[type]->spawn();
+    hp = max_hp;
 
     // Initialize possessions.
     items = new Inventory;

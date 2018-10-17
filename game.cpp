@@ -11,7 +11,7 @@
 
 #include <actor.h>
 #include <actor/player.h>
-#include <actor/rat.h>
+#include <module.h>
 #include <room.h>
 #include <room/barbarian_room.h>
 #include <room/forest.h>
@@ -32,6 +32,9 @@ int main(int argc, char* argv[])
 {
     // Initialize RNG.
     std::srand(std::time(NULL));
+
+    // Load all modules.
+    modules_load();
 
     // Get player name.
     std::string player_name;

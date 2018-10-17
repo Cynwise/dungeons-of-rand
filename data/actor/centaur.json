@@ -1,0 +1,8 @@
+{
+    "type" : "centaur",
+    "level" : 1,
+    "max_hp" : 20,
+
+    "strength" : 6,
+    "fortitude" : 4
+}

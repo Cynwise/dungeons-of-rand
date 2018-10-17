@@ -1,0 +1,8 @@
+{
+    "type" : "giant",
+    "level" : 1,
+    "max_hp" : 20,
+
+    "strength" : 15,
+    "fortitude" : 10
+}

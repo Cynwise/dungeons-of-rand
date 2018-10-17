@@ -1,0 +1,8 @@
+{
+    "type" : "ghoul",
+    "level" : 1,
+    "max_hp" : 10,
+
+    "strength" : 12,
+    "fortitude" : 10
+}

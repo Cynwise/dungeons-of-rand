@@ -1,0 +1,8 @@
+{
+    "type" : "dragon",
+    "level" : 1,
+    "max_hp" : 50,
+
+    "strength" : 10,
+    "fortitude" : 10
+}

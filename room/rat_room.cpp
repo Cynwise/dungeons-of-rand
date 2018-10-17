@@ -7,7 +7,6 @@
 #include <iostream>
 
 #include <actor/player.h>
-#include <actor/rat.h>
 #include <room/rat_room.h>
 
 void fight(Actor&);
@@ -43,7 +42,7 @@ void Rat_Room::enter()
 
         // Special encounter!
         std::cout << "\nA rat gets the jump on you!\n\n";
-        Rat rat;
+        Actor rat("rat");
         fight(rat);
     }
     else

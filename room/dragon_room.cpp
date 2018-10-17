@@ -7,7 +7,6 @@
 #include <iostream>
 
 #include <actor/player.h>
-#include <actor/dragon.h>
 #include <room/dragon_room.h>
 
 void fight(Actor&);
@@ -42,8 +41,8 @@ void Dragon_Room::enter()
         std::cout << description << std::endl;
 
         // Special encounter!
-        std::cout << "\nA Dragon flies in Front of You!\n\n";
-        Dragon dragon;
+        std::cout << "\nA dragon flies in front of you!\n\n";
+        Actor dragon("dragon");
         fight(dragon);
     }
     else

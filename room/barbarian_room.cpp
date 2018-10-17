@@ -7,7 +7,6 @@
 #include <iostream>
 
 #include <actor/player.h>
-#include <actor/barbarian.h>
 #include <room/barbarian_room.h>
 
 void fight(Actor&);
@@ -43,7 +42,7 @@ void Barbarian_Room::enter()
 
         // Special encounter!
         std::cout << "\nA barbarian gets the jump on you!\n\n";
-        Barbarian barbarian;
+        Actor barbarian("barbarian");
         fight(barbarian);
     }
     else

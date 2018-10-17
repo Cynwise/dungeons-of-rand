@@ -19,7 +19,7 @@ Actor Actor_Module::spawn()
 {
     Actor actor;
 
-    actor.name = type;
+    actor.type = type;
     actor.level = level;
     actor.max_hp = max_hp;
 

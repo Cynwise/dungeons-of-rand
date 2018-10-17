@@ -71,9 +71,10 @@ protected:
 
     friend class Actor_Module;
 
-    /// Identifier for this actor.
-    std::string name;
+    /// Identifier for this Actor type.
+    std::string type;
 
+    std::string name;
     int level;
     int xp;
     int max_hp;

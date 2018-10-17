@@ -47,6 +47,7 @@ Actor::Actor(std::string type)
 
     // Spawn an instance of "type".
     *this = actor_map[type]->spawn();
+    name = type;
     hp = max_hp;
 
     // Initialize possessions.

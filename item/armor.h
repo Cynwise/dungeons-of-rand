@@ -19,6 +19,9 @@ public:
 
     virtual Armor* clone() = 0;
 
+    /// Gets the defensive value of this armor.
+    int get_def();
+
 private:
 
     /// Defense boost granted by this armor.

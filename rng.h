@@ -38,12 +38,9 @@ int flip();
  *
  * @param times Number of times to roll. Alternatively, number of dice.
  * @param sides Number of sides on the die.
- * @param modifier Number to add to the outcome of the dice roll.
  *
- * @return Result from dice roll, plus modifier.
- *
- * @note 2d5+2 -> roll(2, 5, 2)
+ * @return Result sum of dice rolls.
  */
-int roll(int times, int sides, int modifier);
+int roll(int times, int sides);
 
 #endif // RNG_H

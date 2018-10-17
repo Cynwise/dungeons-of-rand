@@ -11,6 +11,9 @@ Goblin::Goblin()
     level = 1;
     max_hp = 10;
     hp = max_hp;
+
+    strength = 3;
+    fortitude = 2;
 }
 
 Goblin* Goblin::clone()

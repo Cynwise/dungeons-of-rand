@@ -7,13 +7,22 @@
 
 Slime::Slime()
 {
-    std::string slime_color[4] = {"green slime","blue slime","red slime","black slime"};
+    std::string slime_color[4] =
+    {
+        "green",
+        "blue",
+        "red",
+        "black"
+    };
     int x = rng(0,3);
 
-    name = slime_color[x];
+    name = slime_color[x] + " slime";
     level = 1;
-    max_hp = 5;
+    max_hp = 10;
     hp = max_hp;
+
+    strength = 2;
+    fortitude = 8;
 }
 
 Slime* Slime::clone()

@@ -11,6 +11,9 @@ Snake::Snake()
     level = rng(1, 3);
     max_hp = 10 + level;
     hp = max_hp;
+
+    strength = 3;
+    fortitude = 1;
 }
 
 Snake* Snake::clone()

@@ -19,6 +19,9 @@ public:
 
     virtual Weapon* clone() = 0;
 
+    /// Gets this weapon's attack value.
+    int get_atk();
+
 private:
 
     /// Attack boost granted by this weapon.

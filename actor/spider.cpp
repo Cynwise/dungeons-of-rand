@@ -11,6 +11,9 @@ Spider::Spider()
     level = 1;
     max_hp = 10;
     hp = max_hp;
+
+    strength = 3;
+    fortitude = 3;
 }
 
 Spider* Spider::clone()

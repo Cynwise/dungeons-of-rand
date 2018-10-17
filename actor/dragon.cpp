@@ -9,8 +9,11 @@ Dragon::Dragon()
 {
     name = "dragon";
     level = 1;
-    max_hp = 10;
+    max_hp = 50;
     hp = max_hp;
+
+    strength = 10;
+    fortitude = 10;
 }
 
 Dragon* Dragon::clone()

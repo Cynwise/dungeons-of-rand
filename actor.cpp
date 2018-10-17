@@ -24,8 +24,8 @@ Actor::Actor()
     hp = 0;
 
     // Initialize attributes.
-    atk = 0;
-    def = 0;
+    strength = 0;
+    fortitude = 0;
 
     // Initialize possessions.
     items = new Inventory;
@@ -52,7 +52,8 @@ Actor::~Actor()
 void Actor::attack(Actor& target)
 {
     // Calculate damage.
-    int damage = roll(1, level, 0);
+    int atk = calc_atk();
+    int damage = roll(1, atk);
 
     int net_damage = target.hurt(damage);
 
@@ -85,6 +86,20 @@ int Actor::hurt(int damage)
 
     int hp_before = hp;
 
+    // Calculate defense. Net def = 1d(def)-1
+    int def = calc_def();
+    def = roll(1, def) - 1;
+
+    // Apply defense to damage taken.
+    damage -= def;
+
+    // Prevent negative damage.
+    if (damage < 0)
+    {
+        damage = 0;
+    }
+
+    // Take damage.
     hp -= damage;
 
     // Prevent negative health.
@@ -120,6 +135,32 @@ void Actor::level_up()
 {
     xp = 0;
     level++;
+}
+
+int Actor::calc_atk()
+{
+    int atk = strength;
+
+    // Check if this Actor is wielding a weapon.
+    if (weapon != nullptr)
+    {
+        atk += weapon->get_atk();
+    }
+
+    return atk;
+}
+
+int Actor::calc_def()
+{
+    int def = fortitude;
+
+    // Check if this Actor is wearing armor.
+    if (armor != nullptr)
+    {
+        def += armor->get_def();
+    }
+
+    return def;
 }
 
 std::string Actor::get_name() const

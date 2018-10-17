@@ -11,6 +11,9 @@ Echidna::Echidna()
     level = 1;
     max_hp = 10;
     hp = max_hp;
+
+    strength = 1;
+    fortitude = 1;
 }
 
 Echidna* Echidna::clone()

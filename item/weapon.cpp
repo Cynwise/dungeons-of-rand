@@ -8,3 +8,8 @@ Weapon::Weapon()
 {
     atk = 0;
 }
+
+int Weapon::get_atk()
+{
+    return atk;
+}

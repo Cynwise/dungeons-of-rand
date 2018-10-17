@@ -1,5 +1,5 @@
 /**
- * @file shaman.cc
+ * @file shaman.cpp
  * @brief Implementation for shaman.h.
  */
 
@@ -17,7 +17,7 @@ Shaman::Shaman()
     fortitude = 3;
 }
 
-Shaman* Shaman::Shaman()
+Shaman* Shaman::clone()
 {
     Shaman* tmp = new Shaman;
     *tmp = *this;

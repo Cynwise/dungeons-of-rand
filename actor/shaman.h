@@ -1,6 +1,6 @@
 /**
  * @file shaman.h
- * @brief magical enemy class.
+ * @brief Magical enemy class.
  */
 
 #ifndef SHAMAN_H

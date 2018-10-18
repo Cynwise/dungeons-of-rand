@@ -19,6 +19,7 @@
 Actor::Actor()
 {
     // Initialize main stats.
+    type = "[NO TYPE]";
     name = "[GENERIC ACTOR]";
     level = 0;
     xp = 0;
@@ -30,13 +31,16 @@ Actor::Actor()
     fortitude = 0;
 
     // Initialize possessions.
-    items = new Inventory;
     weapon = nullptr;
     armor = nullptr;
 }
 
 Actor::Actor(std::string type)
 {
+    // Initialize pointers.
+    weapon = nullptr;
+    armor = nullptr;
+
     // Check if the type exists.
     auto it = actor_map.find(type);
     if (it == actor_map.end())
@@ -47,29 +51,46 @@ Actor::Actor(std::string type)
 
     // Spawn an instance of "type".
     *this = actor_map[type]->spawn();
-    name = type;
-    hp = max_hp;
-
-    // Initialize possessions.
-    items = new Inventory;
-    weapon = nullptr;
-    armor = nullptr;
 }
 
 Actor::~Actor()
 {
     // Delete possessions.
-    delete items;
+    delete weapon;
+    delete armor;
+}
 
-    if (weapon != nullptr)
+Actor& Actor::operator=(const Actor& other)
+{
+    type = other.type;
+    name = other.name;
+    level = other.level;
+    xp = other.xp;
+    max_hp = other.max_hp;
+    hp = other.hp;
+
+    strength = other.strength;
+    fortitude = other.fortitude;
+
+    items = other.items;
+
+    // Copy weapon safely.
+    delete weapon;
+    weapon = nullptr;
+    if (other.weapon != nullptr)
     {
-        delete weapon;
+        weapon = other.weapon->clone();
     }
 
-    if (armor != nullptr)
+    // Copy armor safely.
+    delete armor;
+    armor = nullptr;
+    if (other.armor != nullptr)
     {
-        delete armor;
+        armor = other.armor->clone();
     }
+
+    return *this;
 }
 
 void Actor::attack(Actor& target)

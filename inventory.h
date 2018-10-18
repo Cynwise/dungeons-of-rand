@@ -28,8 +28,11 @@ public:
     /// Delete all contents.
     ~Inventory();
 
+    /// Assignment operator.
+    Inventory& operator=(const Inventory& other);
+
     /// Insert an item into the inventory.
-    void insert(Item& item);
+    void insert(const Item& item);
 
     /// Finds an item by name.
     Item* find_by_name(const std::string& key) const;

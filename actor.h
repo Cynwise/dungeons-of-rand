@@ -9,8 +9,9 @@
 
 #include <string>
 
+#include <inventory.h>
+
 class Armor;
-class Inventory;
 class Item;
 class Weapon;
 
@@ -26,6 +27,9 @@ public:
     Actor(std::string type);
 
     virtual ~Actor();
+
+    /// Assignment operator.
+    Actor& operator=(const Actor& other);
 
     /// Make attack against another actor.
     virtual void attack(Actor& target);
@@ -85,7 +89,7 @@ protected:
     int fortitude;
 
     // Possessions.
-    Inventory* items;
+    Inventory items;
     Weapon* weapon;
     Armor* armor;
 };

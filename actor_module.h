@@ -22,7 +22,12 @@ public:
     /// Spawns an actor of this type.
     Actor spawn();
 
+    /// Unique identifier for this Actor type;
     std::string type;
+
+private:
+
+    friend void from_json(const Json& j, Actor_Module& mod);
 
     int level;
     int xp;

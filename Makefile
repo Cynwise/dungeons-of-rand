@@ -50,7 +50,7 @@ endif
 # Print lines of code.
 .PHONY: cloc
 cloc:
-	cloc . --exclude-dir=html,latex,build
+	cloc . --exclude-dir=html,latex,build --not-match-f=json.h
 
 # Analyze codebase with cppcheck. Only runs if cppcheck is in PATH.
 .PHONY: cppcheck

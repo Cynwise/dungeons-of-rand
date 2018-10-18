@@ -20,7 +20,7 @@ public:
     virtual ~Item() = 0;
 
     /// Returns a dynamically allocated copy of this object.
-    virtual Item* clone() = 0;
+    virtual Item* clone() const = 0;
 
     /// Apply the item's effects to actor.
     virtual void use(Actor& user) = 0;

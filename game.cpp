@@ -17,6 +17,7 @@
 #include <room/forest.h>
 #include <room/storage_room.h>
 #include <room/rat_room.h>
+#include <room/treasure_room.h>
 
 #include <rng.h>
 
@@ -61,7 +62,7 @@ int main(int argc, char* argv[])
 
         // Pick which room type to generate.
         int chance = rng(1, 10);
-        if (chance <= 3)
+	if (chance <= 3)
         {
             next_room = new Storage_Room;
         }
@@ -73,6 +74,10 @@ int main(int argc, char* argv[])
         {
             next_room = new Rat_Room;
         }
+	else if (chance <= 9)
+	{
+	    next_room = new Treasure_Room;
+	}
         else
         {
             next_room = new Barbarian_Room;

@@ -1,7 +1,7 @@
 /**
  * @file treasure_room.cpp
- * @brief Implements a basic overloaded room which starts an
- * encounter upon the first enter().
+ * @brief Implements a basic overloaded room which will eventually drop an item
+ * small chance of encounter upon the first enter().
  */
 
 #include <iostream>

@@ -16,7 +16,7 @@ void from_json(const Json& json, Actor_Module& mod)
     mod.fortitude = json["fortitude"];
 }
 
-Actor Actor_Module::spawn()
+Actor Actor_Module::create()
 {
     Actor actor;
 

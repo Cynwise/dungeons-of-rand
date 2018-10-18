@@ -1,0 +1,13 @@
+{
+    "type" : "barbarian_room",
+    "brief" : "This dingy dungeon clearly shows evidence of a barbarian infestation.",
+    "description" : "Barbarians seem to have inhabited this room for some time.",
+
+    "actor_spawn" :
+    [
+        {
+            "type" : "rat",
+            "count" : 1
+        }
+    ]
+}

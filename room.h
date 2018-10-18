@@ -14,6 +14,7 @@
 class Actor;
 class Item;
 class Room;
+class Room_Module;
 
 /// Maps input strings to paths to other rooms.
 typedef std::map<std::string, Room*> Path;
@@ -27,7 +28,11 @@ public:
 
     virtual ~Room();
 
-    virtual Room* clone();
+    /// Assignment operator.
+    Room& operator=(const Room& other);
+
+    /// Create a room of a given type.
+    Room(const std::string& type);
 
     /**
      * @brief Add a one-way path to another room.
@@ -65,20 +70,25 @@ public:
 
 protected:
 
+    friend class Room_Module;
+
+    /// Room type identifier.
+    std::string type;
+
     /// Name of current room.
     std::string name;
-
-    /**
-     * @brief Long description of current room. Displayed when this
-     * room is first visited.
-     */
-    std::string description;
 
     /**
      * @brief Short description of current room. Displayed every
      * time this room is visited, besides the first time.
      */
     std::string brief;
+
+    /**
+     * @brief Long description of current room. Displayed when this
+     * room is first visited.
+     */
+    std::string description;
 
     /// Whether the room has been entered before.
     bool entered;

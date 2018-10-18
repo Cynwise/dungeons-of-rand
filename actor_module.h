@@ -20,7 +20,7 @@ class Actor_Module
 public:
 
     /// Spawns an actor of this type.
-    Actor spawn();
+    Actor create();
 
     /// Unique identifier for this Actor type;
     std::string type;

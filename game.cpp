@@ -44,6 +44,10 @@ int main(int argc, char* argv[])
     // Prompt to begin.
     start(player_name);
 
+    // TEST.
+    Room test_room("rat_room");
+    test_room.enter();
+
     // Define initial room.
     Room room_1;
     room_1.set_name("Pretty dank dungeon");

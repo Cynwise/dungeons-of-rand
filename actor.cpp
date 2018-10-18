@@ -50,7 +50,7 @@ Actor::Actor(std::string type)
     }
 
     // Spawn an instance of "type".
-    *this = actor_map[type]->spawn();
+    *this = actor_map[type]->create();
 }
 
 Actor::~Actor()
@@ -58,6 +58,8 @@ Actor::~Actor()
     // Delete possessions.
     delete weapon;
     delete armor;
+
+    // Inventory will be cleaned up by its destructor.
 }
 
 Actor& Actor::operator=(const Actor& other)

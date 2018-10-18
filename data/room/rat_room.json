@@ -1,0 +1,13 @@
+{
+    "type" : "rat_room",
+    "brief" : "Rats have clearly inhabited this room for some time.",
+    "description" : "There is much evidence of an infestation.",
+
+    "actor_spawn" :
+    [
+        {
+            "type" : "rat",
+            "count" : 1
+        }
+    ]
+}

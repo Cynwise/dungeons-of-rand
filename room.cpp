@@ -7,7 +7,9 @@
 
 #include <actor.h>
 #include <item.h>
+#include <module.h>
 #include <room.h>
+#include <room_module.h>
 
 // Declare pointer to current room.
 Room* player_room;
@@ -38,11 +40,27 @@ Room::~Room()
     }
 }
 
-Room* Room::clone()
+Room::Room(const std::string& type)
 {
-    Room* tmp = new Room;
-    *tmp = *this;
-    return tmp;
+    // Check if the type exists.
+    auto it = room_map.find(type);
+    if (it == room_map.end())
+    {
+        std::cerr << "ROOM DOES NOT EXIST.\n";
+        return;
+    }
+
+    // Spawn an instance of this Room type.
+    *this = room_map[type]->create();
+}
+
+Room& Room::operator=(const Room& other)
+{
+    type = other.type;
+    brief = other.brief;
+    description = other.description;
+
+    return *this;
 }
 
 void Room::add_one_way(const std::string& to, Room& dest)

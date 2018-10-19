@@ -1,0 +1,25 @@
+{
+    "type" : "storage_room",
+    "brief" : "This room looks like it was used for storage.",
+    "description" : "This old room is full of boxes and cobwebs that cover them. There could be anything hiding in here.",
+
+    "actor_spawn" :
+    [
+        {
+            "type" : "barbarian",
+            "count" : 1
+        },
+        {
+            "type" : "rat",
+            "count" : 1
+        },
+        {
+            "type" : "goblin",
+            "count" : 1
+        },
+        {
+            "type" : "cultist",
+            "count" : 1
+        }
+    ]
+}

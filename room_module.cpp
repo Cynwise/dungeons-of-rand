@@ -4,7 +4,9 @@
 
 #include <string>
 
+#include <actor.h>
 #include <json.h>
+#include <rng.h>
 #include <room.h>
 #include <room_module.h>
 
@@ -48,6 +50,19 @@ Room Room_Module::create()
     room.type = type;
     room.brief = brief;
     room.description = description;
+
+    // Spawn a random Actor from the spawn list.
+    /// @note Actor_Spawn::count is currently ignored.
+    if (!actor_spawn.empty())
+    {
+        // Pick a random entry.
+        int entry = rng(0, actor_spawn.size() - 1);
+
+        // Spawn the Actor and add it to the list.
+        std::string actor_type = actor_spawn[entry].type;
+        Actor* spawned = new Actor(actor_type);
+        room.actors.push_back(spawned);
+    }
 
     return room;
 }

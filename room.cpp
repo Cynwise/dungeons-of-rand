@@ -6,6 +6,7 @@
 #include <iostream>
 
 #include <actor.h>
+#include <actor/player.h>
 #include <item.h>
 #include <module.h>
 #include <room.h>
@@ -13,6 +14,8 @@
 
 // Declare pointer to current room.
 Room* player_room;
+
+extern void fight(Actor& target);
 
 Room::Room()
 {
@@ -60,6 +63,37 @@ Room& Room::operator=(const Room& other)
     brief = other.brief;
     description = other.description;
 
+    path = other.path;
+
+    // Delete this Room's Actors.
+    for (auto it = actors.begin(); it != actors.end(); ++it)
+    {
+        delete *it;
+    }
+    actors.clear();
+
+    // Copy the other Room's Actors.
+    for (auto it = other.actors.begin(); it != other.actors.end(); ++it)
+    {
+        Actor* tmp = new Actor;
+        *tmp = **it;
+        actors.push_back(tmp);
+    }
+
+    // Delete this Room's Items.
+    for (auto it = items.begin(); it != items.end(); ++it)
+    {
+        delete *it;
+    }
+    items.clear();
+
+    // Copy the other Room's Items.
+    for (auto it = other.items.begin(); it != other.items.end(); ++it)
+    {
+        Item* tmp = (*it)->clone();
+        items.push_back(tmp);
+    }
+
     return *this;
 }
 
@@ -91,6 +125,25 @@ void Room::enter()
     else
     {
         std::cout << brief << std::endl;
+    }
+
+    // Fight until are enemies in the room are dead.
+    while (!actors.empty())
+    {
+        Actor* enemy = actors.front();
+        std::cout << "\nA " << enemy->get_name() << " attacks you!\n\n";
+        fight(*enemy);
+
+        // Break if the player died.
+        if (player.get_hp() == 0)
+        {
+            break;
+        }
+        else
+        {
+            // Else, remove the Actor we just defeated.f
+            actors.pop_front();
+        }
     }
 }
 

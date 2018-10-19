@@ -18,7 +18,7 @@ Forest::Forest()
     description =
         "A secluded forest.";
     brief =
-        "You see a forest yet you still seem to inside a dungeon. "
+        "You see a forest yet you still seem to be inside a dungeon. "
         "The ceiling appears to shine artificial light.";
 }
 

@@ -85,6 +85,7 @@ int main(int argc, char* argv[])
 
         // Link this room.
         last_room->add_two_way("n", "s", *next_room);
+	last_room->add_two_way("e", "w", *next_room);
         last_room = next_room;
     }
 

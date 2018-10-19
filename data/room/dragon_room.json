@@ -1,0 +1,13 @@
+{
+    "type" : "dragon_room",
+    "brief" : "Lava flows along the walls of this part of the cave.",
+    "description" : "This would make a perfect den for a dragon...",
+
+    "actor_spawn" :
+    [
+        {
+            "type" : "dragon",
+            "count" : 1
+        }
+    ]
+}

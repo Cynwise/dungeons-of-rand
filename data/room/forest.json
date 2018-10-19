@@ -1,0 +1,33 @@
+{
+    "type" : "forest",
+    "brief" : "This is a forest, yet you still seem to be in a dungeon.",
+    "description" : "The ceiling is emitting some form of artificial light.",
+
+    "actor_spawn" :
+    [
+        {
+            "type" : "barbarian",
+            "count" : 1
+        },
+        {
+            "type" : "rat",
+            "count" : 1
+        },
+        {
+            "type" : "echidna",
+            "count" : 1
+        },
+        {
+            "type" : "bear",
+            "count" : 1
+        },
+        {
+            "type" : "spider",
+            "count" : 1
+        },
+        {
+            "type" : "snake",
+            "count" : 1
+        }
+    ]
+}

@@ -13,11 +13,6 @@
 #include <actor/player.h>
 #include <module.h>
 #include <room.h>
-#include <room/barbarian_room.h>
-#include <room/forest.h>
-#include <room/storage_room.h>
-#include <room/rat_room.h>
-#include <room/treasure_room.h>
 
 #include <rng.h>
 
@@ -62,22 +57,22 @@ int main(int argc, char* argv[])
 
         // Pick which room type to generate.
         int chance = rng(1, 10);
-	if (chance <= 3)
+        if (chance <= 3)
         {
-            next_room = new Storage_Room;
+            next_room = new Room("storage_room");
         }
         else if (chance <= 6)
         {
-            next_room = new Forest;
+            next_room = new Room("forest");
         }
         else if (chance <= 8)
         {
             next_room = new Room("rat_room");
         }
-	else if (chance <= 9)
-	{
-	    next_room = new Treasure_Room;
-	}
+        else if (chance <= 9)
+        {
+            next_room = new Room("treasure_room");
+        }
         else
         {
             next_room = new Room("barbarian_room");
@@ -85,7 +80,7 @@ int main(int argc, char* argv[])
 
         // Link this room.
         last_room->add_two_way("n", "s", *next_room);
-	last_room->add_two_way("e", "w", *next_room);
+        last_room->add_two_way("e", "w", *next_room);
         last_room = next_room;
     }
 

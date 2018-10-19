@@ -1,0 +1,13 @@
+{
+    "type" : "centaur_room",
+    "brief" : "This room has a pile of waste that indicates Centaur habitation.",
+    "description" : "This room smells like Centaur waste.",
+
+    "actor_spawn" :
+    [
+        {
+            "type" : "centaur",
+            "count" : 1
+        }
+    ]
+}

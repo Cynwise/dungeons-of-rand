@@ -1,0 +1,7 @@
+{
+    "type" : "treasure_room",
+    "brief" : "This room once held vast amounts of treasure.",
+    "description" : "Now, it holds nothing. You feel slightly frustrated",
+
+    "actor_spawn" : []
+}

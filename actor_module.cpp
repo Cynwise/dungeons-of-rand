@@ -8,12 +8,12 @@
 
 void from_json(const Json& json, Actor_Module& mod)
 {
-    mod.type = json["type"];
-    mod.level = json["level"];
-    mod.max_hp = json["max_hp"];
+    json.at("type").get_to(mod.type);
+    json.at("level").get_to(mod.level);
+    json.at("max_hp").get_to(mod.max_hp);
 
-    mod.strength = json["strength"];
-    mod.fortitude = json["fortitude"];
+    json.at("strength").get_to(mod.strength);
+    json.at("fortitude").get_to(mod.fortitude);
 }
 
 Actor Actor_Module::create()

@@ -44,10 +44,6 @@ int main(int argc, char* argv[])
     // Prompt to begin.
     start(player_name);
 
-    // TEST.
-    Room test_room("rat_room");
-    test_room.enter();
-
     // Define initial room.
     Room room_1;
     room_1.set_name("Pretty dank dungeon");
@@ -75,11 +71,11 @@ int main(int argc, char* argv[])
         }
         else if (chance <= 8)
         {
-            next_room = new Rat_Room;
+            next_room = new Room("rat_room");
         }
         else
         {
-            next_room = new Barbarian_Room;
+            next_room = new Room("barbarian_room");
         }
 
         // Link this room.

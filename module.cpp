@@ -61,7 +61,7 @@ void module_load_actor(const std::string& path)
 
         // Parse the module.
         Actor_Module* mod = new Actor_Module;
-        from_json(json, *mod);
+        *mod = json;
 
         // Insert the module into the actor_modules list.
         actor_map[mod->type] = mod;
@@ -79,7 +79,7 @@ void module_load_room(const std::string& path)
 
         // Parse the module.
         Room_Module* mod = new Room_Module;
-        from_json(json, *mod);
+        *mod = json;
 
         // Insert the module into the room_modules list.
         room_map[mod->type] = mod;

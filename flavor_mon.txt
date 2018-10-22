@@ -25,4 +25,58 @@ Holes are present in the bandit's clothes and confidence. Press this advantage!
 The clothes of the enemy are soaked red. Their breathing is haggard and weak.
 You strike down the foe, dissapointed in their lack of humanity.
 The dagger disembowels you, and you see the scowl turn into an unsettling grin.
+Snake
+You hear a hiss from the shadows. As you turn to face it, a large cobra appears!
+The snake tests your dexterity, trying to sink its fangs deep into your calves.
+Slithering away, it seems less interested in poisoning you that it was previously.
+Its fangs are sharp and dripping with a sickly green substance... ready to strike!
+It moves sporadically, not willing nor wanting you to strike it down once again.
+Everywhere the snake moves, it leaves a trail of crimson... it is at its end...
+You tear the snake it two, leaving its body twisting... lurching... before succumbing.
+That last bite proved too much... you feel froth build in your mouth before passing.
+Barbarian
+You hear it before you see it... the howls of a warrior. Fueled by rage and war.
+The barbarian lifts his awful axe, and throws it down with incredible force!!
+This \"man\" moves fast for someone built like a boulder. He seems ready for your move.
+Covered in scars, the barbarian's body is meaty and powerful. He is ready for more...
+They're bleeding, and the breathing is haggard... but they almost seem to... ENJOY it.
+You see the barbarian start to stumble. He can't keep up his rage for much longer...
+That last hit put the manic soul to sleep forever. They fall, and its finally silent.
+The barbarian screams with glee as they see the final blow land, and tear you asunder.
+Spider
+You see huge spiderwebs collecting in the corners of this room... and many tiny eyes.
+The spiders looks coordinated, trying to deliver their immobilizing venom in unison.
+The spiders skitter back to their webs. Perhaps they've miscalculated this foe?
+Many spiders are before you, the various clicking and hissing deafening to your ears.
+Only half the spiders remain. You are stronger, sure... but they are more numerous.
+A few stragglers are all thats left. Crush them all. One. By. One!
+With the last spider crushed under your boot, the clicking and hissing finally ceases.
+You feel your joints cease to function as the spiders begin trapping their supper...
+Goblin
+A hideous and tiny thing scours for scraps or trinkets, before noticing your presence.
+Wielding a pitiful shiv of some sort, the goblin makes an attempt at causing you harm.
+The goblin's eyes grow wild, and its movements become even crazier than before.
+The goblin hasn't really been hit by you... but it still looks like utter shit.
+This creature is wimpering and keeling at the slightest blow... its kind of pitiful.
+The goblin is regularly coughing up blood, and is now begging for its life.
+The goblin lets out a panicked cry before succumbing to your (frankly soft) blows.
+As you fall, the goblin shouts out in glee. It didn't expect that outcome!
+Bear
+A huge creature stands in this room with you. Towering over you... a brown bear!
+Roaring with all its might, it swings it huge claws towards you!
+This large creature is wary of your blows, and attempts to stave off your advance. 
+This bear is very constitute: battle-hardened, angry, and wary of your ilk.
+You've done some decent damage to this beast! Even so, it stands strong and mighty.
+The wear of your attacks is more apparent now... the bear looks close to its end.
+You did it! Striking the bear across the hide, it finally succumbs to its wounds!
+The bear bears down on your lifeless form, and eats a large part of your midsection.
+Green slime
+As you enter, a damp, rubbery substance moves(?) towards you... menancingly(?) 
+When the slime touches you, you feel a burning sensation... this slime is eating you!
+The rubbery substance moves away, rolling across the floor... is it trying to escape?
+The slime glistens like a greasy ball of sorts. When disturbed, the mass jiggles.
+The slime is... smaller? Each hit seems to smash some of the mass off the main blob.
+The slime is definitely smaller now; it could probably fit into both of your hands.
+With that last hit, you dash the last of it across the floor, and it stops moving.
+The slime's burns prove too much, and it jumps to your face, dissolving your flesh.
 

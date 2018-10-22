@@ -9,18 +9,20 @@
 #include <item.h>
 
 /// Generic equipable armor class.
-class Armor : Item
+class Armor : public Item
 {
 public:
 
     Armor();
 
-    virtual ~Armor() = 0;
+    virtual ~Armor();
 
-    virtual Armor* clone() = 0;
+    Armor(const Armor& other);
+
+    virtual Armor* clone() const;
 
     /// Gets the defensive value of this armor.
-    int get_def();
+    int get_def() const;
 
 private:
 

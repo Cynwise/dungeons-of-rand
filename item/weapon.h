@@ -6,21 +6,25 @@
 #ifndef WEAPON_H
 #define WEAPON_H
 
+#include <memory>
+
 #include <item.h>
 
 /// Generic equipable weapon class.
-class Weapon : Item
+class Weapon : public Item
 {
 public:
 
     Weapon();
 
-    virtual ~Weapon() = 0;
+    virtual ~Weapon();
 
-    virtual Weapon* clone() = 0;
+    Weapon(const Weapon& other);
+
+    virtual Weapon* clone() const;
 
     /// Gets this weapon's attack value.
-    int get_atk();
+    int get_atk() const;
 
 private:
 

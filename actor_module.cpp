@@ -5,6 +5,8 @@
 #include <actor.h>
 #include <actor_module.h>
 #include <inventory.h>
+#include <item/armor.h>
+#include <item/weapon.h>
 
 void from_json(const Json& json, Actor_Module& mod)
 {

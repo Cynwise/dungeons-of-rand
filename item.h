@@ -6,6 +6,7 @@
 #ifndef ITEM_H
 #define ITEM_H
 
+#include <memory>
 #include <string>
 
 class Actor;
@@ -17,13 +18,13 @@ public:
 
     Item();
 
-    virtual ~Item() = 0;
+    virtual ~Item();
 
     /// Returns a dynamically allocated copy of this object.
-    virtual Item* clone() const = 0;
+    virtual Item* clone() const;
 
     /// Apply the item's effects to actor.
-    virtual void use(Actor& user) = 0;
+    virtual void use(Actor& user);
 
 protected:
 

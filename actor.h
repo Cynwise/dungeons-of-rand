@@ -7,6 +7,7 @@
 #ifndef ACTOR_H
 #define ACTOR_H
 
+#include <memory>
 #include <string>
 
 #include <inventory.h>
@@ -22,6 +23,9 @@ public:
 
     /// Should not be used.
     Actor();
+
+    /// Copy constructor.
+    Actor(const Actor& other);
 
     /// Create an actor of the given type.
     Actor(std::string type);
@@ -90,8 +94,8 @@ protected:
 
     // Possessions.
     Inventory items;
-    Weapon* weapon;
-    Armor* armor;
+    std::unique_ptr<Weapon> weapon;
+    std::unique_ptr<Armor> armor;
 };
 
 #endif // ACTOR_H

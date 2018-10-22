@@ -52,7 +52,6 @@ Room Room_Module::create()
     room.description = description;
 
     // Spawn a random Actor from the spawn list.
-    /// @note Actor_Spawn::count is currently ignored.
     if (!actor_spawn.empty())
     {
         // Pick a random entry.
@@ -60,8 +59,13 @@ Room Room_Module::create()
 
         // Spawn the Actor and add it to the list.
         std::string actor_type = actor_spawn[entry].type;
-        Actor* spawned = new Actor(actor_type);
-        room.actors.push_back(spawned);
+        int actor_count = actor_spawn[entry].count;
+        while (actor_count > 0)
+        {
+            Actor* spawned = new Actor(actor_type);
+            room.actors.push_back(spawned);
+            actor_count--;
+        }
     }
 
     return room;

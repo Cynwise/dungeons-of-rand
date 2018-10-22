@@ -35,6 +35,43 @@ Actor::Actor()
     armor = nullptr;
 }
 
+Actor::Actor(const Actor& other)
+{
+    type = other.type;
+    name = other.name;
+    level = other.level;
+    xp = other.xp;
+    max_hp = other.max_hp;
+    hp = other.hp;
+
+    strength = other.strength;
+    fortitude = other.fortitude;
+
+    items = other.items;
+
+    // Safely copy weapon.
+    if (other.weapon != nullptr)
+    {
+        Weapon* new_weapon = other.weapon->clone();
+        weapon.reset(new_weapon);
+    }
+    else
+    {
+        weapon = nullptr;
+    }
+
+    // Safely copy armor.
+    if (other.armor != nullptr)
+    {
+        Armor* new_armor = other.armor->clone();
+        armor.reset(new_armor);
+    }
+    else
+    {
+        armor = nullptr;
+    }
+}
+
 Actor::Actor(std::string type)
 {
     // Initialize pointers.
@@ -55,10 +92,6 @@ Actor::Actor(std::string type)
 
 Actor::~Actor()
 {
-    // Delete possessions.
-    delete weapon;
-    delete armor;
-
     // Inventory will be cleaned up by its destructor.
 }
 
@@ -77,19 +110,19 @@ Actor& Actor::operator=(const Actor& other)
     items = other.items;
 
     // Copy weapon safely.
-    delete weapon;
     weapon = nullptr;
     if (other.weapon != nullptr)
     {
-        weapon = other.weapon->clone();
+        Weapon* new_weapon = other.weapon->clone();
+        weapon.reset(new_weapon);
     }
 
     // Copy armor safely.
-    delete armor;
     armor = nullptr;
     if (other.armor != nullptr)
     {
-        armor = other.armor->clone();
+        Armor* new_armor = other.armor->clone();
+        armor.reset(new_armor);
     }
 
     return *this;

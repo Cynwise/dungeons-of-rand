@@ -156,7 +156,7 @@ int game_loop()
 }
 
 void command_time() {
-    std::this_thread::sleep_for(std::chrono::milliseconds(1000)); //This works!!
+    std::this_thread::sleep_for(std::chrono::milliseconds(0)); //This works!!
 }
 
 void get_name(std::string &name) {

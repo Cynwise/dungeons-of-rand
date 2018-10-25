@@ -1,0 +1,8 @@
+{
+    "type" : "gnome",
+    "level" : 1,
+    "max_hp" : 15,
+
+    "strength" : 2,
+    "fortitude" : 5
+}

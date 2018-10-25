@@ -22,6 +22,10 @@
             "count" : 1
         },
         {
+            "type" : "gnome",
+            "count" : 1
+        },
+        {
             "type" : "spider",
             "count" : 1
         },

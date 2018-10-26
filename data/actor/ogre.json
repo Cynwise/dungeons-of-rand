@@ -1,0 +1,8 @@
+{
+    "type" : "ogre",
+    "level" : 1,
+    "max_hp" : 17,
+
+    "strength" : 6,
+    "fortitude" : 6
+}

@@ -1,0 +1,8 @@
+{
+    "type" : "cult leader",
+    "level" : 1,
+    "max_hp" : 25,
+
+    "strength" : 9,
+    "fortitude" : 4
+}

@@ -1,0 +1,8 @@
+{
+    "type" : "wolf",
+    "level" : 1,
+    "max_hp" : 15,
+
+    "strength" : 4,
+    "fortitude" : 3
+}

@@ -1,5 +1,6 @@
 {
-    "type" : "black slime",
+    "type" : "black_slime",
+    "name" : "black slime",
     "level" : 1,
     "max_hp" : 30,
 

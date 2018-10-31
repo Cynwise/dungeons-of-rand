@@ -1,5 +1,6 @@
 {
-    "type" : "green slime",
+    "type" : "green_slime",
+    "name" : "green slime",
     "level" : 1,
     "max_hp" : 15,
 

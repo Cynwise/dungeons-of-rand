@@ -1,5 +1,6 @@
 {
-    "type" : "rat of unusual size",
+    "type" : "big_rat",
+    "name" : "rat of unusual size",
     "level" : 1,
     "max_hp" : 10,
 

@@ -20,9 +20,9 @@ DEPS = $(OBJECTS:.o=.d)
 INCLUDE_DIRS = .
 INCLUDE_SCRIPT = $(addprefix -I, $(INCLUDE_DIRS))
 
-# Default target.s
+# Default target.
 .PHONY: all
-all: build cppcheck doc
+all: build doc
 
 # Remove all generated output.
 .PHONY: clean
@@ -56,7 +56,7 @@ cloc:
 .PHONY: cppcheck
 cppcheck:
 ifneq (, $(shell which cppcheck))
-	cppcheck -j 2 --suppress=*:json.h:1736 -q --enable=warning,portability $(INCLUDE_SCRIPT) .
+	cppcheck -j 2 -ivendor -q --enable=warning,portability $(INCLUDE_SCRIPT) .
 endif
 
 # Beautify code.

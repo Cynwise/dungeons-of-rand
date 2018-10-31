@@ -8,9 +8,9 @@
 #include <string>
 
 #include <actor_module.h>
-#include <json.h>
 #include <module.h>
 #include <room_module.h>
+#include <vendor/json.h>
 
 namespace fs = std::experimental::filesystem;
 

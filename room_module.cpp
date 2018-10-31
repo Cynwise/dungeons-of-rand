@@ -5,10 +5,10 @@
 #include <string>
 
 #include <actor.h>
-#include <json.h>
 #include <rng.h>
 #include <room.h>
 #include <room_module.h>
+#include <vendor/json.h>
 
 void from_json(const Json& json, Room_Module& mod)
 {

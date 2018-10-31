@@ -8,7 +8,7 @@
 
 #include <string>
 
-#include <json.h>
+#include <vendor/json.h>
 
 typedef nlohmann::json Json;
 
@@ -29,6 +29,7 @@ private:
 
     friend void from_json(const Json& j, Actor_Module& mod);
 
+    std::string name;
     int level;
     int xp;
     int max_hp;

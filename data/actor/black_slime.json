@@ -5,5 +5,12 @@
     "max_hp" : 30,
 
     "strength" : 3,
-    "fortitude" : 4
+    "fortitude" : 4,
+
+    "combat_start" : 
+    	[
+    	"The room looks empty... until you view the ceiling. A huge, black rubber mass.",
+    	]
+    "win" : "You dash the last of it away... and now see you've coated the room in black pudding.",
+    "lose" : "ou fall for but a moment, and the black mass moves over your body, enveloping you."
 }

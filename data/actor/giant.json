@@ -4,5 +4,12 @@
     "max_hp" : 20,
 
     "strength" : 15,
-    "fortitude" : 10
+    "fortitude" : 10,
+
+    "combat_start" :
+    	[
+    	"A giant sits in this room, trying to stand upright as it sees you enter. It's huge!!",
+    	]
+    "win" : "With that last blow, the giant falls to the ground, shaking the earth below.",
+    "lose" : "The giant's blow proves too much for your small bones, and you crumple under the force."
 }

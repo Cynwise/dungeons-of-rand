@@ -4,5 +4,12 @@
     "max_hp" : 10,
 
     "strength" : 3,
-    "fortitude" : 5
+    "fortitude" : 5,
+
+    "combat_start" :
+    	[
+    	"You hear various bubblings and hissings... the sounds of a shaman at work.",
+    	]
+    "win" : "They drink one last potion, but it didn't mix well, and they end up killing themself.",
+    "lose" : "That sickness finally keels you over, and you pass out from vomiting up blood."
 }

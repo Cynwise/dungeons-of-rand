@@ -4,5 +4,12 @@
     "max_hp" : 20,
 
     "strength" : 8,
-    "fortitude" : 5
+    "fortitude" : 5,
+
+    "combat_start" :
+    [
+    "A huge creature stands in this room with you. Towering over you... a brown bear!",
+    ]
+    "win" : "You did it! Striking the bear across the hide, it finally succumbs to its wounds!",
+    "lose" : "The bear bears down on your lifeless form, and eats a large part of your midsection."
 }

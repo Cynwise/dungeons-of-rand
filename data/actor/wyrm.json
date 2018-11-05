@@ -4,5 +4,12 @@
     "max_hp" : 20,
 
     "strength" : 5,
-    "fortitude" : 4
+    "fortitude" : 4,
+
+    "combat_start" :
+    	[
+    	"You see an adolescent dragon, waiting in this room for something... waiting for YOU!",
+    	]
+    "win" : "The dragon was tough, but easier than expected. Hopefully that's the worst you'll see.",
+    "lose" : "The last strike finally took you down, and the wyrm barks excitedly as you pass."
 }

@@ -1,207 +1,160 @@
 Rat
-A small rat eyes you hungrily. Feeling bold, it takes a chance, and strikes!
 The rat moves with incredible agility, biting a small chunk out of your leg.
 Low to the ground, the rat waits for the perfect oppurtunity...
 The rat looks ugly, diseased, and hungry... and you look delectable!
 A couple of scrapes and bruises aren't going to keep this rat away from a good meal!
 The rat's eyes search for an escape... perhaps it bit off more than it could chew..?
-The rat lies motionless on the ground. Congratulations. You beat a rodent to death.
-As you fall, the rat quickly begins its work, excited at the prospect of a fresh meal.
+
 Rat of Unusual Size
-A huge rat approaches you. Its claws bloody and sharp. Its teeth coated in viscera.
 The beast's teeth, sharp as daggers, bear down on your midsection... hungry for more.
 The rat moves surprisingly fast for a creature of its size. It looks wary of you...
 Despite the blood on its fur, the rat seems fine. Perhaps that blood is not its own...
 The rat has taken some hits, but it doesnt seem bothered. If anything, it looks angry.
 The beast is wheezing, and the floor is coated in its blood. Finish it while its low!!
-The beast slumps to the ground, and lies still. You breathe a thankful sigh of relief.
-The rat sinks its teeth into your jugular. As all fades, you hear a joyous screech.
+
 Bandit
-A person?! You approach, seeking a friendly face, but instead find daggers and malice.
 The figure lunges forward, hoping their twisted blades strike true.
 Daggers down, the bandit beckons you forward, as if daring you to try.
 The armor is shoddy and piecemeal, but holds up fine. The bandit awaits your move.
 Holes are present in the bandit's clothes and confidence. Press this advantage!
 The clothes of the enemy are soaked red. Their breathing is haggard and weak.
-You strike down the foe, dissapointed in their lack of humanity.
-The dagger disembowels you, and you see the scowl turn into an unsettling grin.
+
 Snake
-You hear a hiss from the shadows. As you turn to face it, a large cobra appears!
 The snake tests your dexterity, trying to sink its fangs deep into your calves.
 Slithering away, it seems less interested in poisoning you that it was previously.
 Its fangs are sharp and dripping with a sickly green substance... ready to strike!
 It moves sporadically, not willing nor wanting you to strike it down once again.
 Everywhere the snake moves, it leaves a trail of crimson... it is at its end...
-You tear the snake it two, leaving its body twisting... lurching... before succumbing.
-That last bite proved too much... you feel froth build in your mouth before passing.
+
 Barbarian
-You hear it before you see it... the howls of a warrior. Fueled by rage and war.
 The barbarian lifts his awful axe, and throws it down with incredible force!!
 This \"man\" moves fast for someone built like a boulder. He seems ready for your move.
 Covered in scars, the barbarian's body is meaty and powerful. He is ready for more...
 They're bleeding, and the breathing is haggard... but they almost seem to... ENJOY it.
 You see the barbarian start to stumble. He can't keep up his rage for much longer...
-That last hit put the manic soul to sleep forever. They fall, and its finally silent.
-The barbarian screams with glee as they see the final blow land, and tear you asunder.
+
 Spider
-You see huge spiderwebs collecting in the corners of this room... and many tiny eyes.
 The spiders looks coordinated, trying to deliver their immobilizing venom in unison.
 The spiders skitter back to their webs. Perhaps they've miscalculated this foe?
 Many spiders are before you, the various clicking and hissing deafening to your ears.
 Only half the spiders remain. You are stronger, sure... but they are more numerous.
 A few stragglers are all thats left. Crush them all. One. By. One!
-With the last spider crushed under your boot, the clicking and hissing finally ceases.
-You feel your joints cease to function as the spiders begin trapping their supper...
+
 Goblin
-A hideous and tiny thing scours for scraps or trinkets, before noticing your presence.
 Wielding a pitiful shiv of some sort, the goblin makes an attempt at causing you harm.
 The goblin's eyes grow wild, and its movements become even crazier than before.
 The goblin hasn't really been hit by you... but it still looks like utter shit.
 This creature is wimpering and keeling at the slightest blow... its kind of pitiful.
 The goblin is regularly coughing up blood, and is now begging for its life.
-The goblin lets out a panicked cry before succumbing to your (frankly soft) blows.
-As you fall, the goblin shouts out in glee. It didn't expect that outcome!
+
 Bear
-A huge creature stands in this room with you. Towering over you... a brown bear!
 Roaring with all its might, it swings it huge claws towards you!
 This large creature is wary of your blows, and attempts to stave off your advance. 
 This bear is very constitute: battle-hardened, angry, and wary of your ilk.
 You've done some decent damage to this beast! Even so, it stands strong and mighty.
 The wear of your attacks is more apparent now... the bear looks close to its end.
-You did it! Striking the bear across the hide, it finally succumbs to its wounds!
-The bear bears down on your lifeless form, and eats a large part of your midsection.
+
 Green slime
-As you enter, a damp, rubbery substance moves(?) towards you... menancingly(?) 
 When the slime touches you, you feel a burning sensation... this slime is eating you!
 The rubbery substance moves away, rolling across the floor... is it trying to escape?
 The slime glistens like a greasy ball of sorts. When disturbed, the mass jiggles.
 The slime is... smaller? Each hit seems to smash some of the mass off the main blob.
 The slime is definitely smaller now; it could probably fit into both of your hands.
-With that last hit, you dash the last of it across the floor, and it stops moving.
-The slime's burns prove too much, and it jumps to your face, dissolving your flesh.
+
 Rogue
-A rogue, wearing tight leather armor. They seem excited to test your mettle!
 The rogue tries to distract you, change your footing, shift your guard... then strike!
 This swashbuckler is light on their feet, dancing around you... what're they planning?
 They laugh and jeer at you, daring you to approach... the cutlass says you shouldn't.
 They've dodged most of your attacks, but that sneer is starting to falter!!
 You got some good hits in, and the rogue is moving slower and slower. Strike true!
-You finally struck true, and the rogue immediately topples, their stamina expended.
-The cutlass pierces deep into you, stealing your breath... death won't take long now.
+
 Cultist
-You hear ominous whispers as you enter the room... a cloaked figure... with red eyes?
 You hear multiple whispers as the figure brandishes a knife... twisted and eldritch.
 The figure it difficult to see... as if they were double. They're hard to follow.
 The cloak is intact, and you can see nothing of the figure within, save two red eyes.
 The cloak is torn now, and what dim light shines is present reveals an inhuman visage.
 The figure is bleeding green, and its skin is a pale blue. Cleanse the world of it!! 
-You know you did right in killing THAT. This creature was never meant to exist.
-The cultist whispers a word of power, and you lose your abilitiy to think...
+
 Dragon
-This room stores a powerful entity... a huge red dragon, sitting atop a pile of gold.
 The dragon lunges forward, trying to capture an easy morsel.
 The dragon flaps its powerful wings, trying to buffet you back.
 The dragon blows embers with every breath, smiling at its prey... this won't be easy.
 The fire burns hotter, and it looks angrier... but it looks wounded. You're closer!
 The dragon's eyes are wild and fierce... you must have it scared!
-You did it!!! The dragon falls! And the gold is yours for the taking!
-You fall to your knees, and the dragon doesn't hesitate to burn you to a crisp.
+
 Centuar
-This room holds a curious beast.. half man, half horse? This must be a centaur!!
 The centaur wields a large spear, and attempts to pierce into you!
 The centuar makes use of its equestrian bottom, galloping away from your attacks.
 The centaur looks stoic, patient, and defensive. Good traits for a warrior.
 The centaur's legs wobble ever so slightly. You've hurt him!
 The centuar pants, and tries hard to stay up on all fours. Just a bit more...
-It falls! You're not sure why it started to fight you, but you staved off the beast!
-You let your defenses down, and the centuar seizes its chance, striking your chest.
+
 Echidna
-In this room is an adorable sight: an echidna! With... a pocket knife?
 The echidna seems very proficient with its knife, seeking to filet your ankles.
 Striking a tiny rodent is not very easy. It's attempting to sidestep your every move.
 This echidna could actually be pretty cute if it weren't for the knife in its mouth.
 You've hit it once or twice, but those adorable eyes are still set on their mission. 
 You don't want to kill it... but the echidna is still determined. You may have to.
-You end the echindna's life... You feel horrible for such a waste of adorable life.
-In the end, you couldn't bring yourself to do the deed... and bled out by your ankles.
+
 Ghoul
-A tall, pale blue monster stands in this room... it's eyes beady, it's teeth bloody...
 It strikes fast and hard with it's teeth, it's claws, it's tongue. Hungry for flesh.
 An inhuman yelp escapes its mouth as it attempts to escape your blows.
 The ghoul is emaciated and gaunt, but also strong. It howls a monstrous laugh. 
 The wounds go deep, but they seem to be sealing... can this creature regenerate??
 The ghoul is bleeding and panting hard, but it isn't too bothered by its wounds.
-As the monster falls, a faint hope blossoms. MAybe that's the last of them...? 
-The monster tears past your armor, and happily shreaks as it rips through your flesh.
+
 Giant
-A giant sits in this room, trying to stand upright as it sees you enter. It's huge!!
 Its fist is the size of a small boulder, and will hurt like one if it makes contact!
 The giant tried to block with its hand, not wanting to take this abuse any longer.
 They look gross and malnourished, but hardy. It'll take some doin' to get it down.
 They're bleeding in some spots, and they look upset at your success.
 Haggard and bloody, the giant moans out, as if begging for your mercy.
-With that last blow, the giant falls to the ground, shaking the earth below.
-As the giant blow proves too much for your bones, and you crumple under the force.
+
 Gnome
-A snickering, fat little cherub sits in your room, tinkering with some small toy.
 That thing in the gnomes hand was no children's toy: it's a ball that breathes fire!
 The gnome hops and skips out of view, trying to let its contraptions do all the work.
 The rosy cheeks are bright and red, and the gnome seems to be having fun!
 It definitely did NOT appreciate you stabbing it.
 The gnome pulls out more and more devious contraptions as it becomes more desperate.
-The gnome's falls, and the contraptions break without their master maintaining them...
-The many tiny cuts, burns, and bruises finally do you in. Never underestimate a gnome!
+
 Shaman
-You hear various bubblings and hissings... the sounds of a shaman at work.
 The shaman tries to cast a charm on you... making you feel sickly.
 They drink a extract of some sort, that makes them incredibly quick!
 The shaman's tattoos and charms adorn their every limb, leaving no portion uncovered.
 The clothes and charms have been torn away, revealing the spindly human underneath.
 They're running low on extracts and charms. They're nearing their end!
-They drink one last potion, but it didn't mix well, and they end up killing themself.
-That sickness finally keels you over, and you pass out from vomiting up blood.
+
 Wolf
-A small den rests in this room, with a large wolf protectin its pups.
 Snarling and growling at you, it attempts to sink its teeth into your neck.
 The wolf paces around you, trying to stand between you and its children.
 The wolf is big and powerful, and is fueled by parental instinct.
 The wolf is definitely hurting, but it shows no sign of weakness. It will win, or die!
 This is it... the wolf is fiercely determined to keep its pups safe. It must succeed!!
-You did it... you tore down the wolf. You never meant the pups harm, but... still.
-The wolf sinks it's teeth into your neck, tossing you around as you feel the snap.
+
 Wyrmling
-You see an adolescent dragon, waiting in this room for something... waiting for YOU!
 This dragon isn't big enough to breathe fire yet... but it can swipe at you!
 The wyrm doesn't like it's odds, and attempts to avoid your blows.
 It seems sure of itself... but it also hasn't been hit yet.
 The wyrm is definitely more cautious now that it knows the sting of your blade.
 If you knew any better, you'd think the small dragon was whimpering...
-The dragon was tough, but easier than expected. Hopefully that's the worst you'll see.
-The last strike finally took you down, and the wyrm barks excitedly as you pass.
+
 Ogre
-A loud monster stands alone in here. An ogre, who takes offense to your presence.
 As he roars, he swings his club at you. A club covered in blood, and also... snot?
 The ogre attempts to "dodge" your blows, but dodge is a strong word for it. 
 The ogre is greasy, smelly, and incredibly ugly. You hope you can make this quick.
 They are attempting to talk to (yell at?) you, but you don't understand its language. 
 The ogre is bleeding everywhere, and takes this moment to spit blood into your face. 
-The ogre makes a gurgly, spitting sound before toppling to the ground. Good riddance.
-You feel your nose meet your brain as the club topples your skull.
+
 Black slime
-The room looks empty... until you view the ceiling. A huge, black rubber mass.
 The black slime is incredibly hot to the touch, immediately burning you on contact!
 This slime contorts and warps in fantastical ways, avoiding the edge of your sword.
 The slime is gargantuan, and menacing. You can see your reflection in the black abyss.
 As you slash, you cleave off more and more of the black monster. Clean it all away!
 It doesn't look hurt, per se, but it is getting smaller. Keep at it!
-You dash the last of it away... and now see you've coated the room in black pudding.
-You fall for but a moment, and the black mass moves over your body, enveloping you.
+
 Cult Leader
-Another robed figure, but this one is different. They seem... wrong. Evil.
 Out of their robed arms extends... tentacles!?! A horrid mix of man and monster?!
 They use their eldritch abilities to their advantage, dashing away with wicked speed.
 The cultist stands 8 feet tall, with 2 feet of... tentacles extending from the bottom.
 The robed have been tattered, revealing a piscine appearance. The slitted eyes narrow.
 The tentacles monster surely was human once before... but no humanity lies there now.
-With a horrible scream, the abomination falls, saving your mind from its horrors.
-The thing stuffs its tentacles down your throat, infecting you with its being...

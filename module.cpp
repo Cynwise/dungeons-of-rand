@@ -83,7 +83,7 @@ void modules_load()
         }
 
         // Iterate to the next entry.
-        ++item_it;
+        ++weapon_it;
     }
 
     // Load all Armor modules.
@@ -98,7 +98,7 @@ void modules_load()
         }
 
         // Iterate to the next entry.
-        ++item_it;
+        ++armor_it;
     }
 }
 

@@ -7,9 +7,15 @@
     "fortitude" : 1,
 
     "combat_drain" :
-    	[
+    [
     	"You hear a hiss from the shadows. As you turn to face it, a large cobra appears!",
-    	]
-    "win" : "You tear the snake it two, leaving its body twisting... lurching... before succumbing.",
-    "lose" : "That last bite proved too much... you feel froth build in your mouth before passing."
+    ],
+    "win" :
+    [
+         "You tear the snake it two, leaving its body twisting... lurching... before succumbing.",
+    ],
+    "lose" :
+    [
+            "That last bite proved too much... you feel froth build in your mouth before passing."
+    ],
 }

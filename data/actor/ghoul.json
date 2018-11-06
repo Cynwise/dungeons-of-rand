@@ -7,9 +7,15 @@
     "fortitude" : 3,
 
     "combat_start" :
-    	[
+    [
     	"A tall, pale blue monster stands in this room... it's eyes beady, it's teeth bloody...",
-    	]
-    "win" : "As the monster falls, a faint hope blossoms. Maybe that's the last of them...?",
-    "lose" : "The monster tears past your armor, and happily shreaks as it rips through your flesh."
+    ],
+    "win" :
+    [
+            "As the monster falls, a faint hope blossoms. Maybe that's the last of them...?",
+    ],
+    "lose" :
+    [
+            "The monster tears past your armor, and happily shreaks as it rips through your flesh."
+    ],
 }

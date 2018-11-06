@@ -19,7 +19,7 @@ public:
     Item();
 
     virtual ~Item();
-    
+
     Item(const std::string& type);
 
     /// Returns a dynamically allocated copy of this object.
@@ -30,9 +30,9 @@ public:
 
 protected:
 
-	friend class Item_Module;
+    friend class Item_Module;
 
-	std::string type;
+    std::string type;
 
     std::string name;
 };

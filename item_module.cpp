@@ -16,18 +16,18 @@ void from_json(const Json& json, Item_Module& mod)
     {
         json.at("type").get_to(mod.type);
     }
-    
+
     it = json.find("name");
     if (it != json.end())
     {
-		json.at("name").get_to(mod.name);
-	}
+        json.at("name").get_to(mod.name);
+    }
 }
 
 Item Item_Module::create()
 {
-	Item item;
-	
-	item.type = type;
-	item.name = name;
+    Item item;
+
+    item.type = type;
+    item.name = name;
 }

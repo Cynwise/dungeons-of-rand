@@ -27,16 +27,16 @@ Armor::Armor(const Armor& other)
 
 Armor::Armor(const std::string& type)
 {
-	// Check if the type exists.
-	auto it = armor_map.find(type);
-	if (it == armor_map.end())
-	{
-		std::cerr << "ARMOR DOES NOT EXIST: " << type << std::endl;
-		return;
-	}
-	
-	// Spawn an instance of "type".
-	*this = armor_map[type]->create();
+    // Check if the type exists.
+    auto it = armor_map.find(type);
+    if (it == armor_map.end())
+    {
+        std::cerr << "ARMOR DOES NOT EXIST: " << type << std::endl;
+        return;
+    }
+
+    // Spawn an instance of "type".
+    *this = armor_map[type]->create();
 }
 
 Armor* Armor::clone() const

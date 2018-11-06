@@ -15,7 +15,7 @@ Inventory::Inventory()
 
 Inventory::~Inventory()
 {
-    // Stored items will be free'd when their unique_ptr's leave scope. 
+    // Stored items will be free'd when their unique_ptr's leave scope.
 }
 
 Inventory& Inventory::operator=(const Inventory& other)

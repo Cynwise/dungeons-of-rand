@@ -20,7 +20,7 @@ public:
     virtual ~Armor();
 
     Armor(const Armor& other);
-    
+
     Armor(const std::string& type);
 
     virtual Armor* clone() const;
@@ -30,7 +30,7 @@ public:
 
 private:
 
-	friend class Armor_Module;
+    friend class Armor_Module;
 
     /// Defense boost granted by this armor.
     int def;

@@ -18,7 +18,7 @@ public:
     Weapon();
 
     virtual ~Weapon();
-    
+
     Weapon(const std::string& type);
 
     Weapon(const Weapon& other);
@@ -30,7 +30,7 @@ public:
 
 private:
 
-	friend class Weapon_Module;
+    friend class Weapon_Module;
 
     /// Attack boost granted by this weapon.
     int atk;

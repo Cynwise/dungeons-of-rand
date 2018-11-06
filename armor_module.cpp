@@ -17,26 +17,26 @@ void from_json(const Json& json, Armor_Module& mod)
     {
         json.at("type").get_to(mod.type);
     }
-    
+
     it = json.find("name");
     if (it != json.end())
     {
-		json.at("name").get_to(mod.name);
-	}
-	
-	it = json.find("def");
-	if (it != json.end())
-	{
-		json.at("def").get_to(mod.def);
-	}
+        json.at("name").get_to(mod.name);
+    }
+
+    it = json.find("def");
+    if (it != json.end())
+    {
+        json.at("def").get_to(mod.def);
+    }
 }
 
 Armor Armor_Module::create()
 {
-	Armor armor;
-	
-	armor.type = type;
-	armor.name = name;
-	
-	armor.def = def;
+    Armor armor;
+
+    armor.type = type;
+    armor.name = name;
+
+    armor.def = def;
 }

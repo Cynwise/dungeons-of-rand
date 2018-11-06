@@ -27,16 +27,16 @@ Weapon::Weapon(const Weapon& other)
 
 Weapon::Weapon(const std::string& type)
 {
-	// Check if the type exists.
-	auto it = weapon_map.find(type);
-	if (it == weapon_map.end())
-	{
-		std::cerr << "WEAPON DOES NOT EXIST: " << type << std::endl;
-		return;
-	}
-	
-	// Spawn an instance of "type".
-	*this = weapon_map[type]->create();
+    // Check if the type exists.
+    auto it = weapon_map.find(type);
+    if (it == weapon_map.end())
+    {
+        std::cerr << "WEAPON DOES NOT EXIST: " << type << std::endl;
+        return;
+    }
+
+    // Spawn an instance of "type".
+    *this = weapon_map[type]->create();
 }
 
 Weapon* Weapon::clone() const

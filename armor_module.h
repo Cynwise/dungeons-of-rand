@@ -31,7 +31,7 @@ private:
     friend void from_json(const Json& json, Armor_Module& mod);
 
     std::string name;
-    
+
     int def;
 };
 

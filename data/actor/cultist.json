@@ -8,8 +8,16 @@
 
     "combat_start" :
     	[
-    	"You hear ominous whispers as you enter the room... a cloaked figure... with red eyes?",
-    	]
-    "win" : "You know you did right in killing THAT. This creature was never meant to exist.",
-    "lose" : "The cultist whispers a word of power, and you lose your abilitiy to think..."
+    	    "You hear ominous whispers as you enter the room... a cloaked figure... with red eyes?"
+    	],
+    
+    "win" :
+        [
+            "You know you did right in killing THAT. This creature was never meant to exist."
+        ],
+
+    "lose" :
+        [
+            "The cultist whispers a word of power, and you lose your abilitiy to think..."
+        ]
 }

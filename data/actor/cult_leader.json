@@ -9,8 +9,16 @@
 
     "combat_start" :
     	[
-    	"Another robed figure, but this one is different. They seem... wrong. Evil.",
-    	]
-    "win" : "With a horrible scream, the abomination falls, saving your mind from its horrors.",
-    "lose" : "The thing stuffs its tentacles down your throat, infecting you with its being..."
+    	    "Another robed figure, but this one is different. They seem... wrong. Evil."
+    	],
+
+    "win" :
+        [
+            "With a horrible scream, the abomination falls, saving your mind from its horrors."
+        ],
+
+    "lose" :
+        [
+            "The thing stuffs its tentacles down your throat, infecting you with its being..."
+        ]
 }

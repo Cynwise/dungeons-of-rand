@@ -11,10 +11,12 @@
     [
     	"As you enter, a damp, rubbery substance moves(?) towards you... menancingly(?)",
     ],
+
     "win" :
     [
             "With that hit, you dash the last of it across the floor, and it stops moving.",
     ],
+    
     "lose" :
     [
             "The slime's burns prove too much, and it jumps to your face, dissolving your flesh."

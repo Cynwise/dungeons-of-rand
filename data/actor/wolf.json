@@ -10,10 +10,12 @@
     [
     	"A small den rests in this room, with a large wolf protectin its pups.",
     ],
+
     "win" :
     [
         "You did it... you tore down the wolf. You never meant the pups harm, but... still.",
     ],
+    
     "lose" :
     [
         "The wolf sinks it's teeth into your neck, tossing you around as you feel the snap."

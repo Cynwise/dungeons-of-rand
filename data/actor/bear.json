@@ -7,6 +7,7 @@
     "fortitude" : 5,
 
     "combat_start" :
+<<<<<<< HEAD
     [
         "A huge creature stands in this room with you. Towering over you... a brown bear!"
     ],
@@ -20,4 +21,19 @@
     [
         "The bear bears down on your lifeless form, and eats a large part of your midsection."
     ]
+=======
+        [
+            "A huge creature stands in this room with you. Towering over you... a brown bear!"
+        ],
+
+    "win" :
+        [
+            "You did it! Striking the bear across the hide, it finally succumbs to its wounds!"
+        ],
+
+    "lose" : 
+        [
+            "The bear bears down on your lifeless form, and eats a large part of your midsection."
+        ]
+>>>>>>> 2740507ddfc81d2709a5d2c8beb20ffcc458e74a
 }

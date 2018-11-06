@@ -6,10 +6,18 @@
     "strength" : 2,
     "fortitude" : 5,
 
-    "combat_start" : 
-    	[
-    	"A snickering, fat little cherub sits in your room, tinkering with some small toy.",
-    	]
-    "win" : "The gnome's falls, and the contraptions break without their master maintaining them.",
-    "lose" : "The many tiny cuts, burns, and bruises finally do you in. Never underestimate a gnome!"
+    "combat_start" :
+    [
+    	"A snickering, fat little cherub sits in your room, tinkering with some small toy."
+    ],
+
+    "win" :
+    [
+            "The gnome's falls, and the contraptions break without their master maintaining them."
+    ],
+    
+    "lose" :
+    [
+            "The many tiny cuts, burns, and bruises finally do you in. Never underestimate a gnome!"
+    ]
 }

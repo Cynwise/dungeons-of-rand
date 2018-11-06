@@ -7,9 +7,17 @@
     "fortitude" : 3,
 
     "combat_start" :
-    	[
-    	"You see huge spiderwebs collecting in the corners of this room... and many tiny eyes.",
-    	]
-    "win" : "With the last spider crushed under your boot, the clicking and hissing finally ceases.",
-    "lose" : "You feel your joints cease to function as the spiders begin trapping their supper..."
+    [
+    	"You see huge spiderwebs collecting in the corners of this room... and many tiny eyes."
+    ],
+
+    "win" :
+    [
+        "With the last spider crushed under your boot, the clicking and hissing finally ceases."
+    ],
+
+    "lose" :
+    [
+        "You feel your joints cease to function as the spiders begin trapping their supper..."
+    ]
 }

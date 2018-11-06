@@ -7,9 +7,17 @@
     "fortitude" : 6,
 
     "combat_start" :
-    	[
+    [
     	"A loud monster stands alone in here. An ogre, who takes offense to your presence.",
-    	]
-    "win" : "The ogre makes a gurgly, spitting sound before toppling to the ground. Good riddance.",
-    "lose" : "You feel your nose meet your brain as the club topples your skull."
+    ],
+
+    "win" :
+    [
+            "The ogre makes a gurgly, spitting sound before toppling to the ground. Good riddance.",
+    ],
+    
+    "lose" :
+    [
+            "You feel your nose meet your brain as the club topples your skull."
+    ]
 }

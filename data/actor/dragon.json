@@ -7,9 +7,17 @@
     "fortitude" : 10,
 
     "combat_start" :
-    	[
-    	"This room stores a powerful entity... a huge red dragon, sitting atop a pile of gold.",
-    	]
-    "win" : "You did it!!! The dragon falls! And the gold is yours for the taking!",
-    "lose" : "You fall to your knees, and the dragon doesn't hesitate to burn you to a crisp."
+    [
+    	"This room stores a powerful entity... a huge red dragon, sitting atop a pile of gold."
+    ],
+
+    "win" :
+    [
+            "You did it!!! The dragon falls! And the gold is yours for the taking!"
+    ],
+    
+    "lose" :
+    [
+            "You fall to your knees, and the dragon doesn't hesitate to burn you to a crisp."
+    ]
 }

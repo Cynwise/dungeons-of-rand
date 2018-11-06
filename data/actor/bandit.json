@@ -7,9 +7,17 @@
     "fortitude" : 1,
 
     "combat_start" : 	
-        [
-		"A person?! You approach, seeking a friendly face, but instead find daggers and malice.",
-		]
-    "win" : "You strike down the foe, dissapointed in their lack of humanity.",
-    "lose" : "The dagger disembowels you, and you see the scowl turn into an unsettling grin."
+    [
+        "A person?! You approach, seeking a friendly face, but instead find daggers and malice."
+    ],
+
+    "win" :
+    [
+        "You strike down the foe, dissapointed in their lack of humanity."
+    ],
+    
+    "lose" :
+    [
+        "The dagger disembowels you, and you see the scowl turn into an unsettling grin."
+    ]
 }

@@ -9,6 +9,7 @@
 #define INVENTORY_H
 
 #include <list>
+#include <memory>
 #include <string>
 #include <utility>
 
@@ -40,7 +41,7 @@ public:
 private:
 
     /// Generic container for different kinds of items.
-    std::list<Item*> contents;
+    std::list<std::unique_ptr<Item>> contents;
 };
 
 #endif // INVENTORY_H

@@ -6,6 +6,8 @@
 #ifndef ARMOR_H
 #define ARMOR_H
 
+#include <string>
+
 #include <item.h>
 
 /// Generic equipable armor class.
@@ -18,6 +20,8 @@ public:
     virtual ~Armor();
 
     Armor(const Armor& other);
+    
+    Armor(const std::string& type);
 
     virtual Armor* clone() const;
 
@@ -25,6 +29,8 @@ public:
     int get_def() const;
 
 private:
+
+	friend class Armor_Module;
 
     /// Defense boost granted by this armor.
     int def;

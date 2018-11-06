@@ -15,21 +15,12 @@ Inventory::Inventory()
 
 Inventory::~Inventory()
 {
-    // Iterate over list and delete all contents.
-    for (auto it = contents.begin(); it != contents.end(); ++it)
-    {
-        delete *it;
-    }
-    contents.clear();
+    // Stored items will be free'd when their unique_ptr's leave scope. 
 }
 
 Inventory& Inventory::operator=(const Inventory& other)
 {
     // Delete the existing contents if they exist.
-    for (auto it = contents.begin(); it != contents.end(); ++it)
-    {
-        delete *it;
-    }
     contents.clear();
 
     // Copy the other inventory.
@@ -43,6 +34,7 @@ Inventory& Inventory::operator=(const Inventory& other)
 
 void Inventory::insert(const Item& item)
 {
-    Item* tmp = item.clone();
-    contents.push_back(tmp);
+    // We use C++11 move semantics to move the cloned item into the list.
+    std::unique_ptr<Item> new_item(item.clone());
+    contents.push_back(std::move(new_item));
 }

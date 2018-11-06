@@ -82,7 +82,7 @@ Actor::Actor(std::string type)
     auto it = actor_map.find(type);
     if (it == actor_map.end())
     {
-        std::cerr << "ACTOR DOES NOT EXIST.\n";
+        std::cerr << "ACTOR DOES NOT EXIST: " << type << std::endl;
         return;
     }
 

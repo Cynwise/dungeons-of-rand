@@ -24,7 +24,7 @@ void from_json(const Json& json, Actor_Module& mod)
     else
     {
         // Fallback to "type" field if no "name" is found.
-	mod.name = mod.type;
+        mod.name = mod.type;
     }
 
     it = json.find("level");

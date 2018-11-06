@@ -6,7 +6,7 @@
 #ifndef WEAPON_H
 #define WEAPON_H
 
-#include <memory>
+#include <string>
 
 #include <item.h>
 
@@ -18,6 +18,8 @@ public:
     Weapon();
 
     virtual ~Weapon();
+    
+    Weapon(const std::string& type);
 
     Weapon(const Weapon& other);
 
@@ -27,6 +29,8 @@ public:
     int get_atk() const;
 
 private:
+
+	friend class Weapon_Module;
 
     /// Attack boost granted by this weapon.
     int atk;

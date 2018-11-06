@@ -8,9 +8,17 @@
     "fortitude" : 1,
 
     "combat_start" : 
-    	[
-    	"A huge rat approaches you. Its claws bloody and sharp. Its teeth coated in viscera.",
-   		]
-	"win" : "The beast slumps to the ground, and lies still. You breathe a thankful sigh of relief.",
-	"lose" : "The rat sinks its teeth into your jugular. As all fades, you hear a joyous screech."
+    [
+        "A huge rat approaches you. Its claws bloody and sharp. Its teeth coated in viscera."
+    ],
+
+    "win" :
+    [
+        "The beast slumps to the ground, and lies still. You breathe a thankful sigh of relief."
+    ],
+
+    "lose" :
+    [
+        "The rat sinks its teeth into your jugular. As all fades, you hear a joyous screech."
+    ]
 }

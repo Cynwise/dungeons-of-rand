@@ -123,19 +123,63 @@ int game_loop()
         }
         else if (input == "l" || input == "look")
         {
-            std::cout << player_room->get_brief() << std::endl;
-            std::cout << player_room->get_description() << std::endl;
+			player_room->print_full();
         }
+        else if (input == "i" || input == "inventory")
+        {
+			player.print_inventory();
+		}
         else if (input == "quit" || input == "q")
         {
-            return EXIT_SUCCESS;
+			break;
         }
+        else if (input.find("take ") == 0)
+        {
+			// Parse the input.
+			size_t pos = input.find(" ") + 1;
+			std::string item_name = input.substr(pos);
+
+			// Attempt to find the item.
+			Item* origin = player_room->find_item(item_name);
+
+			// Verify that the item was found.
+			if (origin == nullptr)
+			{
+				std::cout << "You can't see a " << item_name;
+				std::cout << " in this room.\n";
+				continue;
+			}
+			// Else, move the item.
+			std::unique_ptr<Item> item = player_room->remove_item(*origin);
+			player.add_item(*item);
+		}
+		else if (input.find("drop ") == 0)
+		{
+			// Parse the input.
+			size_t pos = input.find(" ") + 1;
+			std::string input_num = input.substr(pos);
+			size_t item_slot = strtoul(input_num.c_str(), nullptr, 10);
+			item_slot -= 1; // Real indices begin at 0, not 1.
+
+			// Attempt to remove the item.
+			std::unique_ptr<Item> item = player.remove_item(item_slot);
+			if (item.get() == nullptr)
+			{
+				std::cout << "No such item could be dropped from your ";
+				std::cout << "inventory.\n";
+				continue;
+			}
+			player_room->add_item(*item);
+		}
         else if (input == "help")
         {
             std::cout << "Commands:\n\n";
             std::cout << "help: Display this message.\n";
             std::cout << "go [n,e,s,w]: Move in that direction\n";
             std::cout << "look: Inspect your surroundings.\n";
+            std::cout << "inventory: Display the contents of your inventory.\n";
+            std::cout << "take [item]: Pick up an item.\n";
+            std::cout << "drop [item slot]: Drop an item.\n";
             std::cout << "quit: Exit the game.\n";
         }
         else

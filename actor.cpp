@@ -218,6 +218,21 @@ int Actor::heal(int points)
     return hp - hp_before;
 }
 
+void Actor::add_item(const Item& item)
+{
+    items.insert(item);
+}
+
+std::unique_ptr<Item> Actor::remove_item(size_t pos)
+{
+    return items.remove(pos);
+}
+
+void Actor::print_inventory()
+{
+    items.print();
+}
+
 void Actor::level_up()
 {
     xp = 0;

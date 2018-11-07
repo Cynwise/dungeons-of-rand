@@ -9,6 +9,7 @@
 
 #include <list>
 #include <map>
+#include <memory>
 #include <string>
 
 class Actor;
@@ -59,6 +60,30 @@ public:
 
     /// Go to different room by path.
     virtual void go(const std::string& key);
+
+    /// Print a full overview of the room and its contents.
+    virtual void print_full();
+
+    /// Print a short overview of the room and its contents.
+    virtual void print_brief();
+
+    /// Print all Actors and Items in the room.
+    virtual void print_contents();
+
+    /// Add an Actor to this room.
+    virtual void add_actor(const Actor& actor);
+
+    /// Remove an Actor from this room.
+    virtual std::unique_ptr<Actor> remove_actor(const Actor& actor);
+
+    /// Find an Item by name.
+    virtual Item* find_item(const std::string& name);
+
+    /// Add an Item to this room.
+    virtual void add_item(const Item& item);
+
+    /// Remove an Item from this room.
+    virtual std::unique_ptr<Item> remove_item(const Item& item);
 
     // Getters/setters.
     std::string get_name();

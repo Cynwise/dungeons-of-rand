@@ -58,6 +58,26 @@ public:
      */
     virtual int heal(int points);
 
+    /**
+     * @brief Add an item to the Actor's inventory.
+     *
+     * @param item Item to be added.
+     */
+    virtual void add_item(const Item& item);
+
+    /**
+     * @brief Remove an item from the Actor's inventory.
+     *
+     * @param pos Position in the list to remove from.
+     *
+     * @return Pointer to the item that was removed, or nullptr if
+     * no item was removed.
+     */
+    virtual std::unique_ptr<Item> remove_item(size_t pos);
+
+    /// Display the contents of the Actor's inventory.
+    virtual void print_inventory();
+
     /// Levels up actor and zeros XP.
     void level_up();
 

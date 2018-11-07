@@ -4,6 +4,7 @@
  */
 
 #include <iostream>
+#include <memory>
 
 #include <actor.h>
 #include <actor/player.h>
@@ -140,13 +141,17 @@ void Room::enter()
     // Check if room has been entered before.
     if (entered == false)
     {
-        entered = true;
-        std::cout << brief << std::endl;
-        std::cout << description << std::endl;
+        print_full();
     }
     else
     {
-        std::cout << brief << std::endl;
+        print_brief();
+    }
+
+    // Check if there is no additional info to display.
+    if (actors.empty())
+    {
+        return;
     }
 
     // Fight until are enemies in the room are dead.
@@ -163,10 +168,27 @@ void Room::enter()
         }
         else
         {
-            // Else, remove the Actor we just defeated.f
+            // Else, dump the defeated enemies inventory into the room
+            // and remove the Actor we just defeated.
+            auto item = enemy->remove_item(0);
+            while (item.get() != nullptr)
+            {
+                player_room->add_item(*item);
+                item = enemy->remove_item(0);
+            }
+
+            // Always drop a corpse.
+            Item corpse("corpse");
+            std::string corpse_name = enemy->get_name() + " corpse";
+            corpse.set_name(corpse_name);
+            player_room->add_item(corpse);
+
             actors.pop_front();
         }
     }
+
+    // Redraw room message if combat occurred.
+    print_brief();
 }
 
 void Room::go(const std::string& key)
@@ -183,6 +205,108 @@ void Room::go(const std::string& key)
         Room* destination = it->second;
         destination->enter();
     }
+}
+
+void Room::print_full()
+{
+    std::cout << brief << std::endl;
+    std::cout << description << std::endl;
+    print_contents();
+}
+
+void Room::print_brief()
+{
+    std::cout << brief << std::endl;
+    print_contents();
+}
+
+void Room::print_contents()
+{
+    // Check if there is nothing to print.
+    if (actors.size() == 0 && items.size() == 0)
+    {
+        return;
+    }
+
+    std::cout << "\nIn this room there is:\n";
+
+    // Print all Actors.
+    for (auto it = actors.begin(); it != actors.end(); ++it)
+    {
+        std::cout << "- a " << (*it)->get_name() << std::endl;
+    }
+
+    // Print all items.
+    for (auto it = items.begin(); it != items.end(); ++it)
+    {
+        std::cout << "- a " << (*it)->get_name() << std::endl;
+    }
+}
+
+void Room::add_actor(const Actor& actor)
+{
+    Actor* new_actor = new Actor(actor);
+    actors.push_back(new_actor);
+}
+
+std::unique_ptr<Actor> Room::remove_actor(const Actor& actor)
+{
+    std::unique_ptr<Actor> removed = nullptr;
+
+    // Iterate over list until we find the target actor.
+    for (auto it = actors.begin(); it != actors.end(); ++it)
+    {
+        // Check if we found the target.
+        if (&actor == *it)
+        {
+            removed.reset(*it);
+            actors.erase(it);
+            break;
+        }
+    }
+
+    return removed;
+}
+
+Item* Room::find_item(const std::string& name)
+{
+    // Iterate over list until we find the target actor.
+    for (auto it = items.begin(); it != items.end(); ++it)
+    {
+        // Check if we found the target.
+        if (name == (*it)->get_name())
+        {
+            return *it;
+        }
+    }
+
+    // Else.
+    return nullptr;
+}
+
+void Room::add_item(const Item& item)
+{
+    Item* new_item = new Item(item);
+    items.push_back(new_item);
+}
+
+std::unique_ptr<Item> Room::remove_item(const Item& item)
+{
+    std::unique_ptr<Item> removed = nullptr;
+
+    // Iterate over list until we find the target item.
+    for (auto it = items.begin(); it != items.end(); ++it)
+    {
+        // Check if we found the target.
+        if (&item == *it)
+        {
+            removed.reset(*it);
+            items.erase(it);
+            break;
+        }
+    }
+
+    return removed;
 }
 
 std::string Room::get_name()

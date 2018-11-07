@@ -88,3 +88,8 @@ const std::string& Item::get_name() const
 {
     return name;
 }
+
+void Item::set_name(const std::string& s)
+{
+    name = s;
+}

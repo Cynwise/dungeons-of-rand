@@ -31,6 +31,7 @@ public:
     // Getters and setters.
     const std::string& get_type() const;
     const std::string& get_name() const;
+    void set_name(const std::string& s);
 
 protected:
 

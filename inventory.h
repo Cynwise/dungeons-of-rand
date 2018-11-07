@@ -35,8 +35,14 @@ public:
     /// Insert an item into the inventory.
     void insert(const Item& item);
 
+    /// Remove an item from the inventory.
+    std::unique_ptr<Item> remove(size_t pos);
+
     /// Finds an item by name.
     Item* find_by_name(const std::string& key) const;
+
+    /// Lists the contents of the inventory.
+    void print() const;
 
 private:
 

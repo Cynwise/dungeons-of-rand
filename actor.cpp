@@ -72,27 +72,36 @@ Actor::Actor(const Actor& other)
     }
 }
 
-Actor::Actor(std::string type)
+Actor::Actor(std::string actor_type)
 {
     // Initialize pointers.
     weapon = nullptr;
     armor = nullptr;
 
     // Check if the type exists.
-    auto it = actor_map.find(type);
+    auto it = actor_map.find(actor_type);
     if (it == actor_map.end())
     {
-        std::cerr << "ACTOR DOES NOT EXIST: " << type << std::endl;
+        std::cerr << "ACTOR DOES NOT EXIST: " << actor_type << std::endl;
         return;
     }
 
-    // Spawn an instance of "type".
-    *this = actor_map[type]->create();
+    // Spawn an instance of this type.
+    const Actor_Module& parent = *actor_map[actor_type];
+    type = actor_type;
+    name = parent.name;
+    level = parent.level;
+    max_hp = parent.max_hp;
+    hp = max_hp;
+
+    strength = parent.strength;
+    fortitude = parent.fortitude;
 }
 
 Actor::~Actor()
 {
-    // Inventory will be cleaned up by its destructor.
+    // inventory will be cleaned up by its destructor.
+    // weapon and armor will be cleaned up when they lose their scope.
 }
 
 Actor& Actor::operator=(const Actor& other)
@@ -113,16 +122,14 @@ Actor& Actor::operator=(const Actor& other)
     weapon = nullptr;
     if (other.weapon != nullptr)
     {
-        Weapon* new_weapon = other.weapon->clone();
-        weapon.reset(new_weapon);
+        weapon.reset(other.weapon->clone());
     }
 
     // Copy armor safely.
     armor = nullptr;
     if (other.armor != nullptr)
     {
-        Armor* new_armor = other.armor->clone();
-        armor.reset(new_armor);
+        armor.reset(other.armor->clone());
     }
 
     return *this;
@@ -217,7 +224,7 @@ void Actor::level_up()
     level++;
 }
 
-int Actor::calc_atk()
+int Actor::calc_atk() const
 {
     int atk = strength;
 
@@ -230,7 +237,7 @@ int Actor::calc_atk()
     return atk;
 }
 
-int Actor::calc_def()
+int Actor::calc_def() const
 {
     int def = fortitude;
 

@@ -29,13 +29,12 @@ class Room_Module
 {
 public:
 
-    /// Creates a Room of this type.
-    Room create();
-
     /// Unique identifier for this Room type.
     std::string type;
 
 private:
+
+    friend class Room;
 
     friend void from_json(const Json& json, Room_Module& mod);
 

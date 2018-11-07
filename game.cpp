@@ -11,6 +11,7 @@
 
 #include <actor.h>
 #include <actor/player.h>
+#include <item.h>
 #include <module.h>
 #include <room.h>
 

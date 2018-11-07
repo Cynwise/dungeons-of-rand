@@ -51,22 +51,3 @@ void from_json(const Json& json, Actor_Module& mod)
         json.at("fortitude").get_to(mod.fortitude);
     }
 }
-
-Actor Actor_Module::create()
-{
-    Actor actor;
-
-    actor.type = type;
-    actor.name = name;
-    actor.level = level;
-    actor.max_hp = max_hp;
-    actor.hp = max_hp;
-
-    actor.strength = strength;
-    actor.fortitude = fortitude;
-
-    actor.weapon = nullptr;
-    actor.armor = nullptr;
-
-    return actor;
-}

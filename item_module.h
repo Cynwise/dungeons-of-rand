@@ -20,13 +20,14 @@ class Item_Module
 {
 public:
 
-    /// Spawns an Item of this type.
-    Item create();
-
     /// Unique identifier for this Item type.
     std::string type;
 
 private:
+
+    // Allows Item to access parameters from the module.
+    // Used for Item construction.
+    friend class Item;
 
     friend void from_json(const Json& json, Item_Module& mod);
 

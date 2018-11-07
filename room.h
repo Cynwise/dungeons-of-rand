@@ -70,8 +70,6 @@ public:
 
 protected:
 
-    friend class Room_Module;
-
     /// Room type identifier.
     std::string type;
 

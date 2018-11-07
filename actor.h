@@ -62,10 +62,10 @@ public:
     void level_up();
 
     /// Calculates the actor's attack value.
-    int calc_atk();
+    int calc_atk() const;
 
     /// Calculates the actor's defensive value.
-    int calc_def();
+    int calc_def() const;
 
     // Getters and setters.
     std::string get_name() const;
@@ -76,8 +76,6 @@ public:
     void set_level(int val);
 
 protected:
-
-    friend class Actor_Module;
 
     /// Identifier for this Actor type.
     std::string type;

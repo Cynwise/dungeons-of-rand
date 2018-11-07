@@ -53,18 +53,20 @@ Item::~Item()
     // Do nothing.
 }
 
-Item::Item(const std::string& type)
+Item::Item(const std::string& item_type)
 {
     // Check if the type exists.
-    auto it = item_map.find(type);
+    auto it = item_map.find(item_type);
     if (it == item_map.end())
     {
-        std::cerr << "ITEM DOES NOT EXIST: " << type << std::endl;
+        std::cerr << "ITEM DOES NOT EXIST: " << item_type << std::endl;
         return;
     }
 
     // Spawn an instance of "type".
-    *this = item_map[type]->create();
+    Item_Module* parent = item_map[item_type];
+    type = parent->type;
+    name = parent->name;
 }
 
 Item* Item::clone() const
@@ -76,4 +78,14 @@ Item* Item::clone() const
 void Item::use(Actor& user)
 {
     // Do nothing.
+}
+
+const std::string& Item::get_type() const
+{
+    return type;
+}
+
+const std::string& Item::get_name() const
+{
+    return name;
 }

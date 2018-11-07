@@ -19,13 +19,12 @@ class Actor_Module
 {
 public:
 
-    /// Spawns an actor of this type.
-    Actor create();
-
     /// Unique identifier for this Actor type;
     std::string type;
 
 private:
+
+    friend class Actor;
 
     friend void from_json(const Json& j, Actor_Module& mod);
 

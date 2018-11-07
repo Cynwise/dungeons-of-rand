@@ -9,6 +9,7 @@
 #include <actor/player.h>
 #include <item.h>
 #include <module.h>
+#include <rng.h>
 #include <room.h>
 #include <room_module.h>
 
@@ -43,18 +44,39 @@ Room::~Room()
     }
 }
 
-Room::Room(const std::string& type)
+Room::Room(const std::string& room_type)
 {
     // Check if the type exists.
-    auto it = room_map.find(type);
+    auto it = room_map.find(room_type);
     if (it == room_map.end())
     {
-        std::cerr << "ROOM DOES NOT EXIST.\n";
+        std::cerr << "ROOM DOES NOT EXIST: " << room_type << std::endl;
         return;
     }
 
     // Spawn an instance of this Room type.
-    *this = room_map[type]->create();
+    Room_Module& parent = *room_map[room_type];
+
+    type = parent.type;
+    brief = parent.brief;
+    description = parent.description;
+
+    // Spawn a random Actor from the spawn list.
+    if (!parent.actor_spawn.empty())
+    {
+        // Pick a random entry.
+        int entry = rng(0, parent.actor_spawn.size() - 1);
+
+        // Spawn the Actor and add it to the list.
+        std::string actor_type = parent.actor_spawn[entry].type;
+        int actor_count = parent.actor_spawn[entry].count;
+        while (actor_count > 0)
+        {
+            Actor* spawned = new Actor(actor_type);
+            actors.push_back(spawned);
+            actor_count--;
+        }
+    }
 }
 
 Room& Room::operator=(const Room& other)

@@ -28,6 +28,10 @@ public:
     /// Apply the item's effects to actor.
     virtual void use(Actor& user);
 
+    // Getters and setters.
+    const std::string& get_type() const;
+    const std::string& get_name() const;
+
 protected:
 
     friend class Item_Module;

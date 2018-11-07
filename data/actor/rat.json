@@ -6,6 +6,13 @@
     "strength" : 1,
     "fortitude" : 1,
 
+    "item_list" :
+    [
+        {
+            "name" : "rat_tail"
+	}
+    ],
+
     "combat_start" :
     [
     	"A small rat eyes you hungrily. Feeling bold, it takes a chance, and strikes!"

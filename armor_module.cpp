@@ -30,13 +30,3 @@ void from_json(const Json& json, Armor_Module& mod)
         json.at("def").get_to(mod.def);
     }
 }
-
-Armor Armor_Module::create()
-{
-    Armor armor;
-
-    armor.type = type;
-    armor.name = name;
-
-    armor.def = def;
-}

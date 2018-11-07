@@ -20,13 +20,12 @@ class Armor_Module
 {
 public:
 
-    /// Spawns an Armor of this type.
-    Armor create();
-
     /// Unique identifier for this type.
     std::string type;
 
 private:
+
+    friend class Armor;
 
     friend void from_json(const Json& json, Armor_Module& mod);
 

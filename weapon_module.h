@@ -20,13 +20,12 @@ class Weapon_Module
 {
 public:
 
-    /// Spawns a Weapon of this type.
-    Weapon create();
-
     /// Unique identifier for this Item type.
     std::string type;
 
 private:
+
+    friend class Weapon;
 
     friend void from_json(const Json& json, Weapon_Module& mod);
 

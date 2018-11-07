@@ -30,13 +30,3 @@ void from_json(const Json& json, Weapon_Module& mod)
         json.at("atk").get_to(mod.atk);
     }
 }
-
-Weapon Weapon_Module::create()
-{
-    Weapon weapon;
-
-    weapon.type = type;
-    weapon.name = name;
-
-    weapon.atk = atk;
-}

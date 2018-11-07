@@ -21,22 +21,26 @@ Weapon::~Weapon()
 
 Weapon::Weapon(const Weapon& other)
 {
+    type = other.type;
     name = other.name;
     atk = other.atk;
 }
 
-Weapon::Weapon(const std::string& type)
+Weapon::Weapon(const std::string& weapon_type)
 {
     // Check if the type exists.
-    auto it = weapon_map.find(type);
+    auto it = weapon_map.find(weapon_type);
     if (it == weapon_map.end())
     {
-        std::cerr << "WEAPON DOES NOT EXIST: " << type << std::endl;
+        std::cerr << "WEAPON DOES NOT EXIST: " << weapon_type << std::endl;
         return;
     }
 
     // Spawn an instance of "type".
-    *this = weapon_map[type]->create();
+    Weapon_Module& parent = *weapon_map[weapon_type];
+    type = weapon_type;
+    name = parent.name;
+    atk = parent.atk;
 }
 
 Weapon* Weapon::clone() const

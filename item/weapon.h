@@ -30,8 +30,6 @@ public:
 
 private:
 
-    friend class Weapon_Module;
-
     /// Attack boost granted by this weapon.
     int atk;
 };

@@ -64,15 +64,14 @@ Item::Item(const std::string& item_type)
     }
 
     // Spawn an instance of "type".
-    Item_Module* parent = item_map[item_type];
-    type = parent->type;
-    name = parent->name;
+    Item_Module& parent = *item_map[item_type];
+    type = parent.type;
+    name = parent.name;
 }
 
 Item* Item::clone() const
 {
-    Item* tmp = new Item(*this);
-    return tmp;
+    return new Item(*this);
 }
 
 void Item::use(Actor& user)

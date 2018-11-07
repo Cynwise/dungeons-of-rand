@@ -30,8 +30,6 @@ public:
 
 private:
 
-    friend class Armor_Module;
-
     /// Defense boost granted by this armor.
     int def;
 };

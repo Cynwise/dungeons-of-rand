@@ -25,24 +25,26 @@ Armor::Armor(const Armor& other)
     def = other.def;
 }
 
-Armor::Armor(const std::string& type)
+Armor::Armor(const std::string& armor_type)
 {
     // Check if the type exists.
-    auto it = armor_map.find(type);
+    auto it = armor_map.find(armor_type);
     if (it == armor_map.end())
     {
-        std::cerr << "ARMOR DOES NOT EXIST: " << type << std::endl;
+        std::cerr << "ARMOR DOES NOT EXIST: " << armor_type << std::endl;
         return;
     }
 
     // Spawn an instance of "type".
-    *this = armor_map[type]->create();
+    Armor_Module& parent = *armor_map[armor_type];
+    type = armor_type;
+    name = parent.name;
+    def = parent.def;
 }
 
 Armor* Armor::clone() const
 {
-    Armor* tmp = new Armor(*this);
-    return tmp;
+    return new Armor(*this);
 }
 
 int Armor::get_def() const

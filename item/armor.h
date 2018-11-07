@@ -25,6 +25,9 @@ public:
 
     virtual Armor* clone() const;
 
+    /// Make the actor wield this armor.
+    virtual bool equip(Actor& holder);
+
     /// Gets the defensive value of this armor.
     int get_def() const;
 

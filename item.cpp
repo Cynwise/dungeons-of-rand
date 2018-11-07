@@ -79,6 +79,12 @@ void Item::use(Actor& user)
     std::cout << "You can't use that.\n";
 }
 
+bool Item::equip(Actor& holder)
+{
+    std::cout << "That item cannot be equipped.\n";
+    return false;
+}
+
 const std::string& Item::get_type() const
 {
     return type;

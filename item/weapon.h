@@ -25,6 +25,9 @@ public:
 
     virtual Weapon* clone() const;
 
+    /// Make the actor wield this weapon.
+    virtual bool equip(Actor& holder);
+
     /// Gets this weapon's attack value.
     int get_atk() const;
 

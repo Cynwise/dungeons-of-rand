@@ -28,6 +28,13 @@ public:
     /// Apply the item's effects to actor.
     virtual void use(Actor& user);
 
+    /**
+     * @brief Make the given actor equip this item.
+     *
+     * @return Whether the item was equipped successfully.
+     */
+    virtual bool equip(Actor& holder);
+
     // Getters and setters.
     const std::string& get_type() const;
     const std::string& get_name() const;

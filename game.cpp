@@ -12,6 +12,8 @@
 #include <actor.h>
 #include <actor/player.h>
 #include <item.h>
+#include <item/armor.h>
+#include <item/weapon.h>
 #include <module.h>
 #include <room.h>
 
@@ -49,6 +51,13 @@ int main(int argc, char* argv[])
         "Very unhygenic.\nA hallway leads to the north."
     );
     room_1.set_brief("This is a very dank dungeon.");
+
+	// Place some sample items in the starting room.
+	Weapon stick("stick");
+	room_1.add_item(stick);
+	room_1.add_item(stick); // Two sticks
+    Armor rags("peasant_rags");
+    room_1.add_item(rags);
 
     // Define more rooms.
     Room* last_room = &room_1;
@@ -123,74 +132,87 @@ int game_loop()
         }
         else if (input == "l" || input == "look")
         {
-			player_room->print_full();
+            player_room->print_full();
         }
         else if (input == "i" || input == "inventory")
         {
-			player.print_inventory();
-		}
+            player.print_inventory();
+        }
         else if (input == "quit" || input == "q")
         {
-			break;
+            break;
         }
         else if (input.find("take ") == 0)
         {
-			// Parse the input.
-			size_t pos = input.find(" ") + 1;
-			std::string item_name = input.substr(pos);
+            // Parse the input.
+            size_t pos = input.find(" ") + 1;
+            std::string item_name = input.substr(pos);
 
-			// Attempt to find the item.
-			Item* origin = player_room->find_item(item_name);
+            // Attempt to find the item.
+            Item* origin = player_room->find_item(item_name);
 
-			// Verify that the item was found.
-			if (origin == nullptr)
-			{
-				std::cout << "You can't see a " << item_name;
-				std::cout << " in this room.\n";
-				continue;
-			}
-			// Else, move the item.
-			std::unique_ptr<Item> item = player_room->remove_item(*origin);
-			player.add_item(*item);
-		}
-		else if (input.find("drop ") == 0)
-		{
-			// Parse the input.
-			size_t pos = input.find(" ") + 1;
-			std::string input_num = input.substr(pos);
-			size_t item_slot = strtoul(input_num.c_str(), nullptr, 10);
-			item_slot -= 1; // Real indices begin at 0, not 1.
+            // Verify that the item was found.
+            if (origin == nullptr)
+            {
+                std::cout << "You can't see a " << item_name;
+                std::cout << " in this room.\n";
+                continue;
+            }
+            // Else, move the item.
+            std::unique_ptr<Item> item = player_room->remove_item(*origin);
+            player.add_item(*item);
+            std::cout << "You pick up the " << item->get_name() << std::endl;
+        }
+        else if (input.find("drop ") == 0)
+        {
+            // Parse the input.
+            size_t pos = input.find(" ") + 1;
+            std::string item_name = input.substr(pos);
 
-			// Attempt to remove the item.
-			std::unique_ptr<Item> item = player.remove_item(item_slot);
-			if (item.get() == nullptr)
-			{
-				std::cout << "No such item could be dropped from your ";
-				std::cout << "inventory.\n";
-				continue;
-			}
-			player_room->add_item(*item);
-		}
-		else if (input.find("use ") == 0)
-		{
-			// Parse the input.
-			size_t pos = input.find(" ") + 1;
-			std::string input_num = input.substr(pos);
-			size_t item_slot = strtoul(input_num.c_str(), nullptr, 10);
-			item_slot -= 1; // Real indices begin at 0, not 1.
+            // Attempt to remove the item.
+            Item* origin = player.find_item(item_name);
+            std::unique_ptr<Item> item = player.remove_item(*origin);
+            if (item.get() == nullptr)
+            {
+                std::cout << "No such item could be dropped from your ";
+                std::cout << "inventory.\n";
+                continue;
+            }
+            player_room->add_item(*item);
+            std:: cout << "You drop the " << item->get_name();
+        }
+        else if (input.find("use ") == 0)
+        {
+            // Parse the input.
+            size_t pos = input.find(" ") + 1;
+            std::string item_name = input.substr(pos);
 
-			// Attempt to find the item.
-			std::unique_ptr<Item> item = player.remove_item(item_slot);
-			if (item.get() == nullptr)
-			{
-				std::cout << "No such item could be found in your inventory.\n";
-				continue;
-			}
+            // Attempt to find the item.
+            Item* item = player.find_item(item_name);
+            if (item == nullptr)
+            {
+                std::cout << "No such item could be found in your inventory.\n";
+                continue;
+            }
 
-			// Place the item back and use it.
-			player.add_item(*item);
-			item->use(player);
-		}
+            item->use(player);
+        }
+        else if (input.find("equip ") == 0)
+        {
+            // Parse the input.
+            size_t pos = input.find(" ") + 1;
+            std::string item_name = input.substr(pos);
+
+            // Attempt to find the item.
+            Item* item = player.find_item(item_name);
+            if (item == nullptr)
+            {
+                std::cout << "No such item could be found in your inventory.\n";
+                continue;
+            }
+
+            item->equip(player);
+        }
         else if (input == "help")
         {
             std::cout << "Commands:\n\n";
@@ -199,8 +221,9 @@ int game_loop()
             std::cout << "look: Inspect your surroundings.\n";
             std::cout << "inventory: Display the contents of your inventory.\n";
             std::cout << "take [item]: Pick up an item.\n";
-            std::cout << "drop [item slot]: Drop an item.\n";
-            std::cout << "use [item slot]: Use an item.\n";
+            std::cout << "drop [item]: Drop an item.\n";
+            std::cout << "use [item]: Use an item.\n";
+            std::cout << "equip [item]: Equip an item.\n";
             std::cout << "quit: Exit the game.\n";
         }
         else

@@ -9,6 +9,7 @@
 
 #include <inventory.h>
 #include <item.h>
+#include <room.h>
 
 Inventory::Inventory()
 {
@@ -41,23 +42,32 @@ void Inventory::insert(const Item& item)
     contents.push_back(std::move(new_item));
 }
 
-std::unique_ptr<Item> Inventory::remove(size_t pos)
+std::unique_ptr<Item> Inventory::remove(Item& item)
 {
-    // Verify that the item exists.
-    if (pos >= contents.size())
+    std::unique_ptr<Item> removed = nullptr;
+
+    // Iterate over list until we find the target actor.
+    for (auto it = contents.begin(); it != contents.end(); ++it)
     {
-        return std::unique_ptr<Item>(nullptr);
+        // Check if we found the target.
+        if (&item == (*it).get())
+        {
+            removed = std::move(*it);
+            contents.erase(it);
+            break;
+        }
     }
 
-    // Find the element.
-    auto it = contents.begin();
-    std::advance(it, pos);
+    return removed;
+}
 
-    // Move the element out of the list.
-    auto orphan = std::move(*it);
-    contents.erase(it);
-
-    return orphan;
+void Inventory::dump_items(Room& room)
+{
+    for (auto it = contents.begin(); it != contents.end(); ++it)
+    {
+        player_room->add_item(**it);
+        remove(**it);
+    }
 }
 
 void Inventory::print() const
@@ -72,4 +82,20 @@ void Inventory::print() const
         std::cout << index << ". " << (*it)->get_name() << std::endl;
         ++index;
     }
+}
+
+Item* Inventory::find_by_name(const std::string& key) const
+{
+    // Iterate over list until we find the target actor.
+    for (auto it = contents.begin(); it != contents.end(); ++it)
+    {
+        // Check if we found the target.
+        if (key == (*it)->get_name())
+        {
+            return it->get();
+        }
+    }
+
+    // Else.
+    return nullptr;
 }

@@ -15,6 +15,7 @@
 #include <inventory.h>
 #include <module.h>
 #include <rng.h>
+#include <room.h>
 
 Actor::Actor()
 {
@@ -223,9 +224,19 @@ void Actor::add_item(const Item& item)
     items.insert(item);
 }
 
-std::unique_ptr<Item> Actor::remove_item(size_t pos)
+std::unique_ptr<Item> Actor::remove_item(Item& item)
 {
-    return items.remove(pos);
+    return items.remove(item);
+}
+
+Item* Actor::find_item(const std::string& name)
+{
+    return items.find_by_name(name);
+}
+
+void Actor::dump_items(Room& room)
+{
+    items.dump_items(room);
 }
 
 void Actor::print_inventory()

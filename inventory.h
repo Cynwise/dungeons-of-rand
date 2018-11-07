@@ -14,6 +14,7 @@
 #include <utility>
 
 class Item;
+class Room;
 
 /**
  * @brief Generic storage supporting multiple instances of different
@@ -36,7 +37,10 @@ public:
     void insert(const Item& item);
 
     /// Remove an item from the inventory.
-    std::unique_ptr<Item> remove(size_t pos);
+    std::unique_ptr<Item> remove(Item& item);
+
+    /// Dump all items in the inventory into a room.
+    void dump_items(Room& room);
 
     /// Finds an item by name.
     Item* find_by_name(const std::string& key) const;

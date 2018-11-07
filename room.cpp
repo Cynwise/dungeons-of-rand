@@ -164,18 +164,13 @@ void Room::enter()
         // Break if the player died.
         if (player.get_hp() == 0)
         {
-            break;
+            return;
         }
         else
         {
             // Else, dump the defeated enemies inventory into the room
             // and remove the Actor we just defeated.
-            auto item = enemy->remove_item(0);
-            while (item.get() != nullptr)
-            {
-                player_room->add_item(*item);
-                item = enemy->remove_item(0);
-            }
+            enemy->dump_items(*this);
 
             // Always drop a corpse.
             Item corpse("corpse");
@@ -245,8 +240,7 @@ void Room::print_contents()
 
 void Room::add_actor(const Actor& actor)
 {
-    Actor* new_actor = new Actor(actor);
-    actors.push_back(new_actor);
+    actors.push_back(new Actor(actor));
 }
 
 std::unique_ptr<Actor> Room::remove_actor(const Actor& actor)
@@ -286,8 +280,7 @@ Item* Room::find_item(const std::string& name)
 
 void Room::add_item(const Item& item)
 {
-    Item* new_item = new Item(item);
-    items.push_back(new_item);
+    items.push_back(item.clone());
 }
 
 std::unique_ptr<Item> Room::remove_item(const Item& item)

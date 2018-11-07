@@ -14,6 +14,7 @@
 
 class Armor;
 class Item;
+class Room;
 class Weapon;
 
 /// Generic base class for all NPCs.
@@ -73,7 +74,12 @@ public:
      * @return Pointer to the item that was removed, or nullptr if
      * no item was removed.
      */
-    virtual std::unique_ptr<Item> remove_item(size_t pos);
+    virtual std::unique_ptr<Item> remove_item(Item& item);
+
+    virtual Item* find_item(const std::string& name);
+
+    /// Dumps all items into a room.
+    virtual void dump_items(Room& room);
 
     /// Display the contents of the Actor's inventory.
     virtual void print_inventory();
@@ -96,6 +102,11 @@ public:
     void set_level(int val);
 
 protected:
+
+    // Allow items to modify the Actor.
+    friend class Item;
+    friend class Weapon;
+    friend class Armor;
 
     /// Identifier for this Actor type.
     std::string type;

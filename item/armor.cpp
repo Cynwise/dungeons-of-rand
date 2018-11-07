@@ -5,6 +5,7 @@
 #include <iostream>
 #include <string>
 
+#include <actor.h>
 #include <armor_module.h>
 #include <item/armor.h>
 #include <module.h>
@@ -45,6 +46,27 @@ Armor::Armor(const std::string& armor_type)
 Armor* Armor::clone() const
 {
     return new Armor(*this);
+}
+
+bool Armor::equip(Actor& holder)
+{
+    // Check if the actor already is wearing armor.
+    if (holder.armor.get() != nullptr)
+    {
+        // Add the armor back to the actor's inventory.
+        auto prev_equipped = std::move(holder.armor);
+        std::cout << "You place the " << prev_equipped->get_name();
+        std::cout << " back into your inventory.\n";
+        holder.add_item(*prev_equipped);
+    }
+
+    holder.armor.reset(clone());
+    std::cout << "You equip the " << name << ".\n";
+
+    // Remove self from Actor's inventory.
+    holder.remove_item(*this);
+
+    return true;
 }
 
 int Armor::get_def() const

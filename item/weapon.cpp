@@ -5,6 +5,7 @@
 #include <iostream>
 #include <string>
 
+#include <actor.h>
 #include <item/weapon.h>
 #include <module.h>
 #include <weapon_module.h>
@@ -47,6 +48,27 @@ Weapon* Weapon::clone() const
 {
     Weapon* tmp = new Weapon(*this);
     return tmp;
+}
+
+bool Weapon::equip(Actor& holder)
+{
+    // Check if the actor already is wielding a weapon.
+    if (holder.weapon.get() != nullptr)
+    {
+        // Add the weapon back to the actor's inventory.
+        auto prev_equipped = std::move(holder.weapon);
+        std::cout << "You place the " << prev_equipped->get_name();
+        std::cout << " back into your inventory.\n";
+        holder.add_item(*prev_equipped);
+    }
+
+    holder.weapon.reset(clone());
+    std::cout << "You wield the " << name << ".\n";
+
+    // Remove self from Actor inventory.
+    holder.remove_item(*this);
+
+    return true;
 }
 
 int Weapon::get_atk() const

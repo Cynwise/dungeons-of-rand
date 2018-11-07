@@ -8,16 +8,16 @@
 
     "combat_start" :
     [
-    	"A small rat eyes you hungrily. Feeling bold, it takes a chance, and strikes!",
+    	"A small rat eyes you hungrily. Feeling bold, it takes a chance, and strikes!"
     ],
 
     "win" :
     [
-            "The rat lies motionless on the ground. Congratulations. You beat a rodent to death.",
+            "The rat lies motionless on the ground. Congratulations. You beat a rodent to death."
     ],
     
     "lose" :
     [
             "As you fall, the rat quickly begins its work, excited at the prospect of a fresh meal."
-    ],
+    ]
 }

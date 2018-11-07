@@ -8,16 +8,16 @@
 
     "combat_start" :
     [
-    	"In this room is an adorable sight: an echidna! With... a pocket knife?",
+    	"In this room is an adorable sight: an echidna! With... a pocket knife?"
     ],
 
     "win" :
     [
-            "You end the echindna... You feel horrible for such a waste of adorable life.",
+            "You end the echindna... You feel horrible for such a waste of adorable life."
     ],
     
     "lose" :
     [
             "In the end, you couldn't bring yourself to do the deed... and bled out by your ankles."
-    ],
+    ]
 }

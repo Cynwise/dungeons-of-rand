@@ -8,16 +8,16 @@
 
     "combat_start" :
     [
-    	"A hideous and tiny thing scours for scraps or trinkets, before noticing your presence.",
+    	"A hideous and tiny thing scours for scraps or trinkets, before noticing your presence."
     ],
 
     "win" :
     [
-            "The goblin lets out a panicked cry before succumbing to your (frankly soft) blows.",
+            "The goblin lets out a panicked cry before succumbing to your (frankly soft) blows."
     ],
     
     "lose" :
     [
             "As you fall, the goblin shouts out in glee. It didn't expect that outcome!"
-    ],
+    ]
 }

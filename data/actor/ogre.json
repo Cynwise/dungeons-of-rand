@@ -8,12 +8,12 @@
 
     "combat_start" :
     [
-    	"A loud monster stands alone in here. An ogre, who takes offense to your presence.",
+    	"A loud monster stands alone in here. An ogre, who takes offense to your presence."
     ],
 
     "win" :
     [
-            "The ogre makes a gurgly, spitting sound before toppling to the ground. Good riddance.",
+            "The ogre makes a gurgly, spitting sound before toppling to the ground. Good riddance."
     ],
     
     "lose" :

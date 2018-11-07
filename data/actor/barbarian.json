@@ -7,10 +7,17 @@
     "fortitude" : 5,
 
     "combat_start" : 
-    [
-    "You hear it before you see it... the howls of a warrior. Fueled by rage and war.",
-	]
+        [
+            "You hear it before you see it... the howls of a warrior. Fueled by rage and war.",
+        ],
 
-	"win" : "That last hit put the manic soul to sleep forever. They fall, and its finally silent.",
-	"lose" : "The barbarian screams with glee as they see the final blow land, and tear you asunder."
+    "win" :
+        [
+           "That last hit put the manic soul to sleep forever. They fall, and its finally silent."
+        ],
+
+    "lose" : 
+        [
+        "The barbarian screams with glee as they see the final blow land, and tear you asunder."
+        ]
 }

@@ -8,8 +8,16 @@
 
     "combat_start" : 
     	[
-    	"This room holds a curious beast.. half man, half horse? This must be a centaur!!",
-    	]
-    "win" : "It falls! You're not sure why it started to fight you, but you staved off the beast!",
-    "lose" : "You let your defenses down, and the centuar seizes its chance, striking your chest."
+    	    "This room holds a curious beast.. half man, half horse? This must be a centaur!!"
+    	],
+
+    "win" :
+        [
+            "It falls! You're not sure why it started to fight you, but you staved off the beast!"
+        ],
+
+    "lose" : 
+        [
+        "You let your defenses down, and the centuar seizes its chance, striking your chest."
+        ]
 }

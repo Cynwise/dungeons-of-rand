@@ -8,16 +8,16 @@
 
     "combat_start" :
     [
-    	"A rogue, wearing tight leather armor. They seem excited to test your mettle!",
+    	"A rogue, wearing tight leather armor. They seem excited to test your mettle!"
     ],
 
     "win" :
     [
-            "You finally struck true, and the rogue immediately topples, their stamina expended.",
+            "You finally struck true, and the rogue immediately topples, their stamina expended."
     ],
-    
+
     "lose" :
     [
             "The cutlass pierces deep into you, stealing your breath... death won't take long now."
-    ],
+    ]
 }

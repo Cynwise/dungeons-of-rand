@@ -76,7 +76,7 @@ Item* Item::clone() const
 
 void Item::use(Actor& user)
 {
-    // Do nothing.
+    std::cout << "You can't use that.\n";
 }
 
 const std::string& Item::get_type() const

@@ -171,6 +171,26 @@ int game_loop()
 			}
 			player_room->add_item(*item);
 		}
+		else if (input.find("use ") == 0)
+		{
+			// Parse the input.
+			size_t pos = input.find(" ") + 1;
+			std::string input_num = input.substr(pos);
+			size_t item_slot = strtoul(input_num.c_str(), nullptr, 10);
+			item_slot -= 1; // Real indices begin at 0, not 1.
+
+			// Attempt to find the item.
+			std::unique_ptr<Item> item = player.remove_item(item_slot);
+			if (item.get() == nullptr)
+			{
+				std::cout << "No such item could be found in your inventory.\n";
+				continue;
+			}
+
+			// Place the item back and use it.
+			player.add_item(*item);
+			item->use(player);
+		}
         else if (input == "help")
         {
             std::cout << "Commands:\n\n";
@@ -180,6 +200,7 @@ int game_loop()
             std::cout << "inventory: Display the contents of your inventory.\n";
             std::cout << "take [item]: Pick up an item.\n";
             std::cout << "drop [item slot]: Drop an item.\n";
+            std::cout << "use [item slot]: Use an item.\n";
             std::cout << "quit: Exit the game.\n";
         }
         else

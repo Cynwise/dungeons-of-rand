@@ -10,11 +10,15 @@
     [
         {
             "type" : "peasant_rags",
+            "chance" : 2
+        },
+        {
+            "type" : "wooden_club",
             "chance" : 4
         },
         {
             "type" : "stick",
-            "chance" : 2
+            "chance" : 1
         },
         {
             "type" : "iron_dagger",

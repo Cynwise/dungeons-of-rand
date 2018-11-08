@@ -1,9 +1,9 @@
 {
     "type" : "bear",
     "level" : 1,
-    "max_hp" : 20,
+    "max_hp" : 15,
 
-    "strength" : 8,
+    "strength" : 6,
     "fortitude" : 5,
 
     "item_list" :

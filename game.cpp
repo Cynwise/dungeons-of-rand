@@ -52,10 +52,9 @@ int main(int argc, char* argv[])
     );
     room_1.set_brief("This is a very dank dungeon.");
 
-	// Place some sample items in the starting room.
-	Weapon stick("stick");
-	room_1.add_item(stick);
-	room_1.add_item(stick); // Two sticks
+    // Place some sample items in the starting room.
+    Weapon stick("stick");
+    room_1.add_item(stick);
     Armor rags("peasant_rags");
     room_1.add_item(rags);
 

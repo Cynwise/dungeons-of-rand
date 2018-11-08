@@ -6,6 +6,18 @@
     "strength" : 3,
     "fortitude" : 5,
 
+    "item_list" :
+    [
+        {
+            "type" : "iron_dagger",
+            "chance" : 2
+        },
+        {
+            "type" : "iron_shortsword",
+            "chance" : 1
+        }
+    ],
+
     "combat_start" :
     [
     	"A rogue, wearing tight leather armor. They seem excited to test your mettle!"

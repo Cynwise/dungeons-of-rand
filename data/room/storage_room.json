@@ -28,6 +28,10 @@
         {
             "type" : "bandit",
             "count" : 1
-        }
+        },
+        {
+            "type" : "rogue",
+            "count" : 1
+	}
     ]
 }

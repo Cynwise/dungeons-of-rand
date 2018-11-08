@@ -25,6 +25,10 @@
             "chance" : 1
         },
         {
+            "type" : "small_health_potion",
+            "chance" : 3
+        },
+        {
             "type" : "none",
             "chance" : 4
         }

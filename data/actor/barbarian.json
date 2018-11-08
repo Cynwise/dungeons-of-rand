@@ -15,6 +15,10 @@
         {
             "type" : "stick",
             "chance" : 1
+        },
+        {
+            "type" : "none",
+            "chance" : 1
         }
     ],
 

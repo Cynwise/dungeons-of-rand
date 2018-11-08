@@ -107,8 +107,11 @@ Actor::Actor(std::string actor_type)
 
         // Spawn the Item and add it to the inventory.
         std::string item_type = parent.item_list[entry].type;
-        std::unique_ptr<Item> item = spawn_item(item_type);
-        add_item(*item);
+        if (item_type != "none")
+        {
+            std::unique_ptr<Item> item = spawn_item(item_type);
+            add_item(*item);
+        }
     }
 }
 

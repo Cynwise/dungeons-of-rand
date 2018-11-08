@@ -27,7 +27,7 @@ Armor_Map armor_map;
 void modules_load()
 {
     // Load all Actor modules.
-    fs::recursive_directory_iterator actor_it("data/actor");
+    fs::directory_iterator actor_it("data/actor");
     while (actor_it != fs::end(actor_it))
     {
         // Check if this entry is a JSON file.
@@ -42,7 +42,7 @@ void modules_load()
     }
 
     // Load all Room modules.
-    fs::recursive_directory_iterator room_it("data/room");
+    fs::directory_iterator room_it("data/room");
     while (room_it != fs::end(room_it))
     {
         // Check if this entry is a JSON file.
@@ -57,7 +57,7 @@ void modules_load()
     }
 
     // Load all generic Item modules.
-    fs::recursive_directory_iterator item_it("data/item");
+    fs::directory_iterator item_it("data/item");
     while (item_it != fs::end(item_it))
     {
         // Check if this entry is a JSON file.
@@ -72,7 +72,7 @@ void modules_load()
     }
 
     // Load all Weapon modules.
-    fs::recursive_directory_iterator weapon_it("data/weapon");
+    fs::directory_iterator weapon_it("data/item/weapon");
     while (weapon_it != fs::end(weapon_it))
     {
         // Check if this entry is a JSON file.
@@ -87,7 +87,7 @@ void modules_load()
     }
 
     // Load all Armor modules.
-    fs::recursive_directory_iterator armor_it("data/armor");
+    fs::directory_iterator armor_it("data/item/armor");
     while (armor_it != fs::end(armor_it))
     {
         // Check if this entry is a JSON file.

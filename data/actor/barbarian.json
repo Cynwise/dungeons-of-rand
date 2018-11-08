@@ -10,15 +10,19 @@
     [
         {
             "type" : "peasant_rags",
-            "chance" : 1
+            "chance" : 4
         },
         {
             "type" : "stick",
+            "chance" : 2
+        },
+        {
+            "type" : "iron_dagger",
             "chance" : 1
         },
         {
             "type" : "none",
-            "chance" : 1
+            "chance" : 4
         }
     ],
 

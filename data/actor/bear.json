@@ -6,6 +6,22 @@
     "strength" : 8,
     "fortitude" : 5,
 
+    "item_list" :
+    [
+        {
+            "type" : "bear_claw",
+            "chance" : 1
+        },
+        {
+            "type" : "bear_pelt",
+            "chance" : 1
+        },
+        {
+            "type" : "none",
+            "chance" : 1
+        }
+    ],
+
     "combat_start" :
     [
         "A huge creature stands in this room with you. Towering over you... a brown bear!"

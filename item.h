@@ -45,7 +45,6 @@ protected:
     friend class Item_Module;
 
     std::string type;
-
     std::string name;
 };
 

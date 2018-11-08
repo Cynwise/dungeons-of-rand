@@ -37,7 +37,7 @@ int main(int argc, char* argv[])
         std::string first_arg = argv[1];
         if (first_arg == "-d")
         {
-                debug = true;
+            debug = true;
         }
     }
 
@@ -100,10 +100,10 @@ int main(int argc, char* argv[])
         {
             next_room = new Room("rat_room");
         }
-    else if (chance <= 7)
-    {
-        next_room = new Room("vendor_room");
-    }
+        else if (chance <= 7)
+        {
+            next_room = new Room("vendor_room");
+        }
         else if (chance <= 9)
         {
             next_room = new Room("treasure_room");

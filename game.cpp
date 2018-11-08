@@ -29,6 +29,18 @@ void fight(Actor& actor);
 
 int main(int argc, char* argv[])
 {
+    bool debug = false;
+
+    // Check for debug flag.
+    if (argc >= 2)
+    {
+        std::string first_arg = argv[1];
+	if (first_arg == "-d")
+	{
+            debug = true;
+	}
+    }
+
     // Initialize RNG.
     std::srand(std::time(NULL));
 
@@ -36,12 +48,19 @@ int main(int argc, char* argv[])
     modules_load();
 
     // Get player name.
-    std::string player_name;
-    get_name(player_name);
-    player.set_name(player_name);
+    if (debug == false)
+    {
+        std::string player_name;
+        get_name(player_name);
+        player.set_name(player_name);
 
-    // Prompt to begin.
-    start(player_name);
+        // Prompt to begin.
+        start(player_name);
+    }
+    else
+    {
+        player.set_name("Tester");
+    }
 
     // Define initial room.
     Room room_1;

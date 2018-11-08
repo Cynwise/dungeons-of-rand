@@ -2,6 +2,7 @@
 CXX ?= g++
 CXXFLAGS ?= -gdwarf-2 -std=c++11 -Wall
 CXXFLAGS += $(INCLUDE_SCRIPT)
+LD_INPUT = -lstdc++fs
 
 # Build list of sources.
 SOURCES = $(shell find . -name "*.cpp")

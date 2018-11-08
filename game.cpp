@@ -35,10 +35,10 @@ int main(int argc, char* argv[])
     if (argc >= 2)
     {
         std::string first_arg = argv[1];
-	if (first_arg == "-d")
-	{
-            debug = true;
-	}
+        if (first_arg == "-d")
+        {
+                debug = true;
+        }
     }
 
     // Initialize RNG.
@@ -47,9 +47,10 @@ int main(int argc, char* argv[])
     // Load all modules.
     modules_load();
 
-    // Get player name.
+    // Set player name.
     if (debug == false)
     {
+        // Prompt user for name.
         std::string player_name;
         get_name(player_name);
         player.set_name(player_name);
@@ -76,6 +77,8 @@ int main(int argc, char* argv[])
     room_1.add_item(stick);
     Armor rags("peasant_rags");
     room_1.add_item(rags);
+    auto potion = spawn_item("small_health_potion");
+    room_1.add_item(*potion);
 
     // Define more rooms.
     Room* last_room = &room_1;
@@ -97,10 +100,10 @@ int main(int argc, char* argv[])
         {
             next_room = new Room("rat_room");
         }
-	else if (chance <= 7)
-	{
-	    next_room = new Room("vendor_room");
-	}
+    else if (chance <= 7)
+    {
+        next_room = new Room("vendor_room");
+    }
         else if (chance <= 9)
         {
             next_room = new Room("treasure_room");
@@ -281,15 +284,15 @@ void start(const std::string& name) {
     do {
         std::cout << "Well, " << name << " are you ready to begin your adventure? (y/n) \n";
         std::getline(std::cin, startingChoice);
-        if(startingChoice == "y") {	//yes to adventure
+        if(startingChoice == "y") { //yes to adventure
             std::cout << "Then let us begin.\n";
         }
-        else if(startingChoice == "n") {	//no loop
+        else if(startingChoice == "n") {    //no loop
             std::cout << "Allow me to ask again... I've got all day.\n\n";
             command_time();
 
         }
-        else {	//input error loop
+        else {  //input error loop
             std::cout << "Please enter a valid response.. I haven't much patience.\n";
         }
     }

@@ -50,7 +50,9 @@ Potion* Potion::clone() const
 
 void Potion::use(Actor& holder)
 {
-    
+    // Apply health change.
+    holder.heal(stat);
+
     holder.potion.reset(clone());
     std::cout << "You use the " << name << ".\n";
 

@@ -6,6 +6,18 @@
     "strength" : 5,
     "fortitude" : 5,
 
+    "item_list" :
+    [
+        {
+            "type" : "peasant_rags",
+            "chance" : 1
+        },
+        {
+            "type" : "stick",
+            "chance" : 1
+        }
+    ],
+
     "combat_start" :
     [
         "You hear it before you see it... the howls of a warrior. Fueled by rage and war."

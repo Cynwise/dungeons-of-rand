@@ -11,7 +11,7 @@ endif
 ifeq ($(UNAME), Darwin)
 	ifeq ($(CXX), clang)
 		LD_INPUT = -lc++experimental
-	else
+	endif
 	ifeq($(CXX), g++)
 		LD_INPUT = -lstdc++fs)
 	endif

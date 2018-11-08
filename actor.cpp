@@ -89,6 +89,7 @@ Actor::Actor(std::string actor_type)
 
     // Spawn an instance of this type.
     const Actor_Module& parent = *actor_map[actor_type];
+
     type = actor_type;
     name = parent.name;
     level = parent.level;
@@ -97,6 +98,18 @@ Actor::Actor(std::string actor_type)
 
     strength = parent.strength;
     fortitude = parent.fortitude;
+
+    // Spawn an item from the item drop list.
+    if (!parent.item_list.empty())
+    {
+        // Pick a random entry.
+        int entry = rng(0, parent.item_list.size() - 1);
+
+        // Spawn the Item and add it to the inventory.
+        std::string item_type = parent.item_list[entry].type;
+        std::unique_ptr<Item> item = spawn_item(item_type);
+        add_item(*item);
+    }
 }
 
 Actor::~Actor()

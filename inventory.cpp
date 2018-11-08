@@ -67,6 +67,7 @@ void Inventory::dump_items(Room& room)
     {
         player_room->add_item(**it);
         remove(**it);
+        it = contents.begin();
     }
 }
 

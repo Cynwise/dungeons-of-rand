@@ -50,4 +50,25 @@ void from_json(const Json& json, Actor_Module& mod)
     {
         json.at("fortitude").get_to(mod.fortitude);
     }
+
+    it = json.find("item_list");
+    if (it != json.end())
+    {
+        json.at("item_list").get_to(mod.item_list);
+    }
+}
+
+void from_json(const Json& json, Item_List& mod)
+{
+    auto it = json.find("type");
+    if (it != json.end())
+    {
+        json.at("type").get_to(mod.type);
+    }
+
+    it = json.find("chance");
+    if (it != json.end())
+    {
+        json.at("chance").get_to(mod.chance);
+    }
 }

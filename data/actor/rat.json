@@ -9,7 +9,8 @@
     "item_list" :
     [
         {
-            "name" : "rat_tail"
+            "type" : "rat_tail",
+	    "chance" : 1
         }
     ],
 

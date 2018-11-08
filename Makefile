@@ -3,20 +3,6 @@ CXX ?= g++
 CXXFLAGS ?= -gdwarf-2 -std=c++11 -Wall
 CXXFLAGS += $(INCLUDE_SCRIPT)
 
-# Detect platform and set platform specific flags.
-UNAME = $(shell uname)
-ifeq ($(UNAME), Linux)
-	LD_INPUT = -lstdc++fs
-endif
-ifeq ($(UNAME), Darwin)
-	ifeq ($(CXX), clang)
-		LD_INPUT = -lc++experimental
-	endif
-	ifeq($(CXX), g++)
-		LD_INPUT = -lstdc++fs)
-	endif
-endif
-
 # Build list of sources.
 SOURCES = $(shell find . -name "*.cpp")
 

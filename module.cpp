@@ -15,6 +15,7 @@
 #include <room_module.h>
 #include <vendor/json.h>
 #include <weapon_module.h>
+#include <potion_module.h>
 
 namespace fs = std::experimental::filesystem;
 
@@ -23,6 +24,7 @@ Room_Map room_map;
 Item_Map item_map;
 Weapon_Map weapon_map;
 Armor_Map armor_map;
+Potion_Map potion_map;
 
 void modules_load()
 {
@@ -99,6 +101,20 @@ void modules_load()
 
         // Iterate to the next entry.
         ++armor_it;
+    }
+    // Load all Potion modules.
+    fs::directory_iterator potion_it("data/item/potion");
+    while (potion_it != fs::end(potion_it))
+    {
+        // Check if this entry is a JSON file.
+        if (is_regular_file(*potion_it) && potion_it->path().extension() == ".json")
+        {
+            const std::string path = potion_it->path();
+            module_load_potion(path);
+        }
+
+        // Iterate to the next entry.
+        ++potion_it;
     }
 }
 
@@ -192,7 +208,7 @@ void module_load_weapon(const std::string& path)
 
 void module_load_armor(const std::string& path)
 {
-    // Load Weapon module if it can be opened.
+    // Load Armor module if it can be opened.
     std::ifstream ins(path);
     if (ins.is_open())
     {
@@ -205,6 +221,27 @@ void module_load_armor(const std::string& path)
 
         // Insert the module into the Armor_Module lists.
         armor_map[mod->type] = mod;
+    }
+    else
+    {
+        std::cerr << "Error loading module " << path << std::endl;
+    }
+}
+void module_load_potion(const std::string& path)
+{
+    // Load Potion module if it can be opened.
+    std::ifstream ins(path);
+    if (ins.is_open())
+    {
+        Json json = Json::parse(ins);
+        ins.close();
+
+        // Parse the module.
+        Potion_Module* mod = new Potion_Module;
+        *mod = json;
+
+        // Insert the module into the Potion_Module lists.
+        potion_map[mod->type] = mod;
     }
     else
     {

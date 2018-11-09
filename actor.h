@@ -16,6 +16,7 @@ class Armor;
 class Item;
 class Room;
 class Weapon;
+class Potion;
 
 /// Generic base class for all NPCs.
 class Actor
@@ -107,6 +108,7 @@ protected:
     friend class Item;
     friend class Weapon;
     friend class Armor;
+    friend class Potion;
 
     /// Identifier for this Actor type.
     std::string type;
@@ -125,6 +127,7 @@ protected:
     Inventory items;
     std::unique_ptr<Weapon> weapon;
     std::unique_ptr<Armor> armor;
+    std::unique_ptr<Potion> potion;
 };
 
 #endif // ACTOR_H

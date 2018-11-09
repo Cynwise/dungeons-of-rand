@@ -12,6 +12,7 @@
 #include <actor/player.h>
 #include <item/armor.h>
 #include <item/weapon.h>
+#include <item/potion.h>
 #include <inventory.h>
 #include <module.h>
 #include <rng.h>

@@ -16,6 +16,7 @@ class Room_Module;
 class Item_Module;
 class Weapon_Module;
 class Armor_Module;
+class Potion_Module;
 
 typedef nlohmann::json Json;
 
@@ -39,6 +40,10 @@ extern Weapon_Map weapon_map;
 typedef std::map<std::string, Armor_Module*> Armor_Map;
 extern Armor_Map armor_map;
 
+/// Map of names to Potion types.
+typedef std::map<std::string, Potion_Module*> Potion_Map;
+extern Potion_Map potion_map;
+
 /// Loads all found modules.
 void modules_load();
 
@@ -56,5 +61,8 @@ void module_load_weapon(const std::string& path);
 
 /// Loads an Armor module from path.
 void module_load_armor(const std::string& path);
+
+/// Loads a Potion module from path.
+void module_load_potion(const std::string& path);
 
 #endif // MODULE_H

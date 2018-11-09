@@ -9,6 +9,10 @@
     "item_list" :
     [
         {
+            "type" : "large_health_potion",
+            "chance" : 3
+        },
+        {
             "type" : "bear_claw",
             "chance" : 1
         },

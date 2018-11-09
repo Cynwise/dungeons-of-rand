@@ -204,7 +204,7 @@ int game_loop()
                 continue;
             }
             player_room->add_item(*item);
-            std:: cout << "You drop the " << item->get_name();
+            std:: cout << "You drop the " << item->get_name() << std::endl;
         }
         else if (input.find("use ") == 0)
         {

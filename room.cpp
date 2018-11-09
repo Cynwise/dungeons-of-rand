@@ -78,6 +78,21 @@ Room::Room(const std::string& room_type)
             actor_count--;
         }
     }
+
+    // Spawn a random Item from the spawn list.
+    if (!parent.item_list.empty())
+    {
+        // Pick a random entry.
+        int entry = rng(0, parent.item_list.size() - 1);
+
+        // Spawn the Item and add it to the list.
+        std::string item_type = parent.item_list[entry].type;
+        if (item_type != "none")
+        {
+            Item* spawned = spawn_item(item_type).release();
+            items.push_back(spawned);
+        }
+    }
 }
 
 Room& Room::operator=(const Room& other)

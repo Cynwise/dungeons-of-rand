@@ -32,6 +32,18 @@
         {
             "type" : "rogue",
             "count" : 1
-	}
+        }
+    ],
+
+    "item_list" :
+    [
+        {
+            "type" : "small_health_potion",
+            "chance" : 1
+        },
+        {
+            "type" : "none",
+            "chance" : 3
+        }
     ]
 }

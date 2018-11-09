@@ -9,6 +9,7 @@
 #include <utility>
 #include <string>
 
+#include <item_list.h>
 #include <vendor/json.h>
 
 typedef nlohmann::json Json;
@@ -43,6 +44,7 @@ private:
     std::string description;
 
     std::vector<Actor_Spawn> actor_spawn;
+    std::vector<Item_List> item_list;
 };
 
 void from_json(const Json& json, Room_Module& mod);

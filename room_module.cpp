@@ -35,6 +35,12 @@ void from_json(const Json& json, Room_Module& mod)
     {
         json.at("actor_spawn").get_to(mod.actor_spawn);
     }
+
+    it = json.find("item_list");
+    if (it != json.end())
+    {
+        json.at("item_list").get_to(mod.item_list);
+    }
 }
 
 void from_json(const Json& json, Actor_Spawn& mod)

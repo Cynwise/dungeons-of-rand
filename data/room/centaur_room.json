@@ -1,6 +1,6 @@
 {
     "type" : "centaur_room",
-    "brief" : "This room has a pile of waste that indicates Centaur habitation.",
+    "brief" : "This room has a pile of waste that's much too big and... rank for any normal beast.",
     "description" : "This room smells like Centaur waste.",
 
     "actor_spawn" :
@@ -8,6 +8,18 @@
         {
             "type" : "centaur",
             "count" : 1
+        },
+        {
+            "type" : "giant",
+            "count" : 1
+        },
+        {
+            "type" : "ogre",
+            "count" : 1
+        },
+        {
+            "type" : "wolf",
+            "count" : 2
         }
     ]
 }

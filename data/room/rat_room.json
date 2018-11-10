@@ -12,6 +12,10 @@
         {
             "type" : "rat",
             "count" : 2
+        },
+        {
+            "type" : "big_rat",
+            "count" : 1
         }
     ]
 }

@@ -1,0 +1,32 @@
+{
+    "type" : "den",
+    "brief" : "This room has a den of sorts.",
+    "description" : "There is, or WAS a family in here. Luckily, it seems most aren't in-house.",
+
+    "actor_spawn" :
+    [
+        {
+            "type" : "rat",
+            "count" : 2
+        },
+        {
+            "type" : "big_rat",
+            "count" : 1,
+            "type" : "rat",
+            "count" : 2
+        },
+        {
+            "type" : "snake",
+            "count" : 2
+        },
+        {
+            "type" : "spider",
+            "count" : 3
+        },
+        {
+            "type" : "wolf",
+            "count" : 2
+        }
+
+    ]
+}

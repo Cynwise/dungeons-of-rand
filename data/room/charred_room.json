@@ -1,0 +1,17 @@
+{
+    "type" : "charred_room",
+    "brief" : "This space has a multitude of burn marks across the floor.",
+    "description" : "Not sure what could've caused these scorches... better be on the look out.",
+
+    "actor_spawn" :
+    [
+        {
+            "type" : "wyrm",
+            "count" : 1
+        },
+        {
+            "type" : "black_slime",
+            "count" : 1
+        }
+    ]
+}

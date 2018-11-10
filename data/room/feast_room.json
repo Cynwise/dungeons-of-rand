@@ -1,0 +1,33 @@
+{
+    "type" : "feast_room",
+    "brief" : "This room is clearly the place of a feast. Hopefully they left some scraps.",
+    "description" : "Succulent fruits, fatty meats, and fragrant bread USED to adorn this table... now only morsels.",
+
+    "actor_spawn" :
+    [
+        {
+            "type" : "barbarian",
+            "count" : 2
+        },
+        {
+            "type" : "ogre",
+            "count" : 1
+        },
+        {
+            "type" : "bandit",
+            "count" : 2
+        },
+        {
+            "type" : "rogue",
+            "count" : 1
+        },
+        {
+            "type" : "rogue",
+            "count" : 2
+        },
+        {
+            "type" : "shaman",
+            "count" : 1
+        }
+    ]
+}

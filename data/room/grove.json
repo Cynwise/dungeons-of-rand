@@ -1,0 +1,21 @@
+{
+    "type" : "grove",
+    "brief" : "This room has a small brook in the corner... seems a common place of respite.",
+    "description" : "You feel a calming presence here... time to take a breather.",
+
+    "actor_spawn" :
+    [
+        {
+            "type" : "green_slime",
+            "count" : 1
+        },
+        {
+            "type" : "echidna",
+            "count" : 1
+        },
+        {
+            "type" : "spider",
+            "count" : 1
+        }
+    ]
+}

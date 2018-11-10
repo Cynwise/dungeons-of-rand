@@ -1,0 +1,29 @@
+{
+    "type" : "workshop",
+    "brief" : "This place is extraordinary. Likely the workshop of an inventor of sorts.",
+    "description" : "The walls of covered in diagrams, and the room is filled with bubbling potions and twitchy contraptions.",
+
+    "actor_spawn" :
+    [
+        {
+            "type" : "green_slime",
+            "count" : 1
+        },
+        {
+            "type" : "green_slime",
+            "count" : 2
+        },
+        {
+            "type" : "gnome",
+            "count" : 1
+        },
+        {
+            "type" : "shaman",
+            "count" : 1
+        },
+        {
+            "type" : "goblin",
+            "count" : 1
+        }
+    ]
+}

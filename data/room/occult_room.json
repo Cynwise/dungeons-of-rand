@@ -1,0 +1,29 @@
+{
+    "type" : "occult_room",
+    "brief" : "This room is filled with candles and strange writings cover the walls.",
+    "description" : "You hear whispers from an unknown location. They sound menacing.",
+
+    "actor_spawn" :
+    [
+        {
+            "type" : "black_slime",
+            "count" : 1
+        },
+        {
+            "type" : "cultist",
+            "count" : 1
+        },
+        {
+            "type" : "cult_leader",
+            "count" : 1
+        },
+        {
+            "type" : "ghoul",
+            "count" : 1
+        },
+        {
+            "type" : "shaman",
+            "count" : 1
+        }
+    ]
+}

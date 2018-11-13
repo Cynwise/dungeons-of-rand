@@ -68,6 +68,10 @@ bool Armor::equip(Actor& holder)
 
     return true;
 }
+void Armor::check(Actor& holder)
+{
+    std::cout << name << " gives you " << def << " fortitude.\n";
+}
 
 int Armor::get_def() const
 {

@@ -60,6 +60,10 @@ void Potion::use(Actor& holder)
     holder.remove_item(*this);
 
 }
+void Potion::check(Actor& holder)
+{
+    std::cout << name << " gives you " << stat << " health.\n";
+}
 
 int Potion::get_stat() const
 {

@@ -31,6 +31,9 @@ public:
     /// Gets the defensive value of this armor.
     int get_def() const;
 
+    /// Shows player armor stats.
+    virtual void check(Actor& holder);
+
 private:
 
     /// Defense boost granted by this armor.

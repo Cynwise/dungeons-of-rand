@@ -18,7 +18,7 @@
         },
         {
             "type" : "bear_pelt",
-            "chance" : 1
+            "chance" : 5
         },
         {
             "type" : "none",

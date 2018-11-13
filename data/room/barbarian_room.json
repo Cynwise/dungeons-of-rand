@@ -7,7 +7,13 @@
     [
         {
             "type" : "barbarian",
-            "count" : 1
+            "count" : 1,
+            "chance" : 3
+        },
+        {
+            "type" : "barbarian",
+            "count" : 2,
+            "chance" : 1
         }
     ]
 }

@@ -7,19 +7,23 @@
     [
         {
             "type" : "centaur",
-            "count" : 1
+            "count" : 1,
+            "chance" : 4
         },
         {
             "type" : "giant",
-            "count" : 1
+            "count" : 1,
+            "chance" : 1
         },
         {
             "type" : "ogre",
-            "count" : 1
+            "count" : 1,
+            "chance" : 1
         },
         {
             "type" : "wolf",
-            "count" : 2
+            "count" : 2,
+            "chance" : 2
         }
     ]
 }

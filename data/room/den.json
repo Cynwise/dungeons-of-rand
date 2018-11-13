@@ -7,23 +7,28 @@
     [
         {
             "type" : "rat",
-            "count" : 3
+            "count" : 3,
+            "chance" : 2
         },
         {
             "type" : "big_rat",
-            "count" : 1
+            "count" : 1,
+            "chance" : 3
         },
         {
             "type" : "snake",
-            "count" : 2
+            "count" : 2,
+            "chance" : 1
         },
         {
             "type" : "spider",
-            "count" : 3
+            "count" : 3,
+            "chance" : 2
         },
         {
             "type" : "wolf",
-            "count" : 2
+            "count" : 2,
+            "chance" : 2
         }
 
     ]

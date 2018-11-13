@@ -7,19 +7,23 @@
     [
         {
             "type" : "ghoul",
-            "count" : 1
+            "count" : 1,
+            "chance" : 3
         },
         {
             "type" : "wolf",
-            "count" : 1
+            "count" : 1,
+            "chance" : 2
         },
         {
             "type" : "bandit",
-            "count" : 1
+            "count" : 1,
+            "chance" : 2
         },
         {
             "type" : "bear",
-            "count" : 1
+            "count" : 1,
+            "chance" : 1
         }
     ]
 }

@@ -7,11 +7,13 @@
     [
         {
             "type" : "wyrm",
-            "count" : 1
+            "count" : 1,
+            "chance" : 4
         },
         {
             "type" : "black_slime",
-            "count" : 1
+            "count" : 1,
+            "chance" : 2
         }
     ]
 }

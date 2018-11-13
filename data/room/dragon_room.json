@@ -7,7 +7,8 @@
     [
         {
             "type" : "dragon",
-            "count" : 1
+            "count" : 1,
+            "chance" : 1
         }
     ]
 }

@@ -22,6 +22,9 @@ public:
 
     int hurt(int damage);
 
+    /// Report the player's status.
+    void print_status();
+
 private:
 
     bool dodge;

@@ -119,12 +119,11 @@ Actor::Actor(std::string actor_type)
         {
             weighted_chance += item_it->chance;
 
-            // Spawn the Item and add it to the Room.
+            // Spawn the Item and add it to the Actor's inventory.
             // Don't spawn an Item with a chance of 0 or a type of "none".
             if (weighted_chance >= entry && item_it->chance != 0 && item_it->type != "none")
             {
-                std::unique_ptr<Item> spawned = spawn_item(item_it->type);
-                add_item(*spawned);
+                add_item(spawn_item(item_it->type));
 
                 break;
             }
@@ -252,9 +251,9 @@ int Actor::heal(int points)
     return hp - hp_before;
 }
 
-void Actor::add_item(const Item& item)
+void Actor::add_item(std::unique_ptr<Item> item)
 {
-    items.insert(item);
+    items.insert(std::move(item));
 }
 
 std::unique_ptr<Item> Actor::remove_item(Item& item)

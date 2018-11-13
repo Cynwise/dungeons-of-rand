@@ -57,7 +57,7 @@ bool Armor::equip(Actor& holder)
         auto prev_equipped = std::move(holder.armor);
         std::cout << "You place the " << prev_equipped->get_name();
         std::cout << " back into your inventory.\n";
-        holder.add_item(*prev_equipped);
+        holder.add_item(std::move(prev_equipped));
     }
 
     holder.armor.reset(clone());
@@ -70,7 +70,8 @@ bool Armor::equip(Actor& holder)
 }
 void Armor::check(Actor& holder)
 {
-    std::cout << name << " gives you " << def << " fortitude.\n";
+    std::cout << "This is a " << name << ".\n";
+    std::cout << "It gives you " << def << " defense.\n";
 }
 
 int Armor::get_def() const

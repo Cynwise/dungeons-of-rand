@@ -62,7 +62,8 @@ void Potion::use(Actor& holder)
 }
 void Potion::check(Actor& holder)
 {
-    std::cout << name << " gives you " << stat << " health.\n";
+    std::cout << "This is a " << name << ".\n";
+    std::cout << "It gives you " << stat << " health.\n";
 }
 
 int Potion::get_stat() const

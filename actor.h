@@ -65,7 +65,7 @@ public:
      *
      * @param item Item to be added.
      */
-    virtual void add_item(const Item& item);
+    virtual void add_item(std::unique_ptr<Item> item);
 
     /**
      * @brief Remove an item from the Actor's inventory.

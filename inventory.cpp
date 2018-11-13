@@ -29,17 +29,17 @@ Inventory& Inventory::operator=(const Inventory& other)
     // Copy the other inventory.
     for (auto it = other.contents.begin(); it != other.contents.end(); ++it)
     {
-        insert(**it);
+        Item* raw_clone = (*it)->clone();
+        std::unique_ptr<Item> item_clone(raw_clone);
+        insert(std::move(item_clone));
     }
 
     return *this;
 }
 
-void Inventory::insert(const Item& item)
+void Inventory::insert(std::unique_ptr<Item> item)
 {
-    // We use C++11 move semantics to move the cloned item into the list.
-    std::unique_ptr<Item> new_item(item.clone());
-    contents.push_back(std::move(new_item));
+    contents.push_back(std::move(item));
 }
 
 std::unique_ptr<Item> Inventory::remove(Item& item)

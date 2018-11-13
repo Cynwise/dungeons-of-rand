@@ -189,8 +189,8 @@ int game_loop()
             }
             // Else, move the item.
             std::unique_ptr<Item> item = player_room->remove_item(*origin);
-            player.add_item(*item);
-            std::cout << "You pick up the " << item->get_name() << std::endl;
+            std::cout << "You pick up the " << item->get_name() << ".\n";
+            player.add_item(std::move(item));
         }
         else if (input.find("drop ") == 0)
         {
@@ -208,7 +208,7 @@ int game_loop()
                 continue;
             }
             player_room->add_item(*item);
-            std:: cout << "You drop the " << item->get_name() << std::endl;
+            std:: cout << "You drop the " << item->get_name() << ".\n";
         }
         else if (input.find("use ") == 0)
         {

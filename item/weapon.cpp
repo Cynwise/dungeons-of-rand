@@ -59,7 +59,7 @@ bool Weapon::equip(Actor& holder)
         auto prev_equipped = std::move(holder.weapon);
         std::cout << "You place the " << prev_equipped->get_name();
         std::cout << " back into your inventory.\n";
-        holder.add_item(*prev_equipped);
+        holder.add_item(std::move(prev_equipped));
     }
 
     holder.weapon.reset(clone());
@@ -72,7 +72,8 @@ bool Weapon::equip(Actor& holder)
 }
 void Weapon::check(Actor& holder)
 {
-    std::cout << name << " gives you " << atk << " attack.\n";
+    std::cout << "This is a " << name << ".\n";
+    std::cout << "It gives you " << atk << " attack.\n";
 }
 
 int Weapon::get_atk() const

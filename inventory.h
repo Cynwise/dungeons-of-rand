@@ -34,7 +34,7 @@ public:
     Inventory& operator=(const Inventory& other);
 
     /// Insert an item into the inventory.
-    void insert(const Item& item);
+    void insert(std::unique_ptr<Item> item);
 
     /// Remove an item from the inventory.
     std::unique_ptr<Item> remove(Item& item);

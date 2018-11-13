@@ -127,3 +127,9 @@ int Player::hurt(int damage)
     // Return net damage.
     return hp_before - hp;
 }
+
+void Player::print_status()
+{
+    // Report player HP.
+    std::cout << "Your current health is " << hp << "/" << max_hp << ".\n";
+}

@@ -167,6 +167,10 @@ int game_loop()
         {
             break;
         }
+        else if (input == "status" || input == "s")
+        {
+            player.print_status();
+        }
         else if (input.find("take ") == 0)
         {
             // Parse the input.
@@ -244,6 +248,7 @@ int game_loop()
             std::cout << "help: Display this message.\n";
             std::cout << "go [n,e,s,w]: Move in that direction\n";
             std::cout << "look: Inspect your surroundings.\n";
+            std::cout << "status: Check your current status.\n";
             std::cout << "inventory: Display the contents of your inventory.\n";
             std::cout << "take [item]: Pick up an item.\n";
             std::cout << "drop [item]: Drop an item.\n";

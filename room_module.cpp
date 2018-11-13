@@ -45,6 +45,26 @@ void from_json(const Json& json, Room_Module& mod)
 
 void from_json(const Json& json, Actor_Spawn& mod)
 {
-    json.at("type").get_to(mod.type);
-    json.at("count").get_to(mod.count);
+    auto it = json.find("type");
+    if (it != json.end())
+    {
+        json.at("type").get_to(mod.type);
+    }
+
+    it = json.find("chance");
+    if (it != json.end())
+    {
+        json.at("chance").get_to(mod.chance);
+    }
+    else
+    {
+        // Fall back to default value.
+        mod.chance = 1;
+    }
+
+    it = json.find("count");
+    if (it != json.end())
+    {
+        json.at("count").get_to(mod.count);
+    }
 }

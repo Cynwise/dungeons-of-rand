@@ -103,15 +103,31 @@ Actor::Actor(std::string actor_type)
     // Spawn an item from the item drop list.
     if (!parent.item_list.empty())
     {
-        // Pick a random entry.
-        int entry = rng(0, parent.item_list.size() - 1);
-
-        // Spawn the Item and add it to the inventory.
-        std::string item_type = parent.item_list[entry].type;
-        if (item_type != "none")
+                // Calculate the sum of Item spawn chances.
+        long sum = 0;
+        for (auto item_it = parent.item_list.begin(); item_it != parent.item_list.end(); ++item_it)
         {
-            std::unique_ptr<Item> item = spawn_item(item_type);
-            add_item(*item);
+            sum += item_it->chance;
+        }
+
+        // Generate a weighted entry value.
+        long entry = rng(0, sum);
+
+        // Iterate over the list until we find the first valid entry.
+        long weighted_chance = 0;
+        for (auto item_it = parent.item_list.begin(); item_it != parent.item_list.end(); ++item_it)
+        {
+            weighted_chance += item_it->chance;
+
+            // Spawn the Item and add it to the Room.
+            // Don't spawn an Item with a chance of 0 or a type of "none".
+            if (weighted_chance >= entry && item_it->chance != 0 && item_it->type != "none")
+            {
+                std::unique_ptr<Item> spawned = spawn_item(item_it->type);
+                add_item(*spawned);
+
+                break;
+            }
         }
     }
 }

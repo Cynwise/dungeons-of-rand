@@ -22,6 +22,7 @@ class Actor_Spawn
 public:
 
     std::string type;
+    int chance;
     int count;
 };
 

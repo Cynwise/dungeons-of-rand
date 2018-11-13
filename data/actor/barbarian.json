@@ -29,6 +29,10 @@
             "chance" : 3
         },
         {
+            "type" : "iron_battleaxe",
+            "chance" : 2
+        },
+        {
             "type" : "none",
             "chance" : 4
         }

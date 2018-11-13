@@ -83,7 +83,7 @@ Room::Room(const std::string& room_type)
 
             // Spawn the Actor and add it to the Room.
             // Don't spawn an Actor with a chance of 0.
-            if (weighted_chance >= entry && actor_it->chance != 0)
+            if (weighted_chance >= entry && actor_it->chance != 0 && actor_it->type != "none")
             {
                 int actor_count = actor_it->count;
 

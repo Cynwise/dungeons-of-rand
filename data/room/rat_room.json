@@ -16,6 +16,11 @@
         {
             "type" : "big_rat",
             "count" : 1
+        },
+        {
+            "type" : "none",
+            "count" : 1,
+            "chance" : 1
         }
     ]
 }

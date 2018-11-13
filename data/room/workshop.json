@@ -7,23 +7,28 @@
     [
         {
             "type" : "green_slime",
-            "count" : 1
+            "count" : 1,
+            "chance" : 3
         },
         {
             "type" : "green_slime",
-            "count" : 2
+            "count" : 2,
+            "chance" : 2
         },
         {
             "type" : "gnome",
-            "count" : 1
+            "count" : 1,
+            "chance" : 4
         },
         {
             "type" : "shaman",
-            "count" : 1
+            "count" : 1,
+            "chance" : 4
         },
         {
             "type" : "goblin",
-            "count" : 1
+            "count" : 1,
+            "chance" : 1
         }
     ]
 }

@@ -7,31 +7,38 @@
     [
         {
             "type" : "barbarian",
-            "count" : 1
+            "count" : 1,
+            "chance" : 1
         },
         {
             "type" : "rat",
-            "count" : 1
+            "count" : 1,
+            "chance" : 2
         },
         {
             "type" : "rat",
-            "count" : 2
+            "count" : 2,
+            "chance" : 1
         },
         {
             "type" : "goblin",
-            "count" : 1
+            "count" : 1,
+            "chance" : 3
         },
         {
             "type" : "cultist",
-            "count" : 1
+            "count" : 1,
+            "chance" : 1
         },
         {
             "type" : "bandit",
-            "count" : 1
+            "count" : 1,
+            "chance" : 2
         },
         {
             "type" : "rogue",
-            "count" : 1
+            "count" : 1,
+            "chance" : 2
         }
     ],
 

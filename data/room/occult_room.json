@@ -7,23 +7,28 @@
     [
         {
             "type" : "black_slime",
-            "count" : 1
+            "count" : 1,
+            "chance" : 2
         },
         {
             "type" : "cultist",
-            "count" : 1
+            "count" : 1,
+            "chance" : 3
         },
         {
             "type" : "cult_leader",
-            "count" : 1
+            "count" : 1,
+            "chance" : 1
         },
         {
             "type" : "ghoul",
-            "count" : 1
+            "count" : 1,
+            "chance" : 1
         },
         {
             "type" : "shaman",
-            "count" : 1
+            "count" : 1,
+            "chance" : 3
         }
     ]
 }

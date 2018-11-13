@@ -7,15 +7,18 @@
     [
         {
             "type" : "green_slime",
-            "count" : 1
+            "count" : 1,
+            "chance" : 1
         },
         {
             "type" : "echidna",
-            "count" : 1
+            "count" : 1,
+            "chance" : 1
         },
         {
             "type" : "spider",
-            "count" : 1
+            "count" : 1,
+            "chance" : 1
         }
     ]
 }

@@ -7,31 +7,38 @@
     [
         {
             "type" : "barbarian",
-            "count" : 1
+            "count" : 1,
+            "chance" : 1
         },
         {
             "type" : "rat",
-            "count" : 1
+            "count" : 1,
+            "chance" : 2
         },
         {
             "type" : "echidna",
-            "count" : 1
+            "count" : 1,
+            "chance" : 2
         },
         {
             "type" : "bear",
-            "count" : 1
+            "count" : 1,
+            "chance" : 1
         },
         {
             "type" : "gnome",
-            "count" : 1
+            "count" : 1,
+            "chance" : 1
         },
         {
             "type" : "spider",
-            "count" : 1
+            "count" : 1,
+            "chance" : 3
         },
         {
             "type" : "snake",
-            "count" : 1
+            "count" : 1,
+            "chance" : 3
         }
     ]
 }

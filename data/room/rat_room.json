@@ -7,15 +7,18 @@
     [
         {
             "type" : "rat",
-            "count" : 1
+            "count" : 1,
+            "chance" : 4
         },
         {
             "type" : "rat",
-            "count" : 2
+            "count" : 2,
+            "chance" : 2
         },
         {
             "type" : "big_rat",
-            "count" : 1
+            "count" : 1,
+            "chance" : 1
         }
     ]
 }

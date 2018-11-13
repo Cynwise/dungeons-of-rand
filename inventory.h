@@ -37,7 +37,7 @@ public:
     void insert(std::unique_ptr<Item> item);
 
     /// Remove an item from the inventory.
-    std::unique_ptr<Item> remove(Item& item);
+    std::unique_ptr<Item> remove(Item* item);
 
     /// Dump all items in the inventory into a room.
     void dump_items(Room& room);

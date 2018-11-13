@@ -103,7 +103,7 @@ Actor::Actor(std::string actor_type)
     // Spawn an item from the item drop list.
     if (!parent.item_list.empty())
     {
-                // Calculate the sum of Item spawn chances.
+        // Calculate the sum of Item spawn chances.
         long sum = 0;
         for (auto item_it = parent.item_list.begin(); item_it != parent.item_list.end(); ++item_it)
         {
@@ -256,7 +256,7 @@ void Actor::add_item(std::unique_ptr<Item> item)
     items.insert(std::move(item));
 }
 
-std::unique_ptr<Item> Actor::remove_item(Item& item)
+std::unique_ptr<Item> Actor::remove_item(Item* item)
 {
     return items.remove(item);
 }

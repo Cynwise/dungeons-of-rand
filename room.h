@@ -71,19 +71,19 @@ public:
     virtual void print_contents();
 
     /// Add an Actor to this room.
-    virtual void add_actor(const Actor& actor);
+    virtual void add_actor(std::unique_ptr<Actor> actor);
 
     /// Remove an Actor from this room.
-    virtual std::unique_ptr<Actor> remove_actor(const Actor& actor);
+    virtual std::unique_ptr<Actor> remove_actor(Actor* actor);
 
     /// Find an Item by name.
     virtual Item* find_item(const std::string& name);
 
     /// Add an Item to this room.
-    virtual void add_item(const Item& item);
+    virtual void add_item(std::unique_ptr<Item> item);
 
     /// Remove an Item from this room.
-    virtual std::unique_ptr<Item> remove_item(const Item& item);
+    virtual std::unique_ptr<Item> remove_item(Item* item);
 
     // Getters/setters.
     std::string get_name();
@@ -120,10 +120,10 @@ protected:
     Path path;
 
     /// List of actors within the room.
-    std::list<Actor*> actors;
+    std::list<std::unique_ptr<Actor>> actors;
 
     /// List of items within the room.
-    std::list<Item*> items;
+    std::list<std::unique_ptr<Item>> items;
 };
 
 /// Global pointer to current room.

@@ -66,7 +66,7 @@ bool Weapon::equip(Actor& holder)
     std::cout << "You wield the " << name << ".\n";
 
     // Remove self from Actor inventory.
-    holder.remove_item(*this);
+    holder.remove_item(this);
 
     return true;
 }

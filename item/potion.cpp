@@ -57,7 +57,7 @@ void Potion::use(Actor& holder)
     std::cout << "You use the " << name << ".\n";
 
     // Remove self from Actor's inventory.
-    holder.remove_item(*this);
+    holder.remove_item(this);
 
 }
 void Potion::check(Actor& holder)

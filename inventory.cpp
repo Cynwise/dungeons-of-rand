@@ -42,7 +42,7 @@ void Inventory::insert(std::unique_ptr<Item> item)
     contents.push_back(std::move(item));
 }
 
-std::unique_ptr<Item> Inventory::remove(Item& item)
+std::unique_ptr<Item> Inventory::remove(Item* item)
 {
     std::unique_ptr<Item> removed = nullptr;
 
@@ -50,7 +50,7 @@ std::unique_ptr<Item> Inventory::remove(Item& item)
     for (auto it = contents.begin(); it != contents.end(); ++it)
     {
         // Check if we found the target.
-        if (&item == (*it).get())
+        if (item == (*it).get())
         {
             removed = std::move(*it);
             contents.erase(it);
@@ -65,8 +65,9 @@ void Inventory::dump_items(Room& room)
 {
     for (auto it = contents.begin(); it != contents.end(); ++it)
     {
-        player_room->add_item(**it);
-        remove(**it);
+        // Remove item from this inventory and move it to the room.
+        auto item = remove(it->get());
+        room.add_item(std::move(item));
         it = contents.begin();
     }
 }

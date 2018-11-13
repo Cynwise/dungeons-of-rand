@@ -29,20 +29,8 @@ Room::Room()
 
 Room::~Room()
 {
-    std::list<Actor*>::iterator it_actors = actors.begin();
-    std::list<Item*>::iterator it_items = items.begin();
-
-    // Delete all dynamically allocated objects.
-    while (it_actors != actors.end())
-    {
-        delete *it_actors;
-        ++it_actors;
-    }
-    while (it_items != items.end())
-    {
-        delete *it_items;
-        ++it_items;
-    }
+    // Actors and Items will be deleted when their vector's are
+    // deleted.
 }
 
 Room::Room(const std::string& room_type)
@@ -89,8 +77,8 @@ Room::Room(const std::string& room_type)
 
                 while (actor_count > 0)
                 {
-                    Actor* spawned = new Actor(actor_it->type);
-                    actors.push_back(spawned);
+                    std::unique_ptr<Actor> spawned(new Actor(actor_it->type));
+                    actors.push_back(std::move(spawned));
                     --actor_count;
                 }
 
@@ -122,8 +110,7 @@ Room::Room(const std::string& room_type)
             // Don't spawn an Item with a chance of 0 or a type of "none".
             if (weighted_chance >= entry && item_it->chance != 0 && item_it->type != "none")
             {
-                std::unique_ptr<Item> spawned = spawn_item(item_it->type);
-                items.push_back(spawned.release());
+                items.push_back(spawn_item(item_it->type));
 
                 break;
             }
@@ -140,32 +127,24 @@ Room& Room::operator=(const Room& other)
     path = other.path;
 
     // Delete this Room's Actors.
-    for (auto it = actors.begin(); it != actors.end(); ++it)
-    {
-        delete *it;
-    }
     actors.clear();
 
     // Copy the other Room's Actors.
     for (auto it = other.actors.begin(); it != other.actors.end(); ++it)
     {
-        Actor* tmp = new Actor;
-        *tmp = **it;
-        actors.push_back(tmp);
+        std::unique_ptr<Actor> actor_clone(new Actor(**it));
+        actors.push_back(std::move(actor_clone));
     }
 
     // Delete this Room's Items.
-    for (auto it = items.begin(); it != items.end(); ++it)
-    {
-        delete *it;
-    }
     items.clear();
 
     // Copy the other Room's Items.
     for (auto it = other.items.begin(); it != other.items.end(); ++it)
     {
-        Item* tmp = (*it)->clone();
-        items.push_back(tmp);
+        Item* raw_clone = (*it)->clone();
+        std::unique_ptr<Item> item_clone(raw_clone);
+        items.push_back(std::move(item_clone));
     }
 
     return *this;
@@ -208,7 +187,7 @@ void Room::enter()
     // Fight until are enemies in the room are dead.
     while (!actors.empty())
     {
-        Actor* enemy = actors.front();
+        Actor* enemy = actors.front().get();
         std::cout << "\nA " << enemy->get_name() << " attacks you!\n\n";
         fight(*enemy);
 
@@ -224,10 +203,10 @@ void Room::enter()
             enemy->dump_items(*this);
 
             // Always drop a corpse.
-            Item corpse("corpse");
+            auto corpse = spawn_item("corpse");
             std::string corpse_name = enemy->get_name() + " corpse";
-            corpse.set_name(corpse_name);
-            player_room->add_item(corpse);
+            corpse->set_name(corpse_name);
+            player_room->add_item(std::move(corpse));
 
             actors.pop_front();
         }
@@ -289,12 +268,12 @@ void Room::print_contents()
     }
 }
 
-void Room::add_actor(const Actor& actor)
+void Room::add_actor(std::unique_ptr<Actor> actor)
 {
-    actors.push_back(new Actor(actor));
+    actors.push_back(std::move(actor));
 }
 
-std::unique_ptr<Actor> Room::remove_actor(const Actor& actor)
+std::unique_ptr<Actor> Room::remove_actor(Actor* actor)
 {
     std::unique_ptr<Actor> removed = nullptr;
 
@@ -302,9 +281,9 @@ std::unique_ptr<Actor> Room::remove_actor(const Actor& actor)
     for (auto it = actors.begin(); it != actors.end(); ++it)
     {
         // Check if we found the target.
-        if (&actor == *it)
+        if (actor == it->get())
         {
-            removed.reset(*it);
+            removed = std::move(*it);
             actors.erase(it);
             break;
         }
@@ -321,7 +300,7 @@ Item* Room::find_item(const std::string& name)
         // Check if we found the target.
         if (name == (*it)->get_name())
         {
-            return *it;
+            return it->get();
         }
     }
 
@@ -329,12 +308,12 @@ Item* Room::find_item(const std::string& name)
     return nullptr;
 }
 
-void Room::add_item(const Item& item)
+void Room::add_item(std::unique_ptr<Item> item)
 {
-    items.push_back(item.clone());
+    items.push_back(std::move(item));
 }
 
-std::unique_ptr<Item> Room::remove_item(const Item& item)
+std::unique_ptr<Item> Room::remove_item(Item* item)
 {
     std::unique_ptr<Item> removed = nullptr;
 
@@ -342,9 +321,9 @@ std::unique_ptr<Item> Room::remove_item(const Item& item)
     for (auto it = items.begin(); it != items.end(); ++it)
     {
         // Check if we found the target.
-        if (&item == *it)
+        if (item == it->get())
         {
-            removed.reset(*it);
+            removed = std::move(*it);
             items.erase(it);
             break;
         }

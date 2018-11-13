@@ -73,12 +73,9 @@ int main(int argc, char* argv[])
     room_1.set_brief("This is a very dank dungeon.");
 
     // Place some sample items in the starting room.
-    Weapon stick("stick");
-    room_1.add_item(stick);
-    Armor rags("peasant_rags");
-    room_1.add_item(rags);
-    auto potion = spawn_item("small_health_potion");
-    room_1.add_item(*potion);
+    room_1.add_item(spawn_item("stick"));
+    room_1.add_item(spawn_item("peasant_rags"));
+    room_1.add_item(spawn_item("small_health_potion"));
 
     // Define more rooms.
     Room* last_room = &room_1;
@@ -188,7 +185,7 @@ int game_loop()
                 continue;
             }
             // Else, move the item.
-            std::unique_ptr<Item> item = player_room->remove_item(*origin);
+            std::unique_ptr<Item> item = player_room->remove_item(origin);
             std::cout << "You pick up the " << item->get_name() << ".\n";
             player.add_item(std::move(item));
         }
@@ -200,15 +197,15 @@ int game_loop()
 
             // Attempt to remove the item.
             Item* origin = player.find_item(item_name);
-            std::unique_ptr<Item> item = player.remove_item(*origin);
+            std::unique_ptr<Item> item = player.remove_item(origin);
             if (item.get() == nullptr)
             {
                 std::cout << "No such item could be dropped from your ";
                 std::cout << "inventory.\n";
                 continue;
             }
-            player_room->add_item(*item);
             std:: cout << "You drop the " << item->get_name() << ".\n";
+            player_room->add_item(std::move(item));
         }
         else if (input.find("use ") == 0)
         {
@@ -270,7 +267,7 @@ int game_loop()
             std::cout << "drop [item]: Drop an item.\n";
             std::cout << "use [item]: Use an item.\n";
             std::cout << "equip [item]: Equip an item.\n";
-	    std::cout << "check [item]: Check an item.\n";
+            std::cout << "check [item]: Check an item.\n";
             std::cout << "quit: Exit the game.\n";
         }
         else

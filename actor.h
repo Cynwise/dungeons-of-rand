@@ -75,7 +75,7 @@ public:
      * @return Pointer to the item that was removed, or nullptr if
      * no item was removed.
      */
-    virtual std::unique_ptr<Item> remove_item(Item& item);
+    virtual std::unique_ptr<Item> remove_item(Item* item);
 
     virtual Item* find_item(const std::string& name);
 

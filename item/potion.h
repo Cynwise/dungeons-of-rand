@@ -25,8 +25,11 @@ public:
 
     virtual Potion* clone() const;
 
-    /// Make the actor .
+    /// Lets the actor use item .
     virtual void use(Actor& holder);
+
+    /// Lets actor check item.
+    virtual void check(Actor& holder);
 
     /// Gets the stats on potion.
     int get_stat() const;

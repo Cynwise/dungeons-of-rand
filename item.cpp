@@ -93,6 +93,11 @@ bool Item::equip(Actor& holder)
     return false;
 }
 
+void Item::check(Actor& holder)
+{
+    std::cout << "That is not an item in your inventory.\n";
+}
+
 const std::string& Item::get_type() const
 {
     return type;

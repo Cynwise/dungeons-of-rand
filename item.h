@@ -35,6 +35,9 @@ public:
      */
     virtual bool equip(Actor& holder);
 
+    ///Shows the player armor's stats.
+    virtual void check(Actor& holder);
+
     // Getters and setters.
     const std::string& get_type() const;
     const std::string& get_name() const;

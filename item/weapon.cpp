@@ -70,6 +70,10 @@ bool Weapon::equip(Actor& holder)
 
     return true;
 }
+void Weapon::check(Actor& holder)
+{
+    std::cout << name << " gives you " << atk << " attack.\n";
+}
 
 int Weapon::get_atk() const
 {

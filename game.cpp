@@ -242,6 +242,22 @@ int game_loop()
 
             item->equip(player);
         }
+        else if (input.find("check ") == 0)
+        {
+            // Parse the input.
+            size_t pos = input.find(" ") + 1;
+            std::string item_name = input.substr(pos);
+
+            // Attempt to find the item.
+            Item* item = player.find_item(item_name);
+            if (item == nullptr)
+            {
+                std::cout << "No such item could be found in your inventory.\n";
+                continue;
+            }
+
+            item->check(player);
+        }
         else if (input == "help")
         {
             std::cout << "Commands:\n\n";
@@ -254,6 +270,7 @@ int game_loop()
             std::cout << "drop [item]: Drop an item.\n";
             std::cout << "use [item]: Use an item.\n";
             std::cout << "equip [item]: Equip an item.\n";
+	    std::cout << "check [item]: Check an item.\n";
             std::cout << "quit: Exit the game.\n";
         }
         else

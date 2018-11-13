@@ -28,8 +28,11 @@ public:
     /// Make the actor wield this weapon.
     virtual bool equip(Actor& holder);
 
+    virtual void check(Actor& holder);
+
     /// Gets this weapon's attack value.
     int get_atk() const;
+
 
 private:
 

@@ -166,6 +166,8 @@ void Room::add_two_way(
 
 void Room::enter()
 {
+    Player& player = Player::get_instance();
+
     player_room = this;
 
     // Check if room has been entered before.

@@ -1,0 +1,17 @@
+{
+    "type" : "punch",
+
+    "atk" : 1,
+
+    "verbs" :
+    [
+        "punch"
+    ],
+
+    "attack_msg" :
+    [
+        "[You] punch[y] [them], dealing [damage] damage.",
+        "[You] take[y] a swing at [them], dealing [damage] damage.",
+        "[You] pummel[y] [them], dealing [damage] damage."
+    ]
+}

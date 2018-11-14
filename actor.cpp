@@ -10,6 +10,7 @@
 #include <actor.h>
 #include <actor_module.h>
 #include <actor/player.h>
+#include <attack_type.h>
 #include <item/armor.h>
 #include <item/weapon.h>
 #include <item/potion.h>
@@ -100,6 +101,8 @@ Actor::Actor(std::string actor_type)
     strength = parent.strength;
     fortitude = parent.fortitude;
 
+    attack_list = parent.attack_list;
+
     combat_start = parent.combat_start;
     win_msg = parent.win_msg;
     lose_msg = parent.lose_msg;
@@ -128,7 +131,6 @@ Actor::Actor(std::string actor_type)
             if (weighted_chance >= entry && item_it->chance != 0 && item_it->type != "none")
             {
                 add_item(spawn_item(item_it->type));
-
                 break;
             }
         }
@@ -153,6 +155,8 @@ Actor& Actor::operator=(const Actor& other)
     strength = other.strength;
     fortitude = other.fortitude;
 
+    attack_list = other.attack_list;
+
     items = other.items;
 
     // Copy weapon safely.
@@ -174,31 +178,34 @@ Actor& Actor::operator=(const Actor& other)
 
 void Actor::attack(Actor& target)
 {
-    // Calculate damage.
-    int atk = calc_atk();
-    int damage = roll(1, atk);
-
-    int net_damage = target.hurt(damage);
-
-    // Report attack results.
-    std::cout << "The " << name;
-    std::cout << " deals " << net_damage;
-    std::cout << " damage to ";
-
-    // Report who the target was.
-    if (&target == &player)
+    // Pick an attack type.
+    Attack_Type* this_attack;
+    if (attack_list.empty())
     {
-        // If the target was the player.
-        std::cout << "you.\n";
-        std::cout << "Your current health is " << target.get_hp();
-        std::cout << ".\n\n";
+        this_attack = attack_map["attack"];
     }
     else
     {
-        std::string target_name = target.get_name();
-        std::cout << "the " << target_name << ".\n";
-        std::cout << "The " << target_name << "'s current health is ";
-        std::cout << target.get_hp() << ".\n\n";
+        int entry = rng(0, attack_list.size() - 1);
+        const std::string& attack_name = attack_list[entry];
+        this_attack = attack_map[attack_name];
+    }
+
+    // Calculate damage.
+    int atk = calc_atk();
+    int damage = roll(1, atk) + this_attack->calc_atk();
+
+    int net_damage = target.hurt(damage);
+
+    // Report results.
+    if (net_damage > 0)
+    {
+        this_attack->print_attack(*this, target, net_damage);
+    }
+    else
+    {
+        std::cout << "The " << name << " attempts to attack you, ";
+        std::cout << "but you dodge.\n\n";
     }
 }
 

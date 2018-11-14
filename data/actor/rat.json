@@ -6,6 +6,11 @@
     "strength" : 1,
     "fortitude" : 1,
 
+    "attack_list" :
+    [
+	"bite"
+    ],
+
     "item_list" :
     [
         {

@@ -1,0 +1,14 @@
+{
+    "type" : "player",
+    "level" : 1,
+    "max_hp" : 20,
+
+    "fortitude" : 5,
+    "strength" : 5,
+
+    "attack_list" :
+    [
+        "punch",
+        "bite"
+    ]
+}

@@ -1,0 +1,21 @@
+{
+    "type" : "bite",
+
+    "atk" : 1,
+
+    "verbs" :
+    [
+        "bite",
+        "gnaw"
+    ],
+
+    "attack_msg" :
+    [
+        "[Your] teeth, sharp as dagger, seek to tear out a chunk of [their] midsection.",
+        "[You] lunge forth, bearing down on [them] with [your] vile teeth and disgusting breath.",
+        "[You're] cautious at first... snapping at [them] from a distance, searching for a taste...",
+        "[You] lick[y] [your] lips before bearing down on [them].",
+        "[You] strike[y] quickly, hoping to capture an easy morsel off guard.",
+        "[You] leap[y] into the air, trying to sink [your] teeth into [their] neck."
+    ]
+}

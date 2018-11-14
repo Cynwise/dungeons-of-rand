@@ -38,9 +38,11 @@ private:
     int strength;
     int fortitude;
 
+    std::vector<std::string> attack_list;
+
     std::vector<Item_List> item_list;
 
-    // Message strings. 
+    // Message strings.
     std::vector<std::string> combat_start;
     std::vector<std::string> win_msg;
     std::vector<std::string> lose_msg;

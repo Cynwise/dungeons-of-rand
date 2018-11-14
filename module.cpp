@@ -10,6 +10,7 @@
 
 #include <actor_module.h>
 #include <armor_module.h>
+#include <attack_type.h>
 #include <item_module.h>
 #include <module.h>
 #include <room_module.h>
@@ -20,6 +21,7 @@
 namespace fs = std::experimental::filesystem;
 
 Actor_Map actor_map;
+Attack_Map attack_map;
 Room_Map room_map;
 Item_Map item_map;
 Weapon_Map weapon_map;
@@ -35,12 +37,27 @@ void modules_load()
         // Check if this entry is a JSON file.
         if (is_regular_file(*actor_it) && actor_it->path().extension() == ".json")
         {
-            const std::string path = actor_it->path();
+            const std::string& path = actor_it->path();
             module_load_actor(path);
         }
 
         // Iterate to the next entry.
         ++actor_it;
+    }
+
+    // Load all Attack_Type modules.
+    fs::directory_iterator attack_it("data/attack");
+    while (attack_it != fs::end(attack_it))
+    {
+        // Check if this entry is a JSON file.
+        if (is_regular_file(*attack_it) && attack_it->path().extension() == ".json")
+        {
+            const std::string& path = attack_it->path();
+            module_load_attack(path);
+        }
+
+        // Iterate to the next entry.
+        ++attack_it;
     }
 
     // Load all Room modules.
@@ -50,7 +67,7 @@ void modules_load()
         // Check if this entry is a JSON file.
         if (is_regular_file(*room_it) && room_it->path().extension() == ".json")
         {
-            const std::string path = room_it->path();
+            const std::string& path = room_it->path();
             module_load_room(path);
         }
 
@@ -65,7 +82,7 @@ void modules_load()
         // Check if this entry is a JSON file.
         if (is_regular_file(*item_it) && item_it->path().extension() == ".json")
         {
-            const std::string path = item_it->path();
+            const std::string& path = item_it->path();
             module_load_item(path);
         }
 
@@ -80,7 +97,7 @@ void modules_load()
         // Check if this entry is a JSON file.
         if (is_regular_file(*weapon_it) && weapon_it->path().extension() == ".json")
         {
-            const std::string path = weapon_it->path();
+            const std::string& path = weapon_it->path();
             module_load_weapon(path);
         }
 
@@ -95,7 +112,7 @@ void modules_load()
         // Check if this entry is a JSON file.
         if (is_regular_file(*armor_it) && armor_it->path().extension() == ".json")
         {
-            const std::string path = armor_it->path();
+            const std::string& path = armor_it->path();
             module_load_armor(path);
         }
 
@@ -109,7 +126,7 @@ void modules_load()
         // Check if this entry is a JSON file.
         if (is_regular_file(*potion_it) && potion_it->path().extension() == ".json")
         {
-            const std::string path = potion_it->path();
+            const std::string& path = potion_it->path();
             module_load_potion(path);
         }
 
@@ -133,6 +150,28 @@ void module_load_actor(const std::string& path)
 
         // Insert the module into the actor_modules list.
         actor_map[mod->type] = mod;
+    }
+    else
+    {
+        std::cerr << "Error loading module " << path << std::endl;
+    }
+}
+
+void module_load_attack(const std::string& path)
+{
+    // Load Attack_Type module if it can be opened.
+    std::ifstream ins(path);
+    if (ins.is_open())
+    {
+        Json json = Json::parse(ins);
+        ins.close();
+
+        // Parse the module.
+        Attack_Type* mod = new Attack_Type;
+        *mod = json;
+
+        // Insert the module into the actor_modules list.
+        attack_map[mod->type] = mod;
     }
     else
     {

@@ -9,7 +9,11 @@
 
 #include <actor.h>
 
-/// Actor that represents the player character.
+/**
+ * @brief Actor that represents the player character. Implemented as
+ * a singleton to prevent multiple player instances from being
+ * spawned.
+ */
 class Player : public Actor
 {
 public:
@@ -17,6 +21,9 @@ public:
     Player();
 
     Player* clone();
+
+    /// Return singleton.
+    static Player& get_instance();
 
     void attack(Actor& target);
 
@@ -29,8 +36,5 @@ private:
 
     bool dodge;
 };
-
-/// Global player instance.
-extern Player player;
 
 #endif // PLAYER_H

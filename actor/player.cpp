@@ -3,26 +3,29 @@
  */
 
 #include <cassert>
+#include <cstdlib>
 #include <iostream>
 
+#include <actor.h>
+#include <actor_module.h>
 #include <actor/player.h>
+#include <attack_type.h>
+#include <module.h>
 #include <rng.h>
-
-/// Construct the global player instance.
-Player player;
 
 Player::Player()
 {
-    // Initialize stats.
-    level = 1;
-    max_hp = 20;
-    hp = max_hp;
+    static bool constructed = false;
 
-    // Initialize attributes.
-    strength = 5;
-    fortitude = 5;
-
-    dodge = false;
+    if (constructed == true)
+    {
+        std::cerr << "Error: Attempt to create multiple player instances.\n";
+        std::exit(1);
+    }
+    else
+    {
+        constructed = true;
+    }
 }
 
 Player* Player::clone()
@@ -30,6 +33,26 @@ Player* Player::clone()
     Player* tmp = new Player;
     *tmp = *this;
     return tmp;
+}
+
+Player& Player::get_instance()
+{
+    static Player instance;
+    static bool constructed = false;
+
+    // Construct the instance upon the first call.
+    if (constructed == false)
+    {
+        // Get stats from default player module.
+        *((Actor*)&instance) = Actor("player");
+
+        // Overrides.
+        instance.dodge = false;
+
+        constructed = true;
+    }
+
+    return instance;
 }
 
 void Player::attack(Actor& target)
@@ -76,14 +99,35 @@ void Player::attack(Actor& target)
     }
     // Else, attack.
 
+    // Pick an attack type.
+    Attack_Type* this_attack;
+    if (attack_list.empty())
+    {
+        this_attack = attack_map["attack"];
+    }
+    else
+    {
+        int entry = rng(0, attack_list.size() - 1);
+        const std::string& attack_name = attack_list[entry];
+        this_attack = attack_map[attack_name];
+    }
+
+    // Calculate damage.
     int atk = calc_atk();
-    int damage = roll(1, atk);
+    int damage = roll(1, atk) + this_attack->calc_atk();
 
     int net_damage = target.hurt(damage);
 
-    std::cout << "You deal " << net_damage << " damage to the ";
-    std::cout << target.get_name() << ".\n";
-    std::cout << "Its current health is " << target.get_hp() << ".\n\n";
+    // Report results.
+    if (net_damage > 0)
+    {
+        this_attack->print_attack(*this, target, net_damage);
+    }
+    else
+    {
+        std::cout << "You attempt to attack the " << target.get_name();
+        std::cout << "but it dodges.\n\n";
+    }
 }
 
 int Player::hurt(int damage)

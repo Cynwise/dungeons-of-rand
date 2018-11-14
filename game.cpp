@@ -47,6 +47,9 @@ int main(int argc, char* argv[])
     // Load all modules.
     modules_load();
 
+    // Get player singleton.
+    Player& player = Player::get_instance();
+
     // Set player name.
     if (debug == false)
     {
@@ -125,6 +128,8 @@ int main(int argc, char* argv[])
 
 int game_loop()
 {
+    Player& player = Player::get_instance();
+
     // User input string.
     std::string input;
 
@@ -329,6 +334,8 @@ void game_over()
 
 void fight(Actor& enemy)
 {
+    Player& player = Player::get_instance();
+
     // Display combat start message.
     std::cout << enemy.get_combat_start() << "\n\n";
 

@@ -108,7 +108,8 @@ public:
 
 protected:
 
-    // Allow items to modify the Actor.
+    // Allow items and attack types protected access to the Actor.
+    friend class Attack_Type;
     friend class Item;
     friend class Weapon;
     friend class Armor;
@@ -126,6 +127,9 @@ protected:
     // Attributes.
     int strength;
     int fortitude;
+
+    // Possible attack types.
+    std::vector<std::string> attack_list;
 
     // Possessions.
     Inventory items;

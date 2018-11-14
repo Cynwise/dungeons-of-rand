@@ -12,6 +12,7 @@
 #include <vendor/json.h>
 
 class Actor_Module;
+class Attack_Type;
 class Room_Module;
 class Item_Module;
 class Weapon_Module;
@@ -23,6 +24,10 @@ typedef nlohmann::json Json;
 /// Map of names to Actor types.
 typedef std::map<std::string, Actor_Module*> Actor_Map;
 extern Actor_Map actor_map;
+
+/// Map of names to Attack_Type.
+typedef std::map<std::string, Attack_Type*> Attack_Map;
+extern Attack_Map attack_map;
 
 /// Map of names to Room types.
 typedef std::map<std::string, Room_Module*> Room_Map;
@@ -49,6 +54,9 @@ void modules_load();
 
 /// Loads an Actor module from path.
 void module_load_actor(const std::string& path);
+
+/// Loads an Attack_Type module from path.
+void module_load_attack(const std::string& path);
 
 /// Loads a Room module from path.
 void module_load_room(const std::string& path);

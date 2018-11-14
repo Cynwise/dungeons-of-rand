@@ -1,0 +1,10 @@
+{
+    "type" : "attack",
+
+    "atk" : 0,
+
+    "attack_msg" :
+    [
+        "[You] attack[y] [them], dealing [damage] damage."
+    ]
+}

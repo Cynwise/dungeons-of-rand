@@ -6,6 +6,18 @@
     "strength" : 1,
     "fortitude" : 1,
 
+    "item_list" :
+    [
+        {
+            "type" : "iron_knife",
+            "chance" : 1
+        },
+        {
+            "type" : "none",
+            "chance" : 2
+        }
+    ],
+
     "combat_start" :
     [
     	"In this room is an adorable sight: an echidna! With... a pocket knife?"

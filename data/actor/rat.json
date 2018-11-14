@@ -25,7 +25,8 @@
 
     "win" :
     [
-        "The rat lies motionless on the ground. Congratulations. You beat a rodent to death."
+        "The rat lies motionless on the ground. Congratulations. You beat a rodent to death.",
+        "You smash any remaining life out of the rat."
     ],
 
     "lose" :

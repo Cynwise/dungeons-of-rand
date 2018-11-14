@@ -22,7 +22,7 @@
         },
         {
             "type" : "iron_dagger",
-            "chance" : 1
+            "chance" : 2
         },
         {
             "type" : "small_health_potion",
@@ -30,7 +30,7 @@
         },
         {
             "type" : "iron_battleaxe",
-            "chance" : 2
+            "chance" : 1
         },
         {
             "type" : "none",

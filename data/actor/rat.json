@@ -14,7 +14,7 @@
         },
 	{
 	    "type" : "none",
-	    "chance" : 2
+	    "chance" : 4
 	}
     ],
 
@@ -25,11 +25,11 @@
 
     "win" :
     [
-            "The rat lies motionless on the ground. Congratulations. You beat a rodent to death."
+        "The rat lies motionless on the ground. Congratulations. You beat a rodent to death."
     ],
 
     "lose" :
     [
-            "As you fall, the rat quickly begins its work, excited at the prospect of a fresh meal."
+        "As you fall, the rat quickly begins its work, excited at the prospect of a fresh meal."
     ]
 }

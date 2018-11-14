@@ -39,6 +39,11 @@ private:
     int fortitude;
 
     std::vector<Item_List> item_list;
+
+    // Message strings. 
+    std::vector<std::string> combat_start;
+    std::vector<std::string> win_msg;
+    std::vector<std::string> lose_msg;
 };
 
 /// Creates an actor module from a JSON file.

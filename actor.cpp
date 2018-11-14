@@ -100,6 +100,10 @@ Actor::Actor(std::string actor_type)
     strength = parent.strength;
     fortitude = parent.fortitude;
 
+    combat_start = parent.combat_start;
+    win_msg = parent.win_msg;
+    lose_msg = parent.lose_msg;
+
     // Spawn an item from the item drop list.
     if (!parent.item_list.empty())
     {
@@ -336,4 +340,46 @@ int Actor::get_level() const
 void Actor::set_level(int val)
 {
     level = val;
+}
+
+const std::string& Actor::get_combat_start() const
+{
+    // Check if we should fall back to the default string.
+    if (combat_start.empty())
+    {
+        static const std::string fallback = "A " + name + " attacks you.";
+        return fallback;
+    }
+
+    // Else, pick a random entry.
+    int entry = rng(0, combat_start.size() - 1);
+    return combat_start[entry];
+}
+
+const std::string& Actor::get_win_msg() const
+{
+    // Check if we should fall back to the default string.
+    if (win_msg.empty())
+    {
+        static const std::string fallback = "You defeat the " + name + ".";
+        return fallback;
+    }
+
+    // Else, pick a random entry.
+    int entry = rng(0, win_msg.size() - 1);
+    return win_msg[entry];
+}
+
+const std::string& Actor::get_lose_msg() const
+{
+    // Check if we should fall back to the default string.
+    if (lose_msg.empty())
+    {
+        static const std::string fallback = "You are defeated by the " + name + ".";
+        return fallback;
+    }
+
+    // Else, pick a random entry.
+    int entry = rng(0, lose_msg.size() - 1);
+    return lose_msg[entry];
 }

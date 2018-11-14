@@ -57,4 +57,22 @@ void from_json(const Json& json, Actor_Module& mod)
     {
         json.at("item_list").get_to(mod.item_list);
     }
+
+    it = json.find("combat_start");
+    if (it != json.end())
+    {
+        json.at("combat_start").get_to(mod.combat_start);
+    }
+
+    it = json.find("win");
+    if (it != json.end())
+    {
+        json.at("win").get_to(mod.win_msg);
+    }
+
+    it = json.find("lose");
+    if (it != json.end())
+    {
+        json.at("lose").get_to(mod.lose_msg);
+    }
 }

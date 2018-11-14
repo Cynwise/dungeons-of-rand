@@ -324,13 +324,14 @@ void start(const std::string& name) {
 
 void game_over()
 {
-    std::cout << "Oh no! Your health has reached 0!\n";
-    command_time();
     std::cout << "Game Over\n";
 }
 
 void fight(Actor& enemy)
 {
+    // Display combat start message.
+    std::cout << enemy.get_combat_start() << "\n\n";
+
     // Loop until someone dies.
     while (1)
     {
@@ -341,8 +342,7 @@ void fight(Actor& enemy)
         // Check if won.
         if (enemy.get_hp() <= 0)
         {
-            std::cout << "You've defeated the " << enemy.get_name() << "!\n";
-
+            std::cout << enemy.get_win_msg() << "\n\n";
             break;
         }
 
@@ -353,6 +353,7 @@ void fight(Actor& enemy)
         // Check if lost.
         if (player.get_hp() <= 0)
         {
+            std::cout << enemy.get_lose_msg() << "\n\n";
             break;
         }
     }

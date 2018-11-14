@@ -9,6 +9,7 @@
 
 #include <memory>
 #include <string>
+#include <vector>
 
 #include <inventory.h>
 
@@ -101,6 +102,9 @@ public:
     void set_hp(int val);
     int get_level() const;
     void set_level(int val);
+    const std::string& get_combat_start() const;
+    const std::string& get_win_msg() const;
+    const std::string& get_lose_msg() const;
 
 protected:
 
@@ -128,6 +132,11 @@ protected:
     std::unique_ptr<Weapon> weapon;
     std::unique_ptr<Armor> armor;
     std::unique_ptr<Potion> potion;
+
+    // Combat messages.
+    std::vector<std::string> combat_start;
+    std::vector<std::string> win_msg;
+    std::vector<std::string> lose_msg;
 };
 
 #endif // ACTOR_H

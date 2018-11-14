@@ -6,6 +6,11 @@
     "strength" : 5,
     "fortitude" : 5,
 
+    "attack_list" :
+    [
+        "punch"
+    ],
+
     "item_list" :
     [
         {
@@ -13,28 +18,28 @@
             "chance" : 2
         },
         {
-            "type" : "wooden_club",
-            "chance" : 4
-        },
-        {
-            "type" : "stick",
-            "chance" : 1
-        },
-        {
-            "type" : "iron_dagger",
-            "chance" : 2
-        },
-        {
             "type" : "small_health_potion",
             "chance" : 3
         },
         {
-            "type" : "iron_battleaxe",
+            "type" : "none",
+            "chance" : 6
+        }
+    ],
+
+    "weapon_list" :
+    [
+        {
+            "type" : "wooden_club",
+            "chance" : 2
+        },
+        {
+            "type" : "iron_dagger",
             "chance" : 1
         },
         {
             "type" : "none",
-            "chance" : 4
+            "chance" : 2
         }
     ],
 

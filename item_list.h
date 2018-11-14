@@ -1,6 +1,6 @@
 /**
  * @file item_list.h
- * @brief Defines the structure of loadable item lists used in
+ * @brief Defines the structure of loadable item list entries used in
  * Actor and Room spawning.
  */
 

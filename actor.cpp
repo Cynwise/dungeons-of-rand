@@ -128,9 +128,49 @@ Actor::Actor(std::string actor_type)
 
             // Spawn the Item and add it to the Actor's inventory.
             // Don't spawn an Item with a chance of 0 or a type of "none".
-            if (weighted_chance >= entry && item_it->chance != 0 && item_it->type != "none")
+            if (weighted_chance >= entry && item_it->chance != 0)
             {
+                if (item_it->type == "none")
+                {
+                    break;
+                }
+
                 add_item(spawn_item(item_it->type));
+                break;
+            }
+        }
+    }
+
+    // Spawn a Weapon from the weapon list.
+    if (!parent.weapon_list.empty())
+    {
+        // Calculate the sum of Weapon spawn chances.
+        long sum = 0;
+        for (auto weapon_it = parent.weapon_list.begin(); weapon_it != parent.weapon_list.end(); ++weapon_it)
+        {
+            sum += weapon_it->chance;
+        }
+
+        // Generate a weighted entry value.
+        long entry = rng(0, sum);
+
+        // Iterate over the list until we find the first valid entry.
+        long weighted_chance = 0;
+        for (auto weapon_it = parent.weapon_list.begin(); weapon_it != parent.weapon_list.end(); ++weapon_it)
+        {
+            weighted_chance += weapon_it->chance;
+
+            // Spawn the Weapon and make the Actor equip it.
+            // Don't spawn an Item with a chance of 0 or a type of "none".
+            if (weighted_chance >= entry && weapon_it->chance != 0)
+            {
+                if (weapon_it->type == "none")
+                {
+                    break;
+                }
+
+                Weapon* raw_weapon = new Weapon(weapon_it->type);
+                weapon.reset(raw_weapon);
                 break;
             }
         }
@@ -280,6 +320,16 @@ Item* Actor::find_item(const std::string& name)
 void Actor::dump_items(Room& room)
 {
     items.dump_items(room);
+
+    if (weapon != nullptr)
+    {
+        room.add_item(std::move(weapon));
+    }
+
+    if (armor != nullptr)
+    {
+        room.add_item(std::move(armor));
+    }
 }
 
 void Actor::print_inventory()

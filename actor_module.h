@@ -41,6 +41,7 @@ private:
     std::vector<std::string> attack_list;
 
     std::vector<Item_List> item_list;
+    std::vector<Item_List> weapon_list;
 
     // Message strings.
     std::vector<std::string> combat_start;

@@ -71,8 +71,13 @@ Room::Room(const std::string& room_type)
 
             // Spawn the Actor and add it to the Room.
             // Don't spawn an Actor with a chance of 0.
-            if (weighted_chance >= entry && actor_it->chance != 0 && actor_it->type != "none")
+            if (weighted_chance >= entry && actor_it->chance != 0)
             {
+                if (actor_it->type == "none")
+                {
+                    break;
+                }
+
                 int actor_count = actor_it->count;
 
                 while (actor_count > 0)
@@ -108,10 +113,14 @@ Room::Room(const std::string& room_type)
 
             // Spawn the Item and add it to the Room.
             // Don't spawn an Item with a chance of 0 or a type of "none".
-            if (weighted_chance >= entry && item_it->chance != 0 && item_it->type != "none")
+            if (weighted_chance >= entry && item_it->chance != 0)
             {
-                items.push_back(spawn_item(item_it->type));
+                if (item_it->type == "none")
+                {
+                    break;
+                }
 
+                items.push_back(spawn_item(item_it->type));
                 break;
             }
         }

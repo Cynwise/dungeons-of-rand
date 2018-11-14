@@ -1,5 +1,5 @@
 {
     "type" : "small_health_potion",
     "name" : "small health potion",
-    "stat" : 5
+    "stat" : 10
 }

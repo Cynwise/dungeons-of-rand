@@ -184,11 +184,13 @@ void Room::enter()
         return;
     }
 
-    // Fight until are enemies in the room are dead.
+    // Format for future combat messages.
+    std::cout << std::endl;
+
+    // Fight until all enemies in the room are dead.
     while (!actors.empty())
     {
         Actor* enemy = actors.front().get();
-        std::cout << "\nA " << enemy->get_name() << " attacks you!\n\n";
         fight(*enemy);
 
         // Break if the player died.
@@ -198,7 +200,7 @@ void Room::enter()
         }
         else
         {
-            // Else, dump the defeated enemies inventory into the room
+            // Else, dump the defeated enemy's inventory into the room
             // and remove the Actor we just defeated.
             enemy->dump_items(*this);
 

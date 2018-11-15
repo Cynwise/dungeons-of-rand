@@ -3,5 +3,15 @@
     "brief" : "This room once held vast amounts of treasure.",
     "description" : "Now, it holds nothing. You feel slightly frustrated",
 
-    "actor_spawn" : []
+    "item_list" :
+    [
+        {
+            "type" : "golden_goblet",
+            "chance" : 1
+        },
+        {
+            "type" : "none",
+            "chance" : 5
+        }
+    ]
 }

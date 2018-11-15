@@ -1,8 +1,22 @@
 # Build settings.
 CXX ?= g++
-CXXFLAGS ?= -ggdb -std=c++11 -O2 -march=native -Wall
+CXXFLAGS ?= -std=c++11 -march=native -Wall
 CXXFLAGS += $(INCLUDE_SCRIPT)
 LD_INPUT = -lstdc++fs
+RELEASE ?= 0
+PROFILE ?= 0
+
+# Check if we are debugging.
+ifeq ($(RELEASE), 0)
+	CXXFLAGS += -ggdb -Og
+else
+	CXXFLAGS += -O2 -DNDEBUG
+endif
+
+# Check if we are profiling.
+ifeq ($(PROFILE), 1)
+	CXXFLAGS += -pg
+endif
 
 # Build list of sources.
 SOURCES = $(shell find . -name "*.cpp")
@@ -28,6 +42,11 @@ all: build doc
 .PHONY: clean
 clean:
 	-rm -rf dungeons-of-rand build/ html/ latex/
+
+# Only clean generated dependencies.
+.PHONY: cleandep
+cleandep:
+	-find ./build -name "*.d" -delete
 
 # Rebuild whole project.
 .PHONY: remake

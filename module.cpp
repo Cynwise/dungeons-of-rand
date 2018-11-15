@@ -152,7 +152,7 @@ void module_load_actor(const std::string& path)
     {
         Json json = Json::parse(ins);
         ins.close();
- 
+
         // Parse the module.
         Actor_Module* mod = new Actor_Module;
         *mod = json;

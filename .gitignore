@@ -1,4 +1,6 @@
 dungeons-of-rand
+a.out
+gmon.out
 *.o
 *.d
 *.pch

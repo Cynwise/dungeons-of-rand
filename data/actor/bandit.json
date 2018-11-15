@@ -6,6 +6,8 @@
     "strength" : 2,
     "fortitude" : 1,
 
+    "gold" : 1,
+
     "weapon_list" :
     [
         {

@@ -10,9 +10,10 @@
 #include <actor_module.h>
 #include <actor/player.h>
 #include <attack_type.h>
+#include <item/armor.h>
+#include <item/weapon.h>
 #include <module.h>
 #include <rng.h>
-#include <item/weapon.h>
 
 Player::Player()
 {
@@ -90,6 +91,7 @@ void Player::attack(Actor& target)
 
 void Player::attack(Actor& target, const std::string& attack_name)
 {
+    int atk = 0;
     int damage = 0;
 
     // Get attack type.
@@ -112,15 +114,14 @@ void Player::attack(Actor& target, const std::string& attack_name)
     // Calculate damage.
     if (weapon_attack == true)
     {
-        int atk = calc_atk() + weapon->get_atk();
-        damage = roll(1, atk) + this_attack->calc_atk();
+        atk = calc_atk() + weapon->get_atk() + this_attack->calc_atk();
     }
     else
     {
-        int atk = calc_atk();
-        damage = roll(1, atk) + this_attack->calc_atk();
+        atk = calc_atk() + this_attack->calc_atk();
     }
 
+    damage = roll(2, atk) / 2 + 1;
     int net_damage = target.hurt(damage);
 
     // Report results.
@@ -152,8 +153,11 @@ int Player::hurt(int damage)
 
     // Calculate defense. Net def = (1d(def)-1)/2
     int def = calc_def();
-    def = roll(1, def) - 1;
-    def *= 0.5;
+    if (armor != nullptr)
+    {
+        def += armor->get_def();
+    }
+    def = roll(2, def) / 2 - 1;
 
     // Apply defense to damage taken.
     damage -= def;

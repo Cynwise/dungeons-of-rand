@@ -242,8 +242,8 @@ void Actor::attack(Actor& target)
         }
 
         // Calculate damage.
-        int atk = calc_atk() + weapon->get_atk();
-        damage = roll(1, atk) + this_attack->calc_atk();
+        int atk = calc_atk() + weapon->get_atk() + this_attack->calc_atk();
+        damage = roll(2, atk) / 2 + 1;
     }
     else
     {
@@ -261,8 +261,8 @@ void Actor::attack(Actor& target)
         }
 
         // Calculate damage.
-        int atk = calc_atk();
-        damage = roll(1, atk) + this_attack->calc_atk();
+        int atk = calc_atk() + this_attack->calc_atk();
+        damage = roll(2, atk) / 2 + 1;
     }
 
     net_damage = target.hurt(damage);
@@ -288,12 +288,11 @@ int Actor::hurt(int damage)
 
     // Calculate defense. Net def = (1d(def)-1)/2
     int def = calc_def();
-    def = roll(1, def) - 1;
     if (armor != nullptr)
     {
-        def += roll(1, armor->get_def()) - 1;
+        def += armor->get_def();
     }
-    //def *= 0.5;
+    def = roll(2, def) / 2 - 1;
 
     // Apply defense to damage taken.
     damage -= def;

@@ -27,7 +27,12 @@ int game_loop();
 /// Player command handler.
 void player_turn();
 
+/// Make enemy attack the player.
 void enemy_turn(Actor& actor);
+
+/// Make player attack on enemy.
+bool player_attack(const std::string& enemy_name);
+bool player_attack(const std::string& enemy_name, const std::string& verb);
 
 void game_over();
 void get_name(std::string& name);
@@ -224,39 +229,9 @@ void player_turn()
             size_t pos = input.find(" ") + 1;
             std::string enemy_name = input.substr(pos);
 
-            // Attempt to find the enemy.
-            Actor* enemy = player_room->find_actor(enemy_name);
-
-            // Verify that the enemy was found.
-            if (enemy == nullptr)
+            bool done = player_attack(enemy_name);
+            if (done)
             {
-                std::cout << "You can't see a " << enemy_name;
-                std::cout << " in this room.\n\n";
-            }
-            else
-            {
-                player.attack(*enemy);
-                std::cout << std::endl;
-
-                // Check if the enemy died.
-                if (enemy->get_hp() == 0)
-                {
-                    std::cout << enemy->get_win_msg() << std::endl;
-
-                    // Dump inventory.
-                    enemy->dump_items(*player_room);
-
-                    // Always drop a corpse.
-                    auto corpse = spawn_item("corpse");
-                    std::string corpse_name = enemy->get_name() + " corpse";
-                    corpse->set_name(corpse_name);
-                    player_room->add_item(std::move(corpse));
-                    player_room->remove_actor(enemy);
-
-                    // Redisplay room contents.
-                    player_room->print_contents();
-                }
-
                 break;
             }
         }
@@ -396,9 +371,6 @@ void player_turn()
         }
         else
         {
-            // Default. Check loaded verbs.
-            bool done_verbs = false;
-
             // Check if this is a valid command.
             size_t verb_end = input.find(" ");
             if (verb_end == std::string::npos)
@@ -416,77 +388,14 @@ void player_turn()
                 continue;
             }
 
+            // Get verb.
             std::string input_verb = input.substr(0, verb_end);
 
-            // Check attack list.
-            for (auto& attack_name : player.attack_list)
-            {
-                auto& attack_type = *attack_map[attack_name];
+            // Get enemy name.
+            std::string enemy_name = input.substr(verb_end + 1);
 
-                // Check verb list.
-                for (auto& attack_verb : attack_type.verbs)
-                {
-                    if (input_verb == attack_verb)
-                    {
-                        // Find target.
-                        std::string enemy_name = input.substr(verb_end + 1);
-
-                        // Attempt to find the enemy.
-                        Actor* enemy = player_room->find_actor(enemy_name);
-
-                        // Verify that the enemy was found.
-                        if (enemy == nullptr)
-                        {
-                            std::cout << "You can't see a " << enemy_name;
-                            std::cout << " in this room.\n\n";
-                            done_verbs = true;
-                        }
-                        else
-                        {
-                            player.attack(*enemy);
-                            std::cout << std::endl;
-
-                            // Check if the enemy died.
-                            if (enemy->get_hp() == 0)
-                            {
-                                std::cout << enemy->get_win_msg() << std::endl;
-
-                                // Dump inventory.
-                                enemy->dump_items(*player_room);
-
-                                // Always drop a corpse.
-                                auto corpse = spawn_item("corpse");
-                                std::string corpse_name = enemy->get_name() + " corpse";
-                                corpse->set_name(corpse_name);
-                                player_room->add_item(std::move(corpse));
-                                player_room->remove_actor(enemy);
-
-                                // Redisplay room contents.
-                                player_room->print_contents();
-                            }
-
-                            done_verbs = true;
-                        }
-                    }
-
-                    if (done_verbs)
-                    {
-                        break;
-                    }
-                }
-
-                if (done_verbs)
-                {
-                    break;
-                }
-            }
-
-            if (done_verbs == false)
-            {
-                std::cout << "Command not recognized.\n";
-                std::cout << "Enter \"help\" for a basic command list.\n\n";
-            }
-            else
+            bool done = player_attack(enemy_name, input_verb);
+            if (done)
             {
                 break;
             }
@@ -538,6 +447,104 @@ void start(const std::string& name) {
 void game_over()
 {
     std::cout << "Game Over\n";
+}
+
+bool player_attack(const std::string& enemy_name)
+{
+    Player& player = Player::get_instance();
+
+    // Attempt to find the enemy.
+    Actor* enemy = player_room->find_actor(enemy_name);
+
+    // Verify that the enemy was found.
+    if (enemy == nullptr)
+    {
+        std::cout << "You can't see a " << enemy_name;
+        std::cout << " in this room.\n\n";
+        return false;
+    }
+
+    player.attack(*enemy);
+
+    // Check if the enemy died.
+    if (enemy->get_hp() == 0)
+    {
+        std::cout << enemy->get_win_msg() << "\n\n";
+
+        // Dump inventory.
+        enemy->dump_items(*player_room);
+
+        // Always drop a corpse.
+        auto corpse = spawn_item("corpse");
+        std::string corpse_name = enemy->get_name() + " corpse";
+        corpse->set_name(corpse_name);
+        player_room->add_item(std::move(corpse));
+        player_room->remove_actor(enemy);
+
+        // Redisplay room contents.
+        player_room->print_contents();
+    }
+
+    return true;
+}
+
+bool player_attack(const std::string& enemy_name, const std::string& input_verb)
+{
+    Player& player = Player::get_instance();
+
+    // Check attack list.
+    for (auto& attack_name : player.attack_list)
+    {
+        auto& attack_type = *attack_map[attack_name];
+
+        // Check verb list.
+        for (auto& attack_verb : attack_type.verbs)
+        {
+            if (input_verb == attack_verb)
+            {
+                // Attempt to find the enemy.
+                Actor* enemy = player_room->find_actor(enemy_name);
+
+                // Verify that the enemy was found.
+                if (enemy == nullptr)
+                {
+                    std::cout << "You can't see a " << enemy_name;
+                    std::cout << " in this room.\n\n";
+                    return false;
+                }
+                else
+                {
+                    player.attack(*enemy);
+
+                    // Check if the enemy died.
+                    if (enemy->get_hp() == 0)
+                    {
+                        std::cout << enemy->get_win_msg() << "\n\n";
+
+                        // Dump inventory.
+                        enemy->dump_items(*player_room);
+
+                        // Always drop a corpse.
+                        auto corpse = spawn_item("corpse");
+                        std::string corpse_name = enemy->get_name() + " corpse";
+                        corpse->set_name(corpse_name);
+                        player_room->add_item(std::move(corpse));
+                        player_room->remove_actor(enemy);
+
+                        // Redisplay room contents.
+                        player_room->print_contents();
+                    }
+
+                    return true;
+                }
+            }
+        }
+    }
+
+    std::cout << "Command not recognized.\n";
+    std::cout << "Enter \"help\" for a basic command list.\n\n";
+
+    return false;
 }
 
 void enemy_turn(Actor& enemy)

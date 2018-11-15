@@ -186,15 +186,6 @@ void Room::enter()
     {
         print_brief();
     }
-
-    // Check if there is no additional info to display.
-    if (actors.empty())
-    {
-        return;
-    }
-
-    // Format for future combat messages.
-    std::cout << std::endl;
 }
 
 void Room::go(const std::string& key)

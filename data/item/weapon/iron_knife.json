@@ -1,5 +1,11 @@
 {
     "type" : "iron_knife",
     "name" : "iron knife",
-    "atk" : 2
+
+    "atk" : 2,
+
+    "attack_list" :
+    [
+        "stab"
+    ]
 }

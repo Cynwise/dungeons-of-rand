@@ -3,14 +3,26 @@
     "level" : 1,
     "max_hp" : 6,
 
-    "strength" : 3,
-    "fortitude" : 5,
+    "strength" : 6,
+    "fortitude" : 4,
 
     "item_list" :
     [
         {
+            "type" : "small_health_potion",
+            "chance" : 1
+        },
+        {
+            "type" : "none",
+            "chance" : 4
+        }
+    ],
+
+    "weapon_list" :
+    [
+        {
             "type" : "iron_dagger",
-            "chance" : 2
+            "chance" : 3
         },
         {
             "type" : "iron_shortsword",

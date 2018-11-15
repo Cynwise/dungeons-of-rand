@@ -2,5 +2,10 @@
     "type" : "pencil",
     "name" : "Jhon Wicks Pencil",
 
-    "atk" : 500
+    "atk" : 500,
+
+    "attack_list" :
+    [
+        "stab"
+    ]
 }

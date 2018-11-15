@@ -10,6 +10,6 @@
 
     "attack_msg" :
     [
-        "[You] stab[y] [them] with [weapon]."
+        "[You] stab[y] [them] with [weapon], dealing [damage] damage."
     ]
 }

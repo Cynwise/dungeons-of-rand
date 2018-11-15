@@ -2,5 +2,10 @@
     "type" : "spiked_club",
     "name" : "spiked club",
 
-    "atk" : 5
+    "atk" : 5,
+
+    "attack_list" :
+    [
+        "bash"
+    ]
 }

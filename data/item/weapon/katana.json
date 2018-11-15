@@ -2,5 +2,10 @@
     "type" : "Katana",
     "name" : "Katana",
 
-    "atk" : 10
+    "atk" : 10,
+
+    "attack_list" :
+    [
+        "stab"
+    ]
 }

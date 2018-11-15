@@ -2,5 +2,10 @@
     "type" : "bronze_longsword",
     "name" : "bronze longsword",
 
-    "atk" : 4
+    "atk" : 4,
+
+    "attack_list" :
+    [
+        "stab"
+    ]
 }

@@ -1,6 +1,11 @@
 {
     "type" : "iron_shortsword",
     "name" : "iron shortsword",
-    
-    "atk" : 5
+
+    "atk" : 5,
+
+    "attack_list" :
+    [
+        "stab"
+    ]
 }

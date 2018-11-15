@@ -1,6 +1,11 @@
 {
     "type" : "mace",
-    "name" : "Heavy mace",
+    "name" : "heavy mace",
 
-    "atk" : 12
+    "atk" : 12,
+
+    "attack_list" :
+    [
+        "bash"
+    ]
 }

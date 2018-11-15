@@ -10,6 +10,6 @@
 
     "attack_msg" :
     [
-        "[You] bash[ey] [them] with [your] [weapon]."
+        "[You] bash[ey] [them] with [your] [weapon] for [damage] damage."
     ]
 }

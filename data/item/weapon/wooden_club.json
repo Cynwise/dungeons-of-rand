@@ -1,5 +1,11 @@
 {
     "type" : "wooden_club",
     "name" : "wooden club",
-    "atk" : 2
+
+    "atk" : 2,
+
+    "attack_list" :
+    [
+        "bash"
+    ]
 }

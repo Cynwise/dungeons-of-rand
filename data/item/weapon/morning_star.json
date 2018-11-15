@@ -2,5 +2,10 @@
     "type" : "morning_star",
     "name" : "morning star",
 
-    "atk" : 15
+    "atk" : 15,
+
+    "attack_list" :
+    [
+        "bash"
+    ]
 }

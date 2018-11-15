@@ -88,6 +88,9 @@ public:
     /// Remove an Item from this room.
     virtual std::unique_ptr<Item> remove_item(Item* item);
 
+    /// Return whether there are any hostiles in this room.
+    virtual bool is_safe() const;
+
     // Getters/setters.
     std::string get_name();
     void set_name(const std::string& s);

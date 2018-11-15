@@ -1,0 +1,15 @@
+{
+    "type" : "stab",
+
+    "atk" : 2,
+
+    "verbs" :
+    [
+        "stab"
+    ],
+
+    "attack_msg" :
+    [
+        "[You] stab[y] [them] with [weapon]."
+    ]
+}

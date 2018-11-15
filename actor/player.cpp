@@ -12,6 +12,7 @@
 #include <attack_type.h>
 #include <module.h>
 #include <rng.h>
+#include <item/weapon.h>
 
 Player::Player()
 {
@@ -59,14 +60,29 @@ void Player::attack(Actor& target)
 {
     // Pick an attack type.
     std::string attack_name;
-    if (attack_list.empty())
+    if (has_weapon())
     {
-        attack_name = "attack";
+        if (!weapon->attack_list.empty())
+        {
+            int entry = rng(0, weapon->attack_list.size() - 1);
+            attack_name = weapon->attack_list[entry];
+        }
+        else
+        {
+            attack_name = "attack";
+        }
     }
     else
     {
-        int entry = rng(0, attack_list.size() - 1);
-        attack_name = attack_list[entry];
+        if (attack_list.empty())
+        {
+            attack_name = "attack";
+        }
+        else
+        {
+            int entry = rng(0, attack_list.size() - 1);
+            attack_name = attack_list[entry];
+        }
     }
 
     attack(target, attack_name);
@@ -74,12 +90,36 @@ void Player::attack(Actor& target)
 
 void Player::attack(Actor& target, const std::string& attack_name)
 {
+    int damage = 0;
+
     // Get attack type.
     Attack_Type* this_attack = attack_map[attack_name];
 
+    // Check if weapon attack or intrinsic attack.
+    bool weapon_attack = false;
+    if (has_weapon())
+    {
+        for (auto& attack_it : weapon->attack_list)
+        {
+            if (attack_name == attack_it)
+            {
+                weapon_attack = true;
+                break;
+            }
+        }
+    }
+
     // Calculate damage.
-    int atk = calc_atk();
-    int damage = roll(1, atk) + this_attack->calc_atk();
+    if (weapon_attack == true)
+    {
+        int atk = calc_atk() + weapon->get_atk();
+        damage = roll(1, atk) + this_attack->calc_atk();
+    }
+    else
+    {
+        int atk = calc_atk();
+        damage = roll(1, atk) + this_attack->calc_atk();
+    }
 
     int net_damage = target.hurt(damage);
 

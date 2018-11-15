@@ -25,6 +25,7 @@ Weapon::Weapon(const Weapon& other)
     type = other.type;
     name = other.name;
     atk = other.atk;
+    attack_list = other.attack_list;
 }
 
 Weapon::Weapon(const std::string& weapon_type)
@@ -42,6 +43,7 @@ Weapon::Weapon(const std::string& weapon_type)
     type = weapon_type;
     name = parent.name;
     atk = parent.atk;
+    attack_list = parent.attack_list;
 }
 
 Weapon* Weapon::clone() const

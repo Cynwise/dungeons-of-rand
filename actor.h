@@ -95,6 +95,9 @@ public:
     /// Calculates the actor's defensive value.
     int calc_def() const;
 
+    /// Returns whether the actor is wielding a weapon.
+    bool has_weapon() const;
+
     // Getters and setters.
     std::string get_name() const;
     void set_name(const std::string& s);
@@ -111,6 +114,10 @@ public:
 
     // Possible attack types.
     std::vector<std::string> attack_list;
+
+    // Possessions.
+    std::unique_ptr<Weapon> weapon;
+    std::unique_ptr<Armor> armor;
 
 protected:
 
@@ -136,9 +143,6 @@ protected:
 
     // Possessions.
     Inventory items;
-    std::unique_ptr<Weapon> weapon;
-    std::unique_ptr<Armor> armor;
-    std::unique_ptr<Potion> potion;
 
     // Combat messages.
     std::vector<std::string> combat_start;

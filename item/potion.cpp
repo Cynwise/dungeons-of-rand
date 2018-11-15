@@ -53,7 +53,6 @@ void Potion::use(Actor& holder)
     // Apply health change.
     int delta = holder.heal(stat);
 
-    holder.potion.reset(clone());
     std::cout << "You use the " << name << " and regain ";
     std::cout << delta << " health.\n";
     std::cout << "Your current health is ";

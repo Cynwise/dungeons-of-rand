@@ -32,6 +32,8 @@ private:
     std::string name;
 
     int atk;
+
+    std::vector<std::string> attack_list;
 };
 
 void from_json(const Json& json, Weapon_Module& mod);

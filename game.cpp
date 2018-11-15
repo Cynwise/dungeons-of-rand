@@ -186,23 +186,51 @@ void player_turn()
         // Parse input. STUB.
         if (input == "go n" || input == "go north")
         {
-            player_room->go("n");
-            break;
+            if (!player_room->is_safe())
+            {
+                std::cout << "You can't do that with enemies nearby.\n\n";
+            }
+            else
+            {
+                player_room->go("n");
+                break;
+            }
         }
         else if (input == "go e" || input == "go east")
         {
-            player_room->go("e");
-            break;
+            if (!player_room->is_safe())
+            {
+                std::cout << "You can't do that with enemies nearby.\n\n";
+            }
+            else
+            {
+                player_room->go("e");
+                break;
+            }
         }
         else if (input == "go s" || input == "go south")
         {
-            player_room->go("s");
-            break;
+            if (!player_room->is_safe())
+            {
+                std::cout << "You can't do that with enemies nearby.\n\n";
+            }
+            else
+            {
+                player_room->go("s");
+                break;
+            }
         }
         else if (input == "go w" || input == "go west")
         {
-            player_room->go("w");
-            break;
+            if (!player_room->is_safe())
+            {
+                std::cout << "You can't do that with enemies nearby.\n\n";
+            }
+            else
+            {
+                player_room->go("w");
+                break;
+            }
         }
         else if (input == "l" || input == "look")
         {
@@ -220,7 +248,7 @@ void player_turn()
         {
             player.print_status();
         }
-        else if (input.find("attack ") == 0)
+        else if (input.find("attack ") == 0 || input.find("a ") == 0)
         {
             // Parse the input.
             size_t pos = input.find(" ") + 1;
@@ -335,8 +363,18 @@ void player_turn()
         {
             std::cout << "Attacks:\n\n";
 
+            // Combine intrinsic and weapon attack lists.
+            std::vector<std::string> attack_list = player.attack_list;
+            if (player.has_weapon())
+            {
+                for (auto& attack_it : player.weapon->attack_list)
+                {
+                    attack_list.push_back(attack_it);
+                }
+            }
+
             // Iterate over attack list.
-            for (auto& attack_name : player.attack_list)
+            for (auto& attack_name : attack_list)
             {
                 auto& attack_type = *attack_map[attack_name];
 
@@ -489,8 +527,18 @@ bool player_attack(const std::string& enemy_name, const std::string& input_verb)
 {
     Player& player = Player::get_instance();
 
+    // Combine intrinsic and weapon attack lists.
+    std::vector<std::string> attack_list = player.attack_list;
+    if (player.has_weapon())
+    {
+        for (auto& attack_it : player.weapon->attack_list)
+        {
+            attack_list.push_back(attack_it);
+        }
+    }
+
     // Check attack list.
-    for (auto& attack_name : player.attack_list)
+    for (auto& attack_name : attack_list)
     {
         auto& attack_type = *attack_map[attack_name];
 

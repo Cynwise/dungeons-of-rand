@@ -70,6 +70,7 @@ void Attack_Type::print_attack(
         replace_all(msg, "[You're]", "You're");
         replace_all(msg, "[you're]", "you're");
         replace_all(msg, "[y]", "");
+        replace_all(msg, "[ey]", "");
     }
     else
     {
@@ -84,6 +85,7 @@ void Attack_Type::print_attack(
         replace_all(msg, "[You're]", upper_name + " is");
         replace_all(msg, "[you're]", lower_name + " is");
         replace_all(msg, "[y]", "s");
+        replace_all(msg, "[ey]", "es");
     }
     if (&defender == &player)
     {
@@ -97,6 +99,7 @@ void Attack_Type::print_attack(
         replace_all(msg, "[they're]", "you're");
         replace_all(msg, "[them]", "you");
         replace_all(msg, "[t]", "");
+        replace_all(msg, "[et]", "");
     }
     else
     {
@@ -112,6 +115,7 @@ void Attack_Type::print_attack(
         replace_all(msg, "[they're]", lower_name + " is");
         replace_all(msg, "[them]", lower_name);
         replace_all(msg, "[t]", "s");
+        replace_all(msg, "[et]", "es");
     }
     replace_all(msg, "[damage]", damage_str);
     replace_all(msg, "[weapon]", attacker.weapon->get_name());

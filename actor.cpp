@@ -221,24 +221,51 @@ Actor& Actor::operator=(const Actor& other)
 
 void Actor::attack(Actor& target)
 {
+    int damage = 0;
+    int net_damage = 0;
+
     // Pick an attack type.
     Attack_Type* this_attack;
-    if (attack_list.empty())
+    if (weapon != nullptr)
     {
-        this_attack = attack_map["attack"];
+        // With weapon.
+
+        if (weapon->attack_list.empty())
+        {
+            this_attack = attack_map["attack"];
+        }
+        else
+        {
+            int entry = rng(0, weapon->attack_list.size() - 1);
+            auto& attack_name = weapon->attack_list[entry];
+            this_attack = attack_map[attack_name];
+        }
+
+        // Calculate damage.
+        int atk = calc_atk() + weapon->get_atk();
+        damage = roll(1, atk) + this_attack->calc_atk();
     }
     else
     {
-        int entry = rng(0, attack_list.size() - 1);
-        const std::string& attack_name = attack_list[entry];
-        this_attack = attack_map[attack_name];
+        // No weapon.
+
+        if (attack_list.empty())
+        {
+            this_attack = attack_map["attack"];
+        }
+        else
+        {
+            int entry = rng(0, attack_list.size() - 1);
+            const std::string& attack_name = attack_list[entry];
+            this_attack = attack_map[attack_name];
+        }
+
+        // Calculate damage.
+        int atk = calc_atk();
+        damage = roll(1, atk) + this_attack->calc_atk();
     }
 
-    // Calculate damage.
-    int atk = calc_atk();
-    int damage = roll(1, atk) + this_attack->calc_atk();
-
-    int net_damage = target.hurt(damage);
+    net_damage = target.hurt(damage);
 
     // Report results.
     if (net_damage > 0)
@@ -350,12 +377,6 @@ int Actor::calc_atk() const
 {
     int atk = strength;
 
-    // Check if this Actor is wielding a weapon.
-    if (weapon != nullptr)
-    {
-        atk += weapon->get_atk();
-    }
-
     return atk;
 }
 
@@ -370,6 +391,18 @@ int Actor::calc_def() const
     }
 
     return def;
+}
+
+bool Actor::has_weapon() const
+{
+    if (weapon == nullptr)
+    {
+        return false;
+    }
+    else
+    {
+        return true;
+    }
 }
 
 std::string Actor::get_name() const

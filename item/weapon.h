@@ -37,7 +37,7 @@ public:
     int get_atk() const;
 
     /// List of attacks that can be performed with this weapon.
-    std::vector<Attack_Type*> attack_list;
+    std::vector<std::string> attack_list;
 
 private:
 

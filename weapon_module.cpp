@@ -29,4 +29,10 @@ void from_json(const Json& json, Weapon_Module& mod)
     {
         json.at("atk").get_to(mod.atk);
     }
+
+    it = json.find("attack_list");
+    if (it != json.end())
+    {
+        json.at("attack_list").get_to(mod.attack_list);
+    }
 }

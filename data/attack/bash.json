@@ -1,0 +1,15 @@
+{
+    "type" : "bash",
+
+    "atk" : 1,
+
+    "verbs" :
+    [
+        "bash"
+    ],
+
+    "attack_msg" :
+    [
+        "[You] bash[ey] [them] with [your] [weapon]."
+    ]
+}

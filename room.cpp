@@ -173,8 +173,6 @@ void Room::add_two_way(
 
 void Room::enter()
 {
-    Player& player = Player::get_instance();
-
     player_room = this;
 
     // Check if room has been entered before.
@@ -319,6 +317,18 @@ std::unique_ptr<Item> Room::remove_item(Item* item)
     }
 
     return removed;
+}
+
+bool Room::is_safe() const
+{
+    if (actors.empty())
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
 }
 
 std::string Room::get_name()

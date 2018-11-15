@@ -1,0 +1,21 @@
+{
+    "type" : "cut",
+
+    "atk" : 2,
+
+    "verbs" :
+    [
+        "cut",
+        "slash",
+        "slice",
+        "chop"
+    ],
+
+    "attack_msg" :
+    [
+        "[You] cut[y] [them] with [your] [weapon], dealing [damage] damage.",
+        "[You] chop[y] [them] with [your] [weapon], dealing [damage] damage.",
+        "[You] slash[ey] [them] with [your] [weapon], dealing [damage] damage.",
+        "[You] slice[y] [them] with [your] [weapon], causing [damage] damage."
+    ]
+}

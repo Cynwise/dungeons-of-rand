@@ -1,11 +1,12 @@
 {
     "type" : "iron_dagger",
     "name" : "iron dagger",
-    
+
     "atk" : 3,
 
     "attack_list" :
     [
-        "stab"
+        "stab",
+        "cut"
     ]
 }

@@ -392,10 +392,10 @@ void player_turn()
                 // Iterate over verbs.
                 for (auto& attack_verb : attack_type.verbs)
                 {
-                    std::cout << attack_verb << std::endl;
+                    std::cout << attack_verb << "  ";
                 }
+                std::cout << std::endl;
             }
-
             std::cout << std::endl;
         }
         else if (input == "help")

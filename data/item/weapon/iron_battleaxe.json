@@ -2,5 +2,10 @@
     "type" : "iron_battleaxe",
     "name" : "iron battleaxe",
 
-    "atk" : 8
+    "atk" : 8,
+
+    "attack_list" :
+    [
+        "cut"
+    ]
 }

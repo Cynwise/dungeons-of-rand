@@ -5,11 +5,14 @@
 
     "verbs" :
     [
-        "stab"
+        "stab",
+        "pierce",
+        "puncture"
     ],
 
     "attack_msg" :
     [
-        "[You] stab[y] [them] with [your] [weapon], dealing [damage] damage."
+        "[You] stab[y] [them] with [your] [weapon], dealing [damage] damage.",
+        "[You] pierce[y] [them] with [your] [weapon], causing [damage] damage."
     ]
 }

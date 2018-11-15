@@ -5,7 +5,8 @@
 
     "verbs" :
     [
-        "punch"
+        "punch",
+        "pummel"
     ],
 
     "attack_msg" :

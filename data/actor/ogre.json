@@ -6,6 +6,14 @@
     "strength" : 6,
     "fortitude" : 6,
 
+    "weapon_list" :
+    [
+        {
+            "type" : "wooden_club",
+            "chance" : 1
+        }
+    ],
+
     "combat_start" :
     [
     	"A loud monster stands alone in here. An ogre, who takes offense to your presence."

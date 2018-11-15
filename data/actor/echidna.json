@@ -6,7 +6,12 @@
     "strength" : 1,
     "fortitude" : 1,
 
-    "item_list" :
+    "attack_list" :
+    [
+        "bite"
+    ],
+
+    "weapon_list" :
     [
         {
             "type" : "iron_knife",

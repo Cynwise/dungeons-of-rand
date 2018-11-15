@@ -6,6 +6,11 @@
     "strength" : 3,
     "fortitude" : 3,
 
+    "attack_list" :
+    [
+        "bite"
+    ],
+
     "combat_start" :
     [
     	"You see huge spiderwebs collecting in the corners of this room... and many tiny eyes."

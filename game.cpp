@@ -18,7 +18,6 @@
 #include <item/weapon.h>
 #include <module.h>
 #include <room.h>
-
 #include <rng.h>
 
 /// Main game loop.
@@ -193,7 +192,10 @@ void player_turn()
             else
             {
                 player_room->go("n");
-                break;
+                if (flip())
+                {
+                    break;
+                }
             }
         }
         else if (input == "go e" || input == "go east")
@@ -205,7 +207,10 @@ void player_turn()
             else
             {
                 player_room->go("e");
-                break;
+                if (flip())
+                {
+                    break;
+                }
             }
         }
         else if (input == "go s" || input == "go south")
@@ -217,7 +222,10 @@ void player_turn()
             else
             {
                 player_room->go("s");
-                break;
+                if (flip())
+                {
+                    break;
+                }
             }
         }
         else if (input == "go w" || input == "go west")
@@ -229,7 +237,10 @@ void player_turn()
             else
             {
                 player_room->go("w");
-                break;
+                if (flip())
+                {
+                    break;
+                }
             }
         }
         else if (input == "l" || input == "look")

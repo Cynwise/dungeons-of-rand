@@ -25,7 +25,8 @@
 
     "combat_start" :
     [
-    	"A small rat eyes you hungrily. Feeling bold, it takes a chance, and strikes!"
+    	"A small rat eyes you hungrily. Feeling bold, it takes a chance, and strikes!",
+        "A rat jumps you!"
     ],
 
     "win" :

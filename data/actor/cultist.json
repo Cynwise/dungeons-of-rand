@@ -6,6 +6,22 @@
     "strength" : 6,
     "fortitude" : 3,
 
+    "weapon_list" :
+    [
+        {
+            "type" : "iron_knife",
+            "chance" : 2
+        },
+        {
+            "type" : "iron_dagger",
+            "chance" : 2
+        },
+        {
+            "type" : "none",
+            "chance" : 1
+        }
+    ],
+
     "combat_start" :
     [
         "You hear ominous whispers as you enter the room... a cloaked figure... with red eyes?"

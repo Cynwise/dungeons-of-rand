@@ -289,7 +289,11 @@ int Actor::hurt(int damage)
     // Calculate defense. Net def = (1d(def)-1)/2
     int def = calc_def();
     def = roll(1, def) - 1;
-    def *= 0.5;
+    if (armor != nullptr)
+    {
+        def += roll(1, armor->get_def()) - 1;
+    }
+    //def *= 0.5;
 
     // Apply defense to damage taken.
     damage -= def;
@@ -383,12 +387,6 @@ int Actor::calc_atk() const
 int Actor::calc_def() const
 {
     int def = fortitude;
-
-    // Check if this Actor is wearing armor.
-    if (armor != nullptr)
-    {
-        def += armor->get_def();
-    }
 
     return def;
 }

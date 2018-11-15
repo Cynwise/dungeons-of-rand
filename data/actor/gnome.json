@@ -6,6 +6,18 @@
     "strength" : 2,
     "fortitude" : 5,
 
+    "weapon_list" :
+    [
+        {
+            "type" : "stick",
+            "chance" : 2
+        },
+        {
+            "type" : "none",
+            "chance" : 1
+        }
+    ],
+
     "combat_start" :
     [
     	"A snickering, fat little cherub sits in your room, tinkering with some small toy."

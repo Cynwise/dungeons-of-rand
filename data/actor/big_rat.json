@@ -7,6 +7,11 @@
     "strength" : 3,
     "fortitude" : 1,
 
+    "attack_list" :
+    [
+        "bite"
+    ],
+
     "combat_start" :
     [
         "A huge rat approaches you. Its claws bloody and sharp. Its teeth coated in viscera."

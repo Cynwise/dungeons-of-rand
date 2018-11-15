@@ -47,6 +47,7 @@ Room::Room(const std::string& room_type)
     type = parent.type;
     brief = parent.brief;
     description = parent.description;
+    entered = false;
 
     // Spawn a random Actor from the spawn list.
     if (!parent.actor_spawn.empty())
@@ -178,6 +179,7 @@ void Room::enter()
     // Check if room has been entered before.
     if (entered == false)
     {
+        entered = true;
         print_full();
     }
     else

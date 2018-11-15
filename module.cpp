@@ -38,6 +38,7 @@ void modules_load()
         if (is_regular_file(*actor_it) && actor_it->path().extension() == ".json")
         {
             const std::string& path = actor_it->path();
+            std::cout << "Loading module " << path << std::endl;
             module_load_actor(path);
         }
 
@@ -53,6 +54,7 @@ void modules_load()
         if (is_regular_file(*attack_it) && attack_it->path().extension() == ".json")
         {
             const std::string& path = attack_it->path();
+            std::cout << "Loading module " << path << std::endl;
             module_load_attack(path);
         }
 
@@ -68,6 +70,7 @@ void modules_load()
         if (is_regular_file(*room_it) && room_it->path().extension() == ".json")
         {
             const std::string& path = room_it->path();
+            std::cout << "Loading module " << path << std::endl;
             module_load_room(path);
         }
 
@@ -83,6 +86,7 @@ void modules_load()
         if (is_regular_file(*item_it) && item_it->path().extension() == ".json")
         {
             const std::string& path = item_it->path();
+            std::cout << "Loading module " << path << std::endl;
             module_load_item(path);
         }
 
@@ -98,6 +102,7 @@ void modules_load()
         if (is_regular_file(*weapon_it) && weapon_it->path().extension() == ".json")
         {
             const std::string& path = weapon_it->path();
+            std::cout << "Loading module " << path << std::endl;
             module_load_weapon(path);
         }
 
@@ -113,6 +118,7 @@ void modules_load()
         if (is_regular_file(*armor_it) && armor_it->path().extension() == ".json")
         {
             const std::string& path = armor_it->path();
+            std::cout << "Loading module " << path << std::endl;
             module_load_armor(path);
         }
 
@@ -127,12 +133,15 @@ void modules_load()
         if (is_regular_file(*potion_it) && potion_it->path().extension() == ".json")
         {
             const std::string& path = potion_it->path();
+            std::cout << "Loading module " << path << std::endl;
             module_load_potion(path);
         }
 
         // Iterate to the next entry.
         ++potion_it;
     }
+
+    std::cout << std::endl;
 }
 
 void module_load_actor(const std::string& path)
@@ -143,7 +152,7 @@ void module_load_actor(const std::string& path)
     {
         Json json = Json::parse(ins);
         ins.close();
-
+ 
         // Parse the module.
         Actor_Module* mod = new Actor_Module;
         *mod = json;

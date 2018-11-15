@@ -105,6 +105,8 @@ public:
     void set_hp(int val);
     int get_level() const;
     void set_level(int val);
+    int get_gold() const;
+    void set_gold(int val);
     const std::string& get_combat_start() const;
     const std::string& get_win_msg() const;
     const std::string& get_lose_msg() const;
@@ -136,6 +138,7 @@ protected:
     int xp;
     int max_hp;
     int hp;
+    int gold;
 
     // Attributes.
     int strength;

@@ -36,6 +36,7 @@ public:
 private:
 
     bool dodge;
+    int gold;
 };
 
 #endif // PLAYER_H

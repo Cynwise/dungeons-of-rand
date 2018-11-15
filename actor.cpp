@@ -28,6 +28,7 @@ Actor::Actor()
     xp = 0;
     max_hp = 0;
     hp = 0;
+    gold = 0;
     encountered = false;
 
     // Initialize attributes.
@@ -430,6 +431,16 @@ int Actor::get_level() const
 void Actor::set_level(int val)
 {
     level = val;
+}
+
+int Actor::get_gold() const
+{
+    return gold;
+}
+
+void Actor::set_gold(int val)
+{
+    gold = val;
 }
 
 const std::string& Actor::get_combat_start() const

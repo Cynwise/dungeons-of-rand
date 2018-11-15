@@ -34,6 +34,7 @@ private:
     int level;
     int xp;
     int max_hp;
+    int gold;
 
     int strength;
     int fortitude;

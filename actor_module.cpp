@@ -46,6 +46,12 @@ void from_json(const Json& json, Actor_Module& mod)
         json.at("strength").get_to(mod.strength);
     }
 
+    it = json.find("gold");
+    if (it != json.end())
+    {
+        json.at("gold").get_to(mod.gold);
+    }
+
     it = json.find("fortitude");
     if (it != json.end())
     {

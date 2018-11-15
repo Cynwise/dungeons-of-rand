@@ -153,4 +153,7 @@ protected:
     std::vector<std::string> lose_msg;
 };
 
+/// Spawns an actor of a given type.
+std::unique_ptr<Actor> spawn_actor(const std::string& actor_type);
+
 #endif // ACTOR_H

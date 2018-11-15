@@ -53,41 +53,12 @@ Room::Room(const std::string& room_type)
     // Spawn a random Actor from the spawn list.
     if (!parent.actor_spawn.empty())
     {
-        // Calculate the sum of Actor spawn chances.
-        long sum = 0;
-        for (auto actor_it = parent.actor_spawn.begin(); actor_it != parent.actor_spawn.end(); ++actor_it)
+        const Actor_Spawn& entry = random_element(parent.actor_spawn);
+        if (entry.type != "none")
         {
-            sum += actor_it->chance;
-        }
-
-        // Generate a weighted entry value.
-        long entry = rng(0, sum);
-
-        // Iterate over the list until we find the first valid entry.
-        long weighted_chance = 0;
-        for (auto actor_it = parent.actor_spawn.begin(); actor_it != parent.actor_spawn.end(); ++actor_it)
-        {
-            weighted_chance += actor_it->chance;
-
-            // Spawn the Actor and add it to the Room.
-            // Don't spawn an Actor with a chance of 0.
-            if (weighted_chance >= entry && actor_it->chance != 0)
+            for (size_t i = 0; i < entry.count; ++i)
             {
-                if (actor_it->type == "none")
-                {
-                    break;
-                }
-
-                int actor_count = actor_it->count;
-
-                while (actor_count > 0)
-                {
-                    std::unique_ptr<Actor> spawned(new Actor(actor_it->type));
-                    actors.push_back(std::move(spawned));
-                    --actor_count;
-                }
-
-                break;
+                actors.push_back(spawn_actor(entry.type)));
             }
         }
     }
@@ -95,34 +66,10 @@ Room::Room(const std::string& room_type)
     // Spawn a random Item from the spawn list.
     if (!parent.item_list.empty())
     {
-        // Calculate the sum of Item spawn chances.
-        long sum = 0;
-        for (auto item_it = parent.item_list.begin(); item_it != parent.item_list.end(); ++item_it)
+        const Item_List& entry = random_element(parent.item_list);
+        if (entry.type != "none")
         {
-            sum += item_it->chance;
-        }
-
-        // Generate a weighted entry value.
-        long entry = rng(0, sum);
-
-        // Iterate over the list until we find the first valid entry.
-        long weighted_chance = 0;
-        for (auto item_it = parent.item_list.begin(); item_it != parent.item_list.end(); ++item_it)
-        {
-            weighted_chance += item_it->chance;
-
-            // Spawn the Item and add it to the Room.
-            // Don't spawn an Item with a chance of 0 or a type of "none".
-            if (weighted_chance >= entry && item_it->chance != 0)
-            {
-                if (item_it->type == "none")
-                {
-                    break;
-                }
-
-                items.push_back(spawn_item(item_it->type));
-                break;
-            }
+            items.push_back(spawn_item(entry.type));
         }
     }
 }

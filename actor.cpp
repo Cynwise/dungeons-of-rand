@@ -20,6 +20,11 @@
 #include <rng.h>
 #include <room.h>
 
+std::unique_ptr<Actor> spawn_actor(const std::string& actor_type)
+{
+    return std::unique_ptr<Actor>(new Actor(actor_type));
+}
+
 Actor::Actor()
 {
     // Initialize main stats.

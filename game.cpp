@@ -141,9 +141,6 @@ int game_loop()
 {
     Player& player = Player::get_instance();
 
-    // User input string.
-    std::string input;
-
     while (1)
     {
         // Let the player take a turn.
@@ -514,7 +511,7 @@ bool player_attack(const std::string& enemy_name, const std::string& input_verb)
                 }
                 else
                 {
-                    player.attack(*enemy);
+                    player.attack(*enemy, attack_name);
 
                     // Check if the enemy died.
                     if (enemy->get_hp() == 0)

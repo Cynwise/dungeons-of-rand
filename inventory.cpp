@@ -84,6 +84,8 @@ void Inventory::print() const
         std::cout << index << ". " << (*it)->get_name() << std::endl;
         ++index;
     }
+
+    std::cout << std::endl;
 }
 
 Item* Inventory::find_by_name(const std::string& key) const

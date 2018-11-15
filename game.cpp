@@ -92,7 +92,7 @@ int main(int argc, char* argv[])
 
     // Define more rooms.
     Room* last_room = &room_1;
-    for (int i = 0; i < 500; ++i)
+    for (int i = 0; i < 5000; ++i)
     {
         Room* next_room;
 

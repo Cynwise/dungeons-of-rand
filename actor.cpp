@@ -4,6 +4,7 @@
  */
 
 #include <cassert>
+#include <cstdlib>
 #include <iostream>
 #include <string>
 
@@ -89,7 +90,7 @@ Actor::Actor(std::string actor_type)
     if (it == actor_map.end())
     {
         std::cerr << "ACTOR DOES NOT EXIST: " << actor_type << std::endl;
-        return;
+        std::exit(1);
     }
 
     // Spawn an instance of this type.

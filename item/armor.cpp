@@ -2,6 +2,7 @@
  * @file armor.cpp
  */
 
+#include <cstdlib>
 #include <iostream>
 #include <string>
 
@@ -33,7 +34,7 @@ Armor::Armor(const std::string& armor_type)
     if (it == armor_map.end())
     {
         std::cerr << "ARMOR DOES NOT EXIST: " << armor_type << std::endl;
-        return;
+        std::exit(1);
     }
 
     // Spawn an instance of "type".

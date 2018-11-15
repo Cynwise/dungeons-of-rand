@@ -6,6 +6,10 @@
 #ifndef RNG_H
 #define RNG_H
 
+#include <cstdlib>
+#include <iostream>
+#include <vector>
+
 /**
  * @brief Generate pseudorandom floating point number within a range.
  *
@@ -42,5 +46,34 @@ int flip();
  * @return Result sum of dice rolls.
  */
 int roll(int times, int sides);
+
+/// Return an element, respecting weights.
+template <class T>
+const T& random_element(const std::vector<T>& data)
+{
+    size_t total_weights = 0;
+    size_t weighted_chance = 0;
+
+    // Calculate sum of weights.
+    for (auto& it : data)
+    {
+        total_weights += it.chance;
+    }
+
+    // Pick random element.
+    size_t entry = rng(0, total_weights);
+    for (auto& it : data)
+    {
+        weighted_chance += it.chance;
+
+        if (weighted_chance >= entry)
+        {
+            return it;
+        }
+    }
+
+    std::cerr << "Error:\nCould not find valid element.\n";
+    std::exit(1);
+}
 
 #endif // RNG_H

@@ -114,69 +114,20 @@ Actor::Actor(std::string actor_type)
     // Spawn an item from the item drop list.
     if (!parent.item_list.empty())
     {
-        // Calculate the sum of Item spawn chances.
-        long sum = 0;
-        for (auto item_it = parent.item_list.begin(); item_it != parent.item_list.end(); ++item_it)
+        const Item_List& item_entry = random_element(parent.item_list);
+        if (item_entry.type != "none")
         {
-            sum += item_it->chance;
-        }
-
-        // Generate a weighted entry value.
-        long entry = rng(0, sum);
-
-        // Iterate over the list until we find the first valid entry.
-        long weighted_chance = 0;
-        for (auto item_it = parent.item_list.begin(); item_it != parent.item_list.end(); ++item_it)
-        {
-            weighted_chance += item_it->chance;
-
-            // Spawn the Item and add it to the Actor's inventory.
-            // Don't spawn an Item with a chance of 0 or a type of "none".
-            if (weighted_chance >= entry && item_it->chance != 0)
-            {
-                if (item_it->type == "none")
-                {
-                    break;
-                }
-
-                add_item(spawn_item(item_it->type));
-                break;
-            }
+            add_item(spawn_item(item_entry.type));
         }
     }
 
     // Spawn a Weapon from the weapon list.
     if (!parent.weapon_list.empty())
     {
-        // Calculate the sum of Weapon spawn chances.
-        long sum = 0;
-        for (auto weapon_it = parent.weapon_list.begin(); weapon_it != parent.weapon_list.end(); ++weapon_it)
+        const Item_List& weapon_entry = random_element(parent.weapon_list);
+        if (weapon_entry.type != "none")
         {
-            sum += weapon_it->chance;
-        }
-
-        // Generate a weighted entry value.
-        long entry = rng(0, sum);
-
-        // Iterate over the list until we find the first valid entry.
-        long weighted_chance = 0;
-        for (auto weapon_it = parent.weapon_list.begin(); weapon_it != parent.weapon_list.end(); ++weapon_it)
-        {
-            weighted_chance += weapon_it->chance;
-
-            // Spawn the Weapon and make the Actor equip it.
-            // Don't spawn an Item with a chance of 0 or a type of "none".
-            if (weighted_chance >= entry && weapon_it->chance != 0)
-            {
-                if (weapon_it->type == "none")
-                {
-                    break;
-                }
-
-                Weapon* raw_weapon = new Weapon(weapon_it->type);
-                weapon.reset(raw_weapon);
-                break;
-            }
+            weapon.reset(new Weapon(weapon_entry.type));;
         }
     }
 }

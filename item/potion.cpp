@@ -33,7 +33,7 @@ Potion::Potion(const std::string& potion_type)
     if (it == potion_map.end())
     {
         std::cerr << "POTION DOES NOT EXIST: " << potion_type << std::endl;
-        return;
+        std::exit(1);
     }
 
     // Spawn an instance of "type".

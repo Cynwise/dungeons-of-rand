@@ -48,6 +48,7 @@ std::unique_ptr<Item> spawn_item(const std::string& type)
 
     // Else.
     std::cerr << "ITEM DOES NOT EXIST: " << type << std::endl;
+    std::exit(1);
     return nullptr;
 }
 
@@ -68,7 +69,7 @@ Item::Item(const std::string& item_type)
     if (it == item_map.end())
     {
         std::cerr << "ITEM DOES NOT EXIST: " << item_type << std::endl;
-        return;
+        std::exit(1);
     }
 
     // Spawn an instance of "type".

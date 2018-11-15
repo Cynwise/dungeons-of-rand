@@ -2,6 +2,7 @@
  * @file weapon.cpp
  */
 
+#include <cstdlib>
 #include <iostream>
 #include <string>
 
@@ -35,7 +36,7 @@ Weapon::Weapon(const std::string& weapon_type)
     if (it == weapon_map.end())
     {
         std::cerr << "WEAPON DOES NOT EXIST: " << weapon_type << std::endl;
-        return;
+        std::exit(1);
     }
 
     // Spawn an instance of "type".

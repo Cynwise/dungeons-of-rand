@@ -3,6 +3,7 @@
  * @brief Generic base class for all environments.
  */
 
+#include <cstdlib>
 #include <iostream>
 #include <memory>
 
@@ -38,7 +39,7 @@ Room::Room(const std::string& room_type)
     if (it == room_map.end())
     {
         std::cerr << "ROOM DOES NOT EXIST: " << room_type << std::endl;
-        return;
+        std::exit(1);
     }
 
     // Spawn an instance of this Room type.

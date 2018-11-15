@@ -106,6 +106,9 @@ public:
     const std::string& get_win_msg() const;
     const std::string& get_lose_msg() const;
 
+    /// Whether the player has fought this exact Actor before.
+    bool encountered;
+
 protected:
 
     // Allow items and attack types protected access to the Actor.

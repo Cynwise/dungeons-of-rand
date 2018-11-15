@@ -22,10 +22,14 @@
 /// Main game loop.
 int game_loop();
 
+/// Player command handler.
+void player_turn();
+
+void enemy_turn(Actor& actor);
+
 void game_over();
 void get_name(std::string& name);
 void start(const std::string& name);
-void fight(Actor& actor);
 
 int main(int argc, char* argv[])
 {
@@ -82,7 +86,7 @@ int main(int argc, char* argv[])
 
     // Define more rooms.
     Room* last_room = &room_1;
-    for (int i = 0; i < 100; ++i)
+    for (int i = 0; i < 500; ++i)
     {
         Room* next_room;
 
@@ -135,7 +139,42 @@ int game_loop()
 
     while (1)
     {
-        // Get input.
+        // Let the player take a turn.
+        player_turn();
+
+        // Let each enemy take a turn.
+        auto& actor_list = player_room->actors;
+        for (auto it = actor_list.begin(); it != actor_list.end(); ++it)
+        {
+            auto& enemy = **it;
+            enemy_turn(enemy);
+
+            // Check if player died before we loop.
+            if (player.get_hp() == 0)
+            {
+                break;
+            }
+        }
+
+        // Check if player died before we loop.
+        if (player.get_hp() == 0)
+        {
+            game_over();
+            break;
+        }
+    }
+
+    return EXIT_SUCCESS;
+}
+
+void player_turn()
+{
+    Player& player = Player::get_instance();
+    std::string input = "";
+
+    while (1)
+    {
+        // Get and handle input.
         std::cout << std::endl << "> ";
         std::getline(std::cin, input);
         std::cout << std::endl;
@@ -144,18 +183,22 @@ int game_loop()
         if (input == "go n" || input == "go north")
         {
             player_room->go("n");
+            break;
         }
         else if (input == "go e" || input == "go east")
         {
             player_room->go("e");
+            break;
         }
         else if (input == "go s" || input == "go south")
         {
             player_room->go("s");
+            break;
         }
         else if (input == "go w" || input == "go west")
         {
             player_room->go("w");
+            break;
         }
         else if (input == "l" || input == "look")
         {
@@ -167,11 +210,53 @@ int game_loop()
         }
         else if (input == "quit" || input == "q")
         {
-            break;
+            std::exit(EXIT_SUCCESS);
         }
         else if (input == "status" || input == "s")
         {
             player.print_status();
+        }
+        else if (input.find("attack ") == 0)
+        {
+            // Parse the input.
+            size_t pos = input.find(" ") + 1;
+            std::string enemy_name = input.substr(pos);
+
+            // Attempt to find the enemy.
+            Actor* enemy = player_room->find_actor(enemy_name);
+
+            // Verify that the enemy was found.
+            if (enemy == nullptr)
+            {
+                std::cout << "You can't see a " << enemy_name;
+                std::cout << " in this room.\n\n";
+            }
+            else
+            {
+                player.attack(*enemy);
+                std::cout << std::endl;
+
+                // Check if the enemy died.
+                if (enemy->get_hp() == 0)
+                {
+                    std::cout << enemy->get_win_msg() << std::endl;
+
+                    // Dump inventory.
+                    enemy->dump_items(*player_room);
+
+                    // Always drop a corpse.
+                    auto corpse = spawn_item("corpse");
+                    std::string corpse_name = enemy->get_name() + " corpse";
+                    corpse->set_name(corpse_name);
+                    player_room->add_item(std::move(corpse));
+                    player_room->remove_actor(enemy);
+
+                    // Redisplay room contents.
+                    player_room->print_contents();
+                }
+
+                break;
+            }
         }
         else if (input.find("take ") == 0)
         {
@@ -187,12 +272,15 @@ int game_loop()
             {
                 std::cout << "You can't see a " << item_name;
                 std::cout << " in this room.\n";
-                continue;
             }
-            // Else, move the item.
-            std::unique_ptr<Item> item = player_room->remove_item(origin);
-            std::cout << "You pick up the " << item->get_name() << ".\n";
-            player.add_item(std::move(item));
+            else
+            {
+                // Else, move the item.
+                std::unique_ptr<Item> item = player_room->remove_item(origin);
+                std::cout << "You pick up the " << item->get_name() << ".\n";
+                player.add_item(std::move(item));
+                break;
+            }
         }
         else if (input.find("drop ") == 0)
         {
@@ -207,10 +295,13 @@ int game_loop()
             {
                 std::cout << "No such item could be dropped from your ";
                 std::cout << "inventory.\n";
-                continue;
             }
-            std:: cout << "You drop the " << item->get_name() << ".\n";
-            player_room->add_item(std::move(item));
+            else
+            {
+                std:: cout << "You drop the " << item->get_name() << ".\n";
+                player_room->add_item(std::move(item));
+                break;
+            }
         }
         else if (input.find("use ") == 0)
         {
@@ -223,10 +314,12 @@ int game_loop()
             if (item == nullptr)
             {
                 std::cout << "No such item could be found in your inventory.\n";
-                continue;
             }
-
-            item->use(player);
+            else
+            {
+                item->use(player);
+                break;
+            }
         }
         else if (input.find("equip ") == 0)
         {
@@ -239,10 +332,12 @@ int game_loop()
             if (item == nullptr)
             {
                 std::cout << "No such item could be found in your inventory.\n";
-                continue;
             }
-
-            item->equip(player);
+            else
+            {
+                item->equip(player);
+                break;
+            }
         }
         else if (input.find("check ") == 0)
         {
@@ -255,10 +350,12 @@ int game_loop()
             if (item == nullptr)
             {
                 std::cout << "No such item could be found in your inventory.\n";
-                continue;
             }
-
-            item->check(player);
+            else
+            {
+                item->check(player);
+                break;
+            }
         }
         else if (input == "help")
         {
@@ -266,6 +363,7 @@ int game_loop()
             std::cout << "help: Display this message.\n";
             std::cout << "go [n,e,s,w]: Move in that direction\n";
             std::cout << "look: Inspect your surroundings.\n";
+            std::cout << "attack [enemy]: Attack an enemy in the room.\n";
             std::cout << "status: Check your current status.\n";
             std::cout << "inventory: Display the contents of your inventory.\n";
             std::cout << "take [item]: Pick up an item.\n";
@@ -289,8 +387,6 @@ int game_loop()
             break;
         }
     }
-
-    return EXIT_SUCCESS;
 }
 
 void command_time() {
@@ -332,36 +428,23 @@ void game_over()
     std::cout << "Game Over\n";
 }
 
-void fight(Actor& enemy)
+void enemy_turn(Actor& enemy)
 {
     Player& player = Player::get_instance();
 
-    // Display combat start message.
-    std::cout << enemy.get_combat_start() << "\n\n";
-
-    // Loop until someone dies.
-    while (1)
+    // Display combat start message if this is the beginning of combat.
+    if (enemy.encountered == false)
     {
-        // Player attack turn.
-        player.attack(enemy);
-        command_time();
+        enemy.encountered = true;
+        std::cout << enemy.get_combat_start() << "\n\n";
+    }
 
-        // Check if won.
-        if (enemy.get_hp() <= 0)
-        {
-            std::cout << enemy.get_win_msg() << "\n\n";
-            break;
-        }
+    // Enemy attack turn.
+    enemy.attack(player);
 
-        // Enemy attack turn.
-        enemy.attack(player);
-        command_time();
-
-        // Check if lost.
-        if (player.get_hp() <= 0)
-        {
-            std::cout << enemy.get_lose_msg() << "\n\n";
-            break;
-        }
+    // Check if player lost.
+    if (player.get_hp() <= 0)
+    {
+        std::cout << enemy.get_lose_msg() << "\n\n";
     }
 }

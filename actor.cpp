@@ -28,6 +28,7 @@ Actor::Actor()
     xp = 0;
     max_hp = 0;
     hp = 0;
+    encountered = false;
 
     // Initialize attributes.
     strength = 0;
@@ -46,6 +47,7 @@ Actor::Actor(const Actor& other)
     xp = other.xp;
     max_hp = other.max_hp;
     hp = other.hp;
+    encountered = false;
 
     strength = other.strength;
     fortitude = other.fortitude;
@@ -97,6 +99,7 @@ Actor::Actor(std::string actor_type)
     level = parent.level;
     max_hp = parent.max_hp;
     hp = max_hp;
+    encountered = false;
 
     strength = parent.strength;
     fortitude = parent.fortitude;

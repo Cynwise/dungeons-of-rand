@@ -51,10 +51,14 @@ Potion* Potion::clone() const
 void Potion::use(Actor& holder)
 {
     // Apply health change.
-    holder.heal(stat);
+    int delta = holder.heal(stat);
 
     holder.potion.reset(clone());
-    std::cout << "You use the " << name << ".\n";
+    std::cout << "You use the " << name << " and regain ";
+    std::cout << delta << " health.\n";
+    std::cout << "Your current health is ";
+    std::cout << holder.hp << "/";
+    std::cout << holder.max_hp << ".\n\n";
 
     // Remove self from Actor's inventory.
     holder.remove_item(this);

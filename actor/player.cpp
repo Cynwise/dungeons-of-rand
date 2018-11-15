@@ -57,48 +57,6 @@ Player& Player::get_instance()
 
 void Player::attack(Actor& target)
 {
-    std::string response = "";
-
-    // Prompt user to either attack or dodge.
-    std::cout << "[A]ttack or [D]odge?\n\n> ";
-    while (1)
-    {
-        std::getline(std::cin, response);
-
-        // Verify player input.
-        if
-        (
-            response != "A" &&
-            response != "a" &&
-            response != "D" &&
-            response != "d"
-        )
-        {
-            // Invalid input.
-            std::cout << "Enter \"a\" or \"d\"\n\n> ";
-        }
-        else
-        {
-            // Valid input.
-            break;
-        }
-    }
-    std::cout << std::endl;
-
-    if (response == "d" || response == "D")
-    {
-        int chance = roll(1, 6);
-
-        // 2/3 chance of success.
-        if (chance > 2)
-        {
-            dodge = true;
-        }
-
-        return;
-    }
-    // Else, attack.
-
     // Pick an attack type.
     Attack_Type* this_attack;
     if (attack_list.empty())
@@ -126,7 +84,7 @@ void Player::attack(Actor& target)
     else
     {
         std::cout << "You attempt to attack the " << target.get_name();
-        std::cout << "but it dodges.\n\n";
+        std::cout << " but it dodges.\n";
     }
 }
 

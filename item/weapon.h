@@ -7,8 +7,11 @@
 #define WEAPON_H
 
 #include <string>
+#include <vector>
 
 #include <item.h>
+
+class Attack_Type;
 
 /// Generic equipable weapon class.
 class Weapon : public Item
@@ -33,6 +36,8 @@ public:
     /// Gets this weapon's attack value.
     int get_atk() const;
 
+    /// List of attacks that can be performed with this weapon.
+    std::vector<Attack_Type*> attack_list;
 
 private:
 

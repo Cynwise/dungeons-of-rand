@@ -197,36 +197,6 @@ void Room::enter()
 
     // Format for future combat messages.
     std::cout << std::endl;
-
-    // Fight until all enemies in the room are dead.
-    while (!actors.empty())
-    {
-        Actor* enemy = actors.front().get();
-        fight(*enemy);
-
-        // Break if the player died.
-        if (player.get_hp() == 0)
-        {
-            return;
-        }
-        else
-        {
-            // Else, dump the defeated enemy's inventory into the room
-            // and remove the Actor we just defeated.
-            enemy->dump_items(*this);
-
-            // Always drop a corpse.
-            auto corpse = spawn_item("corpse");
-            std::string corpse_name = enemy->get_name() + " corpse";
-            corpse->set_name(corpse_name);
-            player_room->add_item(std::move(corpse));
-
-            actors.pop_front();
-        }
-    }
-
-    // Redraw room message if combat occurred.
-    print_brief();
 }
 
 void Room::go(const std::string& key)
@@ -286,6 +256,21 @@ void Room::add_actor(std::unique_ptr<Actor> actor)
     actors.push_back(std::move(actor));
 }
 
+Actor* Room::find_actor(const std::string& name)
+{
+    // Iterate over the list until we find the target actor.
+    for (auto it = actors.begin(); it != actors.end(); ++it)
+    {
+        if (name == (*it)->get_name())
+        {
+            return it->get();
+        }
+    }
+
+    // Else, not found.
+    return nullptr;
+}
+
 std::unique_ptr<Actor> Room::remove_actor(Actor* actor)
 {
     std::unique_ptr<Actor> removed = nullptr;
@@ -307,7 +292,7 @@ std::unique_ptr<Actor> Room::remove_actor(Actor* actor)
 
 Item* Room::find_item(const std::string& name)
 {
-    // Iterate over list until we find the target actor.
+    // Iterate over list until we find the target item.
     for (auto it = items.begin(); it != items.end(); ++it)
     {
         // Check if we found the target.

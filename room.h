@@ -73,6 +73,9 @@ public:
     /// Add an Actor to this room.
     virtual void add_actor(std::unique_ptr<Actor> actor);
 
+    /// Find an Actor by name.
+    virtual Actor* find_actor(const std::string& name);
+
     /// Remove an Actor from this room.
     virtual std::unique_ptr<Actor> remove_actor(Actor* actor);
 
@@ -94,6 +97,9 @@ public:
     void set_brief(const std::string& s);
 
 protected:
+
+    /// Let game loop access Actors.
+    friend int game_loop();
 
     /// Room type identifier.
     std::string type;

@@ -19,7 +19,7 @@ Player::Player()
 
     if (constructed == true)
     {
-        std::cerr << "Error: Attempt to create multiple player instances.\n";
+        std::cerr << "Error: Attempt to create multiple player instances.\n\n";
         std::exit(1);
     }
     else
@@ -58,17 +58,24 @@ Player& Player::get_instance()
 void Player::attack(Actor& target)
 {
     // Pick an attack type.
-    Attack_Type* this_attack;
+    std::string attack_name;
     if (attack_list.empty())
     {
-        this_attack = attack_map["attack"];
+        attack_name = "attack";
     }
     else
     {
         int entry = rng(0, attack_list.size() - 1);
-        const std::string& attack_name = attack_list[entry];
-        this_attack = attack_map[attack_name];
+        attack_name = attack_list[entry];
     }
+
+    attack(target, attack_name);
+}
+
+void Player::attack(Actor& target, const std::string& attack_name)
+{
+    // Get attack type.
+    Attack_Type* this_attack = attack_map[attack_name];
 
     // Calculate damage.
     int atk = calc_atk();
@@ -84,9 +91,9 @@ void Player::attack(Actor& target)
     else
     {
         std::cout << "You attempt to attack the " << target.get_name();
-        std::cout << " but it dodges.\n";
+        std::cout << " but it dodges.\n\n";
     }
-}
+};
 
 int Player::hurt(int damage)
 {
@@ -133,5 +140,5 @@ int Player::hurt(int damage)
 void Player::print_status()
 {
     // Report player HP.
-    std::cout << "Your current health is " << hp << "/" << max_hp << ".\n";
+    std::cout << "Your current health is " << hp << "/" << max_hp << ".\n\n";
 }

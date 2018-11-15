@@ -62,12 +62,12 @@ void Potion::use(Actor& holder)
 
     // Remove self from Actor's inventory.
     holder.remove_item(this);
-
 }
+
 void Potion::check(Actor& holder)
 {
     std::cout << "This is a " << name << ".\n";
-    std::cout << "It gives you " << stat << " health.\n";
+    std::cout << "It gives you " << stat << " health.\n\n";
 }
 
 int Potion::get_stat() const

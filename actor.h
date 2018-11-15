@@ -109,6 +109,9 @@ public:
     /// Whether the player has fought this exact Actor before.
     bool encountered;
 
+    // Possible attack types.
+    std::vector<std::string> attack_list;
+
 protected:
 
     // Allow items and attack types protected access to the Actor.
@@ -130,9 +133,6 @@ protected:
     // Attributes.
     int strength;
     int fortitude;
-
-    // Possible attack types.
-    std::vector<std::string> attack_list;
 
     // Possessions.
     Inventory items;

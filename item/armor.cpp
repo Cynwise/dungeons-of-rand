@@ -61,7 +61,7 @@ bool Armor::equip(Actor& holder)
     }
 
     holder.armor.reset(clone());
-    std::cout << "You equip the " << name << ".\n";
+    std::cout << "You equip the " << name << ".\n\n";
 
     // Remove self from Actor's inventory.
     holder.remove_item(this);
@@ -71,7 +71,7 @@ bool Armor::equip(Actor& holder)
 void Armor::check(Actor& holder)
 {
     std::cout << "This is a " << name << ".\n";
-    std::cout << "It gives you " << def << " defense.\n";
+    std::cout << "It gives you " << def << " defense.\n\n";
 }
 
 int Armor::get_def() const

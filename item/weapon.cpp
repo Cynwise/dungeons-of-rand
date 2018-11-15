@@ -63,7 +63,7 @@ bool Weapon::equip(Actor& holder)
     }
 
     holder.weapon.reset(clone());
-    std::cout << "You wield the " << name << ".\n";
+    std::cout << "You wield the " << name << ".\n\n";
 
     // Remove self from Actor inventory.
     holder.remove_item(this);
@@ -73,7 +73,7 @@ bool Weapon::equip(Actor& holder)
 void Weapon::check(Actor& holder)
 {
     std::cout << "This is a " << name << ".\n";
-    std::cout << "It gives you " << atk << " attack.\n";
+    std::cout << "It gives you " << atk << " attack.\n\n";
 }
 
 int Weapon::get_atk() const

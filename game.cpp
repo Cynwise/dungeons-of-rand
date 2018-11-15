@@ -3,6 +3,7 @@
  * @brief Main entry point for dungeons-of-rand.
  */
 
+#include <cctype>
 #include <chrono>
 #include <cstdlib>
 #include <ctime>
@@ -11,6 +12,7 @@
 
 #include <actor.h>
 #include <actor/player.h>
+#include <attack_type.h>
 #include <item.h>
 #include <item/armor.h>
 #include <item/weapon.h>
@@ -175,7 +177,7 @@ void player_turn()
     while (1)
     {
         // Get and handle input.
-        std::cout << std::endl << "> ";
+        std::cout << "> ";
         std::getline(std::cin, input);
         std::cout << std::endl;
 
@@ -271,13 +273,13 @@ void player_turn()
             if (origin == nullptr)
             {
                 std::cout << "You can't see a " << item_name;
-                std::cout << " in this room.\n";
+                std::cout << " in this room.\n\n";
             }
             else
             {
                 // Else, move the item.
                 std::unique_ptr<Item> item = player_room->remove_item(origin);
-                std::cout << "You pick up the " << item->get_name() << ".\n";
+                std::cout << "You pick up the " << item->get_name() << ".\n\n";
                 player.add_item(std::move(item));
                 break;
             }
@@ -294,11 +296,11 @@ void player_turn()
             if (item.get() == nullptr)
             {
                 std::cout << "No such item could be dropped from your ";
-                std::cout << "inventory.\n";
+                std::cout << "inventory.\n\n";
             }
             else
             {
-                std:: cout << "You drop the " << item->get_name() << ".\n";
+                std:: cout << "You drop the " << item->get_name() << ".\n\n";
                 player_room->add_item(std::move(item));
                 break;
             }
@@ -313,7 +315,7 @@ void player_turn()
             Item* item = player.find_item(item_name);
             if (item == nullptr)
             {
-                std::cout << "No such item could be found in your inventory.\n";
+                std::cout << "No such item could be found in your inventory.\n\n";
             }
             else
             {
@@ -331,7 +333,7 @@ void player_turn()
             Item* item = player.find_item(item_name);
             if (item == nullptr)
             {
-                std::cout << "No such item could be found in your inventory.\n";
+                std::cout << "No such item could be found in your inventory.\n\n";
             }
             else
             {
@@ -349,7 +351,7 @@ void player_turn()
             Item* item = player.find_item(item_name);
             if (item == nullptr)
             {
-                std::cout << "No such item could be found in your inventory.\n";
+                std::cout << "No such item could be found in your inventory.\n\n";
             }
             else
             {
@@ -357,27 +359,137 @@ void player_turn()
                 break;
             }
         }
+        else if (input == "attacks")
+        {
+            std::cout << "Attacks:\n\n";
+
+            // Iterate over attack list.
+            for (auto& attack_name : player.attack_list)
+            {
+                auto& attack_type = *attack_map[attack_name];
+
+                // Iterate over verbs.
+                for (auto& attack_verb : attack_type.verbs)
+                {
+                    std::cout << attack_verb << std::endl;
+                }
+            }
+
+            std::cout << std::endl;
+        }
         else if (input == "help")
         {
             std::cout << "Commands:\n\n";
-            std::cout << "help: Display this message.\n";
-            std::cout << "go [n,e,s,w]: Move in that direction\n";
-            std::cout << "look: Inspect your surroundings.\n";
-            std::cout << "attack [enemy]: Attack an enemy in the room.\n";
-            std::cout << "status: Check your current status.\n";
-            std::cout << "inventory: Display the contents of your inventory.\n";
-            std::cout << "take [item]: Pick up an item.\n";
-            std::cout << "drop [item]: Drop an item.\n";
-            std::cout << "use [item]: Use an item.\n";
-            std::cout << "equip [item]: Equip an item.\n";
-            std::cout << "check [item]: Check an item.\n";
-            std::cout << "quit: Exit the game.\n";
+            std::cout << "help:\tDisplay this message.\n";
+            std::cout << "go [n,e,s,w]:\tMove in that direction\n";
+            std::cout << "look:\tInspect your surroundings.\n";
+            std::cout << "attack [enemy]:\tAttack an enemy in the room.\n";
+            std::cout << "attacks:\tPrint list of possible attacks.\n";
+            std::cout << "status:\tCheck your current status.\n";
+            std::cout << "inventory:\tDisplay the contents of your inventory.\n";
+            std::cout << "take [item]:\tPick up an item.\n";
+            std::cout << "drop [item]:\tDrop an item.\n";
+            std::cout << "use [item]:\tUse an item.\n";
+            std::cout << "equip [item]:\tEquip an item.\n";
+            std::cout << "check [item]:\tCheck an item.\n";
+            std::cout << "quit:\tExit the game.\n\n";
         }
         else
         {
-            // Default.
-            std::cout << "Command not recognized. ";
-            std::cout << "Enter \"help\" for a basic command list.\n";
+            // Default. Check loaded verbs.
+            bool done_verbs = false;
+
+            // Check if this is a valid command.
+            size_t verb_end = input.find(" ");
+            if (verb_end == std::string::npos)
+            {
+                std::cout << "Syntax not recognized.\n";
+                std::cout << "Enter \"help\" for a basic command list.\n\n";
+                continue;
+            }
+
+            // Check if there is a valid argument to this verb.
+            if (input.length() - verb_end <= 1)
+            {
+                std::cout << "Syntax not recognized.\n";
+                std::cout << "Enter \"help\" for a basic command list.\n\n";
+                continue;
+            }
+
+            std::string input_verb = input.substr(0, verb_end);
+
+            // Check attack list.
+            for (auto& attack_name : player.attack_list)
+            {
+                auto& attack_type = *attack_map[attack_name];
+
+                // Check verb list.
+                for (auto& attack_verb : attack_type.verbs)
+                {
+                    if (input_verb == attack_verb)
+                    {
+                        // Find target.
+                        std::string enemy_name = input.substr(verb_end + 1);
+
+                        // Attempt to find the enemy.
+                        Actor* enemy = player_room->find_actor(enemy_name);
+
+                        // Verify that the enemy was found.
+                        if (enemy == nullptr)
+                        {
+                            std::cout << "You can't see a " << enemy_name;
+                            std::cout << " in this room.\n\n";
+                            done_verbs = true;
+                        }
+                        else
+                        {
+                            player.attack(*enemy);
+                            std::cout << std::endl;
+
+                            // Check if the enemy died.
+                            if (enemy->get_hp() == 0)
+                            {
+                                std::cout << enemy->get_win_msg() << std::endl;
+
+                                // Dump inventory.
+                                enemy->dump_items(*player_room);
+
+                                // Always drop a corpse.
+                                auto corpse = spawn_item("corpse");
+                                std::string corpse_name = enemy->get_name() + " corpse";
+                                corpse->set_name(corpse_name);
+                                player_room->add_item(std::move(corpse));
+                                player_room->remove_actor(enemy);
+
+                                // Redisplay room contents.
+                                player_room->print_contents();
+                            }
+
+                            done_verbs = true;
+                        }
+                    }
+
+                    if (done_verbs)
+                    {
+                        break;
+                    }
+                }
+
+                if (done_verbs)
+                {
+                    break;
+                }
+            }
+
+            if (done_verbs == false)
+            {
+                std::cout << "Command not recognized.\n";
+                std::cout << "Enter \"help\" for a basic command list.\n\n";
+            }
+            else
+            {
+                break;
+            }
         }
 
         // Check if player died before we loop.
@@ -396,7 +508,7 @@ void command_time() {
 void get_name(std::string &name) {
     std::cout << "Please enter the name of your character: \n";
     std::getline(std::cin,name);
-    std::cout << "Greetings " << name << "." << std::endl << std::endl;
+    std::cout << "Greetings " << name << ".\n\n";
 }
 
 void start(const std::string& name) {

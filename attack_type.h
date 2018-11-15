@@ -32,15 +32,15 @@ public:
         const Actor& defender,
         int damage);
 
+    /// Commands that can be used to perform this attack type.
+    std::vector<std::string> verbs;
+
 protected:
 
     friend void from_json(const Json& json, Attack_Type& mod);
 
     /// Base damage of this attack type.
     int atk;
-
-    /// Commands that can be used to perform this attack type.
-    std::vector<std::string> verbs;
 
     /// Combat messages to be displayed when this attack is performed.
     std::vector<std::string> attack_msg;

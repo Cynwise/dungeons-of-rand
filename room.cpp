@@ -17,8 +17,6 @@
 // Declare pointer to current room.
 Room* player_room;
 
-extern void fight(Actor& target);
-
 Room::Room()
 {
     name = "[GENERIC ROOM]";
@@ -205,7 +203,7 @@ void Room::go(const std::string& key)
     auto it = path.find(key);
     if (it == path.end())
     {
-        std::cout << "You can't go there.\n";
+        std::cout << "You can't go there.\n\n";
     }
     else
     {
@@ -218,13 +216,13 @@ void Room::go(const std::string& key)
 void Room::print_full()
 {
     std::cout << brief << std::endl;
-    std::cout << description << std::endl;
+    std::cout << description << "\n\n";
     print_contents();
 }
 
 void Room::print_brief()
 {
-    std::cout << brief << std::endl;
+    std::cout << brief << "\n\n";
     print_contents();
 }
 
@@ -236,7 +234,7 @@ void Room::print_contents()
         return;
     }
 
-    std::cout << "\nIn this room there is:\n";
+    std::cout << "In this room there is:\n";
 
     // Print all Actors.
     for (auto it = actors.begin(); it != actors.end(); ++it)
@@ -249,6 +247,8 @@ void Room::print_contents()
     {
         std::cout << "- a " << (*it)->get_name() << std::endl;
     }
+
+    std::cout << "\n";
 }
 
 void Room::add_actor(std::unique_ptr<Actor> actor)

@@ -26,6 +26,7 @@ public:
     static Player& get_instance();
 
     void attack(Actor& target);
+    void attack(Actor& target, const std::string& type);
 
     int hurt(int damage);
 

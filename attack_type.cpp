@@ -55,7 +55,7 @@ void Attack_Type::print_attack(
 
     // Add the defender's status to the combat string.
     std::string status = "\n[Their] current health is ";
-    status += hp_str + "/" + max_hp_str + ".\n";
+    status += hp_str + "/" + max_hp_str + ".\n\n";
     msg += status;
 
     // Parse the combat string.

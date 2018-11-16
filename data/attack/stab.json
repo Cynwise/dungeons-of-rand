@@ -5,9 +5,9 @@
 
     "verbs" :
     [
-        "stab",
-        "pierce",
-        "puncture"
+        "stab[s]",
+        "pierce[s]",
+        "puncture[s]"
     ],
 
     "attack_msg" :

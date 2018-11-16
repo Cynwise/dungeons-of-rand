@@ -103,6 +103,7 @@ protected:
 
     /// Let game loop access Actors.
     friend int game_loop();
+    friend void player_turn();
 
     /// Room type identifier.
     std::string type;

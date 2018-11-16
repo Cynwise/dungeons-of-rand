@@ -272,6 +272,20 @@ void player_turn()
                 break;
             }
         }
+        else if (input == "attack" || input == "a")
+        {
+            // Find an enemy to attack.
+            if (player_room->actors.empty())
+            {
+                std::cout << "There are no enemies to attack.\n\n";
+            }
+            else
+            {
+                auto& enemy = player_room->actors.front();
+                player_attack(enemy->get_name());
+                break;
+            }
+        }
         else if (input.find("take ") == 0)
         {
             // Parse the input.

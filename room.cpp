@@ -58,7 +58,7 @@ Room::Room(const std::string& room_type)
         {
             for (size_t i = 0; i < entry.count; ++i)
             {
-                actors.push_back(spawn_actor(entry.type)));
+                actors.push_back(spawn_actor(entry.type));
             }
         }
     }

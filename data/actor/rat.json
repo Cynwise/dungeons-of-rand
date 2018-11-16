@@ -8,7 +8,8 @@
 
     "attack_list" :
     [
-	"bite"
+	"bite",
+        "rat_bite"
     ],
 
     "item_list" :

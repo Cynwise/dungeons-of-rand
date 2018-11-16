@@ -9,7 +9,8 @@
 
     "attack_list" :
     [
-        "bite"
+        "bite",
+        "rat_bite"
     ],
 
     "combat_start" :

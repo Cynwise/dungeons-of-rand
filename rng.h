@@ -47,6 +47,23 @@ int flip();
  */
 int roll(int times, int sides);
 
+/**
+ * @brief Roll virtual dice n times, keeping the highest value.
+ *
+ * @note Average rolls for n dice, from Tyler Akins at rumkin.com:
+ * 1d10  = 5.5
+ * 2d10  = 7.15
+ * 3d10  = 7.975
+ * 4d10  = 8.4667
+ * 5d10  = 8.79175
+ * 6d10  = 9.021595
+ * 7d10  = 9.1919575
+ * 8d10  = 9.32268667
+ * 9d10  = 9.425695015
+ * 10d10 = 9.5085658075
+ */
+int roll_high(int times, int sides, int n);
+
 /// Return an element, respecting weights.
 template <class T>
 const T& weighted_element(const std::vector<T>& data)

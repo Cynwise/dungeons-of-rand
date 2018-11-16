@@ -39,10 +39,26 @@ int roll(int times, int sides)
 {
     int sum = 0;
 
-    for (int i = 0; i < times; i++)
+    for (int i = 0; i < times; ++i)
     {
         sum += rng(1, sides);
     }
 
     return sum;
+}
+
+int roll_high(int times, int sides, int n)
+{
+    int highest = 0;
+
+    for (int i = 0; i < n; ++i)
+    {
+        int this_roll = roll(times, sides);
+        if (this_roll > highest)
+        {
+            highest = this_roll;
+        }
+    }
+
+    return highest;
 }

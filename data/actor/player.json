@@ -3,8 +3,8 @@
     "level" : 1,
     "max_hp" : 20,
 
-    "fortitude" : 5,
-    "strength" : 5,
+    "fortitude" : 10,
+    "strength" : 10,
 
     "attack_list" :
     [

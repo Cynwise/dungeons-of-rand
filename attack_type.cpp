@@ -34,7 +34,7 @@ static void replace_all(
 
 int Attack_Type::calc_atk()
 {
-    int base_damage = roll(2, atk) / 2;
+    int base_damage = roll_high(2, atk, 3);
     return base_damage;
 }
 

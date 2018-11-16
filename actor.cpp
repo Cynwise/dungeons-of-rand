@@ -235,7 +235,7 @@ void Actor::attack(Actor& target, const std::string& attack_name, const std::str
         }
     }
 
-    // Calculate damage.
+    // Calculate attack.
     if (weapon_attack == true)
     {
         atk = calc_atk() + weapon->get_atk() + this_attack->calc_atk();
@@ -245,7 +245,7 @@ void Actor::attack(Actor& target, const std::string& attack_name, const std::str
         atk = calc_atk() + this_attack->calc_atk();
     }
 
-    damage = roll(2, atk) / 2 + 1;
+    damage = roll_high(1, atk, 3);
     int net_damage = target.hurt(damage);
 
     // Report results.
@@ -284,7 +284,7 @@ int Actor::hurt(int damage)
     {
         def += armor->get_def();
     }
-    def = roll(2, def) / 2 - 1;
+    def = roll_high(2, def, 3) - 1;
 
     // Apply defense to damage taken.
     damage -= def;

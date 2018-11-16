@@ -417,19 +417,19 @@ void player_turn()
         else if (input == "help")
         {
             std::cout << "Commands:\n\n";
-            std::cout << "help:\tDisplay this message.\n";
+            std::cout << "help:\t\tDisplay this message.\n";
             std::cout << "go [n,e,s,w]:\tMove in that direction\n";
-            std::cout << "look:\tInspect your surroundings.\n";
+            std::cout << "look:\t\tInspect your surroundings.\n";
             std::cout << "attack [enemy]:\tAttack an enemy in the room.\n";
             std::cout << "attacks:\tPrint list of possible attacks.\n";
-            std::cout << "status:\tCheck your current status.\n";
+            std::cout << "status:\t\tCheck your current status.\n";
             std::cout << "inventory:\tDisplay the contents of your inventory.\n";
             std::cout << "take [item]:\tPick up an item.\n";
             std::cout << "drop [item]:\tDrop an item.\n";
             std::cout << "use [item]:\tUse an item.\n";
             std::cout << "equip [item]:\tEquip an item.\n";
-            std::cout << "check [item]:\tCheck an item.\n";
-            std::cout << "quit:\tExit the game.\n\n";
+            std::cout << "check [item]:\tView information about an item.\n";
+            std::cout << "quit:\t\tExit the game.\n\n";
         }
         else
         {

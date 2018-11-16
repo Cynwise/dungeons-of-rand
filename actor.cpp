@@ -238,14 +238,14 @@ void Actor::attack(Actor& target, const std::string& attack_name, const std::str
     // Calculate attack.
     if (weapon_attack == true)
     {
-        atk = calc_atk() + weapon->get_atk() + this_attack->calc_atk();
+        atk = calc_atk() + weapon->get_atk();
     }
     else
     {
-        atk = calc_atk() + this_attack->calc_atk();
+        atk = calc_atk();
     }
 
-    damage = roll_high(1, atk, 3);
+    damage = roll_high(1, atk, 3) + this_attack->calc_atk();
     int net_damage = target.hurt(damage);
 
     // Report results.

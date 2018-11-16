@@ -53,7 +53,7 @@ Room::Room(const std::string& room_type)
     // Spawn a random Actor from the spawn list.
     if (!parent.actor_spawn.empty())
     {
-        const Actor_Spawn& entry = random_element(parent.actor_spawn);
+        const Actor_Spawn& entry = weighted_element(parent.actor_spawn);
         if (entry.type != "none")
         {
             for (size_t i = 0; i < entry.count; ++i)
@@ -66,7 +66,7 @@ Room::Room(const std::string& room_type)
     // Spawn a random Item from the spawn list.
     if (!parent.item_list.empty())
     {
-        const Item_List& entry = random_element(parent.item_list);
+        const Item_List& entry = weighted_element(parent.item_list);
         if (entry.type != "none")
         {
             items.push_back(spawn_item(entry.type));

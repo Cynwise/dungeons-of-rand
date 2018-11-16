@@ -38,8 +38,14 @@ public:
     /// Assignment operator.
     Actor& operator=(const Actor& other);
 
-    /// Make attack against another actor.
+    /// Make random attack against another actor.
     virtual void attack(Actor& target);
+
+    /// Make specific attack against another actor.
+    virtual void attack(
+        Actor& target,
+        const std::string& attack_name,
+        const std::string& verb);
 
     /**
      * @brief Receive damage.

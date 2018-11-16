@@ -49,7 +49,7 @@ int roll(int times, int sides);
 
 /// Return an element, respecting weights.
 template <class T>
-const T& random_element(const std::vector<T>& data)
+const T& weighted_element(const std::vector<T>& data)
 {
     size_t total_weights = 0;
     size_t weighted_chance = 0;
@@ -74,6 +74,14 @@ const T& random_element(const std::vector<T>& data)
 
     std::cerr << "Error:\nCould not find valid element.\n";
     std::exit(1);
+}
+
+/// Return a random element.
+template <class T>
+const T& random_element(const std::vector<T>& data)
+{
+    size_t entry = rng(0, data.size() - 1);
+    return data[entry];
 }
 
 #endif // RNG_H

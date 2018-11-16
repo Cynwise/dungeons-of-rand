@@ -30,6 +30,7 @@ public:
     void print_attack(
         const Actor& attacker,
         const Actor& defender,
+        const std::string& verb,
         int damage);
 
     /// Commands that can be used to perform this attack type.
@@ -47,5 +48,8 @@ protected:
 };
 
 void from_json(const Json& json, Attack_Type& mod);
+
+/// Strip macros from an attack verb.
+std::string strip_verb(const std::string& verb);
 
 #endif // ATTACK_TYPE_H

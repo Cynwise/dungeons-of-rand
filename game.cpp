@@ -8,6 +8,7 @@
 #include <cstdlib>
 #include <ctime>
 #include <iostream>
+#include <regex>
 #include <thread>
 
 #include <actor.h>
@@ -392,7 +393,8 @@ void player_turn()
                 // Iterate over verbs.
                 for (auto& attack_verb : attack_type.verbs)
                 {
-                    std::cout << attack_verb << "  ";
+                    // Remove macros.
+                    std::cout << strip_verb(attack_verb) << "  ";
                 }
                 std::cout << std::endl;
             }
@@ -556,7 +558,7 @@ bool player_attack(const std::string& enemy_name, const std::string& input_verb)
         // Check verb list.
         for (auto& attack_verb : attack_type.verbs)
         {
-            if (input_verb == attack_verb)
+            if (input_verb == strip_verb(attack_verb))
             {
                 // Attempt to find the enemy.
                 Actor* enemy = player_room->find_actor(enemy_name);
@@ -570,7 +572,7 @@ bool player_attack(const std::string& enemy_name, const std::string& input_verb)
                 }
                 else
                 {
-                    player.attack(*enemy, attack_name);
+                    player.attack(*enemy, attack_name, input_verb);
 
                     // Check if the enemy died.
                     if (enemy->get_hp() == 0)

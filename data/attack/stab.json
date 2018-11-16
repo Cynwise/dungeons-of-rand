@@ -12,7 +12,6 @@
 
     "attack_msg" :
     [
-        "[You] stab[y] [them] with [your] [weapon], dealing [damage] damage.",
-        "[You] pierce[y] [them] with [your] [weapon], causing [damage] damage."
+        "[You] [verb] [them] with [your] [weapon], dealing [damage] damage."
     ]
 }

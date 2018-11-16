@@ -41,6 +41,7 @@ int Attack_Type::calc_atk()
 void Attack_Type::print_attack(
     const Actor& attacker,
     const Actor& defender,
+    const std::string& verb,
     int damage)
 {
     Player& player = Player::get_instance();
@@ -58,6 +59,21 @@ void Attack_Type::print_attack(
     status += hp_str + "/" + max_hp_str + ".\n\n";
     msg += status;
 
+    // Parse the verb.
+    std::string verb_parsed(verb);
+    if (&attacker == &player)
+    {
+        replace_all(verb_parsed, "[s]", "");
+        replace_all(verb_parsed, "[es]", "");
+        replace_all(verb_parsed, "[ies]", "y");
+    }
+    else
+    {
+        replace_all(verb_parsed, "[s]", "s");
+        replace_all(verb_parsed, "[es]", "es");
+        replace_all(verb_parsed, "[ies]", "ies");
+    }
+
     // Parse the combat string.
     if (&attacker == &player)
     {
@@ -71,7 +87,7 @@ void Attack_Type::print_attack(
         replace_all(msg, "[you're]", "you're");
         replace_all(msg, "[y]", "");
         replace_all(msg, "[ey]", "");
-        replace_all(msg, "[iey]", "");
+        replace_all(msg, "[iey]", "y");
     }
     else
     {
@@ -105,7 +121,7 @@ void Attack_Type::print_attack(
         replace_all(msg, "[them]", "you");
         replace_all(msg, "[t]", "");
         replace_all(msg, "[et]", "");
-        replace_all(msg, "[iet]", "");
+        replace_all(msg, "[iet]", "y");
     }
     else
     {
@@ -129,6 +145,7 @@ void Attack_Type::print_attack(
     }
     replace_all(msg, "[damage]", damage_str);
     replace_all(msg, "[weapon]", attacker.weapon->get_name());
+    replace_all(msg, "[verb]", verb_parsed);
     replace_all(msg, "\\n", "\n"); // Escape newline.
 
     // Output formatted message.
@@ -160,4 +177,10 @@ void from_json(const Json& json, Attack_Type& mod)
     {
         json.at("attack_msg").get_to(mod.attack_msg);
     }
+}
+
+std::string strip_verb(const std::string& verb)
+{
+    const std::regex exp(R"(\[[^)]*\])");
+    return std::regex_replace(verb, exp, "");
 }

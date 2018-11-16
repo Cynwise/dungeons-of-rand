@@ -5,17 +5,13 @@
 
     "verbs" :
     [
-        "cut",
-        "slash",
-        "slice",
-        "chop"
+        "cut[s]",
+        "slash[es]",
+        "slice[s]"
     ],
 
     "attack_msg" :
     [
-        "[You] cut[y] [them] with [your] [weapon], dealing [damage] damage.",
-        "[You] chop[y] [them] with [your] [weapon], dealing [damage] damage.",
-        "[You] slash[ey] [them] with [your] [weapon], dealing [damage] damage.",
-        "[You] slice[y] [them] with [your] [weapon], causing [damage] damage."
+        "[You] [verb] [them] with [your] [weapon], dealing [damage] damage."
     ]
 }

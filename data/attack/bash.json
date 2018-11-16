@@ -5,17 +5,14 @@
 
     "verbs" :
     [
-        "bash",
-        "smash",
-        "bludgeon",
-        "crush"
+        "bash[es]",
+        "smash[es]",
+        "bludgeon[s]",
+        "crush[es]"
     ],
 
     "attack_msg" :
     [
-        "[You] bash[ey] [them] with [your] [weapon] for [damage] damage.",
-        "[You] smash[ey] [them] with [your] [weapon] for [damage] damage.",
-        "[You] bludgeon[y] [them] with [your] [weapon] for [damage] damage.",
-        "[You] crush[ey] [them] with [your] [weapon] for [damage] damage."
+        "[You] [verb] [them] with [your] [weapon] for [damage] damage."
     ]
 }

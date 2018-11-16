@@ -5,14 +5,13 @@
 
     "verbs" :
     [
-        "punch",
-        "pummel"
+        "punch[es]",
+        "pummel[es]"
     ],
 
     "attack_msg" :
     [
-        "[You] punch[ey] [them], dealing [damage] damage.",
-        "[You] take[y] a swing at [them], dealing [damage] damage.",
-        "[You] pummel[y] [them], dealing [damage] damage."
+        "[You] [verb] [them], dealing [damage] damage.",
+        "[You] take[y] a swing at [them], dealing [damage] damage."
     ]
 }

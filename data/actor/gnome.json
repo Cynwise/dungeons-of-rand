@@ -25,11 +25,11 @@
 
     "win" :
     [
-            "The gnome's falls, and the contraptions break without their master maintaining them."
+        "The gnomes falls, and the contraptions break without their master maintaining them."
     ],
     
     "lose" :
     [
-            "The many tiny cuts, burns, and bruises finally do you in. Never underestimate a gnome!"
+        "The many tiny cuts, burns, and bruises finally do you in. Never underestimate a gnome!"
     ]
 }

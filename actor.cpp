@@ -120,7 +120,7 @@ Actor::Actor(std::string actor_type)
     // Spawn an item from the item drop list.
     if (!parent.item_list.empty())
     {
-        const Item_List& item_entry = random_element(parent.item_list);
+        const Item_List& item_entry = weighted_element(parent.item_list);
         if (item_entry.type != "none")
         {
             add_item(spawn_item(item_entry.type));
@@ -130,7 +130,7 @@ Actor::Actor(std::string actor_type)
     // Spawn a Weapon from the weapon list.
     if (!parent.weapon_list.empty())
     {
-        const Item_List& weapon_entry = random_element(parent.weapon_list);
+        const Item_List& weapon_entry = weighted_element(parent.weapon_list);
         if (weapon_entry.type != "none")
         {
             weapon.reset(new Weapon(weapon_entry.type));;
@@ -179,63 +179,97 @@ Actor& Actor::operator=(const Actor& other)
 
 void Actor::attack(Actor& target)
 {
-    int damage = 0;
-    int net_damage = 0;
-
-    // Pick an attack type.
-    Attack_Type* this_attack;
     if (weapon != nullptr)
     {
         // With weapon.
-
         if (weapon->attack_list.empty())
         {
-            this_attack = attack_map["attack"];
+            // Use generic attack.
+            attack(target, "attack", "attack[s]");
         }
         else
         {
-            int entry = rng(0, weapon->attack_list.size() - 1);
-            auto& attack_name = weapon->attack_list[entry];
-            this_attack = attack_map[attack_name];
+            const std::string& attack_name = random_element(weapon->attack_list);
+            Attack_Type* this_attack = attack_map[attack_name];
+            const std::string& verb = random_element(this_attack->verbs);
+            attack(target, attack_name, verb);
         }
-
-        // Calculate damage.
-        int atk = calc_atk() + weapon->get_atk() + this_attack->calc_atk();
-        damage = roll(2, atk) / 2 + 1;
     }
     else
     {
         // No weapon.
-
         if (attack_list.empty())
         {
-            this_attack = attack_map["attack"];
+            // Use generic attack.
+            attack(target, "attack", "attack[s]");
         }
         else
         {
-            int entry = rng(0, attack_list.size() - 1);
-            const std::string& attack_name = attack_list[entry];
-            this_attack = attack_map[attack_name];
+            const std::string& attack_name = random_element(attack_list);
+            Attack_Type* this_attack = attack_map[attack_name];
+            const std::string& verb = random_element(this_attack->verbs);
+            attack(target, attack_name, verb);
         }
+    }
+}
 
-        // Calculate damage.
-        int atk = calc_atk() + this_attack->calc_atk();
-        damage = roll(2, atk) / 2 + 1;
+void Actor::attack(Actor& target, const std::string& attack_name, const std::string& verb)
+{
+    int atk = 0;
+    int damage = 0;
+
+    // Get attack type.
+    Attack_Type* this_attack = attack_map[attack_name];
+
+    // Check if weapon attack or intrinsic attack.
+    bool weapon_attack = false;
+    if (has_weapon())
+    {
+        for (auto& attack_it : weapon->attack_list)
+        {
+            if (attack_name == attack_it)
+            {
+                weapon_attack = true;
+                break;
+            }
+        }
     }
 
-    net_damage = target.hurt(damage);
+    // Calculate damage.
+    if (weapon_attack == true)
+    {
+        atk = calc_atk() + weapon->get_atk() + this_attack->calc_atk();
+    }
+    else
+    {
+        atk = calc_atk() + this_attack->calc_atk();
+    }
+
+    damage = roll(2, atk) / 2 + 1;
+    int net_damage = target.hurt(damage);
 
     // Report results.
     if (net_damage > 0)
     {
-        this_attack->print_attack(*this, target, net_damage);
+        this_attack->print_attack(*this, target, verb, net_damage);
     }
     else
     {
-        std::cout << "The " << name << " attempts to attack you, ";
-        std::cout << "but you dodge.\n\n";
+        // Report miss.
+        const Player& player = Player::get_instance();
+        if (this == &player)
+        {
+            std::cout << "You attempt to attack the ";
+            std::cout << target.get_name();
+            std::cout << " but they dodge.\n\n";
+        }
+        else
+        {
+            std::cout << "The " << name;
+            std::cout << " attempts to attack you but you dodge.\n\n";
+        }
     }
-}
+};
 
 int Actor::hurt(int damage)
 {

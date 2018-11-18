@@ -1,10 +1,12 @@
 {
     "type" : "echidna",
     "level" : 1,
-    "max_hp" : 10,
+    "max_hp" : 6,
 
-    "strength" : 1,
-    "fortitude" : 1,
+    "strength" : 2,
+    "fortitude" : 2,
+    "agility" : 12,
+    "dexterity" : 8,
 
     "attack_list" :
     [

@@ -1,10 +1,12 @@
 {
     "type" : "rogue",
     "level" : 1,
-    "max_hp" : 6,
+    "max_hp" : 8,
 
     "strength" : 6,
-    "fortitude" : 4,
+    "fortitude" : 6,
+    "agility" : 14,
+    "dexterity" : 14,
 
     "item_list" :
     [

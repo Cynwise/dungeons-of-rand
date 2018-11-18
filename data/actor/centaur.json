@@ -3,8 +3,10 @@
     "level" : 1,
     "max_hp" : 20,
 
-    "strength" : 6,
-    "fortitude" : 4,
+    "strength" : 12,
+    "fortitude" : 10,
+    "agility" : 12,
+    "dexterity" : 10,
 
     "combat_start" :
     [

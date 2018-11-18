@@ -3,10 +3,24 @@
     "level" : 1,
     "max_hp" : 8,
 
-    "strength" : 2,
-    "fortitude" : 1,
+    "strength" : 6,
+    "fortitude" : 6,
+    "agility" : 10,
+    "dexterity" : 10,
 
     "gold" : 1,
+
+    "item_list" :
+    [
+        {
+            "type" : "small_health_potion",
+            "chance" : 1
+        },
+        {
+            "type" : "none",
+            "chance" : 6
+        }
+    ],
 
     "weapon_list" :
     [

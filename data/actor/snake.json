@@ -1,10 +1,12 @@
 {
     "type" : "snake",
     "level" : 1,
-    "max_hp" : 10,
+    "max_hp" : 6,
 
     "strength" : 3,
     "fortitude" : 1,
+    "agility" : 14,
+    "dexterity" : 8,
 
     "combat_drain" :
     [

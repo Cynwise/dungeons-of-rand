@@ -5,7 +5,9 @@
     "max_hp" : 10,
 
     "strength" : 3,
-    "fortitude" : 1,
+    "fortitude" : 2,
+    "agility" : 10,
+    "dexterity" : 15,
 
     "attack_list" :
     [

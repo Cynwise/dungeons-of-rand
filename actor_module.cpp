@@ -58,6 +58,18 @@ void from_json(const Json& json, Actor_Module& mod)
         json.at("fortitude").get_to(mod.fortitude);
     }
 
+    it = json.find("agility");
+    if (it != json.end())
+    {
+        json.at("agility").get_to(mod.agility);
+    }
+
+    it = json.find("dexterity");
+    if (it != json.end())
+    {
+        json.at("dexterity").get_to(mod.dexterity);
+    }
+
     it = json.find("attack_list");
     if (it != json.end())
     {

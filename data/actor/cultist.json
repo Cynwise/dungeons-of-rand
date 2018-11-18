@@ -3,8 +3,10 @@
     "level" : 1,
     "max_hp" : 10,
 
-    "strength" : 6,
-    "fortitude" : 3,
+    "strength" : 8,
+    "fortitude" : 6,
+    "agility" : 6,
+    "dexterity" : 8,
 
     "weapon_list" :
     [

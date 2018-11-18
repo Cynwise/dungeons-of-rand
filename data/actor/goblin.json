@@ -4,7 +4,9 @@
     "max_hp" : 10,
 
     "strength" : 3,
-    "fortitude" : 2,
+    "fortitude" : 3,
+    "agility" : 12,
+    "dexterity" : 7,
 
     "combat_start" :
     [

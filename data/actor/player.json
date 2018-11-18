@@ -5,6 +5,8 @@
 
     "fortitude" : 10,
     "strength" : 10,
+    "agility" : 10,
+    "dexterity" : 10,
 
     "attack_list" :
     [

@@ -38,6 +38,8 @@ private:
 
     int strength;
     int fortitude;
+    int agility;
+    int dexterity;
 
     std::vector<std::string> attack_list;
 

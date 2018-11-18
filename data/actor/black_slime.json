@@ -6,6 +6,8 @@
 
     "strength" : 3,
     "fortitude" : 4,
+    "agility" : 4,
+    "dexterity" : 6,
 
     "combat_start" :
     [

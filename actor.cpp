@@ -40,6 +40,8 @@ Actor::Actor()
     // Initialize attributes.
     strength = 0;
     fortitude = 0;
+    agility = 0;
+    dexterity = 0;
 
     // Initialize possessions.
     weapon = nullptr;
@@ -58,6 +60,8 @@ Actor::Actor(const Actor& other)
 
     strength = other.strength;
     fortitude = other.fortitude;
+    agility = other.agility;
+    dexterity = other.dexterity;
 
     items = other.items;
 
@@ -110,6 +114,8 @@ Actor::Actor(std::string actor_type)
 
     strength = parent.strength;
     fortitude = parent.fortitude;
+    agility = parent.agility;
+    dexterity = parent.dexterity;
 
     attack_list = parent.attack_list;
 
@@ -155,6 +161,8 @@ Actor& Actor::operator=(const Actor& other)
 
     strength = other.strength;
     fortitude = other.fortitude;
+    agility = other.agility;
+    dexterity = other.dexterity;
 
     attack_list = other.attack_list;
 
@@ -236,21 +244,18 @@ void Actor::attack(Actor& target, const std::string& attack_name, const std::str
     }
 
     // Calculate attack.
+    atk = calc_atk() / 2;
     if (weapon_attack == true)
     {
-        atk = calc_atk() + weapon->get_atk();
-    }
-    else
-    {
-        atk = calc_atk();
+        atk += weapon->get_atk();
     }
 
-    damage = roll_high(1, atk, 3) + this_attack->calc_atk();
-    int net_damage = target.hurt(damage);
-
-    // Report results.
-    if (net_damage > 0)
+    // Check if this attack hits or misses.
+    if (is_hit(target))
     {
+        // Perform and report hit.
+        damage = roll_high(1, atk, 3) + this_attack->calc_atk();
+        int net_damage = target.hurt(damage);
         this_attack->print_attack(*this, target, verb, net_damage);
     }
     else
@@ -261,12 +266,12 @@ void Actor::attack(Actor& target, const std::string& attack_name, const std::str
         {
             std::cout << "You attempt to attack the ";
             std::cout << target.get_name();
-            std::cout << " but they dodge.\n\n";
+            std::cout << ", but they dodge.\n\n";
         }
         else
         {
             std::cout << "The " << name;
-            std::cout << " attempts to attack you but you dodge.\n\n";
+            std::cout << " attempts to attack you, but you dodge.\n\n";
         }
     }
 };
@@ -278,13 +283,13 @@ int Actor::hurt(int damage)
 
     int hp_before = hp;
 
-    // Calculate defense. Net def = (1d(def)-1)/2
+    // Calculate defense.
     int def = calc_def();
     if (armor != nullptr)
     {
         def += armor->get_def();
     }
-    def = roll_high(2, def, 3) - 1;
+    def = roll_high(1, def, 3) - 1;
 
     // Apply defense to damage taken.
     damage -= def;
@@ -325,6 +330,21 @@ int Actor::heal(int points)
 
     // Return net healing.
     return hp - hp_before;
+}
+
+bool Actor::is_hit(const Actor& target) const
+{
+    int to_hit = roll_high(2, dexterity, 1);
+    int to_miss = roll_high(1, target.get_agility(), 3);
+
+    if (to_hit - to_miss >= 0)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
 }
 
 void Actor::add_item(std::unique_ptr<Item> item)
@@ -422,6 +442,46 @@ int Actor::get_level() const
 void Actor::set_level(int val)
 {
     level = val;
+}
+
+int Actor::get_strength() const
+{
+    return strength;
+}
+
+void Actor::set_strength(int val)
+{
+    strength = val;
+}
+
+int Actor::get_fortitude() const
+{
+    return fortitude;
+}
+
+void Actor::set_fortitude(int val)
+{
+    fortitude = val;
+}
+
+int Actor::get_agility() const
+{
+    return agility;
+}
+
+void Actor::set_agility(int val)
+{
+    agility = val;
+}
+
+int Actor::get_dexterity() const
+{
+    return dexterity;
+}
+
+void Actor::set_dexterity(int val)
+{
+    dexterity = val;
 }
 
 int Actor::get_gold() const

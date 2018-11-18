@@ -3,21 +3,23 @@
     "level" : 1,
     "max_hp" : 50,
 
-    "strength" : 10,
-    "fortitude" : 10,
+    "strength" : 20,
+    "fortitude" : 15,
+    "agility" : 8,
+    "dexterity" : 14,
 
     "combat_start" :
-        [
-    	    "This room stores a powerful entity... a huge red dragon, sitting atop a pile of gold."
-        ],
+    [
+         "This room stores a powerful entity... a huge red dragon, sitting atop a pile of gold."
+    ],
 
     "win" :
-        [
-            "You did it!!! The dragon falls! And the gold is yours for the taking!"
-        ],
+    [
+         "You did it!!! The dragon falls! And the gold is yours for the taking!"
+    ],
     
     "lose" :
-        [
-            "You fall to your knees, and the dragon doesn't hesitate to burn you to a crisp."
-        ]
+    [
+        "You fall to your knees, and the dragon doesn't hesitate to burn you to a crisp."
+    ]
 }

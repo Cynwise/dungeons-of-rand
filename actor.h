@@ -67,6 +67,9 @@ public:
      */
     virtual int heal(int points);
 
+    /// Determine whether an attack hits or misses.
+    bool is_hit(const Actor& target) const;
+
     /**
      * @brief Add an item to the Actor's inventory.
      *
@@ -92,13 +95,13 @@ public:
     /// Display the contents of the Actor's inventory.
     virtual void print_inventory();
 
-    /// Levels up actor and zeros XP.
+    /// Level up actor and zero XP.
     void level_up();
 
-    /// Calculates the actor's attack value.
+    /// Calculate the actor's attack value.
     int calc_atk() const;
 
-    /// Calculates the actor's defensive value.
+    /// Calculate the actor's defensive value.
     int calc_def() const;
 
     /// Returns whether the actor is wielding a weapon.
@@ -111,6 +114,14 @@ public:
     void set_hp(int val);
     int get_level() const;
     void set_level(int val);
+    int get_strength() const;
+    void set_strength(int val);
+    int get_fortitude() const;
+    void set_fortitude(int val);
+    int get_agility() const;
+    void set_agility(int val);
+    int get_dexterity() const;
+    void set_dexterity(int val);
     int get_gold() const;
     void set_gold(int val);
     const std::string& get_combat_start() const;
@@ -149,6 +160,8 @@ protected:
     // Attributes.
     int strength;
     int fortitude;
+    int agility;
+    int dexterity;
 
     // Possessions.
     Inventory items;

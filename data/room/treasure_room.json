@@ -1,5 +1,6 @@
 {
     "type" : "treasure_room",
+    "name" : "treasure room",
     "brief" : "This room once held vast amounts of treasure.",
     "description" : "Now, it holds very little. You feel slightly frustrated",
 

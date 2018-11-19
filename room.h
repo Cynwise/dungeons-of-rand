@@ -70,6 +70,9 @@ public:
     /// Print all Actors and Items in the room.
     virtual void print_contents();
 
+    /// Print all Paths to other rooms.
+    virtual void print_paths();
+
     /// Add an Actor to this room.
     virtual void add_actor(std::unique_ptr<Actor> actor);
 
@@ -99,6 +102,9 @@ public:
     std::string get_brief();
     void set_brief(const std::string& s);
 
+    /// Whether the room has been entered before.
+    bool entered;
+
 protected:
 
     /// Let game loop access Actors.
@@ -122,9 +128,6 @@ protected:
      * room is first visited.
      */
     std::string description;
-
-    /// Whether the room has been entered before.
-    bool entered;
 
     /// Possible rooms to go to from here.
     Path path;

@@ -1,5 +1,6 @@
 {
     "type" : "rat_room",
+    "name" : "rat den",
     "brief" : "Rats have clearly inhabited this room for some time.",
     "description" : "There is much evidence of an infestation.",
 

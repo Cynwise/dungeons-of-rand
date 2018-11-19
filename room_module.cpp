@@ -18,6 +18,16 @@ void from_json(const Json& json, Room_Module& mod)
         json.at("type").get_to(mod.type);
     }
 
+    it = json.find("name");
+    if (it != json.end())
+    {
+        json.at("name").get_to(mod.name);
+    }
+    else
+    {
+        mod.name = mod.type;
+    }
+
     it = json.find("brief");
     if (it != json.end())
     {

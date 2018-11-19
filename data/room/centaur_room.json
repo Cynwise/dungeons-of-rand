@@ -1,7 +1,8 @@
 {
     "type" : "centaur_room",
+    "name" : "centaur den",
     "brief" : "This room has a pile of waste that's much too big and... rank for any normal beast.",
-    "description" : "This room smells like Centaur waste.",
+    "description" : "This room smells like centaur waste.",
 
     "actor_spawn" :
     [

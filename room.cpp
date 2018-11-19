@@ -46,6 +46,7 @@ Room::Room(const std::string& room_type)
     Room_Module& parent = *room_map[room_type];
 
     type = parent.type;
+    name = parent.name;
     brief = parent.brief;
     description = parent.description;
     entered = false;
@@ -77,6 +78,7 @@ Room::Room(const std::string& room_type)
 Room& Room::operator=(const Room& other)
 {
     type = other.type;
+    name = other.name;
     brief = other.brief;
     description = other.description;
 
@@ -156,12 +158,14 @@ void Room::print_full()
 {
     std::cout << brief << std::endl;
     std::cout << description << "\n\n";
+    print_paths();
     print_contents();
 }
 
 void Room::print_brief()
 {
     std::cout << brief << "\n\n";
+    print_paths();
     print_contents();
 }
 
@@ -188,6 +192,61 @@ void Room::print_contents()
     }
 
     std::cout << "\n";
+}
+
+void Room::print_paths()
+{
+    // Check if there is nothing to print.
+    if (path.size() == 0)
+    {
+        return;
+    }
+
+    auto it = path.find("n");
+    if (it != path.end())
+    {
+        std::cout << "There is a " << path["n"]->get_name();
+        if (path["n"]->entered == true)
+        {
+            std::cout << " (visited)";
+        }
+        std::cout << " to the north.\n";
+    }
+
+    it = path.find("e");
+    if (it != path.end())
+    {
+        std::cout << "There is a " << path["e"]->get_name();
+        if (path["e"]->entered == true)
+        {
+            std::cout << " (visited)";
+        }
+        std::cout << " to the east.\n";
+    }
+
+    it = path.find("s");
+    if (it != path.end())
+    {
+        std::cout << "There is a " << path["s"]->get_name();
+        if (path["s"]->entered == true)
+        {
+            std::cout << " (visited)";
+        }
+        std::cout << " to the south.\n";
+    }
+
+    it = path.find("w");
+    if (it != path.end())
+    {
+        std::cout << "There is a " << path["w"]->get_name();
+        if (path["w"]->entered == true)
+        {
+            std::cout << " (visited)";
+        }
+        std::cout << " to the west.\n";
+    }
+
+    std::cout << std::endl;
 }
 
 void Room::add_actor(std::unique_ptr<Actor> actor)

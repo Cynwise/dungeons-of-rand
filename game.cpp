@@ -79,7 +79,7 @@ int main(int argc, char* argv[])
 
     // Define initial room.
     Room room_1;
-    room_1.set_name("Pretty dank dungeon");
+    room_1.set_name("pretty dank dungeon");
     room_1.set_description
     (
         "Very unhygenic.\nA hallway leads to the north."
@@ -126,7 +126,6 @@ int main(int argc, char* argv[])
 
         // Link this room.
         last_room->add_two_way("n", "s", *next_room);
-        last_room->add_two_way("e", "w", *next_room);
         last_room = next_room;
     }
 
@@ -140,6 +139,7 @@ int main(int argc, char* argv[])
 int game_loop()
 {
     Player& player = Player::get_instance();
+    bool fought = false;
 
     while (1)
     {
@@ -150,6 +150,8 @@ int game_loop()
         auto& actor_list = player_room->actors;
         for (auto it = actor_list.begin(); it != actor_list.end(); ++it)
         {
+            std::cout << "=================================================\n\n";
+            fought = true;
             auto& enemy = **it;
             enemy_turn(enemy);
 
@@ -165,6 +167,13 @@ int game_loop()
         {
             game_over();
             break;
+        }
+
+        // Check if player fought this turn.
+        if (fought == true)
+        {
+            fought = false;
+            std::cout << "=================================================\n\n";
         }
     }
 
@@ -543,6 +552,12 @@ bool player_attack(const std::string& enemy_name)
         player_room->add_item(std::move(corpse));
         player_room->remove_actor(enemy);
 
+        // Redisplay paths if the room can be safely exited.
+        if (player_room->is_safe())
+        {
+            player_room->print_paths();
+        }
+
         // Redisplay room contents.
         player_room->print_contents();
     }
@@ -602,6 +617,12 @@ bool player_attack(const std::string& enemy_name, const std::string& input_verb)
                         corpse->set_name(corpse_name);
                         player_room->add_item(std::move(corpse));
                         player_room->remove_actor(enemy);
+
+                        // Redisplay paths if the room can now be exited.
+                        if (player_room->is_safe())
+                        {
+                            player_room->print_paths();
+                        }
 
                         // Redisplay room contents.
                         player_room->print_contents();

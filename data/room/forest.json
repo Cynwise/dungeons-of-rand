@@ -1,5 +1,6 @@
 {
     "type" : "forest",
+    "name" : "forest",
     "brief" : "This is a forest, yet you still seem to be in a dungeon.",
     "description" : "The ceiling is emitting some form of artificial light.",
 

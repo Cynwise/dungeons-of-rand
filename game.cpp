@@ -11,6 +11,11 @@
 #include <regex>
 #include <thread>
 
+// Platform-dependent headers.
+#ifdef __WIN32
+#include <conio.h>
+#endif
+
 #include <actor.h>
 #include <actor/player.h>
 #include <attack_type.h>
@@ -20,6 +25,33 @@
 #include <module.h>
 #include <room.h>
 #include <rng.h>
+
+void console_reset()
+{
+#if defined(__unix__) || defined(__linux__) || defined(__APPLE__)
+    std::cout << "\033[0m";
+#elif defined(_WIN32)
+    textcolor(WHITE);
+#endif
+}
+
+void console_color_green()
+{
+#if defined(__unix__) || defined(__linux__) || defined(__APPLE__)
+    std::cout << "\u001b[32m";
+#elif defined(_WIN32)
+    textcolor(LIGHTGREEN);
+#endif
+}
+
+void console_color_red()
+{
+#if defined(__unix__) || defined(__linux__) || defined(__APPLE__)
+    std::cout << "\u001b[31m";
+#elif defined(_WIN32)
+    textcolor(RED);
+#endif
+}
 
 /// Main game loop.
 int game_loop();
@@ -150,8 +182,11 @@ int game_loop()
         auto& actor_list = player_room->actors;
         for (auto it = actor_list.begin(); it != actor_list.end(); ++it)
         {
+            console_color_red();
             std::cout << "=================================================\n\n";
+            console_reset();
             fought = true;
+
             auto& enemy = **it;
             enemy_turn(enemy);
 
@@ -173,7 +208,10 @@ int game_loop()
         if (fought == true)
         {
             fought = false;
+
+            console_color_green();
             std::cout << "=================================================\n\n";
+            console_reset();
         }
     }
 

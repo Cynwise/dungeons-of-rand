@@ -83,7 +83,7 @@ const T& weighted_element(const std::vector<T>& data)
     {
         weighted_chance += it.chance;
 
-        if (weighted_chance >= entry)
+        if (weighted_chance >= entry && it.chance != 0)
         {
             return it;
         }

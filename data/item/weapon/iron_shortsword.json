@@ -3,6 +3,7 @@
     "name" : "iron shortsword",
 
     "atk" : 5,
+    "to_hit" : 1,
 
     "attack_list" :
     [

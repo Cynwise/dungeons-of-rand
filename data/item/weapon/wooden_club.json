@@ -3,6 +3,7 @@
     "name" : "wooden club",
 
     "atk" : 2,
+    "to_hit" : -1,
 
     "attack_list" :
     [

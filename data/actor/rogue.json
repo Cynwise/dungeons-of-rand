@@ -5,8 +5,8 @@
 
     "strength" : 6,
     "fortitude" : 6,
-    "agility" : 14,
-    "dexterity" : 14,
+    "agility" : 12,
+    "dexterity" : 12,
 
     "item_list" :
     [

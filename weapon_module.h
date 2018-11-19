@@ -33,6 +33,8 @@ private:
 
     int atk;
 
+    int to_hit;
+
     std::vector<std::string> attack_list;
 };
 

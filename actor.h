@@ -14,6 +14,7 @@
 #include <inventory.h>
 
 class Armor;
+class Attack_Type;
 class Item;
 class Room;
 class Weapon;
@@ -68,7 +69,10 @@ public:
     virtual int heal(int points);
 
     /// Determine whether an attack hits or misses.
-    bool is_hit(const Actor& target) const;
+    bool is_hit(
+        const Actor& target,
+        bool with_weapon,
+        const Attack_Type* attack_type) const;
 
     /**
      * @brief Add an item to the Actor's inventory.

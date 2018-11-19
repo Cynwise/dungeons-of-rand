@@ -16,16 +16,12 @@
     "item_list" :
     [
         {
-            "type" : "peasant_rags",
-            "chance" : 2
-        },
-        {
             "type" : "small_health_potion",
-            "chance" : 3
+            "chance" : 1
         },
         {
             "type" : "none",
-            "chance" : 6
+            "chance" : 5
         }
     ],
 

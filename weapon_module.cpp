@@ -30,6 +30,17 @@ void from_json(const Json& json, Weapon_Module& mod)
         json.at("atk").get_to(mod.atk);
     }
 
+    it = json.find("to_hit");
+    if (it != json.end())
+    {
+        json.at("to_hit").get_to(mod.to_hit);
+    }
+    else
+    {
+        // Default value.
+        mod.to_hit = 0;
+    }
+
     it = json.find("attack_list");
     if (it != json.end())
     {

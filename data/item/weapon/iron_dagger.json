@@ -3,6 +3,7 @@
     "name" : "iron dagger",
 
     "atk" : 3,
+    "to_hit" : 1,
 
     "attack_list" :
     [

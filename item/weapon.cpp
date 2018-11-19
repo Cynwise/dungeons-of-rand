@@ -14,6 +14,7 @@
 Weapon::Weapon()
 {
     atk = 0;
+    to_hit = 0;
 }
 
 Weapon::~Weapon()
@@ -44,6 +45,7 @@ Weapon::Weapon(const std::string& weapon_type)
     type = weapon_type;
     name = parent.name;
     atk = parent.atk;
+    to_hit = parent.to_hit;
     attack_list = parent.attack_list;
 }
 
@@ -76,10 +78,29 @@ bool Weapon::equip(Actor& holder)
 void Weapon::check(Actor& holder)
 {
     std::cout << "This is a " << name << ".\n";
-    std::cout << "It gives you " << atk << " attack.\n\n";
+    std::cout << "It gives you " << atk << " attack";
+
+    // Report hit chance modifier.
+    if (to_hit == 0)
+    {
+        std::cout << ".\n\n";
+    }
+    else if (to_hit > 0)
+    {
+        std::cout << " and a +" << to_hit << " modifier to hit chance.\n\n";
+    }
+    else
+    {
+        std::cout << " and a " << to_hit << " modifier to hit chance.\n\n";
+    }
 }
 
 int Weapon::get_atk() const
 {
     return atk;
+}
+
+int Weapon::get_to_hit() const
+{
+    return to_hit;
 }

@@ -2,6 +2,7 @@
     "type" : "cut",
 
     "atk" : 2,
+    "to_hit" : 1,
 
     "verbs" :
     [

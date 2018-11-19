@@ -165,6 +165,22 @@ void from_json(const Json& json, Attack_Type& mod)
     {
         json.at("atk").get_to(mod.atk);
     }
+    else
+    {
+        // Default value.
+        mod.atk = 0;
+    }
+
+    it = json.find("to_hit");
+    if (it != json.end())
+    {
+        json.at("to_hit").get_to(mod.to_hit);
+    }
+    else
+    {
+        // Default value.
+        mod.to_hit = 0;
+    }
 
     it = json.find("verbs");
     if (it != json.end())

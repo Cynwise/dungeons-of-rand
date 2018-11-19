@@ -36,6 +36,9 @@ public:
     /// Commands that can be used to perform this attack type.
     std::vector<std::string> verbs;
 
+    /// Hit chance modifier.
+    int to_hit;
+
 protected:
 
     friend void from_json(const Json& json, Attack_Type& mod);

@@ -36,6 +36,8 @@ public:
     /// Gets this weapon's attack value.
     int get_atk() const;
 
+    int get_to_hit() const;
+
     /// List of attacks that can be performed with this weapon.
     std::vector<std::string> attack_list;
 
@@ -43,6 +45,9 @@ private:
 
     /// Attack boost granted by this weapon.
     int atk;
+
+    /// Hit chance modifier.
+    int to_hit;
 };
 
 #endif // WEAPON_H

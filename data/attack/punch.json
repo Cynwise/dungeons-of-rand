@@ -2,6 +2,7 @@
     "type" : "punch",
 
     "atk" : 1,
+    "to_hit" : -1,
 
     "verbs" :
     [

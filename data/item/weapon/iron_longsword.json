@@ -3,6 +3,7 @@
     "name" : "iron longsword",
 
     "atk" : 8,
+    "to_hit" : 2,
 
     "attack_list" :
     [

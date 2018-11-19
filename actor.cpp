@@ -243,16 +243,16 @@ void Actor::attack(Actor& target, const std::string& attack_name, const std::str
         }
     }
 
-    // Calculate attack.
-    atk = calc_atk() / 2;
-    if (weapon_attack == true)
-    {
-        atk += weapon->get_atk();
-    }
-
     // Check if this attack hits or misses.
-    if (is_hit(target))
+    if (is_hit(target, has_weapon(), this_attack))
     {
+        // Calculate attack.
+        atk = calc_atk() / 2;
+        if (weapon_attack == true)
+        {
+            atk += weapon->get_atk();
+        }
+
         // Perform and report hit.
         damage = roll_high(1, atk, 3) + this_attack->calc_atk();
         int net_damage = target.hurt(damage);
@@ -332,10 +332,19 @@ int Actor::heal(int points)
     return hp - hp_before;
 }
 
-bool Actor::is_hit(const Actor& target) const
+bool Actor::is_hit(
+    const Actor& target,
+    bool with_weapon,
+    const Attack_Type* attack_type) const
 {
-    int to_hit = roll_high(2, dexterity, 1);
-    int to_miss = roll_high(1, target.get_agility(), 3);
+    int to_hit = dexterity + attack_type->to_hit;
+    if (with_weapon)
+    {
+        to_hit += weapon->get_to_hit();
+    }
+    to_hit = roll_high(2, to_hit, 3);
+
+    int to_miss = roll(1, target.get_agility());
 
     if (to_hit - to_miss >= 0)
     {

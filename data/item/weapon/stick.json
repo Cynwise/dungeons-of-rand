@@ -3,6 +3,7 @@
     "name" : "stick",
 
     "atk" : 1,
+    "to_hit" : 2,
 
     "attack_list" :
     [

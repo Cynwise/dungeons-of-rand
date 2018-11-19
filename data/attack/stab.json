@@ -1,7 +1,8 @@
 {
     "type" : "stab",
 
-    "atk" : 2,
+    "atk" : 3,
+    "to_hit" : 0,
 
     "verbs" :
     [

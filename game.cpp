@@ -213,6 +213,10 @@ int game_loop()
             std::cout << "=================================================\n\n";
             console_reset();
         }
+        else
+        {
+            std::cout << "=================================================\n\n";
+        }
     }
 
     return EXIT_SUCCESS;
@@ -222,6 +226,7 @@ void player_turn()
 {
     Player& player = Player::get_instance();
     std::string input = "";
+    bool turn_over = false;
 
     while (1)
     {
@@ -242,7 +247,7 @@ void player_turn()
                 player_room->go("n");
                 if (flip())
                 {
-                    break;
+                    turn_over = true;
                 }
             }
         }
@@ -257,7 +262,7 @@ void player_turn()
                 player_room->go("e");
                 if (flip())
                 {
-                    break;
+                    turn_over = true;
                 }
             }
         }
@@ -272,7 +277,7 @@ void player_turn()
                 player_room->go("s");
                 if (flip())
                 {
-                    break;
+                    turn_over = true;
                 }
             }
         }
@@ -287,7 +292,7 @@ void player_turn()
                 player_room->go("w");
                 if (flip())
                 {
-                    break;
+                    turn_over = true;
                 }
             }
         }
@@ -316,7 +321,7 @@ void player_turn()
             bool done = player_attack(enemy_name);
             if (done)
             {
-                break;
+                turn_over = true;
             }
         }
         else if (input == "attack" || input == "a")
@@ -330,7 +335,7 @@ void player_turn()
             {
                 auto& enemy = player_room->actors.front();
                 player_attack(enemy->get_name());
-                break;
+                turn_over = true;
             }
         }
         else if (input.find("take ") == 0)
@@ -354,7 +359,7 @@ void player_turn()
                 std::unique_ptr<Item> item = player_room->remove_item(origin);
                 std::cout << "You pick up the " << item->get_name() << ".\n\n";
                 player.add_item(std::move(item));
-                break;
+                turn_over = true;
             }
         }
         else if (input.find("drop ") == 0)
@@ -375,7 +380,7 @@ void player_turn()
             {
                 std:: cout << "You drop the " << item->get_name() << ".\n\n";
                 player_room->add_item(std::move(item));
-                break;
+                turn_over = true;
             }
         }
         else if (input.find("use ") == 0)
@@ -393,7 +398,7 @@ void player_turn()
             else
             {
                 item->use(player);
-                break;
+                turn_over = true;
             }
         }
         else if (input.find("equip ") == 0)
@@ -411,7 +416,7 @@ void player_turn()
             else
             {
                 item->equip(player);
-                break;
+                turn_over = true;
             }
         }
         else if (input.find("check ") == 0)
@@ -429,7 +434,7 @@ void player_turn()
             else
             {
                 item->check(player);
-                break;
+                turn_over = true;
             }
         }
         else if (input == "attacks")
@@ -486,27 +491,22 @@ void player_turn()
             {
                 std::cout << "Syntax not recognized.\n";
                 std::cout << "Enter \"help\" for a basic command list.\n\n";
-                continue;
             }
-
             // Check if there is a valid argument to this verb.
-            if (input.length() - verb_end <= 1)
+            else if (input.length() - verb_end <= 1)
             {
                 std::cout << "Syntax not recognized.\n";
                 std::cout << "Enter \"help\" for a basic command list.\n\n";
-                continue;
             }
-
-            // Get verb.
-            std::string input_verb = input.substr(0, verb_end);
-
-            // Get enemy name.
-            std::string enemy_name = input.substr(verb_end + 1);
-
-            bool done = player_attack(enemy_name, input_verb);
-            if (done)
+            else
             {
-                break;
+                // Get verb.
+                std::string input_verb = input.substr(0, verb_end);
+
+                // Get enemy name.
+                std::string enemy_name = input.substr(verb_end + 1);
+
+                turn_over = player_attack(enemy_name, input_verb);
             }
         }
 
@@ -514,7 +514,17 @@ void player_turn()
         if (player.get_hp() == 0)
         {
             game_over();
+            turn_over = true;
+        }
+
+        // Check if we should stop making moves.
+        if (turn_over)
+        {
             break;
+        }
+        else
+        {
+            std::cout << "=================================================\n\n";
         }
     }
 }

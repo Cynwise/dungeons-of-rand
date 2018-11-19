@@ -27,6 +27,7 @@ Weapon::Weapon(const Weapon& other)
     type = other.type;
     name = other.name;
     atk = other.atk;
+    to_hit = other.to_hit;
     attack_list = other.attack_list;
 }
 

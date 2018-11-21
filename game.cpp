@@ -173,6 +173,10 @@ int game_loop()
     Player& player = Player::get_instance();
     bool fought = false;
 
+    console_color_green();
+    std::cout << "=================================================\n\n";
+    console_reset();
+
     while (1)
     {
         // Let the player take a turn.

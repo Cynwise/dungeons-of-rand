@@ -13,6 +13,8 @@
 
     "attack_msg" :
     [
-        "[You] [verb] [them] with [your] [weapon], dealing [damage] damage."
+        "[You] [verb] [them] with [your] [weapon], dealing [damage] damage.",
+        "[You] run[y] up close to [them], performing a precision [verb] across the face, dealing [damage] damage.",
+        "Being careful not to overstep [your] bounds, [You] [verb] [their] calf, dealing [damage] damage." 
     ]
 }

@@ -13,6 +13,9 @@
 
     "attack_msg" :
     [
-        "[You] [verb] [them] with [your] [weapon], dealing [damage] damage."
+        "[You] [verb] [them] with [your] [weapon], dealing [damage] damage.",
+        "Although [You] didn't push far, there is already a strong gush of blood...\n[You] deal[y] [damage] damage.",
+        "[You] thrust[y] forward, hoping to pierce directly through the head of [them]. [they] dodge however, but not completely.\n[You] deal [damage] damage.",
+        "Laughing lightly, [You] stay[y] light on [your] toes, predicting [their] movements... and strike[y]!\n[You] deal [damage] damage."
     ]
 }

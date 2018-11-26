@@ -41,7 +41,7 @@ all: build doc
 # Remove all generated output.
 .PHONY: clean
 clean:
-	-rm -rf dungeons-of-rand build/ html/ latex/
+	-rm -rf dungeons-of-rand build/ html/ latex/ *.dSYM/
 
 # Only clean generated dependencies.
 .PHONY: cleandep

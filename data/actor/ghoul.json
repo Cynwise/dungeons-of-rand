@@ -3,10 +3,39 @@
     "level" : 1,
     "max_hp" : 10,
 
-    "strength" : 10,
+    "strength" : 12,
     "fortitude" : 6,
-    "agility" : 10,
+    "agility" : 14,
     "dexterity" : 6,
+
+    "attack_list" :
+    [
+        "bear_attack"
+    ],
+
+    "item_list" :
+    [
+        {
+            "type" : "peasant_rags",
+            "chance" : 4
+        },
+        {
+            "type" : "chainmail",
+            "chance" : 1
+        },
+        {
+            "type" : "leather_armor",
+            "chance" : 1
+        }
+    ],
+    
+    "weapon_list" :
+    [
+        {
+            "type" : "ghoul_claw",
+            "chance" : 1
+        }
+    ],
 
     "combat_start" :
     [

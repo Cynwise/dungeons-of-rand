@@ -11,6 +11,6 @@
     "attack_list" :
     [
         "punch",
-        "bite"
+        "human_bite"
     ]
 }

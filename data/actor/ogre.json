@@ -3,13 +3,39 @@
     "level" : 1,
     "max_hp" : 17,
 
-    "strength" : 6,
-    "fortitude" : 6,
+    "strength" : 12,
+    "fortitude" : 8,
+    "agility" : 1,
+    "dexterity" : 3,
 
+    "item_list" :
+    [
+        {
+            "type" : "wolf_fur",
+            "chance" : 1
+        },
+        {
+            "type" : "emaciated_corpse",
+            "chance" : 2
+        }
+    ],
+    
     "weapon_list" :
     [
         {
             "type" : "wooden_club",
+            "chance" : 2
+        },
+        {
+            "type" : "bronze_longsword",
+            "chance" : 1
+        },
+        {
+            "type" : "spiked_club",
+            "chance" : 1
+        },
+        {
+            "type" : "morning_star",
             "chance" : 1
         }
     ],

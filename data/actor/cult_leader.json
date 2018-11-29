@@ -4,10 +4,32 @@
     "level" : 1,
     "max_hp" : 25,
 
-    "strength" : 12,
+    "strength" : 14,
     "fortitude" : 8,
-    "agility" : 10,
-    "dexterity" : 12,
+    "agility" : 12,
+    "dexterity" : 14,
+    
+    "attack_list" :
+    [
+        "pseudopod",
+        "cult_attack"
+    ],
+    
+    "item_list" :
+    [
+        {
+            "type" : "large_health_potion",
+            "chance" : 1
+        },
+        {
+            "type" : "health_potion",
+            "chance" : 1
+        },
+        {
+            "type" : "none",
+            "chance" : 4
+        }
+    ],
 
     "combat_start" :
     	[

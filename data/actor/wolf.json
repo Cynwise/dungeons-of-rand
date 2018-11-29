@@ -3,8 +3,28 @@
     "level" : 1,
     "max_hp" : 15,
 
-    "strength" : 4,
+    "strength" : 6,
     "fortitude" : 3,
+    "agility" : 10,
+    "dexterity" : 5,
+
+    "attack_list" :
+    [
+        "bite",
+        "rat_bite"
+    ],
+
+    "item_list" :
+    [
+        {
+            "type" : "wolf_fur",
+            "chance" : 3
+        },
+        {
+            "type" : "none",
+            "chance" : 4
+        }
+    ],
 
     "combat_start" :
     [

@@ -5,6 +5,40 @@
 
     "strength" : 15,
     "fortitude" : 10,
+    "agility" : 4,
+    "dexterity" : 2,
+    
+    "item_list" :
+    [
+        {
+            "type" : "small_health_potion",
+            "chance" : 1
+        },
+        {
+            "type" : "steel_bucket_hat",
+            "chance" : 2
+        },
+        {
+            "type" : "mace",
+            "chance" : 1
+        },
+        {
+            "type" : "none",
+            "chance" : 2
+        }
+    ],
+
+    "weapon_list" :
+    [
+        {
+            "type" : "wooden_club",
+            "chance" : 2
+        },
+        {
+            "type" : "spiked_club",
+            "chance" : 1
+        }
+    ],
 
     "combat_start" :
     [

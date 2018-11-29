@@ -10,7 +10,8 @@
 
     "attack_list" :
     [
-        "bite"
+        "bite",
+        "echidna_cut"
     ],
 
     "weapon_list" :
@@ -18,10 +19,6 @@
         {
             "type" : "iron_knife",
             "chance" : 1
-        },
-        {
-            "type" : "none",
-            "chance" : 2
         }
     ],
 

@@ -11,7 +11,7 @@
     "item_list" :
     [
         {
-            "type" : "small_health_potion",
+            "type" : "health_potion",
             "chance" : 1
         },
         {

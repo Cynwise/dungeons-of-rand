@@ -5,9 +5,14 @@
 
     "strength" : 12,
     "fortitude" : 10,
-    "agility" : 6,
-    "dexterity" : 6,
+    "agility" : 8,
+    "dexterity" : 4,
 
+    "attack_list" :
+    [
+       "bear_attack"
+    ],
+     
     "item_list" :
     [
         {

@@ -5,8 +5,30 @@
 
     "strength" : 8,
     "fortitude" : 6,
-    "agility" : 6,
+    "agility" : 10,
     "dexterity" : 8,
+
+    "attack_list" :
+    [
+        "bite",
+        "pseudopod"
+    ],
+
+    "item_list" :
+    [       
+        {
+           "type" : "katar",
+           "chance" : 1
+        },
+        {
+            "type" : "chainmail",
+            "chance" : 1
+        },
+        {
+            "type" : "none",
+            "chance" : 3
+        }
+    ],
 
     "weapon_list" :
     [
@@ -15,12 +37,12 @@
             "chance" : 2
         },
         {
-            "type" : "iron_dagger",
-            "chance" : 2
+            "type" : "falchion",
+            "chance" : 1
         },
         {
             "type" : "none",
-            "chance" : 1
+            "chance" : 2
         }
     ],
 

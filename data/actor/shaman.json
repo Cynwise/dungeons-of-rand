@@ -5,6 +5,40 @@
 
     "strength" : 3,
     "fortitude" : 5,
+    "agility" : 9,
+    "dexterity" : 11,
+
+    "attack list" :
+    [
+        "shaman_attack"
+    ],
+    
+    "item_list" :
+    [
+        {
+            "type" : "small_health_potion",
+            "chance" : 3
+        },
+        {
+            "type" : "health_potion",
+            "chance" : 2
+        },
+        {
+            "type" : "large_health_potion",
+            "chance" : 1
+        },
+        {
+            "type" : "none",
+            "chance" : 4
+        }
+    ],
+    "weapon_list" :
+    [
+        {
+            "type" : "potion_vial",
+            "chance" : 1
+        }
+    ],
 
     "combat_start" :
     [

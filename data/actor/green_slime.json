@@ -6,6 +6,13 @@
 
     "strength" : 1,
     "fortitude" : 2,
+    "agility" : 4,
+    "dexterity" : 1,
+    
+    "attack_list" :
+    [
+        "pseudopod"
+    ],
 
     "combat_start" :
     [

@@ -7,6 +7,53 @@
     "fortitude" : 15,
     "agility" : 8,
     "dexterity" : 14,
+    
+    "attack_list" :
+    [
+        "punch",
+        "breath",
+        "bite"
+    ],
+
+    "item_list" :
+    [
+        {
+            "type" : "health_potion",
+            "chance" : 5
+        },
+        {
+            "type" : "titanium_sword",
+            "chance" : 2
+        },
+        {
+            "type" : "iron_battleaxe",
+            "chance" : 3
+        },
+        {
+            "type" : "steel_armor",
+            "chance" : 3
+        },
+        {
+            "type" : "titanium_armor",
+            "chance" : 2
+        },
+        {
+            "type" : "katana",
+            "chance" : 2
+        },
+        {
+            "type" : "pencil",
+            "chance" : 1
+        }
+    ],
+
+    "weapon_list" :
+    [
+        {
+            "type" : "dragon_claw",
+            "chance" : 1
+        }
+    ],
 
     "combat_start" :
     [

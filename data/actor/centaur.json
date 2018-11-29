@@ -7,6 +7,38 @@
     "fortitude" : 10,
     "agility" : 12,
     "dexterity" : 10,
+    
+    "item_list" :
+    [
+        {
+            "type" : "health_potion",
+            "chance" : 1
+        },
+        {
+            "type" : "leather_armor",
+            "chance" : 2
+        },
+        {
+            "type" : "none",
+            "chance" : 2
+        }
+    ],
+
+    "weapon_list" :
+    [
+        {
+            "type" : "falchion",
+            "chance" : 2
+        },
+        {
+            "type" : "sickle",
+            "chance" : 1
+        },
+        {
+            "type" : "katana",
+            "chance" : 2
+        }
+    ],
 
     "combat_start" :
     [
@@ -20,6 +52,6 @@
 
     "lose" :
     [
-        "You let your defenses down, and the centuar seizes its chance, striking your chest."
+        "You let your defenses down, and the centuar seizes its chance, striking your chest with its spear."
     ]
 }

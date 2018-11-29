@@ -3,9 +3,41 @@
     "level" : 1,
     "max_hp" : 20,
 
-    "strength" : 5,
-    "fortitude" : 4,
+    "strength" : 10,
+    "fortitude" : 6,
+    "agility" : 5,
+    "dexterity" : 4,
 
+    "attack_list" :
+    [
+        "rat_bite",
+        "breath"
+    ],
+
+    "item_list" :
+    [
+        {
+            "type" : "iron_shortsword",
+            "chance" : 1
+        },
+        {
+            "type" : "golden_goblet",
+            "chance" : 2
+        },
+        {
+            "type" : "katar",
+            "chance" : 1
+        },
+        {
+            "type" : "health_potion",
+            "chance" : 1
+        },
+        {
+            "type" : "none",
+            "chance" : 2
+        }
+    ],
+    
     "combat_start" :
     [
     	"You see an adolescent dragon, waiting in this room for something... waiting for YOU!"

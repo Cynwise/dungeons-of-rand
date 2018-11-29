@@ -6,12 +6,17 @@
     "strength" : 6,
     "fortitude" : 10,
     "agility" : 6,
-    "dexterity" : 8,
+    "dexterity" : 11,
 
-    "weapon_list" :
+    "attack_list" :
+    [
+        "gnome_attack"
+    ],
+
+    "item_list" :
     [
         {
-            "type" : "stick",
+            "type" : "small_health_potion",
             "chance" : 2
         },
         {
@@ -19,7 +24,7 @@
             "chance" : 1
         }
     ],
-
+    
     "combat_start" :
     [
     	"A snickering, fat little cherub sits in your room, tinkering with some small toy."

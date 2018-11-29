@@ -4,11 +4,29 @@
     "level" : 1,
     "max_hp" : 30,
 
-    "strength" : 3,
-    "fortitude" : 4,
-    "agility" : 4,
+    "strength" : 5,
+    "fortitude" : 7,
+    "agility" : 2,
     "dexterity" : 6,
 
+    "attack_list" :
+    [
+        "bash",
+        "pseudopod"
+    ],
+
+    "item_list" :
+    [
+        {
+            "type" : "peasant_rags",
+            "chance" : 1
+        },
+        {
+            "type" : "none",
+            "chance" : 3
+        }
+    ],
+    
     "combat_start" :
     [
         "The room looks empty... until you view the ceiling. A huge, black rubber mass."

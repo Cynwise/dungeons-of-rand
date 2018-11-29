@@ -8,7 +8,7 @@
         {
             "type" : "ghoul",
             "count" : 1,
-            "chance" : 3
+            "chance" : 2
         },
         {
             "type" : "wolf",
@@ -18,11 +18,27 @@
         {
             "type" : "bandit",
             "count" : 1,
-            "chance" : 2
+            "chance" : 1
         },
         {
             "type" : "bear",
             "count" : 1,
+            "chance" : 1
+        },
+        {
+            "type" : "none",
+            "chance" : 5
+        }
+    ],
+
+    "item_list" :
+    [
+        {
+            "type" : "emaciated_corpse",
+            "chance" : 3
+        },
+        {
+            "type" : "none",
             "chance" : 1
         }
     ]

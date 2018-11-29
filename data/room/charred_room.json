@@ -14,6 +14,22 @@
             "type" : "black_slime",
             "count" : 1,
             "chance" : 2
+        },
+        {
+            "type" : "none",
+            "chance" : 5
+        }
+    ],
+
+    "item_list" :
+    [
+        {
+            "type" : "charred_corpse",
+            "chance" : 3
+        },
+        {
+            "type" : "none",
+            "chance" : 1
         }
     ]
 }

@@ -2,7 +2,7 @@
     "type" : "storage_room",
     "name" : "storage room",
     "brief" : "This room looks like it was used for storage.",
-    "description" : "This old room is full of boxes and cobwebs that cover them. There could be anything hiding in here.",
+    "description" : "This old room is full of boxes and cobwebs. There could be anything hiding in here.",
 
     "actor_spawn" :
     [

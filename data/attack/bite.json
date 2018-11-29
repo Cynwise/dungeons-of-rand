@@ -13,10 +13,9 @@
     "attack_msg" :
     [
         "[You] [verb] [them], dealing [damage] damage.",
-        "[You] [verb] viciously into [them]'s midsection, dealing [damage] damage.",
-        "Hungry for flesh, [you] [verb] into [them], dealing [damage] damage... do[y] [you] not have a weapon?",
-        "There are probably better ways of hitting than [verb]ing them, but you deal [damage] damage nonetheless.",
-        "Perhaps [your] more beast than Man... [You] deal [damage] damage to [them].",
-        "In a fit of rage, [You] [verb] onto [them]'s face, and they howl in pain and horror.\n[You] deal [damage] damage."
+        "[You] [verb] viciously into [their] midsection, dealing [damage] damage.",
+        "In a fit of rage, [you] [verb] onto [their] face, and [they] howl in pain and horror.\n[You] deal [damage] damage.",
+        "Finding a chink in [their] armor, [you] [verb] on [their] exposed flesh, dealing [damage] damage.",
+        "The belly grumbles. The teeth are bare. [You] is hungry for an easy meal.\n[You] deal [damage] damage."
     ]
 }

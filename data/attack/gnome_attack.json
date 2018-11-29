@@ -1,0 +1,21 @@
+{
+    "type" : "gnome_attack",
+
+    "atk" : 0,
+    "to_hit" : 2,
+
+    "verbs" :
+    [
+        "burn[s]",
+        "cut[s]",
+        "electrocute[s]"
+    ],
+
+    "attack_msg" :
+    [
+        "[You] throw[y] out a small contraption at [their] feet, which releases a flash of light that blinds [them] for a moment.\nIn [their] moment of weakness, the contraption [verb] [them] for [damage] damage.",
+        "A small robot with multiple pincers and guns pops out of [your] coat, which [verb] you for [damage] damage.",
+        "[They] come in close to retaliate against [you], but [you] is smarter than [they] think.\n[You] throws a grenade in [their] face, which pops off and [verb] [them] for [damage] damage.",
+        "[You] pull a robot out of your coat, giggling as he does. Throwing it towards [them], it comes alive!\nThe robot [verbs] you upon contact for [damage] damage."
+    ]
+}

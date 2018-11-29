@@ -1,0 +1,22 @@
+{
+    "type" : "echidna_cut",
+
+    "atk" : 1,
+    "to_hit" : 0,
+
+    "verbs" :
+    [
+        "cut[s]",
+        "slash[es]",
+        "slice[s]"
+    ],
+
+    "attack_msg" :
+    [
+        "This tiny creature couldn't possible be dangerous! And yet, [you] [verb] [their] ankles for [damage] damage.",
+        "Waddling in for the kill, [you] [verb] [their] ankles for [damage] damage.",
+        "[You] make a mighty jump, and manage to cut into [their] CALF for [damage] damage.",
+        "Wielding [your] [weapon] with incredible dexterity, [you] filet [their] foot in the most adorable fashion.\n[You] deal [damage] damage.",
+        "[Your] nose twitches, and [they] see an adorable glimmer in [your] eyes as [you] dig into [their] toes with [your] [weapon].\n[You], more dangerous than [you] seem[y], deal [damage] damage."
+    ]
+}

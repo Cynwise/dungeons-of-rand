@@ -14,9 +14,9 @@
     "attack_msg" :
     [
         "[You] [verb] [them] with [your] [weapon] for [damage] damage.",
-        "Clutching [your] [weapon] tightly, [you] bring[y] it down hard on [their] skull!\n[You] deal [damage] damage.",
-        "[They] tr[iet] to dodge [your] [weapon], but you're quicker this time. [You] deal [damage] damage.",
-        "Wielding [your] [weapon] as if it were a baseball bat, [you] rush[y] towards [them]... and [you] connect!!\n[You] deal [damage] damage.",
+        "Clutching [your] [weapon] tightly, [you] bring it down hard on [their] skull!\n[You] deal [damage] damage.",
+        "[They] tr[iet] to dodge [your] [weapon], but [you're] quicker this time. [You] deal [damage] damage.",
+        "Wielding [your] [weapon] as if it were a baseball bat, [you] rush towards [them]... and [you] connect!!\n[You] deal [damage] damage.",
         "[You] poke[y] [them] in the face with [your] [weapon] to discombobulate, then wind[y] up and [verb] [their] stomach.\n[You] deal [damage] damage."
     ]
 }

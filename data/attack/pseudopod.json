@@ -1,0 +1,22 @@
+{
+    "type" : "pseudopod",
+
+    "atk" : 1,
+    "to_hit" : 0,
+
+    "verbs" :
+    [
+        "squeeze[s]",
+        "pounce[es]",
+        "grapple[s]",
+        "stangle[s]"
+    ],
+
+    "attack_msg" :
+    [
+    "[You] [verb] [them] with [your] strange tentacle protrusions, dealing [damage] damage.",
+    "Rushing in with speed [they] weren't expecting, [you] release multiple tentacles towards [them], with intent to kill.\n[You] deal [damage] damage.",
+    "A sickening, sucking, dripping sound fills the room as [you] attempt to [verb] [them] with their... tentacles?\n[You] deal [damage] damage.",
+    "The silence is unnerving. Tentacles extend off [you], bearing down on [them].\n[You] deal [damage] damage."
+    ]
+}

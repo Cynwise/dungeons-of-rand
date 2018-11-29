@@ -1,0 +1,22 @@
+{
+    "type" : "bear_attack",
+
+    "atk" : 2,
+    "to_hit" : 1,
+
+    "verbs" :
+    [
+        "claw[s]",
+        "smash[es]",
+        "bludgeon[s]",
+        "crush[es]"
+    ],
+
+    "attack_msg" :
+    [
+    	"Roaring with ferocious power, [you] [verb] [them], dealing [damage] damage.",
+    	"[You] stands easily 7 feet tall, bringing down all of [your] weight down onto [their] form.\n[You] deals [damage] damage.",
+        "[Your] strength proves too much, and [they] buckle from the force of [your] blow.\n[You] deal [damage] damage.",
+        "The beast batters and claws into [them]. [They] try and block the blows, but [you] are too ferocious to be stopped.\n[You] deal [damage] damage."
+    ]
+}

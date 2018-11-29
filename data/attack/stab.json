@@ -15,7 +15,7 @@
     [
         "[You] [verb] [them] with [your] [weapon], dealing [damage] damage.",
         "Although [you] didn't push far, there is already a strong gush of blood...\n[You] deal[y] [damage] damage.",
-        "[You] thrust[y] forward, hoping to pierce directly through the head of [them]. [They] dodge however, but not completely.\n[You] deal [damage] damage.",
-        "Laughing lightly, [you] stay[y] light on [your] toes, predicting [their] movements... and strike[y]!\n[You] deal [damage] damage."
+        "[You] thrust[y] forward, hoping to pierce directly through [their] head. [You're] unsuccessful, but you still get a small hit in.\n[You] deal [damage] damage.",
+        "Laughing lightly, [you] stay light on [your] toes, predicting [their] movements... and strike[y]!\n[You] deal[y] [damage] damage."
     ]
 }

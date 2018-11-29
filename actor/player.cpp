@@ -105,5 +105,12 @@ int Player::hurt(int damage)
 void Player::print_status()
 {
     // Report player HP.
-    std::cout << "Your current health is " << hp << "/" << max_hp << ".\n\n";
+    std::cout << "Your current health is " << hp << "/" << max_hp << ".\n";
+
+    // Report player attributes.
+    std::cout << "Strength:\t" << strength;
+    std::cout << "\nFortitude:\t" << fortitude;
+    std::cout << "\nAgility:\t" << agility;
+    std::cout << "\nDexterity:\t" << dexterity;
+    std::cout << "\n\n";
 }

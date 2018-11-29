@@ -122,7 +122,7 @@ int main(int argc, char* argv[])
     room_1.add_item(spawn_item("stick"));
     room_1.add_item(spawn_item("peasant_rags"));
     room_1.add_item(spawn_item("small_health_potion"));
-
+/*    room_1.add_item(spawn_item("pencil")); //FOR TESTING ONLY*/
     // Define more rooms.
     Room* last_room = &room_1;
     for (int i = 0; i < 5000; ++i)
@@ -130,30 +130,70 @@ int main(int argc, char* argv[])
         Room* next_room;
 
         // Pick which room type to generate.
-        int chance = rng(1, 10);
-        if (chance <= 3)
+        int chance = rng(1, 40);
+        if (chance <= 4)
         {
             next_room = new Room("storage_room");
         }
-        else if (chance <= 6)
+        else if (chance <= 7)
         {
             next_room = new Room("forest");
         }
-        else if (chance <= 8)
-        {
-            next_room = new Room("rat_room");
-        }
-        else if (chance <= 7)
+        else if (chance <= 10)
         {
             next_room = new Room("vendor_room");
         }
-        else if (chance <= 9)
+        else if (chance <= 13)
+        {
+            next_room = new Room("rat_room");
+        }
+        else if (chance <= 16)
         {
             next_room = new Room("treasure_room");
         }
-        else
+        else if (chance <= 18)
+        {
+            next_room = new Room("blood_room");
+        }
+        else if (chance <= 19)
+        {
+            next_room = new Room("centaur_room");
+        }
+        else if (chance <= 21)
+        {
+            next_room = new Room("charred_room");
+        }
+        else if (chance <= 23)
+        {
+            next_room = new Room("den");
+        }
+        else if (chance <= 26)
+        {
+            next_room = new Room("fairy_pond");
+        }
+        else if (chance <= 29)
         {
             next_room = new Room("barbarian_room");
+        }
+        else if (chance <= 31)
+        {
+            next_room = new Room("feast_room");
+        }
+        else if (chance <= 34)
+        {
+            next_room = new Room("grove");
+        }
+        else if (chance <= 36)
+        {
+            next_room = new Room("occult_room");
+        }
+        else if (chance <= 39)
+        {
+            next_room = new Room("workshop");
+        }
+        else
+        {
+            next_room = new Room("dragon_room");
         }
 
         // Link this room.

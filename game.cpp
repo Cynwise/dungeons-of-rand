@@ -85,7 +85,7 @@ int main(int argc, char* argv[])
     }
 
     // Initialize RNG.
-    std::srand(std::time(NULL));
+    std::srand((unsigned int)std::time(NULL) % 1000);
 
     // Load all modules.
     modules_load();

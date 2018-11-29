@@ -1,0 +1,13 @@
+{
+    "type" : "potion_vial",
+    "name" : "potion vial",
+
+    "atk" : 2,
+    "to_hit" : 3,
+
+    "attack_list" :
+    [
+        "shaman_attack"
+    ]
+}
+

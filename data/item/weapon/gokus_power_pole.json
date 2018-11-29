@@ -2,5 +2,11 @@
     "type" : "power_pole",
     "name" : "Goku's power pole",
 
-    "atk" : 5
+    "atk" : 5,
+    "to_hit" : 2,
+
+    "attack_list" :
+    [
+        "bash"
+    ]
 }

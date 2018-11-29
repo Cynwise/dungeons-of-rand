@@ -2,5 +2,12 @@
     "type" : "diamond_sword",
     "name" : "diamond sword",
 
-    "atk" : 20
+    "atk" : 20,
+    "to_hit" : 3,
+
+    "attack_list" :
+    [
+        "stab",
+        "cut"
+    ]
 }

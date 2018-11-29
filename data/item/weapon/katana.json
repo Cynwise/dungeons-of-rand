@@ -1,6 +1,6 @@
 {
-    "type" : "Katana",
-    "name" : "Katana",
+    "type" : "katana",
+    "name" : "katana",
 
     "atk" : 10,
 

@@ -1,0 +1,12 @@
+{
+    "type" : "ghoul_claw",
+    "name" : "ghoul claw",
+
+    "atk" : 10,
+    "to_hit" : 1,
+
+    "attack_list" :
+    [
+        "ghoul_attack"
+    ]
+}

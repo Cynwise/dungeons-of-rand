@@ -2,5 +2,10 @@
     "type" : "katar",
     "name" : "katar",
 
-    "atk" : 6
+    "atk" : 6,
+
+    "attack_list" :
+    [
+        "stab"
+    ]
 }

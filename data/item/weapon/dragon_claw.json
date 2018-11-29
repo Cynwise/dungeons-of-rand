@@ -1,0 +1,13 @@
+{
+    "type" : "dragon_claw",
+    "name" : "dragon claw",
+
+    "atk" : 15,
+    "to_hit" : 1,
+
+    "attack_list" :
+    [
+        "cut",
+        "stab"
+    ]
+}

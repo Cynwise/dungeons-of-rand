@@ -2,5 +2,11 @@
     "type" : "falchion",
     "name" : "falchion",
 
-    "atk" : 12
+    "atk" : 12,
+    "to_hit" : 0,
+
+    "attack_list" :
+    [
+        "cut"
+    ]
 }

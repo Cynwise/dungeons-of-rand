@@ -2,5 +2,10 @@
     "type" : "sickle",
     "name" : "sickle",
 
-    "atk" : 3
+    "atk" : 3,
+    
+   "attack_list" :
+    [
+        "cut"
+    ]
 }

@@ -1,5 +1,6 @@
 {
     "type" : "feast_room",
+    "name" : "mead hall",
     "brief" : "This room is clearly the place of a feast. Hopefully they left some scraps.",
     "description" : "Succulent fruits, fatty meats, and fragrant bread USED to adorn this table... now only morsels.",
 

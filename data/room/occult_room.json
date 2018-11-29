@@ -1,5 +1,6 @@
 {
     "type" : "occult_room",
+    "name" : "ominous room",
     "brief" : "This room is filled with candles and strange writings cover the walls.",
     "description" : "You hear whispers from an unknown location. They sound menacing.",
 

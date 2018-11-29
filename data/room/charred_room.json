@@ -11,6 +11,11 @@
             "chance" : 3
         },
         {
+            "type" : "black_slime",
+            "count" : 1,
+            "chance" : 2
+        },
+        {
             "type" : "none",
             "chance" : 5
         }

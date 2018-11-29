@@ -1,5 +1,6 @@
 {
     "type" : "charred_room",
+    "name" : "burned room",
     "brief" : "This space has a multitude of burn marks across the floor.",
     "description" : "Not sure what could've caused these scorches... better be on the look out.",
 

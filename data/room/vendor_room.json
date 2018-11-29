@@ -1,6 +1,7 @@
 {
     "type" : "vendor_room",
-    "brief" : "A man in a trench coat approaches you and says, 'got something that might interenst you' .",
+    "name" : "room with a strange man",
+    "brief" : "A man in a trench coat with a top hat approaches you and says, 'got something that might interenst you' .",
     "description" : "Turns out he is selling nothing. You feel slightly frustrated",
 
     "actor_spawn" : []

@@ -1,8 +1,8 @@
 {    
     "type" : "goblin_attack",
 
-    "atk" : 1,
-    "to_hit" : 0,
+    "atk" : 2,
+    "to_hit" : -1,
 
     "verbs" :
     [
@@ -16,6 +16,6 @@
         "In a panic, [you] [verb] violently in [their] direction. Whether to hit [them] or keep [them] away, who's to be sure.\nEven so, [you] does connect for [damage] damage.",
         "Shrieking in fear, [you] [verb] outward with [your] [weapon], dealing [damage] damage.",
         "[You] is practically begging for [them] to go away and not hit them again. As [they] approach, [you] [verb] outward once more.\nIn [your] flailing, they deal [damage] damage.",
-        "Legs shaking, teeth chattering, drenched in fear; [you] make your move.\n[You] deals [damage] damage."
+        "Legs shaking, teeth chattering, drenched in fear; [you] make[s] [their] move.\n[You] deal[y] [damage] damage."
     ]
 }

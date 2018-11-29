@@ -14,7 +14,7 @@
     "attack_msg" :
     [
         "[You] uncork a vial of something from [your] belt, and throw[y] it towards [them].\nThe strange liquid in the vial [verb] [them] for [damage] damage.",
-        "[You] drink[y] something deep green in color, and extend[y] [your] hand toward[y] [them]. Something's wrong...\n[You] use[y] some magic power, and [verb] [damage] health from you...",
+        "[You] drink[y] something deep green in color, and extend[y] [your] hand toward[y] [them]. Something's wrong...\n[You] use[y] some magic power, and [verb] [damage] health from [them]...",
         "In a panic, [you] seem[y] to drink the wrong substance... and [you] burp[y] with explosive force!\nThe noxious gas [verbs] [them] for [damage] damage."
     ]
 }

@@ -14,8 +14,8 @@
     [
         "[You] [verb] [them], dealing [damage] damage.",
         "[You] take[y] a swing at [them], dealing [damage] damage.",
-        "As [them] move[y] forward, [you] square[y] [your] shoulders, and [verb] [their] face as [they] move within range.\n[You] deal [damage] damage.",
+        "As [them] move[y] forward, [you] square[y] [your] shoulders, and [verb] [their] face as [they] move within range.\n[You] deal[y] [damage] damage.",
         "Looking for an old-fashioned brawl, [you] [verb] [them], dealing [damage] damage.",
-        "A powerful blow!! Perhaps [they]'ll think twice before approaching [you] again!\n[You] deal [damage] damage."
+        "A powerful blow!! Perhaps [they'll] think twice before approaching [you] again!\n[You] deal[y] [damage] damage."
     ]
 }

@@ -14,8 +14,8 @@
     [
         "[You] [verb] [them], dealing [damage] damage.",
         "[You] [verb] viciously into [their] midsection, dealing [damage] damage.",
-        "In a fit of rage, [you] [verb] onto [their] face, and [they] howl in pain and horror.\n[You] deal [damage] damage.",
-        "Finding a chink in [their] armor, [you] [verb] on [their] exposed flesh, dealing [damage] damage.",
-        "The belly grumbles. The teeth are bare. [You] is hungry for an easy meal.\n[You] deal [damage] damage."
+        "In a fit of rage, [you] [verb] on [their] face, and [they] howl in pain and horror.\n[You] deal[y] [damage] damage.",
+        "Finding a chink in [their] armor, [you] [verb] and tear[y] into [their] exposed flesh, dealing [damage] damage.",
+        "The belly grumbles. The teeth are bare. [You] is hungry for an easy meal.\n[You] deal[y] [damage] damage."
     ]
 }

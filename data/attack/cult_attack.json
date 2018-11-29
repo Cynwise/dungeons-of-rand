@@ -13,8 +13,8 @@
 
     "attack_msg" :
     [
-    "The cloak shifts, and you see something nightmarish underneath... this [you] is human no longer.\n[You] [verb] [them] for [damage] damage.",
-    "An unsettling laughter fills the room as [you] [verb] [them]. Multiple eyes seem to coat the walls...\n[Them] takes [damage] damage.",
+    "The cloak shifts, and [they] see something nightmarish underneath... this creature is human no longer.\n[You] [verb] [them] for [damage] damage.",
+    "An unsettling laughter fills the room as [you] [verb] [them]. Multiple eyes seem to coat the walls...\n[Them] take[y] [damage] damage.",
     "Hard to focus... knees buckling... the mere presence of this thing seems to addle your mind.\n[Them] takes [damage] damage from looking too long at [you].",
     "[They] attempt a strike at [you], and [you] dodge with bewildering speed, and come back with [your] tentacles.\n[You] [verb] [them] in retaliation for [damage] damage."
     ]
